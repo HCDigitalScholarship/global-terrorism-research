@@ -1,0 +1,37 @@
+<p>Your search returned:</p>
+<ul>
+{% for result in results %}
+  <li><a href="{% url 'statement' result.statement_id %}">  {{ result.statement_id }}- {{ result.title }}</a></li>
+{% endfor %}
+</ul>
+<h2>Filters:</h2>
+<form>
+<input type="submit" name="Filter">
+<h3>Keyword Context pairs</h3>
+<ul>
+
+{% for keyword, contexts in key_con.items %}
+    <li>{{ keyword }} </li>
+    <ul>
+    {% for con in contexts %}
+      <li><input type="checkbox" name="{{ keyword }}_{{ con }}"><label>  {{ con }}</label></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</ul>
+<h3>Keywords</h3>
+<ul>
+{% for keyword in key_con %}
+    <li><input type="checkbox" name="{{ keyword }}"><label>{{ keyword }}</label></li>
+{% endfor %}
+</ul>
+
+<h3>Contexts</h3>
+<ul>
+{% for keyword, contexts in key_con.items %}
+    {% for con in contexts %}
+      <li><input type="checkbox" name="{{ con }}"><label>  {{ con }}</label></li>
+    {% endfor %}
+{% endfor %}
+</ul>
+</form>

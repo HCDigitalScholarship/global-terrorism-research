@@ -1,0 +1,6 @@
+<h1>GTR SITE HOME PAGE</h1>
+<form action="{% url 'search' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="search" placeholder="Search..." required>
+  <input type="submit" value="Search">
+</form>
