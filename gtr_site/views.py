@@ -29,7 +29,8 @@ def search(request):
         mparser = MultifieldParser(["statement_id", "title", "author", "keyword", "context"], ix.schema)
         query = mparser.parse(search)
         results = searcher.search(query)
-        print "ffff"
+        if len(results) == 0:
+          return render(request,  'gtr_site/search_results.html')
         result_list = [results[i] for i in range(len(results))]
         keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords() for result in result_list]
         contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
