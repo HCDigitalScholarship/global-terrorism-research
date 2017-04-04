@@ -8,6 +8,12 @@ import os
 def index(request):
     return render(request, 'gtr_site/index.html')
 
+def about(request):
+    return render(request, 'gtr_site/about.html')
+
+def contact(request):
+    return render(request, 'gtr_site/contact.html')
+
 def statement_page(request, statement_id):
     state = get_object_or_404(Statement, statement_id=statement_id)
     context  = {'state':state}

@@ -1,8 +1,16 @@
+{% extends "gtr_site/base.html" %}
+{% block title %}GTR{% endblock %}
+
+{% block content %}
 {% if state %}
     {% for name, value in state.show  %}
        <ul>
        {% if value %}
-         <li>{{ name }}: {{ value }}</li>
+         {% if name == "full_text" %}
+           <li>{{ name }}:<a href="{{ value }}"> {{ value }} </a></li>
+         {% else %}
+           <li>{{ name }}: {{ value }}</li>
+         {% endif %}
        {% endif %}
        </ul>
     {% endfor %}
@@ -19,3 +27,4 @@
 {% else %}
     <p>No statement with that id</p>
 {% endif %}
+{% endblock %}

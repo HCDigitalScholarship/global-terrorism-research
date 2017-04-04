@@ -1,6 +1,14 @@
-<h1>GTR SITE HOME PAGE</h1>
+{% extends "gtr_site/base.html" %}
+{% block title %}GTR{% endblock %}
+{% block content %}
+<h1>Global Terrorism Research Project</h1>
 <form action="{% url 'search' %}" method="post">
   {% csrf_token %}
   <input type="text" name="search" placeholder="Search..." required>
   <input type="submit" value="Search">
 </form>
+<h2>Welcome</h2>
+<p>
+Welcome to the Global Terrorism Research Project, a product of the Political Science department at Haverford College. Professor Barak Mendelsohn oversees the project supported by a team of student researchers. The site consists of two sections, resources and the al-Qaeda Statements Index. The resources section of our website contains a compilation of links to various other useful websites that provide information on terrorism and international security. This portion of the website contains links to books, primary sources, data sources, journal indexes, news, blogs, research sites, research portals and resources for students.<br>
+The al-Qaeda Statements Index is a long term project that consists of a comprehensive collection of statements released by al-Qaeda since 1994. The project chooses to focus on indexing statements by al-Qaeda Central. It also includes statements made by the Islamic State (aka the Islamic State of Iraq and al-Sham) up until and in the responding aftermath of the Islamic State’s separation from al-Qaeda in February of 2014.The index now includes statements released by al-Qaeda in the Indian Subcontinent (AQIS). The project does not include other branches of al-Qaeda, nor does it continue to include the Islamic State’s statements in order to preserve the project’s focus on al-Qaeda Central and its ideology. This section also includes biographical information on authors affiliated with al-Qaeda who have a significant number of statements indexed.</p>
+{% endblock  %}
