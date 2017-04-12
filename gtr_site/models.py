@@ -25,7 +25,7 @@ class Person(models.Model):
 class Statement(models.Model):
     statement_id = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    issue_date = models.CharField(max_length=200)
+    issue_date = models.DateField()
     author = models.ForeignKey(Person)
     released_by = models.ForeignKey(Organization)
     

@@ -1,6 +1,18 @@
 {% extends "gtr_site/base.html" %}
 {% block title %}GTR{% endblock %}
+{% load staticfiles %}
+{% block extra_static %}
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous">
+</script>
 
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="{% static 'gtr_site/css/iThing.css' %}" type="text/css" />
+{% endblock %}
 {% block content %}
 <p>Your search returned:</p>
 <ul>
@@ -9,8 +21,10 @@
 {% endfor %}
 </ul>
 <h2>Filters:</h2>
-<form>
-<input type="submit" name="Filter">
+<form id="filter_form"  action="{% url 'search' %}" method="post">
+{% csrf_token %}
+<input type="submit" name="Filter" value="filter" id="filter_submit">
+<input type="hidden" value="{{ search }}" name="search" >
 <h3>Keyword Context pairs</h3>
 <ul>
 
@@ -18,7 +32,7 @@
     <li>{{ keyword }} </li>
     <ul>
     {% for con in contexts %}
-      <li><input type="checkbox" name="{{ keyword }}_{{ con }}"><label>  {{ con }}</label></li>
+      <li><input type="checkbox" name="{{ keyword }}_{{ con }}" value="key_con_ON" checked><label>  {{ con }}</label></li>
     {% endfor %}
     </ul>
 {% endfor %}
@@ -26,7 +40,7 @@
 <h3>Keywords</h3>
 <ul>
 {% for keyword in key_con %}
-    <li><input type="checkbox" name="{{ keyword }}"><label>{{ keyword }}</label></li>
+    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" checked><label>{{ keyword }}</label></li>
 {% endfor %}
 </ul>
 
@@ -34,9 +48,27 @@
 <ul>
 {% for keyword, contexts in key_con.items %}
     {% for con in contexts %}
-      <li><input type="checkbox" name="{{ con }}"><label>  {{ con }}</label></li>
+      <li><input type="checkbox" name="{{ con }}" value="con_ON" checked><label>  {{ con }}</label></li>
     {% endfor %}
 {% endfor %}
 </ul>
+<input type="hidden" id="dateLow" name="date_low" >
+<input type="hidden" id="dateHigh" name="date_high" >
+    <h1>Date Slider</h1>
+    <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
+    <div id="slider"></div>
+    <script src="{% static 'gtr_site/jquery.js' %}"></script>
+    <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
+    <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
+    <script>
+      $("#slider").dateRangeSlider();
+	$("#filter_form").submit(function( event) {
+	var dateValues = $("#slider").dateRangeSlider("values");
+	console.log(dateValues.min.toString());
+	$("#dateLow").val(dateValues.min.toString());
+        $("#dateHigh").val(dateValues.max.toString());
+      });
+    </script>
+
 </form>
 {% endblock %}

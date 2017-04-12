@@ -1,7 +1,11 @@
 {% extends "gtr_site/base.html" %}
 {% block title %}GTR{% endblock %}
+
+{% load staticfiles %}
+
 {% block content %}
 <h1>Global Terrorism Research Project</h1>
+<img src="{% static 'gtr_site/doves_resized.png' %}"/>
 <form action="{% url 'search' %}" method="post">
   {% csrf_token %}
   <input type="text" name="search" placeholder="Search..." required>
