@@ -32,7 +32,7 @@
     <li>{{ keyword }} </li>
     <ul>
     {% for con in contexts %}
-      <li><input type="checkbox" name="{{ keyword }}_{{ con }}" value="key_con_ON" checked><label>  {{ con }}</label></li>
+      <li><input type="checkbox" name="{{ keyword }}_{{ con }}" value="key_con_ON" class="filter_check"><label>  {{ con }}</label></li>
     {% endfor %}
     </ul>
 {% endfor %}
@@ -40,7 +40,7 @@
 <h3>Keywords</h3>
 <ul>
 {% for keyword in key_con %}
-    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" checked><label>{{ keyword }}</label></li>
+    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword }}</label></li>
 {% endfor %}
 </ul>
 
@@ -48,26 +48,90 @@
 <ul>
 {% for keyword, contexts in key_con.items %}
     {% for con in contexts %}
-      <li><input type="checkbox" name="{{ con }}" value="con_ON" checked><label>  {{ con }}</label></li>
+      <li><input type="checkbox" name="{{ con }}" value="con_ON"  class="filter_check"><label>  {{ con }}</label></li>
     {% endfor %}
 {% endfor %}
 </ul>
+
+<h2>Exclude</h2>
+<h3>Keyword Context pairs</h3>
+<ul>
+{% for keyword, contexts in key_con.items %}
+    <li>{{ keyword }} </li>
+    <ul>
+    {% for con in contexts %}
+      <li><input type="checkbox" name="{{ keyword }}_{{ con }}" value="key_con_OFF" class="filter_check"><label>  {{ con }}</label></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</ul>
+<h3>Keywords</h3>
+<ul>
+{% for keyword in key_con %}
+    <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword }}</label></li>
+{% endfor %}
+</ul>
+
+<h3>Contexts</h3>
+<ul>
+{% for keyword, contexts in key_con.items %}
+    {% for con in contexts %}
+      <li><input type="checkbox" name="{{ con }}" value="con_OFF"  class="filter_check"><label>  {{ con }}</label></li>
+    {% endfor %}
+{% endfor %}
+</ul>
+
+
+
 <input type="hidden" id="dateLow" name="date_low" >
 <input type="hidden" id="dateHigh" name="date_high" >
-    <h1>Date Slider</h1>
+    <h3>Date Slider</h3>
     <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
-    <div id="slider"></div>
+    <div id="sliders">
+    <div id="slider1"></div>
+    </div>
+    <span> Add a slider </span>
+    <input type="hidden" id="slider_counter" value="1">
+    <input id="less_slider" type='button' value='-'/>
+    <input id="more_slider" type='button' value='+'/>
     <script src="{% static 'gtr_site/jquery.js' %}"></script>
     <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
     <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
     <script>
-      $("#slider").dateRangeSlider();
+      // reset counter to 1
+      // might want to get rid of this if we load based on previous slider counter
+      $(document).ready(function(){
+	$("#slider_counter").val("1");
+	});
+      // make first slider
+      $("#slider1").dateRangeSlider({
+	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
+      });
+	// only submits the first slider as of right now
 	$("#filter_form").submit(function( event) {
-	var dateValues = $("#slider").dateRangeSlider("values");
+	var dateValues = $("#slider1").dateRangeSlider("values");
 	console.log(dateValues.min.toString());
 	$("#dateLow").val(dateValues.min.toString());
         $("#dateHigh").val(dateValues.max.toString());
       });
+	// what happens when you click +
+      $("#more_slider").click(function(event) {
+	if($("#slider_counter").val() < 11) {
+	  $("#slider_counter").val(+$("#slider_counter").val() + 1);
+	  $("#sliders").append("<div id='slider"+ $("#slider_counter").val()+"'><div>");
+	  $("#slider" + $("#slider_counter").val()).dateRangeSlider({
+	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
+      	  });
+	}
+      });
+	// on - click
+      $("#less_slider").click(function(event) {
+	if($("#slider_counter").val() != 1) {
+	  $("#slider"+ $("#slider_counter").val()).remove();
+	  $("#slider_counter").val(+$("#slider_counter").val() - 1);
+	}
+      });
+
     </script>
 
 </form>
