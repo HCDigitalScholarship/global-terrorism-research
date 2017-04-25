@@ -51,7 +51,6 @@ def search(request):
 		   ex_no_key_yet     = True
 		   ex_no_key_con_yet = True
 
-
                    for key in request.POST:
 		      print request.POST[key]
 		      print "working with", key
@@ -135,8 +134,14 @@ def search(request):
 		  query = query & key_con_query
 		
 		if filter_request and filter_date:
-		  query = query & DateRange("issue_date", lowDate, highDate)
-		
+		  for i in range(1, int(request.POST['slider_count']) + 1):
+			lowDate = datetime.strptime(request.POST["date_low"+str(i)][:24], "%a %b %d %Y %X")
+			highDate = datetime.strptime(request.POST["date_high"+str(i)][:24], "%a %b %d %Y %X")
+		  	if i==1:
+			  date_query = DateRange("issue_date", lowDate, highDate)
+			else:
+			  date_query = date_query | DateRange("issue_date", lowDate, highDate)
+		  query = query & date_query
 		if filter_request and not ex_no_con_yet:
 		  query = query - ex_con_query 
 		if filter_request and not ex_no_key_yet:

@@ -25,6 +25,7 @@
 {% csrf_token %}
 <input type="submit" name="Filter" value="filter" id="filter_submit">
 <input type="hidden" value="{{ search }}" name="search" >
+<h2>Include</h2>
 <h3>Keyword Context pairs</h3>
 <ul>
 
@@ -82,16 +83,17 @@
 </ul>
 
 
-
-<input type="hidden" id="dateLow" name="date_low" >
-<input type="hidden" id="dateHigh" name="date_high" >
+<div id="date_ranges">
+  <input type="hidden" id="dateLow1" name="date_low1" >
+  <input type="hidden" id="dateHigh1" name="date_high1" >
+</div>
     <h3>Date Slider</h3>
     <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
     <div id="sliders">
     <div id="slider1"></div>
     </div>
     <span> Add a slider </span>
-    <input type="hidden" id="slider_counter" value="1">
+    <input type="hidden" id="slider_counter" name="slider_count" value="1">
     <input id="less_slider" type='button' value='-'/>
     <input id="more_slider" type='button' value='+'/>
     <script src="{% static 'gtr_site/jquery.js' %}"></script>
@@ -109,17 +111,21 @@
       });
 	// only submits the first slider as of right now
 	$("#filter_form").submit(function( event) {
-	var dateValues = $("#slider1").dateRangeSlider("values");
-	console.log(dateValues.min.toString());
-	$("#dateLow").val(dateValues.min.toString());
-        $("#dateHigh").val(dateValues.max.toString());
-      });
+	  for(i=1; i <= $("#slider_counter").val(); i++) {
+	    var dateValues = $("#slider"+i).dateRangeSlider("values");
+	    $("#dateLow"+i).val(dateValues.min.toString());
+            $("#dateHigh"+i).val(dateValues.max.toString());
+ 	  }	
+        });
 	// what happens when you click +
       $("#more_slider").click(function(event) {
 	if($("#slider_counter").val() < 11) {
 	  $("#slider_counter").val(+$("#slider_counter").val() + 1);
-	  $("#sliders").append("<div id='slider"+ $("#slider_counter").val()+"'><div>");
-	  $("#slider" + $("#slider_counter").val()).dateRangeSlider({
+	  var id_num = $("#slider_counter").val();
+          $("#sliders").append("<div id='slider"+ id_num +"'><div>");
+	  $("#date_ranges").append("<input type='hidden' id='dateLow"+id_num+"'name='date_low"+id_num+"'>");
+	  $("#date_ranges").append("<input type='hidden' id='dateHigh"+id_num+"'name='date_high"+id_num+"'>");
+	  $("#slider" + id_num).dateRangeSlider({
 	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
       	  });
 	}
@@ -128,6 +134,8 @@
       $("#less_slider").click(function(event) {
 	if($("#slider_counter").val() != 1) {
 	  $("#slider"+ $("#slider_counter").val()).remove();
+	  $("#dateLow"+$("#slider_counter").val()).remove();
+	  $("#dateHigh"+$("#slider_counter").val()).remove();
 	  $("#slider_counter").val(+$("#slider_counter").val() - 1);
 	}
       });
