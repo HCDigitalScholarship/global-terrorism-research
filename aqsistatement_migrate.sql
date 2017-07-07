@@ -36,11 +36,15 @@ field_data_field_full_text		field_full_text_title
 --organization
 field_data_field_jihad_organization		field_jihad_organization_value
 
+-- posted by
+node uid (users uid)
 
 --keywords ??
 taxonomy_term_data  name tid vid
 
 -- contexts?? (ex. 0000503-Counterislamic Propaganda)
 taxonomy_term_lineage   lineage  
+
+
 
 
