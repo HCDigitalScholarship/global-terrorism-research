@@ -1,6 +1,7 @@
-select type, title
-from gtrp.node 
-where type = 'aqsistatement' AND status = 1
+select type, title, field_statement_title_value as "statement title"
+from gtrp.node n
+join gtrp.field_data_field_statement_title t on t.entity_id = n.nid  
+where status = 1
 
 
 --title
