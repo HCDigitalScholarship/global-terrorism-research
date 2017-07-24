@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^gtr/', include('gtr_site.urls')),
     url(r'^admin/', admin.site.urls),
+#    url(r'^search/', ('haystack.urls')),
 ]

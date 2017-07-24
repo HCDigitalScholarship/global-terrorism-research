@@ -4,6 +4,7 @@ from django.template import loader, RequestContext
 from .models import *
 from whoosh.query import *
 from datetime import *
+from dal import autocomplete
 import os
 
 # Create your views here.
@@ -20,6 +21,28 @@ def statement_page(request, statement_id):
     state = get_object_or_404(Statement, statement_id=statement_id)
     context  = {'state':state}
     return render(request, 'gtr_site/statement_page.html', context)
+
+class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        # Don't forget to filter out results depending on the visitor !
+        if not self.request.user.is_authenticated():
+            return Keyword.objects.none()
+
+        qs = Keyword.objects.all()
+
+        if self.q:
+            qs = qs.filter(word__istartswith=self.q)
+        return qs
+
+class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+      if not self.request.user.is_authenticated():
+         return Context.objects.all()
+      qs = Context.objects.all()
+      if self.q:
+         qs = qs.filter(context_word__istartswith=self.q)
+      return qs
+
 
 def search(request):
     if 'search' in request.POST:

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from gtr_site.models import *
+from .forms import StatementForm
 
 
 
@@ -20,7 +21,10 @@ admin.site.register(Person, PersonAdmin)
 ##########################################################
 
 class StatementAdmin(admin.ModelAdmin):
-    pass
+    class Media():
+        js = ('gtr_site/js/filtering.js',)
+    form = StatementForm
+    exclude = ("statement_keywords", "statement_contexts",)
 
 admin.site.register(Statement, StatementAdmin) 
 
@@ -38,4 +42,17 @@ class ContextAdmin(admin.ModelAdmin):
 
 admin.site.register(Context, ContextAdmin) 
 
+##########################################################
+
+class ResourceAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Resource, ResourceAdmin) 
+
+##########################################################
+
+class PairAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(KeyConPairs, PairAdmin)
 ##########################################################
