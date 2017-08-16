@@ -42,13 +42,24 @@ class Command(BaseCommand):
 	ix = open_dir("index")
 	writer = ix.writer()
 	statements =  Statement.objects.all()
+        accu = 0
+        print "LEN OF STATEMENTS", len(statements)
 	for statement in statements:
+          accu+=1
+          if accu == 1:
+             continue
+          print accu
+          print statement.show()
           context_list   = []
 	  keyword_list = []
+          print "LEN OF GET CONTEXTS: ", len(statement.get_contexts())
+          print "LEN OF GET KEYWORDS: ", len(statement.get_keywords())
 	  for context in statement.get_contexts():
 	    context_list.append(context.context_word)
 	  for keyword in statement.get_keywords():
 	    keyword_list.append(keyword.word)
+          print context_list
+          print keyword_list
 	  print ", ".join(context_list), ", ".join(keyword_list)
 	  writer.add_document(
 				statement_id = statement.statement_id,
@@ -59,6 +70,6 @@ class Command(BaseCommand):
 				media_type   = statement.media_type,
 				url          = statement.full_text,
 				keyword      = ", ".join(keyword_list),
-				context      = ", ".join(context_list)
+				context      = ", ".join(context_list),
 			     )
 	writer.commit() # note that this should be outside of the for loop

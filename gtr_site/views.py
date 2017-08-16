@@ -1,11 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader, RequestContext
+#from django.models import model.formset_factory
 from .models import *
 from whoosh.query import *
 from datetime import *
 from dal import autocomplete
+from haystack.generic_views import SearchView
+
 import os
+
+class CustomSearchView(SearchView):
+    pass
 
 # Create your views here.
 def index(request):
@@ -20,9 +26,20 @@ def contact(request):
 def statement_page(request, statement_id):
     state = get_object_or_404(Statement, statement_id=statement_id)
     context  = {'state':state}
+    #print "CONTEXT:"
+    #print context
     return render(request, 'gtr_site/statement_page.html', context)
 
-class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
+
+#def keywordincontext_update(request):
+    #pass
+
+#def keywordincontext_page (request, keywordincontext_id):
+    #state = get_object_or_404(KeywordInContext)
+    #context = {'state':state}
+    #return render(request, 'gtr_site/
+
+'''class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         # Don't forget to filter out results depending on the visitor !
         if not self.request.user.is_authenticated():
@@ -32,16 +49,28 @@ class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
 
         if self.q:
             qs = qs.filter(word__istartswith=self.q)
-        return qs
+        return qs'''
 
-class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
+
+class KeywordInContextAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+       if not self.request.user.is_authenticated():
+          return KeywordInContext.objects.none()
+       qs = Keyword.objects.all()
+       if self.q:
+          qs = qs.filter(word__istartswith=self.q)
+       return qs
+
+
+
+"""class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
       if not self.request.user.is_authenticated():
          return Context.objects.all()
       qs = Context.objects.all()
       if self.q:
          qs = qs.filter(context_word__istartswith=self.q)
-      return qs
+      return qs"""
 
 
 def search(request):

@@ -30,9 +30,9 @@ def main():
             #context = row["context"]
             #if context != ' ':
             #   statement_dictionary[row['statement_id']]['context'].append((row['keyword'],context))
-      print "\nSTATEMENT DICTIONARY START\n"
-      pprint.pprint(statement_dictionary)
-      print "\nSTATEMENT DICTIONARY END\n"
+      #print "\nSTATEMENT DICTIONARY START\n"
+      #pprint.pprint(statement_dictionary)
+      #print "\nSTATEMENT DICTIONARY END\n"
       #pprint.pprint(statement_dictionary)
       return statement_dictionary
 

@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.urls import reverse
 
 @python_2_unicode_compatible
 class Organization(models.Model):
@@ -9,8 +10,6 @@ class Organization(models.Model):
 
     def __str__(self):
         return self.org_name
-
-
 
 @python_2_unicode_compatible
 class Person(models.Model):
@@ -21,41 +20,39 @@ class Person(models.Model):
     def __unicode__(self):
         return u'%s' % (self.person_name)
 
-"""@python_2_unicode_compatible
+@python_2_unicode_compatible
 class Statement(models.Model):
     statement_id = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    issue_date = models.DateField()
+    issue_date = models.DateField("Issue-Date") #"Issue-Date"
     author = models.ForeignKey(Person)
-    released_by = models.ForeignKey(Organization)"""
-    #the way to solve this issue is by making the statements have a respective key and context collection. How can we do that?
+    released_by = models.ForeignKey(Organization)
+    keywords = models.ManyToManyField('KeywordInContext')
+   #the way to solve this issue is by making the statements have a respective key and context collection. How can we do that?
 
   
     ################ Media start ####################
-"""    TEXT  = 'TX'
+    TEXT  = 'TX'
     AUDIO = 'AU'
     VIDEO = 'VD'
+    TWEET = 'TW'
 
     MEDIA_TYPES = (
       (TEXT , "Text"),
       (AUDIO, "Audio"),
-      (VIDEO, "Video")
+      (VIDEO, "Video"),
+      (TWEET, "Tweet"),
     )
 
     media_type  = models.CharField(
         max_length=2,
         choices=MEDIA_TYPES,
         default=TEXT,
-    )"""
+    )
     ##############    Media end    ##################
-    #full_text = models.URLField()
-
-
-    #statement_keywords = Keyword.objects.filter(
-    #statement_keywords = models.ManyToManyField(Keyword)
-    #statement_contexts = models.ManyToManyField(Context)
-    
-"""    ALLUSERS = 'AL'
+    full_text = models.URLField(blank=True, null=True)
+ 
+    ALLUSERS = 'AL'
     HCONLY = 'HC'
     ACCESS = (
        (ALLUSERS, "All Users"),
@@ -73,6 +70,9 @@ class Statement(models.Model):
     def __str__(self):
         return self.statement_id
 
+    def get_absolute_url(self):
+        return reverse('statement', args=[self.statement_id])
+
     def show(self):
         info = []
 	for field in Statement._meta.fields:
@@ -88,47 +88,60 @@ class Statement(models.Model):
                  
             else:
 		info.append((field.name, field.value_to_string(self))) 
-        return info"""
-        # return [(field.name, field.value_to_string(self)) for field in Statement._meta.fields]
+        return info
 
     # returns list of keywords
-    #def get_keywords(self):
-#	return self.keyword_set.all()
+    def get_keywords(self):
+        #iterate over all keywords with no context.
+        return self.keywords_set.all().filter(context=None)
 
     # makes list of contexts
-#    def get_contexts(self):
-#	return self.context_set.all()
- 
-	# this was a bad way of doing this, but I had a different goal at time
-	# get_keywords_contexts does what this was trying to do, but better
-	###REPlACE WITH THREE QUOTATION MARKS###
-#	contexts = []
-#	for keyword in self.get_keywords():
- #          contexts.append(keyword.context_set.filter(statement__id=self.id))
- #       return contexts
-        ###REPLACE WITH THREE QUOTATION MARKS###
+    #def get_contexts(self):
+        #return self.context_set.all()
 
-    # def get_keywords_contexts(self):
-#	key_con = {}
- #       for keyword in self.get_keywords():
-  #         key_con[keyword] = keyword.context_set.filter(statement__id=self.id)
-   #     return key_con
-
+    #def get_keywords_contexts(self):
+        #key_con = {}
+        #for keyword in self.get_keywords():
+           #key_con[keyword] = keyword.context_set.filter(statement__id=self.id)
+        #return key_con
+    def get_keywords_contexts(self):
+        #return self.context_set.all().filter(context!=None)
+        keyconlist = []
+        for keywordcontext in self.keywords.all():
+           if keywordcontext.context:
+               keyconlist.append(keywordcontext)
+        return keyconlist                 
 
 @python_2_unicode_compatible
 class Keyword(models.Model):
-    word      = models.CharField(max_length=200)
+    word      = models.CharField(max_length=200, blank=True)
     #statement = models.ManyToManyField(Statement)
     def __str__(self):
         return self.word
+    def create_keyword(cls, new_keyword):
+        new_keyword = cls(new_keyword)
+        return new_keyword
+
+@python_2_unicode_compatible
+class KeywordInContext(models.Model):
+    main_keyword = models.ForeignKey(Keyword)
+    #contexts = models.ManyToManyField(Keyword, related_name='keyword_context',)
+    context = models.ForeignKey(Keyword, related_name='keyword_context', blank=True, null=True)
+
+    def __str__(self):
+        if self.context:
+            return 'KEYWORD: ' + self.main_keyword.word + ' CONTEXT: ' + self.context.word
+        else:
+            return 'KEYWORD: ' +  self.main_keyword.word  + ' (no context)'
+        #return self.keyword.word + ' (' + ', '.join(c.word for c in self.contexts.all()) + ')'
 
 @python_2_unicode_compatible
 class Context(models.Model):
     context_word  = models.CharField(max_length=200)
-    keyword       = models.ManyToManyField(Keyword, blank=True)
-    #statement     = models.ManyToManyField(Statement)
+    keyword       = models.ManyToManyField(Keyword)
+    statement = models.ManyToManyField(Statement)
     def __str__(self):
-        return self.context_word
+        return self.context_word #+ " (" + ", ".join(unicode(k) for k in self.keyword.all()) + ")"
     
 @python_2_unicode_compatible
 class Resource(models.Model):
@@ -141,12 +154,12 @@ class Resource(models.Model):
     link          = models.URLField(blank=True, null=True)
     def __str__(self):
         return self.title
-
+"""
 @python_2_unicode_compatible
 class Statement(models.Model):
     statement_id = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    issue_date = models.DateField()
+    issue_date = models.DateField(blank=True)
     author = models.ForeignKey(Person)
     released_by = models.ForeignKey(Organization)
     #the way to solve this issue is by making the statements have a respective key and context collection. How can we do that?
@@ -173,9 +186,9 @@ class Statement(models.Model):
     #statement_keywords = Keyword.objects.filter(
     statement_keywords = models.ManyToManyField(Keyword)
     statement_contexts = models.ManyToManyField(Context) #added blank=True fields for them. Not done before. dunno why.
-    #define a custom form for model. 
+    #define a custom form for model. """
 
-    """ALLUSERS = 'AL'
+"""    ALLUSERS = 'AL'
     HCONLY = 'HC'
     ACCESS = (
        (ALLUSERS, "All Users"),
@@ -190,7 +203,7 @@ class Statement(models.Model):
 
 
 
-    def __str__(self):
+"""    def __str__(self):
         return self.statement_id
     def show(self):
         info = []
@@ -222,14 +235,4 @@ class Statement(models.Model):
         key_con = {}
         for keyword in self.get_keywords():
            key_con[keyword] = keyword.context_set.filter(statement__id=self.id)
-        return key_con
-
-
-@python_2_unicode_compatible
-class KeyConPairs(models.Model):
-   pair_name = models.CharField(max_length=250)
-   keyword_in_pair = models.ManyToManyField(Keyword)
-   context_in_pair = models.ManyToManyField(Context)
-   statement = models.ManyToManyField(Statement)
-   def __str__(self):
-       return self.pair_name
+        return key_con"""

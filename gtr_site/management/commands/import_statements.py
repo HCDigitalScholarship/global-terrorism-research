@@ -12,7 +12,7 @@ class Command(BaseCommand):
       parser.add_argument("inputCSVFile",nargs=1, type=str, help="Name of file to import (include .csv)")
 
    def handle(self, *args, **options):
-      MEDIA_TYPE_DICTIONARY = {'Audio Transcript' : 'AU', 'Text' : 'TX', 'Video Transcript' : 'VD'}
+      MEDIA_TYPE_DICTIONARY = {'Audio Transcript' : 'AU', 'Text' : 'TX', 'Video Transcript' : 'VD', 'Tweet' : 'TW'}
       statement_dictionary = make_dictionary.main()
       #accu=0
       #print "STATEMENT DICTIONARY\n", statement_dictionary
@@ -26,17 +26,34 @@ class Command(BaseCommand):
          statement = statement_dictionary[statement_key]
          Organization.objects.update_or_create(org_name = "al-Qaeda")
          Person.objects.update_or_create(person_name = statement["author"])
-         Statement.objects.update_or_create(
-           statement_id = statement["statement_id"],
-           defaults = {
-             'title'       : statement["title"],
-             'issue_date'  : datetime.strptime(statement["issue_date"],"%m/%d/%Y"),
-             'author'      : Person.objects.get(person_name = statement["author"]),
-             'released_by' : Organization.objects.get(org_name = "al-Qaeda"),
-             'media_type'  : MEDIA_TYPE_DICTIONARY[statement['media_type']] ,
-             'full_text'   : statement['link'],
-           }
-         )
+         '''if (statement["issue_date"] == ''):
+            print "detected empty issue_date"
+            statement["issue_date"] = Non'''
+         try:
+             Statement.objects.update_or_create(
+              statement_id = statement["statement_id"],
+              defaults = {
+                'title'       : statement["title"],
+                'issue_date'  : datetime.strptime(statement["issue_date"],"%m/%d/%Y"),
+                'author'      : Person.objects.get(person_name = statement["author"]),
+                'released_by' : Organization.objects.get(org_name = "al-Qaeda"),
+                'media_type'  : MEDIA_TYPE_DICTIONARY[statement['media_type']] ,
+                'full_text'   : statement['link'],
+               }
+             )
+         except:
+             Statement.objects.update_or_create(
+               statement_id = statement["statement_id"],
+               defaults = {
+                 'title'       : statement["title"],
+                 'issue_date'  : None,
+                 'author'      : Person.objects.get(person_name = statement["author"]),
+                 'released_by' : Organization.objects.get(org_name = "al-Qaeda"),
+                 'media_type'  : MEDIA_TYPE_DICTIONARY[statement['media_type']] ,
+                 'full_text'   : statement['link'],
+               }
+             )
+ 
          cur_statement = Statement.objects.get(statement_id = statement["statement_id"])
          Statement.objects.get(statement_id = statement["statement_id"]).save()
          #accu +=1
@@ -49,12 +66,23 @@ class Command(BaseCommand):
              #print "THIS_KEYWORD: ", this_keyword
              #obj, _ = KeywordInContext.objects.get_or_create(keyword=this_keyword)
              if len(contextlist) == 0:
-                 obj, _ = KeywordInContext.objects.get_or_create(main_keyword.word=this_keyword, context="")
+                 #debug: We can't just set a "None" type to a context's null field.
+                 print "SOLO KEYWORD/KEYWORDINCONTEXT WITH BLANK CONTEXT: ", this_keyword 
+                 obj, _ = KeywordInContext.objects.update_or_create(main_keyword = this_keyword, context=None)
                  cur_statement.keywords.add(obj)
-             for context in contextlist:
-                 #print "CONTEXT IN STATEMENT ID ", cur_statement.id, " : ", context
+             for each in contextlist:
+                 print "CONTEXT IN STATEMENT ID ", cur_statement.id, " : ", each
                  #obj.contexts.add(Keyword.objects.get(word=context))
-                 obj, _ = KeywordInContext.objects.update_or_create(main_keyword.word=this_keyword)#, context=context)
+                 try:
+                   print "getting context"
+                   a = Keyword.objects.get(word=each)
+                   print a
+                 except:
+                   "ERROR IN GETTING CONTEXT"
+                   #"MAKING NEW KEYWORD FOR CONTEXT"
+                   new_kword = Keyword.create_keyword(word=each)
+                   new_kword.save()
+                 obj, _ = KeywordInContext.objects.update_or_create(main_keyword = this_keyword, context=Keyword.objects.get(word=each))
                  cur_statement.keywords.add(obj)   
              #cur_statement.keywords.add(obj)
       print "FINISHED"
