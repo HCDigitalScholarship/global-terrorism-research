@@ -1,0 +1,263 @@
+DEBUG 2017-07-21 15:10:08,547 Hello, world!
+DEBUG 2017-07-21 15:16:08,424 Good: <QueryDict: {u'issue_date': [u'2011-03-10'], u'statement_id': [u'ASM20110310'], u'full_text': [u'http://thesis.haverford.edu/dspace/bitstream/handle/10066/7253/ASM20110310.pdf?sequence=1'], u'author': [u'5'], u'released_by': [u'2'], u'title': [u'As-Sahab Video Shows Life of Fighters in Afghanistan'], u'statement_contexts': [u'12'], u'media_type': [u'VD'], u'csrfmiddlewaretoken': [u'HQ8rEbN9dZaCDddIHZCzooDpkjTL1oQ7BOvnfd0prQ817fUwcQDZhr5z8Ei4TKgG'], u'_save': [u'Save']}>
+DEBUG 2017-07-21 15:17:21,268 Good: <QueryDict: {u'issue_date': [u'2011-03-10'], u'statement_id': [u'ASM20110310'], u'full_text': [u'http://thesis.haverford.edu/dspace/bitstream/handle/10066/7253/ASM20110310.pdf?sequence=1'], u'author': [u'5'], u'released_by': [u'2'], u'title': [u'As-Sahab Video Shows Life of Fighters in Afghanistan'], u'statement_contexts': [u'12'], u'statement_keywords': [u'13'], u'media_type': [u'VD'], u'csrfmiddlewaretoken': [u'hQlOi1ozvPgCYkoJbsL3r14yJO4x4W4GbOIKT3BPJGe1sm5xGjMtk4wIx9tQWiuf'], u'_save': [u'Save']}>
+DEBUG 2017-07-21 15:18:44,026 Bad: <QueryDict: {u'issue_date': [u'2011-03-10'], u'statement_id': [u'ASM20110310'], u'full_text': [u'http://thesis.haverford.edu/dspace/bitstream/handle/10066/7253/ASM20110310.pdf?sequence=1'], u'author': [u'5'], u'released_by': [u'2'], u'title': [u'As-Sahab Video Shows Life of Fighters in Afghanistan'], u'statement_contexts': [u'12'], u'statement_keywords': [u'4'], u'media_type': [u'VD'], u'csrfmiddlewaretoken': [u'icX5prHdmNHGARFfyA4SpLBIvgwtmwGhcak10tUtAEF54Tm33r5iiO3SjBVMeS6Q'], u'_save': [u'Save']}>
+DEBUG 2017-07-21 15:24:03,468 Bad: <QueryDict: {u'issue_date': [u'2011-03-10'], u'statement_id': [u'ASM20110310'], u'full_text': [u'http://thesis.haverford.edu/dspace/bitstream/handle/10066/7253/ASM20110310.pdf?sequence=1'], u'author': [u'5'], u'released_by': [u'2'], u'title': [u'As-Sahab Video Shows Life of Fighters in Afghanistan'], u'statement_contexts': [u'12'], u'statement_keywords': [u'4'], u'media_type': [u'VD'], u'csrfmiddlewaretoken': [u'Xp0WQgXaynIadz7Bx26q0641mvd9B0B2RnnSriaqMeGzHBOp2T7QT9wbaQCstm1B'], u'_save': [u'Save']}>
+DEBUG 2017-07-21 17:34:37,988 Bad: <QueryDict: {u'issue_date': [u'2005-07-12'], u'statement_id': [u'ZAR20050712'], u'full_text': [u'http://thesis.haverford.edu/dspace/bitstream/handle/10066/4760/ZAR20050712.pdf?sequence=3'], u'author': [u'6'], u'released_by': [u'2'], u'title': [u'Clarification of Issues Raised By Sheikh Maqdisi During His Interview With Al-Jazeera Television'], u'statement_contexts': [u'6'], u'statement_keywords': [u'2'], u'media_type': [u'AU'], u'csrfmiddlewaretoken': [u'WoZT9ntEstMcObwsKA32o1lyspjctyKeQmmPKpGUGkKBiddgfr4sh4NIgKIvlUaN'], u'_save': [u'Save']}>
+DEBUG 2017-07-24 23:51:20,854 accu value: 1
+DEBUG 2017-07-24 23:53:01,745 <tr><th><label for="id_form-0-statement_id">Statement id:</label></th><td><input id="id_form-0-statement_id" maxlength="200" name="form-0-statement_id" type="text" /></td></tr>
+<tr><th><label for="id_form-0-title">Title:</label></th><td><input id="id_form-0-title" maxlength="200" name="form-0-title" type="text" /></td></tr>
+<tr><th><label for="id_form-0-issue_date">Issue date:</label></th><td><input id="id_form-0-issue_date" name="form-0-issue_date" type="text" /></td></tr>
+<tr><th><label for="id_form-0-author">Author:</label></th><td><select id="id_form-0-author" name="form-0-author">
+<option value="" selected="selected">---------</option>
+<option value="1">Mike Zarafonetis</option>
+<option value="2">Ayman al-Zawahiri</option>
+<option value="3">Abu Mansoor al-Amriki</option>
+<option value="4">Azzam al-Amriki</option>
+<option value="5">Al-Sahab Media</option>
+<option value="6">Abu Musab al-Zarqawi</option>
+<option value="7">Abu Hamza al-Muhajir</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-released_by">Released by:</label></th><td><select id="id_form-0-released_by" name="form-0-released_by">
+<option value="" selected="selected">---------</option>
+<option value="1">Haverford College</option>
+<option value="2">al-Qaeda</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-media_type">Media type:</label></th><td><select id="id_form-0-media_type" name="form-0-media_type">
+<option value="TX" selected="selected">Text</option>
+<option value="AU">Audio</option>
+<option value="VD">Video</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-full_text">Full text:</label></th><td><input id="id_form-0-full_text" maxlength="200" name="form-0-full_text" type="url" /></td></tr>
+<tr><th><label for="id_form-0-statement_contexts">Statement contexts:</label></th><td><select multiple="multiple" id="id_form-0-statement_contexts" name="form-0-statement_contexts">
+<option value="1">9/11/2001</option>
+<option value="2">Afghanistan</option>
+<option value="3">al Qaeda</option>
+<option value="4">Arabian Peninsula</option>
+<option value="5">Bosnia and Herzegovina</option>
+<option value="6">Chechnya</option>
+<option value="7">Crusaders</option>
+<option value="8">George W. Bush</option>
+<option value="9">Hindus</option>
+<option value="10">India</option>
+<option value="11">Iraq</option>
+<option value="12">Israel</option>
+<option value="13">Jews</option>
+<option value="14">Jihad</option>
+<option value="15">Kashmir</option>
+<option value="16">Osama bin Laden</option>
+<option value="17">Pakistan</option>
+<option value="18">Palestine</option>
+<option value="19">Perver Musharraf</option>
+<option value="20">Syria</option>
+<option value="21">Tony Blair</option>
+<option value="22">Turkey</option>
+<option value="23">Ulema</option>
+<option value="24">Ummah</option>
+<option value="25">United Kingdom</option>
+<option value="26">United States</option>
+<option value="27">Abu Omar al-Baghdadi</option>
+<option value="28">al-Qaeda in the Islamic Mahgreb</option>
+<option value="29">al-Shabab</option>
+<option value="30">Algeria</option>
+<option value="31">Annapolis Conference</option>
+<option value="32">Ayman al-Zawahiri</option>
+<option value="33">Christians</option>
+<option value="34">Ethiopia</option>
+<option value="35">Guantanamo Bay</option>
+<option value="36">Hosni Mubarak</option>
+<option value="37">Iran</option>
+<option value="38">Islam Karimov</option>
+<option value="39">Islamic State (aka Islamic State of Iraq and al-Sham)</option>
+<option value="40">Mohammad Omar</option>
+<option value="41">Muammar al-Qadhafi</option>
+<option value="42">Mujahideen</option>
+<option value="43">NATO</option>
+<option value="44">Nouri al-Maliki</option>
+<option value="45">Nuclear Weapons</option>
+<option value="46">Somalia</option>
+<option value="47">United Nations</option>
+<option value="48">al-Aqsa</option>
+<option value="49">Barack Obama</option>
+<option value="50">Bill Clinton</option>
+<option value="51">Federally Administered Tribal Areas</option>
+<option value="52">Gaza</option>
+<option value="53">George H.W. Bush</option>
+<option value="54">Lebanon</option>
+<option value="55">Palestinian Authority</option>
+<option value="56">Sudan</option>
+<option value="57">Pakistani Army</option>
+<option value="58">Swat</option>
+<option value="59">Targeting Muslims</option>
+<option value="60">Democracy</option>
+<option value="61">Zionist</option>
+<option value="62">Hamid Karzai</option>
+<option value="63">Inter-Services Intelligence</option>
+<option value="64">Waziristan</option>
+<option value="65">Abdullah bin Abdul-Aziz</option>
+<option value="66">Abu Hamza al-Mujahir</option>
+<option value="67">Ali Abdullah Saleh</option>
+<option value="68">Arab Rulers</option>
+<option value="69">Media</option>
+<option value="70">Youth</option>
+<option value="71">7/7/2005</option>
+<option value="72">al-Azhar University</option>
+<option value="73">Arab States</option>
+<option value="74">Central Intelligence Agency</option>
+<option value="75">Egypt</option>
+<option value="76">Fort Hood</option>
+<option value="77">France</option>
+<option value="78">Muslim Spy</option>
+<option value="79">Nidal Malik Hasan</option>
+<option value="80">Russia</option>
+<option value="81">Jordan</option>
+<option value="82">Shiites</option>
+<option value="83">Abu Ghraib</option>
+<option value="84">Europe</option>
+<option value="85">Police</option>
+<option value="86">Tora Bora</option>
+<option value="87">Levant</option>
+<option value="88">Nigeria</option>
+<option value="89">Saudi Arabia</option>
+<option value="90">United Arab Emirates</option>
+<option value="91">Abu Hafs al-Masri</option>
+<option value="92">Northern Alliance</option>
+<option value="93">Suleiman abu-Gaith</option>
+<option value="94">Buddhists</option>
+<option value="95">Secularism</option>
+<option value="96">Abu al-Layth al-Libi</option>
+<option value="97">Abu Muhammad Asem al-Maqdisi</option>
+<option value="98">Abu Musab al-Zarqawi</option>
+<option value="99">al-Jazeera</option>
+<option value="100">Sunnis</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-statement_keywords">Statement keywords:</label></th><td><select multiple="multiple" data-autocomplete-light-function="select2" data-autocomplete-light-url="/gtr/keyword-autocomplete/" id="id_form-0-statement_keywords" name="form-0-statement_keywords">
+</select></td></tr>
+DEBUG 2017-07-24 23:53:45,367 <tr><th><label for="id_form-0-statement_id">Statement id:</label></th><td><input id="id_form-0-statement_id" maxlength="200" name="form-0-statement_id" type="text" /></td></tr>
+<tr><th><label for="id_form-0-title">Title:</label></th><td><input id="id_form-0-title" maxlength="200" name="form-0-title" type="text" /></td></tr>
+<tr><th><label for="id_form-0-issue_date">Issue date:</label></th><td><input id="id_form-0-issue_date" name="form-0-issue_date" type="text" /></td></tr>
+<tr><th><label for="id_form-0-author">Author:</label></th><td><select id="id_form-0-author" name="form-0-author">
+<option value="" selected="selected">---------</option>
+<option value="1">Mike Zarafonetis</option>
+<option value="2">Ayman al-Zawahiri</option>
+<option value="3">Abu Mansoor al-Amriki</option>
+<option value="4">Azzam al-Amriki</option>
+<option value="5">Al-Sahab Media</option>
+<option value="6">Abu Musab al-Zarqawi</option>
+<option value="7">Abu Hamza al-Muhajir</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-released_by">Released by:</label></th><td><select id="id_form-0-released_by" name="form-0-released_by">
+<option value="" selected="selected">---------</option>
+<option value="1">Haverford College</option>
+<option value="2">al-Qaeda</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-media_type">Media type:</label></th><td><select id="id_form-0-media_type" name="form-0-media_type">
+<option value="TX" selected="selected">Text</option>
+<option value="AU">Audio</option>
+<option value="VD">Video</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-full_text">Full text:</label></th><td><input id="id_form-0-full_text" maxlength="200" name="form-0-full_text" type="url" /></td></tr>
+<tr><th><label for="id_form-0-statement_contexts">Statement contexts:</label></th><td><select multiple="multiple" id="id_form-0-statement_contexts" name="form-0-statement_contexts">
+<option value="1">9/11/2001</option>
+<option value="2">Afghanistan</option>
+<option value="3">al Qaeda</option>
+<option value="4">Arabian Peninsula</option>
+<option value="5">Bosnia and Herzegovina</option>
+<option value="6">Chechnya</option>
+<option value="7">Crusaders</option>
+<option value="8">George W. Bush</option>
+<option value="9">Hindus</option>
+<option value="10">India</option>
+<option value="11">Iraq</option>
+<option value="12">Israel</option>
+<option value="13">Jews</option>
+<option value="14">Jihad</option>
+<option value="15">Kashmir</option>
+<option value="16">Osama bin Laden</option>
+<option value="17">Pakistan</option>
+<option value="18">Palestine</option>
+<option value="19">Perver Musharraf</option>
+<option value="20">Syria</option>
+<option value="21">Tony Blair</option>
+<option value="22">Turkey</option>
+<option value="23">Ulema</option>
+<option value="24">Ummah</option>
+<option value="25">United Kingdom</option>
+<option value="26">United States</option>
+<option value="27">Abu Omar al-Baghdadi</option>
+<option value="28">al-Qaeda in the Islamic Mahgreb</option>
+<option value="29">al-Shabab</option>
+<option value="30">Algeria</option>
+<option value="31">Annapolis Conference</option>
+<option value="32">Ayman al-Zawahiri</option>
+<option value="33">Christians</option>
+<option value="34">Ethiopia</option>
+<option value="35">Guantanamo Bay</option>
+<option value="36">Hosni Mubarak</option>
+<option value="37">Iran</option>
+<option value="38">Islam Karimov</option>
+<option value="39">Islamic State (aka Islamic State of Iraq and al-Sham)</option>
+<option value="40">Mohammad Omar</option>
+<option value="41">Muammar al-Qadhafi</option>
+<option value="42">Mujahideen</option>
+<option value="43">NATO</option>
+<option value="44">Nouri al-Maliki</option>
+<option value="45">Nuclear Weapons</option>
+<option value="46">Somalia</option>
+<option value="47">United Nations</option>
+<option value="48">al-Aqsa</option>
+<option value="49">Barack Obama</option>
+<option value="50">Bill Clinton</option>
+<option value="51">Federally Administered Tribal Areas</option>
+<option value="52">Gaza</option>
+<option value="53">George H.W. Bush</option>
+<option value="54">Lebanon</option>
+<option value="55">Palestinian Authority</option>
+<option value="56">Sudan</option>
+<option value="57">Pakistani Army</option>
+<option value="58">Swat</option>
+<option value="59">Targeting Muslims</option>
+<option value="60">Democracy</option>
+<option value="61">Zionist</option>
+<option value="62">Hamid Karzai</option>
+<option value="63">Inter-Services Intelligence</option>
+<option value="64">Waziristan</option>
+<option value="65">Abdullah bin Abdul-Aziz</option>
+<option value="66">Abu Hamza al-Mujahir</option>
+<option value="67">Ali Abdullah Saleh</option>
+<option value="68">Arab Rulers</option>
+<option value="69">Media</option>
+<option value="70">Youth</option>
+<option value="71">7/7/2005</option>
+<option value="72">al-Azhar University</option>
+<option value="73">Arab States</option>
+<option value="74">Central Intelligence Agency</option>
+<option value="75">Egypt</option>
+<option value="76">Fort Hood</option>
+<option value="77">France</option>
+<option value="78">Muslim Spy</option>
+<option value="79">Nidal Malik Hasan</option>
+<option value="80">Russia</option>
+<option value="81">Jordan</option>
+<option value="82">Shiites</option>
+<option value="83">Abu Ghraib</option>
+<option value="84">Europe</option>
+<option value="85">Police</option>
+<option value="86">Tora Bora</option>
+<option value="87">Levant</option>
+<option value="88">Nigeria</option>
+<option value="89">Saudi Arabia</option>
+<option value="90">United Arab Emirates</option>
+<option value="91">Abu Hafs al-Masri</option>
+<option value="92">Northern Alliance</option>
+<option value="93">Suleiman abu-Gaith</option>
+<option value="94">Buddhists</option>
+<option value="95">Secularism</option>
+<option value="96">Abu al-Layth al-Libi</option>
+<option value="97">Abu Muhammad Asem al-Maqdisi</option>
+<option value="98">Abu Musab al-Zarqawi</option>
+<option value="99">al-Jazeera</option>
+<option value="100">Sunnis</option>
+</select></td></tr>
+<tr><th><label for="id_form-0-statement_keywords">Statement keywords:</label></th><td><select multiple="multiple" data-autocomplete-light-function="select2" data-autocomplete-light-url="/gtr/keyword-autocomplete/" id="id_form-0-statement_keywords" name="form-0-statement_keywords">
+</select></td></tr>
