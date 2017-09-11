@@ -91,9 +91,21 @@ class Statement(models.Model):
         return info
 
     # returns list of keywords
-    def get_keywords(self):
+    def get_solo_keywords(self):
         #iterate over all keywords with no context.
-        return self.keywords_set.all().filter(context=None)
+        #was edited from being named 'get_keywords' because I think that whoosh schema needs to get all keywordincontext objects assoc with a statement and other
+        #files that use get_keywords (I'm pretty sure I may use it in the importer) really need to use get_solo_keywords instead.
+        return self.keywords.all().filter(context=None)
+    def get_keywords_obj(self):
+        #This is what I think whoosh_schema needs to do.
+        return self.keywords.all()	
+    def get_keywords(self):
+        #this is what I think views.py needs to do.
+        mk_list = []
+        for each in self.keywords.all():
+           mk_list.append(each.get_main_keyword())
+        return mk_list
+
 
     # makes list of contexts
     #def get_contexts(self):
@@ -104,13 +116,28 @@ class Statement(models.Model):
         #for keyword in self.get_keywords():
            #key_con[keyword] = keyword.context_set.filter(statement__id=self.id)
         #return key_con
+
+
+    #the get_keywo
     def get_keywords_contexts(self):
         #return self.context_set.all().filter(context!=None)
+        main_keyword_list = []
         keyconlist = []
+        keycondict = {}
+        #for keywordcontext in self.keywords.all():
+           #if keywordcontext.context: #if there's a paired context
+               #if keywordcontext.main_keyword not in main_keyword_list: #if the main keyword of the pair is new...
+                   #main_keyword_list.append(keywordcontext.main_keyword)
+               #keyconlist.append((keywordcontext.main_keyword, keywordcontext.context,))
         for keywordcontext in self.keywords.all():
-           if keywordcontext.context:
-               keyconlist.append(keywordcontext)
-        return keyconlist                 
+           if keywordcontext.main_keyword.word == "" or keywordcontext.context.word == "":
+              continue
+           if not keycondict.get(keywordcontext.main_keyword.word):
+              keycondict[keywordcontext.main_keyword.word] = []
+           #if not keywordcontext.context or not keywordcontext.main_keyword:
+              #continue
+           keycondict[keywordcontext.main_keyword.word].append(keywordcontext.context.word.encode("utf-8"))
+        return keycondict
 
 @python_2_unicode_compatible
 class Keyword(models.Model):
@@ -130,10 +157,12 @@ class KeywordInContext(models.Model):
 
     def __str__(self):
         if self.context:
-            return 'KEYWORD: ' + self.main_keyword.word + ' CONTEXT: ' + self.context.word
+            return self.main_keyword.word + " - " + self.context.word
         else:
-            return 'KEYWORD: ' +  self.main_keyword.word  + ' (no context)'
+            return  self.main_keyword.word
         #return self.keyword.word + ' (' + ', '.join(c.word for c in self.contexts.all()) + ')'
+    def get_main_keyword(self):
+        return self.main_keyword.word
 
 @python_2_unicode_compatible
 class Context(models.Model):

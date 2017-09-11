@@ -4,7 +4,7 @@ Forms.py, being used primarily for autocomplete
 
 from dal import autocomplete
 
-from ajax_select.fields import AutoCompleteSelectField, AutoCompleteSelectMultipleField
+#from ajax_select.fields import AutoCompleteSelectField, AutoCompleteSelectMultipleField
 #from new_bridge.reverse_related import *
 
 from django import forms
@@ -41,6 +41,15 @@ class KeywordInContextForm(forms.ModelForm):
        #}
    
 
+
+class KeywordFilterForm(forms.ModelForm):
+    class Meta:
+       model = Keyword
+       fields = ('__all__')
+       widgets = {
+            'keyword-filters': autocomplete.ModelSelect2(url='keywordfilter-autocomplete')
+        }
+       
 
 
 class StatementForm(forms.ModelForm):
@@ -107,6 +116,16 @@ class StatementForm(forms.ModelForm):
 
         return statement
 
+'''class SearchByDateForm(forms.Form):
+    date_to_edit = forms.DateField(input_formats=['%m/%d/%Y'],
+                                   widget=forms.TextInput(attrs={
+                                        'class': 'form-control',
+                                        'id': 'trips_month'}),
+                                   initial=date.strftime(date.today(),
+                                                         '%m/%d/%Y'))'''
+
+
+
     #def is_valid(self, *args, **kwargs):
 	#logger.debug('Bad: %s', str(self.data))
         #return super(StatementForm, self).is_valid(*args, **kwargs)
@@ -119,10 +138,10 @@ class StatementForm(forms.ModelForm):
 #logger.debug("accu value: " + str(accu))
 
 
-class KeywordForm(forms.ModelForm):
-    statement = AutoCompleteSelectMultipleField('statement')
-    class Meta:
-       model = Keyword
-       fields = '__all__'
+#class KeywordForm(forms.ModelForm):
+    #statement = AutoCompleteSelectMultipleField('statement')
+    #class Meta:
+       #model = Keyword
+       #fields = '__all__'
     #statement =  AutoCompleteSelectMultipleField('statement')
     #exclude = ('statement')

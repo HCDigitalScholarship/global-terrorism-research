@@ -18,9 +18,9 @@ class Command(BaseCommand):
 				released_by  = fields.TEXT,
 				issue_date   = fields.DATETIME(stored=True),
 				media_type   = fields.ID(stored=True),
-				url          = fields.ID(stored=True, unique=True),
+				full_text	 = fields.ID(stored=True, unique=True),
 				keyword      = fields.KEYWORD(stored=True, commas=True),
-				context      = fields.KEYWORD(stored=True, commas=True)
+				#context      = fields.KEYWORD(stored=True, commas=True)
 			     )
 
 	#CREATE INDEX
@@ -43,24 +43,36 @@ class Command(BaseCommand):
 	writer = ix.writer()
 	statements =  Statement.objects.all()
         accu = 0
+        taccu = 0
         print "LEN OF STATEMENTS", len(statements)
 	for statement in statements:
           accu+=1
-          if accu == 1:
-             continue
-          print accu
-          print statement.show()
+          #if accu == 1:
+             #continue
+          print "ITERATION: ", accu
+          print "STATEMENT SHOW ", statement.show()
           context_list   = []
 	  keyword_list = []
-          print "LEN OF GET CONTEXTS: ", len(statement.get_contexts())
-          print "LEN OF GET KEYWORDS: ", len(statement.get_keywords())
-	  for context in statement.get_contexts():
-	    context_list.append(context.context_word)
+          #print "LEN OF GET CONTEXTS: ", len(statement.get_contexts())
+          #print "LEN OF GET KEYWORDS: ", len(statement.get_keywords())
+	  #for context in statement.get_contexts():
+	  #  context_list.append(context.context_word
 	  for keyword in statement.get_keywords():
-	    keyword_list.append(keyword.word)
-          print context_list
-          print keyword_list
-	  print ", ".join(context_list), ", ".join(keyword_list)
+             print "KEYWORD.WORD: ", keyword
+             if keyword == "":
+                 print "EMPTY MAIN_KEYWORD"
+                 print keyword
+                 continue
+             if keyword not in keyword_list:
+	        keyword_list.append(keyword)
+          print "KEYWORD LIST: ", keyword_list
+          if len(keyword_list) == 0:
+              continue
+          if statement.issue_date == None:
+              taccu +=1
+              print "TACCU: ", taccu
+              print "DEBUG ISSUE  DATE IS NONE CONDITIONAL"
+	  #print ", ".join(context_list), ", ".join(keyword_list)
 	  writer.add_document(
 				statement_id = statement.statement_id,
 				title        = statement.title,
@@ -68,8 +80,8 @@ class Command(BaseCommand):
 				released_by  = statement.released_by.org_name,
 				issue_date   = datetime.combine(statement.issue_date, datetime.min.time()),
 				media_type   = statement.media_type,
-				url          = statement.full_text,
+				full_text          = statement.full_text,
 				keyword      = ", ".join(keyword_list),
-				context      = ", ".join(context_list),
+				#context      = ", ".join(context_list),
 			     )
 	writer.commit() # note that this should be outside of the for loop

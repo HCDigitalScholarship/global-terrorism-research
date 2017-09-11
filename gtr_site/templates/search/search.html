@@ -2,6 +2,9 @@
 {% block title %}GTR{% endblock %}
 {% load staticfiles %}
 {% block extra_static %}
+<head>
+   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"/>
+</head>
 <script src="https://code.jquery.com/jquery-3.2.1.js"
 	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 	crossorigin="anonymous">
@@ -16,8 +19,8 @@
 {% block content %}
 <p>Your search returned:</p>
 <ul>
-{% for result in object_list %}
-  <li><a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></li>
+{% for result in results %}
+  <li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
 {% endfor %}
 </ul>
 <h2>Filters:</h2>
@@ -28,6 +31,67 @@
 <h2>Include</h2>
 <h3>Keyword Context pairs</h3>
 <ul>
+<!--This needs to be edited so that it accounts for the fact that KeywordInContexts are now the new Keywords, and Contexts don't actually exist. What's happening at-->
+<!--Each step?-->
+<!--key_con doesn't exist anymore, nor does it really do what we necessarily need it to... What do we want displayed on a statements page?-->
+<!--I will add code to display only keywords and contexts-->
+
+<!--filter sidebar-->
+<div id="Sidebar">
+  <h1>Sidebar in progress</h1>
+    <form id="keywordFilter" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" />
+    </form>
+    {{ form.media }}
+    <input id="ms1" style="width: 50%;" type="text" name="ms1"/>
+    <div style="clear:both;"></div>
+</div>
+
+<!--Display Keywords functionally-->
+<div id="keywordCollection">
+<select id="allKeywords">
+{% for keyword in keywords %}
+    <option value="{{ keyword }}">{{ keyword }}</option>
+{% endfor %}
+</select>
+</div>
+
+<script>
+/************************************* 
+ * tagging ***************************/
+     var collection2 = [];
+      console.log("BEGINNING LOOP");
+      $("#allKeywords option").each( function() {
+        console.log("ADDING");
+        collection2.push($(this).attr('value'));
+       });
+     console.log(collection2);
+
+   $(function(){
+      /*var collection = [];
+      console.log("JAVASCRIPT");
+      var keywords = $("#allKeywords option");
+      console.log("LENGTH");
+      console.log(keywords.length);
+      for(var i=0; i<keywords.length; i++) {
+         console.log("HEYYYYYY");
+         kw = keywords[i];
+         console.log(kw);
+      }
+      $("#allKeywords option").each( function() {
+        console.log("ADDING");
+        collection.push($(this).value);
+       });  
+   console.log("COLLECTION");
+   console.log(collection);*/
+   $("#ms1").autocomplete({
+      source: collection2,
+      multiselect: true
+   });
+   })
+</script>
 
 {% for keyword, contexts in key_con.items %}
     <li>{{ keyword }} </li>
@@ -143,4 +207,8 @@
     </script>
 
 </form>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="{% static 'gtr_site/js/autocomplete-multiselect.js'%}"></script>
 {% endblock %}

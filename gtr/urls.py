@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from ajax_select import urls as ajax_select_urls
+#from ajax_select import urls as ajax_select_urls
 
 
 
