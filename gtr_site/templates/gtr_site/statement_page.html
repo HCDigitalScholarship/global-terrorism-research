@@ -14,15 +14,17 @@
        {% endif %}
        </ul>
     {% endfor %}
-    {% for keyword, contexts in state.get_keywords_contexts.items %}
+    {% for keys, contexts in state.get_keywords_contexts.items %}
        <ul>
-         <li>{{keyword}}</li>
-	 <ul>
+         <li><p style="font-size: 18px">Keyword: {{ keys }}</p></li>
+         <ul><p style="font-size: 18px">Contexts: </p>
            {% for context in contexts %}
-             <li>{{context}}</li>
+            <li> {{ context }} </li>
            {% endfor %}
          </ul>
        </ul>
+      {% empty %}
+        <h3>Error in retrieving keywords and contexts</h3>
     {% endfor %}
 {% else %}
     <p>No statement with that id</p>

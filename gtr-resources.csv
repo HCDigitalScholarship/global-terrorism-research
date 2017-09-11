@@ -1,0 +1,834 @@
+type,title,description,country,author,link
+book,The Islamic State,Translated from the Arabic edition from the Sunni political party.,,Hizb ut-Tahrir,http://www.hizb-ut-tahrir.org/PDF/EN/en_books_pdf/IslamicState.pdf
+book,Al-Qaeda from Within (Part 1),"Abu-Jandal (Nasir al-Bahri), Bin Laden's personal guard interviewed on Saudi ""coup""against Salafi youth. Includes Part 1 through Part 3.",,Khalid al-Hamadi,/static/gtr_site/alqaedawithinpt1.pdf
+book,Al-Qaeda from Within (Part 2),"Abu-Jandal (Nasir al-Bahri), Bin Laden's personal guard interviewed on first meeting with Bin Laden and al-Qaeda beginnings. Includes Part 4 through Part 6.",,Khalid al-Hamadi,/static/gtr_site/alqaedawithinpt2.pdf
+book,Al-Qai'da From Within (Part 3),"Abu-Jandal (Nasir al-Bahri), Bin Laden's personal guard interviewed on Al-Qai'da. Includes Parts 7 through Part 10.",,Khalid al-Hamad,/static/gtr_site/alqaedawithinpt3.pdf
+book,Al-Zarqawi...The Second Generation of Al-Qai'da (Parts 1-3),Includes testimonies by people who knew and accompanied Al-Zarqawi at various stages of his life.,,Fu'ad Husayn,/static/gtr_site/alzarqawi2ndgenpart1.pdf
+book,"Al-Zarqawi...The Second Generation of Al-Qai'da (Parts 4-7, 9)",Includes testimonies by people who knew and accompanied Al-Zarqawi at various stages of his life.,,Fu'ad Husayn,/static/gtr_site/alzarqawi2ndgenpart2.pdf
+book,Al-Zarqawi...The Second Generation of Al-Qai'da (Parts 10-15),Includes testimonies by people who knew and accompanied Al-Zarqawi at various stages of his life.,,Fu'ad Husayn,/static/gtr_site/alzarqawi2ndgenpart3.pdf
+book,Authority: Shari'ah View and Realistic Vision (Parts 1-4),"The book which Al-Sharq al-Awsat newspaper publishes in parts, offers revisions on fundamentalist thinking and governing.",,Al-Jama'ah al-Islamiyah,/static/gtr_site/authoritypart1.pdf
+book,Authority: Shari'ah View and Realistic Vision (Parts 5-9),"The book which Al-Sharq al-Awsat newspaper publishes in parts, offers revisions on fundamentalist thinking and governing.",,Al-Jama'ah al-Islamiyah,/static/gtr_site/authoritypart2.pdf
+book,Catastrophic Terrorism: Elements of a National Policy,"This report is a product of the Catastrophic Terrorism Study Group, a nine-month long collaboration of faculty from Harvard University, the Massachusetts Institute of Technology...",,"Ashton B. Carter, John M. Deutch and Philip D. Zelikow",http://belfercenter.hks.harvard.edu/publication/2978/catastrophic_terrorism.html
+book,Compilation of Usama Bin Laden Statements,A compilation of Osama Bin Laden statments from 1994 to January 2004 published by FBIS.,,Osama Bin Laden,http://www.fas.org/irp/world/para/ubl-fbis.pdf
+book,Concepts of Hizb ut-Tahrir,"Translated from the Arabic edition ""Mafahim Hizb ut-Tahrir"" from the Sunni political party.",,Hizb ut-Tahrir,http://www.hizb-ut-tahrir.org/PDF/EN/en_books_pdf/Concepts.pdf
+book,Defence of Muslim Lands,"Discusses the legal ruings of jihad, different types of jihad and condition in which jihad becomes an obligation for Muslims.",,Abdullah Azzam,https://islamfuture.wordpress.com/2009/08/15/defence-of-the-muslim-lands/
+book,Democracy: A Religion,This document was revised after being downloaded from al-Maqdisi's webpage and translated into English.,,Abu Muhammad 'Aasim al-Maqdisi,/static/gtr_site//DemocracyReligion.pdf
+book,Dying to Win: The Strategic Logic of Suicide Terrorism,"Pape provides a groundbreaking demographic profile of modern suicide terrorist attackers and examines the early practitioners of this guerrilla tactic. Link to TRIPOD, for Tri-Co students.",,Robert A. Pape,http://tripod.brynmawr.edu/find/Record/.b3439389
+book,"Education, Poverty, and Terrorism: Is There a Causal Connection?","An article examining the connection beween education, poverty and terrorism.",,Alan B. Krueger and Jitka Maleckova,http://www.nber.org/papers/w9074
+book,Face to Face With Political Islam,"Burgat argues that Islam's restoration of its pre-colonization culture is not inherently at odds with democracy, tolerance, or progress. Link to Tripod for Tri-Co students.",,François Burgat,http://tripod.brynmawr.edu/find/Record/.b2668116
+book,Global Political Islam,"Mandaville discusses the history of Islam and politics, the formation of Islamism as political strategy and Muslim transnationalism. Link to TRIPOD, for Tri-Co students.",,Peter Mandaville,http://tripod.brynmawr.edu/find/Record/.b3303410
+book,How Terrorist Groups End: Lessons for Encountering al Qa'ida,"A major study of the success and failure of terrorist groups over time. Includes a large table of all organizations in the dataset, giving organization name, operating years, peak size...""",,Seth G. Jones and Martin C. Libicki,http://www.rand.org/pubs/monographs/MG741-1.html
+book,Jihad: The Trail of Political Islam,"The study, which is based on documents, interviews, and archival material is divided into two parts. Kepel follows the history and geography of this political-religious phenomenon. Link in Tripod.",,Gilles Kepel,http://tripod.brynmawr.edu/find/Record/.b2571797
+book,Join the Caravan,"Written in the late 1980's, the piece urges Muslims to establish a base for Islam in Afghanistan by expelling the Russians.",,Abdullah Azzam,http://archive.org/stream/JoinTheCaravan/JoinTheCaravan_djvu.txt
+book,Letter from al-Zawahiri to Zarqawi,"Zawahiri's letter to Zarqawi from July 9, 2005.",,Ayman al-Zawahiri,/static/gtr_site/letterfromzarqawitoatiyah.pdf
+book,Millat Ibrahim,"Translated as ""The Religion of Ibrahim"".",,Abu Muhammad 'Aasim al-Maqdisi,/static/gtr_site/MillatIbraheem.pdf
+book,"September 11th ""Raid"" Commemorated","This book consists of four essays by Sayf al-Din al-Ansari, Abu Ubayd al-Qirshi, Abu Ayman al-Hilali, and Abu Sa'd al-Amili. It was translated into English by the Foreign Broadcasting Service (FBIS).",,"Sayf al-Din al-Ansari, Abu Ubayd al-Qirshi, Abu Ayman al-Hilali, and Abu Sa",/static/gtr_site/qaeda_celebrate_911.html
+book,Structuring of a Party,Translated from the Arabic edition from the Sunni political party Hizb ut-Tahrir,,Taqiuddin an-Nabhani,http://www.hizb-ut-tahrir.org/PDF/EN/en_books_pdf/strutureparty.pdf
+book,The Economic System of Islam,Translated from the Arabic edition from the Sunni political party Hizb ut-Tahrir.,,Taqiuddin an-Nabhani,http://www.hizb-ut-tahrir.org/PDF/EN/en_books_pdf/economic_system.pdf
+book,The Exoneration,Full text translation of Zawahiri's book written in 2008.,,Ayman Al-Zawahiri,http://www.fas.org/irp/dni/osc/exoneration.pdf
+book,The Minbar of Tawhed and Jihad,"This is an English translation of materials from Abu Muhammad Al-Maqdisi’s Online Library of Jihadi texts. Search phrase ""Minbar Al-Tawhid Wal Jihad"".",,Abu Muhammad Al-Maqdisi,http://www.memrijttm.org/
+book,The Operation Of 11 Rabi Al-Awwal: The East Riyadh Operation and Our War With the United States and Its Agents,This book is regarding the May 12 Riyadh Operation. It exposes and refutes propaganda and lies spead by Taghuti state of Saudi Arabia. Link to PDF file.,,Abu Raudha,http://triceratops.brynmawr.edu/dspace/bitstream/handle/10066/5129/AQS20030903.pdf?sequence=3
+book,The Social System in Islam,A translation of the Arabic edition from the Sunni political party Hizb ut-Tahrir.,,Taqiuddin an-Nabhani,http://www.hizb-ut-tahrir.org/PDF/EN/en_books_pdf/socialsystem.pdf
+book,The Story of the Afghan-Arabs Part Five,From the newspaper Al-Sharq al-Awsat (June 2005). The writer reveals a number of secrets and explains many ambiguities in the activities of the Taliban and Al-Qaeda.,,Unknown,http://www.aawsat.net/2005/07/article55270685/the-afghan-arabs-part-five
+book,The Story of the Afghan-Arabs Part Four,From the newspaper Al-Sharq al-Awsat (June 2005). The writer reveals a number of secrets and explains many ambiguities in the activities of the Taliban and Al-Qaeda.,,Unknown,http://www.aawsat.net/2005/07/article55270861/the-afghan-arabs-part-four
+book,The Story of the Afghan-Arabs Part One,From the newspaper Al-Sharq al-Awsat (June 2005). The writer reveals a number of secrets and explains many ambiguities in the activities of the Taliban and Al-Qaeda.,,Unknown,http://www.aawsat.net/2005/06/article55270974/the-afghan-arabs-part-one
+book,The Story of the Afghan-Arabs Part Three,From the newspaper Al-Sharq al-Awsat (June 2005). The writer reveals a number of secrets and explains many ambiguities in the activities of the Taliban and Al-Qaeda.,,Unknown,http://www.aawsat.net/2005/07/article55270900/the-afghan-arabs-part-three
+book,The Story of the Afghan-Arabs Part Two,From the newspaper Al-Sharq al-Awsat (June 2005). The writer reveals a number of secrets and explains many ambiguities in the activities of the Taliban and Al-Qaeda.,,Unknown,http://www.aawsat.net/2005/07/article55270953/the-afghan-arabs-part-two
+book,The Strategy and Bombings of Al-Qa'ida: Errors and Perils,Published by the Arabic newspaper Al-Sharq al-Awsat. The leaders of the Egyptian Al-Jama'ah al-Islamiyah criticize Al-Qai'da's strategy and bombings.,,Al-Jama'ah al-Islamiyah,/static/gtr_site/strategyandbombings.pdf
+book,The System of Islam,A translation of the Arabic edition from the Sunni political party Hizb ut-Tahrir.,,Taqiuddin an-Nabhani,http://www.hizb-ut-tahrir.org/PDF/EN/en_books_pdf/system_of_islam.pdf
+book,This Is Our Aqeedah,A translation of al-Maqdisi's material.,,Abu Muhammad al-Maqdisi,http://www.missionislam.com/knowledge/ouraqeedah.htm
+book,Transcript: Important Commandments to the Mujahidin and in Reply to the Defeatists,Audio transcript of a sixty minute tape made by important al Qaeda in Iraq leader Abu Musab al-Zarqawi.,,Abu Musab al-Zarqawi,http://thesis.haverford.edu/dspace/bitstream/handle/10066/4663/ZAR20040705.pdf
+book,Harmony Program Documents,"Links to Harmony Program documents, primary source documents, and analysis regarding al-Qaeda, related movements, and additional security threats.",,Harmony Program at Combatting Terrorism Center at West Point (CTC),https://www.ctc.usma.edu/programs-resources/harmony-program
+book,Dabiq Magazines,"An archive of the Islamic State's (ISIS) magazine 'Dabiq,' produced by al-Hayat Media Center",,Aaron Y. Zelin,http://jihadology.net/category/dabiq-magazine/
+book,Bin Ladin's Bookshelf,"In May 2015, March 2016, and January 2017 the ODNI released the second, third, and fourth sets of numerous documents recovered during the raid of the compound hiding bin Ladin.",,Office of the Director of National Intelligence (ODNI),http://www.dni.gov/index.php/resources/bin-laden-bookshelf?start=1
+book,Harmony Program: Letters from Abbottabad: bin Ladin Sidelined?,"In 2012, The Harmony Program released the first 17 de-classified documents of internal al-Qaeda communications, primarily authored by Usama bin Ladin, from 2006-2011",,Don Rassler et. al.,https://www.ctc.usma.edu/posts/letters-from-abbottabad-bin-ladin-sidelined
+book,The Story of the Afghan-Arabs Part Six,From the newspaper Al-Sharq al-Awsat (2005). The writer reveals a number of secrets and explains many ambiguities in the activities of the Taliban and Al-Qaeda.,,Unknown,http://www.aawsat.net/2005/07/article55270609/the-afghan-arabs-part-six
+book,Fatwa on IS attack of Mujahideen,"Fatwa by Jihadi scholars ""regarding the IS group's attack on the Mujahideen""",,"Sheikh Abu Qatada al Filistini, Sheikh Abu Muhammad al Maqdisi,",https://pietervanostaeyen.wordpress.com/2015/06/03/fatwa-by-some-of-the-scholars-of-jihad-regarding-the-is-groups-attack-on-the-mujahideen/
+book,Fatwa on IS attack of Mujahideen,"Fatwa by Jihadi scholars ""regarding the IS group's attack on the Mujahideen""",,"Sheikh Sadiq al Hashimi, Sheikh Muslih al Alyani,",https://pietervanostaeyen.wordpress.com/2015/06/03/fatwa-by-some-of-the-scholars-of-jihad-regarding-the-is-groups-attack-on-the-mujahideen/
+book,Fatwa on IS attack of Mujahideen,"Fatwa by Jihadi scholars ""regarding the IS group's attack on the Mujahideen""",,"Sheikh Abu Sulayman al Ustrali, Sheikh Abu Azzam al Jazrawi,",https://pietervanostaeyen.wordpress.com/2015/06/03/fatwa-by-some-of-the-scholars-of-jihad-regarding-the-is-groups-attack-on-the-mujahideen/
+book,Fatwa on IS attack of Mujahideen,"Fatwa by Jihadi scholars ""regarding the IS group's attack on the Mujahideen""",,"Sheikh Al Mu’tasim Billah al Madani, & Sheikh Dr Abdullah al Muhaysini",https://pietervanostaeyen.wordpress.com/2015/06/03/fatwa-by-some-of-the-scholars-of-jihad-regarding-the-is-groups-attack-on-the-mujahideen/
+book,The al-Qaeda Franchise:The Expansion of al-Qaeda and its Consequences,Authors argues the reasons al-Qaeda utilized a branching-out strategy and examines numerous case studies. Link in Tripod for Tri-Co.,,Barak Mendelsohn,https://tripod.brynmawr.edu/find/Record/.b4376167
+book,Combating Jihadism: American Hegemony and Interstate Cooperation in the War on Terrorism,Mendelsohn argues that state cooperation generated by a hegemonic state is necessary in order to fight jihad effectively. He grounds his argument in shared norms and rules.,,Barak Mendelsohn,https://tripod.brynmawr.edu/find/Record/.b3676416
+book,Kalamullah,"Database of Islamic Audios, Lectures, Talks, Khutbahs, Videos, Nasheeds, Articles, Books etc.",,various,http://www.kalamullah.com/books.html
+data-source,Iraq Body Count,Iraq Body Count is an ongoing human security project which maintains and updates the world’s largest public database of violent civilian deaths during and since the 2003 invasion. The count encompasses non-combatants killed by military or paramilitary act,,,http://www.iraqbodycount.org/
+data-source,Sutton Index of Deaths,"The site ""contains information on the deaths that have resulted from the conflict in Ireland between 14 July 1969 and 31 December 2001. The information has been provided by Malcolm Sutton and is an updated and revised version of the material that was firs",,,http://cain.ulst.ac.uk/sutton/
+data-source,Onset and Duration of Intrastate Conflict,The web page offers three datasets on intrastate conflict: A country-year file and a calendar-time file prepared for onset analysis and a calendar-time file suitable for duration analysis.,,,http://www.prio.no/CSCW/Datasets/Armed-Conflict/Onset-and-Duration-of-Intrastate-Conflict/
+data-source,Acled Armed Conflict Location and Event Data,ACLED (Armed Conflict Location and Events Dataset) is designed for disaggregated conflict analysis and crisis mapping. This dataset codes the location of all reported conflict events in 50 countries in the developing world. Data are currently being coded,,,http://www.acleddata.com/
+data-source,Battle Deaths Data,This project maintains a dataset on battle deaths (soldiers and civilians killed in combat) in state-based armed conflicts. The original release in 2005 covered the period 1946–2002.,,,http://www.prio.no/CSCW/Datasets/Armed-Conflict/Battle-Deaths/
+data-source,Running on Faith,Data for Jo-Eystein Lindberg's study on effect of religious cleavages on the intensity and duration of internal conflicts.,,,https://www.prio.org/Data/Armed-Conflict/Data-on-religious-cleavages-and-civil-war/
+data-source,Conflict Site Dataset,The Conflict Site Dataset is an extention to the UCDP/PRIO Armed Conflicts Dataset that provides coordinates for the conflict zones and lists of countries in which the conflicts were located.,,,http://www.ucdp.uu.se/gpdatabase/search.php
+data-source,"Legislation Related to the Attack on September 11, 2001",This site started in September 2001 as a way of keeping the public readily apprised of legislation related to the terrorist attack on the United States that month. The site has not been updated since the 107th Congress.,,,http://thomas.loc.gov/home/terrorleg.htm
+data-source,9/11 Commission Final Report,"The Commission’s Final Report provides a full and complete account of the circumstances surrounding the September 11th, 2001, terrorist attacks, including preparedness for and the immediate response to the attacks. It also includes recommendations design	Security	http://www.gpo.gov/fdsys/search/pagedetails.action?granuleId=&packageId=GPO-911REPORT&fromBrowse=true	Government Source	Reports/General Data
+Terrorism and Crime Studies	The Federal Research Division of the Library of Congress provides data on terrorism. 	Security	http://www.loc.gov/rr/frd/terrorism.html	Government Source	Reports/General Data
+Meir Amit Intelligence and Terrorism Information Center	The Intelligence and Terrorism Information Center opened in 2001. It is part of the Israel Intelligence Heritage & Commemoration Center (IICC) which focuses on issues concerning intelligence and terrorism.""",,,http://www.terrorism-info.org.il/en/index.aspx
+data-source,Jane's Terrorism and Insurgency Centre,"Jane’s Terrorism and Insurgency Centre delivers a comprehensive view of global terrorist and insurgent events, groups, trends and developments, with up-to-date news and expert analysis, as well as powerful visualization tools to aid research & analysis.	Security	http://www.janes.com/products/janes/security/terrorism-insurgency-intelligence-centre/index.aspx	Other	Reports/General Data
+Jane's Terrorism and Insurgency Centre	Requires subscription. 	Security	http://www.janes.com/products/janes/security/terrorism-insurgency-intelligence-centre/index.aspx	Other	Reports/General Data
+Investigative Project on Terrorism	The Investigative Project on Terrorism (IPT) is a non-profit research group founded by Steven Emerson in 1995. It is recognized as the world's most comprehensive data center on radical Islamic terrorist groups.""",,,http://www.investigativeproject.org/profile/all/
+data-source,GCC Security and Terrorism Issues Research Program,"GCC Security and Terrorism is a research program of the Gulf Research Center. Data includes articles, books, book reviews, facts and figures, newsletters, periodicals, research papers, etc.",,,http://www.grc.net/?frm_action=detail&PK_ID=17&set_lang=en&frm_module=researchprograms&sec=Research+Programs-Relations&sec_type=h&override=Research+Program+Detail&CAT_ID=5
+data-source,Counterterrorism and Homeland Security,"Provides books, book chapters, Cato studies, articles, newsletters, legal briefs and opinion and commentary.",,,http://www.cato.org/research/counterterrorism-homeland-security
+data-source,Columbia University World Trade Center Archive Project,"The resources represent a growing collection of responses to the World Trade Center attack, including archived webcasts of talks featuring Columbia's foremost experts. In addition, special collections of resources on terrorism and the September 11 traged	Security	http://ci.columbia.edu/ci/eresources/wtc.html	Other	Reports/General Data
+Suicide Attack Database	The Chicago Project on Security and Terrorism maintains a searchable database on all suicide attacks from 1982 to 2015 and additional years will be added. The database includes information about the location of attacks, the target type, the weapon used,",,,http://cpostdata.uchicago.edu/search_new.php
+data-source,Charity and Security Network Resource Library,"The Charity and Security Network was ""launched in November 2008 by charities, grantmakers, faith-based and advocacy groups to eliminate unnecessary and counterproductive barriers to legitimate charitable work found in current counterterrorism measures.""",,,http://www.charityandsecurity.org/resources?type=analysis&tid=All
+data-source,International Republican Institute Public Opinion Polls,The IRI provides public opinion polls from the Middle East and North Africa. Latest survey results from 2015.,,,http://www.iri.org/news-and-resource?topic=15&region=547
+data-source,Stockholm International Peace Research Institute (SIPRI) Databases,"The following datasets provide reliable, specialized military data: arms transfers, arms industry, arms exports, multilateral peace operations, military expenditure, and financial value of the global arms trade.",,,http://www.sipri.org/databases
+data-source,"The Heritage Foundation: Global U.S. Troop Deployment Database, 1950-2005",Time series data on US troop deployments by year and country.,,,http://www.heritage.org/research/reports/2006/05/global-us-troop-deployment-1950-2005
+data-source,CRED International Emergency Disasters Database,"The Centre for Research on the Epidemiology of Disaster (CRED) provides data on natural and technological disasters worldwide with fatalities and number affected. Requirement for inclusion: at least 10 fatalities, 100 affected persons, declaration of a st",,,http://www.emdat.be/database
+data-source,The Correlates of War Project,"Comprehensive database of: war and interstate disputes, state system capacity, material capabilities, alliance, diplomacy, trade, intergovernmental organizations, terrority.",,,http://www.correlatesofwar.org/
+data-source,The Military Balance,The Military Balance is the International Institute for Strategic Studies’ annual assessment of the military capabilities and defence economics of 170 countries world-wide. Note: Online version for subscribers only.,,,http://www.iiss.org/publications/military-balance/
+data-source,American Politics: Foreign Affairs and Defense,"Provides illustrated concepts, facts, figures, cartoons, image features and video features.",,,http://www.laits.utexas.edu/gov310/FAD/
+data-source,Institute for National Security Studies (Tel Aviv): Middle East Military Balance,"Data files on 21 countries surveyed. Includes ""information about the following topics: major arms sales and procurement; arms production; non-conventional capabilities; space assets; order of battle; and major weapon systems for the ground forces, air for",,,http://www.inss.org.il/weapons.php?cat=283
+data-source,Foreign Policy Magazine Terrorism Index,A survey of 100 American foreign policy experts on questions of current U.S. policy. Note: Not updated since 2006. Subscription required.,,,http://web1.foreignpolicy.com/issue_julyaug_2006/TI-index/index.html
+data-source,The Global Peace Index,"The GPI, produced by the Institute for Economics and Peace, is the world’s leading measure of global peacefulness. It gauges ongoing domestic and international conflict, safety and security in society, and militarisation in 153 countries by taking into a	Security	http://www.visionofhumanity.org/	Other	Reports/General Data
+First Fact Database on International Relations and Security Trends	Consolidates international relations and security policy facts into a searchable database. Facts include: chronologies of conflicts and peacekeeping activities, data on arms production and trade, lists of holdings of conventional and nuclear weapons, mili	Security	http://first.sipri.org/	Other	Reports/General Data
+Integrated Network for Societal Conflict Research (INSCR) Data	The following data resources were prepared by researchers associated with the Center for Systemic Peace and are generated and/or compiled using open source information. Data resources cover 163 countries and topics such as armed conflict and intervention,	Political	http://www.systemicpeace.org/inscrdata.html	Other	Reports/General Data
+Integrated Network for Societal Conflict Research (INSCR) Data	The following data resources were prepared by researchers associated with the Center for Systemic Peace and are generated and/or compiled using open source information. Data resources cover 163 countries and topics such as armed conflict and intervention,	Security	http://www.systemicpeace.org/inscrdata.html	Other	Reports/General Data
+Conflict and Peace Data Bank (COPDAB), 1948-1978	Daily international and domestic events or interactions, such as an international border clash or domestic press censorship. Note: Access for Haverford users but requires setting up an individual account with ICPSR. 	Security	http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/7767?archive=ICPSR&q=Conflict+and+Peace+Data+Bank%2C+1948-1978++%28ICPSR+7767%29	Other	Reports/General Data
+International Military Intervention, 1989-2005 (ICPSR)	All verified cases of international military intervention from 1989 to 2005. Note: Access for Haverford users but requires setting up an individual account with ICPSR. 	Security	http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/21282?archive=ICPSR&q=International+Military+Intervention%2C+1989-2005+%28ICPSR+21282%29	Other	Reports/General Data
+International Crisis Behavior Project, 1918-2004 (ICPSR)	Describes the sources, processes, and outcomes of all military-security crises involving states over an 86-year period. Note: Access for Haverford users but requires setting up an individual account with ICPSR. 	Security	http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/9286?archive=ICPSR&q=International+Crisis+Behavior+Project%2C+1918-2004+%28ICPSR+9286%29+	Other	Reports/General Data
+World Economic Forum: Global Competitiveness Report	Assesses the comparative strengths and weaknesses of national economies. A wealth of economic indicators are divided into various categories. 	Economic	http://reports.weforum.org/global-competitiveness-report-2015-2016/	Other	Reports/General Data
+World Economic Forum: Global Competitiveness Report	Includes reports from 2008-2016 within the website. The link directly leads to the 2015-2016 report. 	Economic	http://reports.weforum.org/global-competitiveness-report-2015-2016/	Other	Reports/General Data
+A.T. Kearney and Foreign Policy Globalization Index	Ranks countries based on global connectedness, as measured by trade, travel, technology, and economic and political relations. This project is from 2007. Requires subscription. 	Economic	http://www.foreignpolicy.com/articles/2007/10/11/the_globalization_index_2007	Other	Reports/General Data
+UNStats: Millennium Development Goal Indicators	The 48 indicators were designed to measures progress on the Millenium development goals: extreme poverty and hunger, universal primary education, gender equality, child mortality, maternal health, hiv/aids, malaria and other diseases, environmental sustai	Economic	http://mdgs.un.org/unsd/mdg/Default.aspx	International Organization	Reports/General Data
+UNDP: Human Development Index	Large collection of UN development data on education, military, economy, trade, environment, health, crime, development assistance, population, gender inequality, status of international agreements. Full datasets, customized searches, and rankings availab	Economic	http://hdr.undp.org/en/statistics/	International Organization	Reports/General Data
+World Bank: World Development Indicators (WDI)	Over 575 population, income, social, economic, financial, natural resources, and environmental indicators. Full dataset available with Haverford subscription. 	Economic	http://databank.worldbank.org/data/reports.aspx?source=world-development-indicators	International Organization	Reports/General Data
+Doing Business Project: Ease of Doing Business Rankings	Economies are ranked on their ease of doing business, from 1 – 183. A high ranking on the ease of doing business index means the regulatory environment is more conducive to the starting and operation of a local firm. This index averages the country's per",,,http://www.doingbusiness.org/rankings
+data-source,Heritage Foundation: 2012 Index of Economic Freedom,"10 indicators of trade freedom, business freedom, investment freedom, and property rights.",,,http://www.heritage.org/index/
+data-source,Fraser Institute: Economic Freedom of the World,"Measures government size and regulation, legal protection, currency, and freedom of international trade. Full datasets available. Regional reports available for the Arab world.",,,http://www.freetheworld.com/
+data-source,WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply and Sanitation,"Provides annual statistics (% of rural/urban populations with general/in-home access) on access to improved water and sanitation availability at national, regional, and global levels.",,,http://www.wssinfo.org/
+data-source,Food and Agriculture Organization of the United Nations Statistics,"Statistics available for food deprivation and child malnutrition, food consumption and diet diversification, economic growth, poverty and employment, education and gender equality, health and sanitation, agricultural development, water, natural resources",,,http://www.fao.org/corp/statistics/en/
+data-source,Millennium Challenge Corporation: Natural Resources Management Indicator,"Indicators of eco-region protection, access to improved sanitation and water, and child mortality. Rankings, dataset, methodology, and reports available. 2010 data available.",,,http://sedac.ciesin.columbia.edu/es/mcc.html
+data-source,United Nations University (UNU)-WIDER: World Income Inequality Database,"The UNU-WIDER World Income Inequality Database (WIID) collects and stores information on income inequality for developed, developing, and transition countries.",,,https://www.wider.unu.edu/data
+data-source,Occupational Wages Around the World (OWW) Database,Database contains occupational wage data for 161 occupations in over 150 countries from 1983 to 2008. Derived from ILO data.,,,http://data.nber.org/oww/
+data-source,ILO Labor Statistics,Data and metadata for over 200 countries or territories from LABORSTA,,,http://laborsta.ilo.org/
+data-source,IMF World Economic Outlook Database,"Macroeconomic data on national accounts, inflation, unemployment rates, balance of payments, fiscal indicators, trade, and commodity prices. Data, reports, and interactive map available. Provides the latest information.",,,http://www.imf.org/external/datamapper/index.php
+data-source,SESRIC Basic Social and Economic Indicators,"The Statistical, Economic and Social Research and Training Centre for Islamic Countries (SESRIC) offers a database with data on 237 socio-economic variables under 17 categories for 57 Islamic countries.",,,http://www.sesric.org/baseind.php
+data-source,World Database of Happiness,Wide variety of socio-economic indicators from various sources. Approx. 135 countries covered within past ten years.,,,http://worlddatabaseofhappiness.eur.nl/
+data-source,Association of Religious Data Archives (ARDA): International Religious Freedom Data,"Indices: Government Regulation of Religion index (GRI), Social Regulation of Religion index (SRI), Government Favoritism of Religion index (GFI). Data collected 2006.",,,http://www.thearda.com/Archive/Files/Descriptions/IRFAGG.asp
+data-source,Association of Religious Data Archives (ARDA): Cross-National Data 2005,"Data sources: 2003 US State Dept.’s International Religious Freedom Reports and other cross-national measures of interest to researchers on religion, economics, and politics, including adherent information from the World Christian Database, scales from Fr",,,http://www.thearda.com/Archive/Files/Descriptions/INTL2003.asp
+data-source,Minorities at Risk (MAR),The Minorities at Risk project is a major dataset of information on minority ethnic groups worldwide.Includes qualitative and quantitative data on 212 ethnic groups worldwide.,,,http://www.mar.umd.edu/mar_data.asp
+data-source,"World Bank Health, Nutrition and Population Statistics","Indicators for: population dynamics, nutrition, reproductive health, health financing, immunization, infectious disease, and HIV/AIDS. Data sources: World Bank surveys, major international organizations. Provides the latest information available.",,,http://databank.worldbank.org/Data/Views/VariableSelection/SelectVariables.aspx?source=Health%20Nutrition%20and%20Population%20Statistics
+data-source,World Health Organization Global Health Observatory,"The GHO data repository contains an extensive list of indicators, which can be selected by theme or through a multi-dimension query functionality. It is the World Health Organization's main health statistics repository.",,,http://www.who.int/gho/en/
+data-source,UNHCR Refugee Population: Figures at a Glance,Refugee population statistical database from the UN High Commissioner on Refugees. Provides the latest data available.,,,http://www.unhcr.org/en-us/figures-at-a-glance.html
+data-source,UN Population Division,"Various population data available, mostly in charts and reports. Provides the latest data available.",,,http://www.un.org/esa/population/unpop.htm
+data-source,UNICEF Statistics,"Reports by country include basic indicators: nutrition, health, HIV/AIDS, education, demographics, economics, women, child protection, rate of progress. Provides the latest data available.",,,http://www.unicef.org/infobycountry/index.html
+data-source,UNESCO Data Center,"The Data Center contains over 1,000 types of indicators and raw data on education, literacy, science and technology, culture and communication.",,,http://stats.uis.unesco.org/unesco/TableViewer/document.aspx?ReportId=143
+data-source,UN Statistics Division: Social Indicators,"Indicators: child-bearing, child and elderly populations, contraceptive use, education, health, housing, human settlements, income and economic activity, literacy, population, unemployment, water supply and sanitation. 2012 data available.",,,http://unstats.un.org/unsd/demographic/products/socind/
+data-source,UN Statistics Division: Social Indicators,"Note: As of 6/15 the page is undergoing revision, but remains accessible.",,,http://unstats.un.org/unsd/demographic/products/socind/
+data-source,Amnesty International Annual Report 2012,"Reports on the status of human rights throughout the world. Report available on the Middle East and North Africa, including Algeria, Bahrain, Egypt, Iran, Iraq, Israel and the Occupied Palestinian Territories, Jordan, Kuwait, Lebanon, Libya, Morocco, etc",,,http://www.amnestyusa.org//static/gtr_site/air12-report-english.pdf
+data-source,Political Terror Scale Annual Report,Gives a single score (1-5) rating a country’s political terror or freedom. Uses Amnesty International and the U.S. State Dept. as sources.,,,http://www.politicalterrorscale.org/
+data-source,Human Rights Watch World Report,"Provides a concise report on the status of human rights in each country, listing each major country-specific problem and giving an assessment.",,,http://www.hrw.org/world-report-2012
+data-source,Reporters Without Borders: Press Freedom Index,"Rates press freedom based on surveys of activists, scholars, and journalists worldwide. Rankings, methodology, and questionnaire available. Data from 2002 to 2010.",,,http://en.rsf.org/
+data-source,Freedom House: Freedom of the Press,"The Freedom of the Press index an annual survey of media independence in 195 countries and territories. Experts determine ratings in conferring with professional contacts, press freedom organizations worldwide. Data from 2002 to now.",,,https://freedomhouse.org/report/freedom-press/freedom-press-2016
+data-source,Freedom House: Freedom in the World,"Rates countries Free, Partially Free, or Not Free, and provides sub-scores in political rights and civil liberties. Data from 1998 to now.",,,https://freedomhouse.org/report/freedom-world/freedom-world-2016
+data-source,CIRI Human Rights Data Project,"The CIRI dataset ""contains standards-based quantitative information on government respect for 15 internationally recognized human rights for 195 countries, annually from 1981-2009.""",,,http://www.humanrightsdata.com/
+data-source,Global Integrity Index,The Global Integrity Report is a tool for understanding governance and anti-corruption mechanisms at the national level. Latest results from 2013.,,,http://www.globalintegrity.org/report
+data-source,Global Corruption Barometer,"Transparency International's ""Global Corruption Barometer is a survey that assesses general public attitudes toward, and experience of, corruption in dozens of countries around the world.""",,,http://www.transparency.org/research/gcb/overview
+data-source,Corruption Perceptions Index,"Transparency International's CPI ranks almost 200 countries by their perceived levels of corruption, as determined by expert assessments and opinion surveys.",,,http://www.transparency.org/research/cpi/overview
+data-source,"Middle East Political Events Data, 1979-1995","Machine-coded dataset created by parsing the leads from Reuters articles. Data presented as source (subject), target (object), and action (verb). Covers the Levant area (Egypt, Israel, Jordan, Syria, Iraq, Kuwait, Lebanon, and Palestine) and the United St",,,http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/06699
+data-source,Inter-University Consortium for Political and Social Research (ICPSR),"Compilation of polling information. Searchable repository of datasets for use with statistical software (e.g. Stata and SPSS). Includes variety of social science studies and surveys, including but not limited to public opinion research. Note: Access for H",,,http://www.icpsr.umich.edu/icpsrweb/ICPSR/index.jsp
+data-source,Fragile States Index,"Once known as the Failed States Index, the FFP renamed the index in 2014 to ""Fragile States Index"" to better label the actual circumstances of the states listed.",,,http://www.fundforpeace.org/global/?q=fsi
+data-source,Fragile States Index,"The Fund for Peace (FFP) assigns scores for 12 political, economic, and social indicators then combines them for overall determination of failing state status. Rankings and final scores provided. Country profiles are included.",,,http://www.fundforpeace.org/global/?q=fsi
+data-source,International Voter Turnout,"Voter turnout figures for national presidential and parliamentary elections. Includes only elections held in independent states with universal franchise and some degree of competitiveness. Indicators: registered voters, voting age population, spoilt ballo",,,http://www.idea.int/vt/
+data-source,Democracy Index (The Economist),"Economist Intelligence Unit's Democracy Index for 2008 only. Scores given for five categories of democratic performance: electoral process and pluralism, functioning of government, political participation, political culture, and civil liberties.",,,http://www.economist.com/node/12499352
+data-source,"Electoral Knowledge Network: Ace Project, Comparative Statistics","Classifies countries based on their electoral methods, over 180 countries includes. Provides the latest information.",,,http://aceproject.org/epic-en
+data-source,CIA World Factbook,Provides up-to-date U.S. government profiles of virtually all countries and territories.,,,https://www.cia.gov/library/publications/the-world-factbook/
+data-source,The World Bank Governance and Anti-Corruption Data,Data sets from the World Bank Governance group.,,,http://data.worldbank.org/indicator/IQ.CPA.TRAN.XQ
+data-source,Worldwide Governance Indicator,"Provided by the World Bank. Select an economy and generate charts and tables and have the option of comparing the results with previous years, with regional averages, or with income group averages, as well as have access to underlying individual ratings.",,,http://data.worldbank.org/data-catalog/worldwide-governance-indicators
+data-source,Angus Reid Institute Public Interest Research: Terrorism,"Concise articles describing the latest polling results and news related to terrorism from throughout the world. Use the site's ""Global Opinion Monitor"" for alternative polled topics.",,,http://angusreid.org/?s=terror
+data-source,Gallup: Terrorism in the United States,Selected poll results regarding American public’s attitude toward terrorism.,,,http://www.gallup.com/poll/4909/Terrorism-United-States.aspx
+data-source,Polling Report: Terrorism,Provides only basic results for domestic polls on terrorism.,,,http://www.pollingreport.com/terror.htm
+data-source,Perspectives on Trade and Poverty Reduction: Key Findings Report 2007,"A project of GMF’s Economic Policy program, is a survey of transatlantic public opinion on international trade, economic development, and poverty reduction. Conducted in France, Germany, Italy, Poland, Slovakia, the United Kingdom, and the United States",,,http://www.gmfus.org//static/gtr_site/2007TPSurvey-FINAL.pdf
+data-source,Transatlantic Trends: Immigration and Leaders,The German Marshall Fund of the United States has a foreign policy poll that shows how leaders' opinions differ from public opinion and a survey of public opinion in North America and Europe on the state of transatlantic relations. Last updated in 2014.,,,http://trends.gmfus.org/
+data-source,ADL Global 100: An Index of Anti-Semitism,Anti-Defamation League (ADL) presents interactive survey results of anti-Semitic attitudes held by individuals around the world.,,,http://global100.adl.org/
+data-source,The Chicago Council on Global Affairs: Public Opinion Surveys,"The Chicago Council supports regular public opinion studies focusing on global affairs and international relations. Most polling is done in the U.S., but represents Americans’ views on global issues. The Council has recently increased its support for poll",,,http://www.thechicagocouncil.org/publications?f[1]=sm_field_issue_link%3Ataxonomy_term%3A22
+data-source,"Voice of the People, 2007","Poll of social and political issues, including democracy, electoral freedom, attitudes toward society, personal political leaning, environment, global influence of major powers, and demographic information. Results from 60 countries (includes Pakistan, Tu",,,http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/21441
+data-source,World Values Survey,"Polls focusing on cultural values. This comprehensive source is commonly cited in social science literature and includes 73 countries (includes Iran, Iraq, Saudi Arabia, Pakistan, Jordan, Egypt, Morocco, Algeria, Indonesia).",,,http://www.worldvaluessurvey.org/WVSContents.jsp
+data-source,Gallup: Muslim World,Selected poll and search results regarding public attitudes in the Muslim world.,,,http://www.gallup.com/topic/muslim_world.aspx
+data-source,Terror Free Tomorrow Public Opinion Surveys,Variety of surveys of Muslim countries with access to full reports. Research focus is understanding support for terrorism.,,,http://www.terrorfreetomorrow.org/template.php?section=PL
+data-source,"Youth, Emotional Energy, and Political Violence: The Cases of Egypt and Saudi Arabia Survey, 2005","Survey explores the sociopolitical and cultural attitudes of young Egyptians and Saudis. Data focus on sources of epistemic authorities, awareness of development ideas, attitudes toward political and social issues, and religiosity.",,,http://www.thearda.com/Archive/Files/Descriptions/ARABYTH.asp
+data-source,Arab Barometer,"The Arab Democracy Barometer was established in 2005 by the Institute for Social Research of the University of Michigan in close collaboration with institutions and scholars in the Arab world. Survey results from Jordan, Palestine, Morocco, Algeria and",,,http://arabbarometer.org/
+data-source,Information International,Information International is a leading Beirut-based research consultancy firm. Provides reports with percentage results for a variety of surveys conducted in the Arab world. Most polls conducted in Lebanon and others in Saudi Arabia and Palestinian Territ,,,http://www.information-international.com/index.php/expertise/opinion-polls
+data-source,Anwar Sadat Chair: Public Opinion Polls and Reports,"Public opinion polls and reports surveying American, Israeli, Arab, and others' attitudes on current events in the Middle East from 2010 to now.",,,https://sadat.umd.edu/landing/Polls
+data-source,Israeli Public Opinion,An Israeli public opinion database by the Institute for National Security Studies (Tel Aviv).,,,http://www.inss.org.il/index.aspx?id=4414
+data-source,War and Peace Index,The War and Peace Index is an ongoing public-opinion survey project aimed at systematically tracking the prevailing trends in Israeli public opinion on the regional conflict and its effects on Israeli society. Includes poll results from 1994 to 2007.,,,http://www.tau.ac.il/peace/
+data-source,Voter Education Survey: Pakistan National and Provincial Elections 2007/2008,A survey conducted by the Asia Foundation in Pakistan. This is the latest version released.,,,http://www.asiafoundation.org/resources/pdfs/PKvoteredsurvey.pdf
+data-source,"American Terrorism Study, 1980-2002",Data collections relate specifically to acts of American terrorism from ICPSR. Note: Access for Haverford users but requires setting up an individual account.,,,http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/04639
+data-source,International Terrorism: Attributes of Terrorist Events (ITERATE),"ICPSR is one of the most comprehensive databases available. Data on global terrorist acts includes the following fields: type of attack, location of the beginning and end of the incident, terrorist group involved, casualties, fatalities; information about",,,http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/07947
+data-source,Opinion Research Business,Provides market and opinion research from over 80 countries.,,,http://www.orb-international.com/index.php
+data-source,ABC News National Poll in Iraq,"The national poll was conducted by ABC News, the BBC, ARD German TV and the Japanese broadcaster NHK in 2008. Link to the ABC News article.",,,http://abcnews.go.com/PollingUnit/story?id=4444000&page=1
+data-source,ABC News National Public Opinion Poll in Afghanistan,"A national public opinion poll in Afghanistan by ABC News, the BBC and ARD German TV from 2009. Link to ABC news article.",,,http://abcnews.go.com/PollingUnit/story?id=6787686&page=1
+data-source,Afghanistan: A Survey of the Afghan People,A poll of the Afghan people from 2004-2015 by The Asia Foundation.,,,http://www.asiafoundation.org/country/afghanistan/2011-poll.php
+data-source,Pew Forum on Religion and Public Life,Data set from U.S. survey of American Muslims and more.,,,http://www.pewforum.org/Datasets/Dataset-Download.aspx
+data-source,Pew Global Attitudes Project,Data sets from international polls 2001-2014.,,,http://www.pewglobal.org/category/datasets/
+data-source,Pew Research Center: The People and the Press Project,"Covers diverse survey topics and provides good access to datasets and questionnaires. Datasets from Pew polls taken in the United States, mostly political, some religion- or social-based poll results.Includes the following polls: The People, The Press & P",,,http://www.people-press.org/category/datasets/
+data-source,World Public Opinion,"Articles present major public opinion survey results worldwide. Generally provides comprehensive reports, few full datasets.",,,http://www.worldpublicopinion.org/
+data-source,Roper Center Public Opinion Archives,Oldest and largest archive of public opinion data in the world. Subscribers only. Full datasets available by subscription. Database search and study documentation available free.,,,http://www.ropercenter.uconn.edu/
+data-source,Public Opinion Poll Question Database,"Database from the Odum Institute at the University of North Carolina. Useful for U.S. domestic polls on standard political and social questions. ""Particular strengths include Harris Poll questions, 1958-present, questions from National Network of State Po",,,http://www.odum.unc.edu/odum/contentPrimary.jsp?nodeid=7
+data-source,Terrorism and Preparedness Survey Archive,"Archives national and international survey data and related research materials about terrorism, homeland security, and preparedness.",,,http://www.icpsr.umich.edu/icpsrweb/TPDRC/surveys.jsp
+data-source,Polling the Nations,"A multi-topic source with more than 14,000 surveys conducted by over 1,000 polling organizations in the United States and 100 other countries. Offers good topic/category search.",,,http://orspub.com/
+data-source,Perry-Castañeda Map Collection: Ethnographic Maps,Provides maps of the ethnographic and religious breakdown of populations by country.,,,http://www.lib.utexas.edu/maps/thematic.html#ethnography.html
+data-source,Historical Information and Maps of the World's Countries (OSU),"A handful of country maps, including ethno-religious distributions in Iraq and Iran, world Muslim distribution, and Muslim percentage by country. Created by The Ohio State University.",,,http://ehistory.osu.edu/countries
+data-source,Major U.S. State Department Publications,"Links to all major publications, including annual Country Reports on Terrorism, Background Notes (country profiles), Human Rights Reports, and the Religious Freedom Report.",,,http://www.state.gov/r/pa/ei/rls/dos/221.htm
+data-source,UN Pulse,"Provides selected just-released UN online information, major reports, publications and documents.",,,http://un-library.tumblr.com/
+data-source,UN Counter-Terrorism Committee,"The official website of the UN’s Counter-Terrorism Committee. Hosts documents, resolutions, history, and other information, as well as links to other UN organizations involved in counter-terrorism.",,,http://www.un.org/en/sc/ctc/
+data-source,Congressional Research Service Reports,A Google-powered search interface for CRS reports in PDF format.,,,http://zfacts.com/p/576.html
+data-source,Congressional Research Service Reports,The Open CRS site is not active at this time (starting 10/2014). This google link provides access to Open CRS PDFs of the reports previously on their site.,,,http://zfacts.com/p/576.html
+data-source,Bureau of International Security and Nonproliferation (ISN) List of Treaties and Agreements,The Bureau of International Security and Nonproliferation provides a full-text list of agreements related to their mission. The ISN is a bureau within the U.S. State Department.,,,http://www.state.gov/t/isn/trty/index.htm
+data-source,"Bureau of Arms Control, Verification and Compliance (AVC) List of Treaties and Agreements","The Bureau of Arms Control, Verification and Compliance (AVC) is a bureau within the U.S. State Department. The AVC focuses on arms control, verification and compliance with international arms control, nonproliferation, and disarmament agreements or commi",,,http://www.state.gov/t/avc/trty/index.htm
+data-source,The American Society of International Law (ASIL),Provides links to further sources of international treaty information. Includes a section on finding non-US treaties.,,,http://www.asil.org/erg/?page=treaties
+data-source,Guantánamo Docket,Database of documents and analysis about prisoners detained at Guantánamo as enemy combatants. Documents include both reports and hearings released by government agencies as well as classified documents given to WikiLeaks.,,,http://projects.nytimes.com/guantanamo
+data-source,Treaties in Force (U.S. State Department),"Divided into a bilateral list and a multilateral list, briefly describes all treaties to which the U.S. is a party.",,,http://www.state.gov/s/l/treaty/tif/index.htm
+data-source,Electronic Information System for International Law (EISIL),"Large database of basic information about international agreements, including links to the best versions of the texts available on the web.",,,http://www.eisil.org/
+data-source,United Nations Treaty Collection,Includes databases of treaties and international agreements registered or filed and recorded with and published by the Secretariat since 1946.,,,http://treaties.un.org/home.aspx
+data-source,Political Handbook of the World,Provides descriptions of significant political parties in every country.,,,http://library.cqpress.com/phw/
+data-source,Building a Global Terrorism Database,This book provides datasets on terrorist attacks in its appendices.,,,https://www.ncjrs.gov/pdffiles1/nij/grants/214260.pdf
+data-source,Islamic Para-Military Groups,Global Security provides a list of Islamic para-military groups sorted by geographic region.,,,http://www.globalsecurity.org/military/world/para/para-islamic.htm
+data-source,U.S. Government Designated Foreign Terrorist Organizations,A list and description of U.S. Government designated foreign terrorist organizations from the State Department.,,,http://www.state.gov/j/ct/rls/other/des/123085.htm
+data-source,ASN Aviation Safety Database,"The ASN Safety Database, updated every week, contains descriptions of over 12,200 airliner, military transport category aircraft and corporate jet aircraft safety occurrences since 1943.",,,http://aviation-safety.net/database/
+data-source,U.S. State Department's Country Reports on Terrorism,"U.S. law requires the Secretary of State to provide Congress, by April 30 of each year, a full and complete report on terrorism with regard to those countries and groups meeting criteria set forth in the legislation. Data in chronolgical format.",,,http://www.state.gov/j/ct/rls/crt/
+data-source,Uppsala Conflict Data Program (UCDP) Database,"The Uppsala Conflict Data Program (UCDP) collects information on a large number of aspects of armed violence since 1946 and since the 1970s, UCDP has recorded ongoing violent conflicts.",,,http://www.pcr.uu.se/research/ucdp/datasets
+data-source,Worldwide Incidents Tracking System (WITS),"The NCTC discontinued WITS in 2012. The data became part of the Global Terrorism Database (GTD), which is linked below.",,,https://www.start.umd.edu/gtd/
+data-source,Worldwide Incidents Tracking System (WITS),"The U.S. National Counterterrorism Center (U.S. Government)'s database of global terrorist acts sorted by location, weapons, victims, facilities and perpetrators. The WITS database includes data from 1/1/2004 through 3/31/2010.",,,https://www.start.umd.edu/gtd/
+data-source,Global Terrorism Database (GTD),"It includes data ""from 1970 through 2015 (with additional annual updates planned for the future). The GTD replaced WITS in 2012.",,,http://www.start.umd.edu/gtd/
+data-source,Global Terrorism Database (GTD),"The National Consortium for the Study of Terrorism and Responses to Terrorism (START) at the University of Maryland is funded by the U.S. Department of Homeland Security. GTD is an open-source database including information on over 125,000 cases.",,,http://www.start.umd.edu/gtd/
+data-source,Pro-Government Militias Database,"Whether in the Balkans, Afghanistan or the Arab Spring, pro-government militias have an important impact on conflict, on civilian well being and on the prospects for peace. The pro-government militia (PGM) project aims to increase our understanding of th	Political	http://www.sowi.uni-mannheim.de/militias/	Other	Reports/General Data
+Pro-Government Militias Database	Whether in the Balkans, Afghanistan or the Arab Spring, pro-government militias have an important impact on conflict, on civilian well being and on the prospects for peace. The pro-government militia (PGM) project aims to increase our understanding of th",,,http://www.sowi.uni-mannheim.de/militias/
+data-source,Islamic Parties,"Compilation of ""Islamic parties participating in parliamentary elections since 1970."" Created by Charles Kurzman, professor of sociology at UNC Chapel Hill.",,,http://kurzman.unc.edu/islamic-parties/
+data-source,Democracy Barometer,"The project has developed an instrument to assess the quality of democracy in 30 established democracies and to measure the fine differences that exist between them. It allows for benchmarking between established democracies and, as democracy is seen as",,,http://www.democracybarometer.org/index.html
+data-source,John Jay & ARTIS Transnational Terrorism Database,"Terrorists in our database are those who have directly contributed to the occurrence of a terrorist attack through participation in an active ""core"" network. The term transnational reflects an earlier purpose of the project, which was to extend existing d",,,http://doitapps.jjay.cuny.edu/jjatt/index.php
+data-source,"Homegrown Extremism, 2001-2015",Just how real is the “homegrown” Islamist terrorist threat? The New America Foundation and Syracuse University’s Maxwell School of Public Policy have examined the post-9/11 cases of Americans or U.S. residents convicted or charged of some form of jihadist,,,http://securitydata.newamerica.net/extremists/analysis.html
+data-source,40 maps that explain the world,"Maps can be a remarkably powerful tool for understanding the world and how it works, but they show only what you ask them to. So when we saw a post sweeping the Web titled “40 maps they didn’t teach you in school,” one of which happens to be a WorldViews",,,http://www.washingtonpost.com/blogs/worldviews/wp/2013/08/12/40-maps-that-explain-the-world/
+data-source,Amnesty International Annual Reports,Reports available in numerous languages. Simply use search bar to find the report you are looking for.,,,https://www.amnesty.org/en/search/?q=&sort=relevance&documentType=Annual+Report
+data-source,Amnesty International Annual Reports,"Reports on the status of human rights throughout the world. Report available on the Middle East and North Africa, including Algeria, Bahrain, Egypt, Iran, Iraq, Israel and the Occupied Palestinian Territories, Jordan, Kuwait, Lebanon, Libya, Morocco, etc",,,https://www.amnesty.org/en/search/?q=&sort=relevance&documentType=Annual+Report
+data-source,Congressional Research Service Reports (CRS) and Issue Briefs,"This source does not include all of the CRS reports, as the CRS works exclusively for the US Congress and does not make its reports available to the public.",,,http://fpc.state.gov/c22679.htm
+data-source,Congressional Research Service Reports (CRS) and Issue Briefs,"U.S. Department of State's list of ""Congressional Research Service Reports (CRS) and Issue Briefs sorted by date."" This source includes those reports and briefs which the US Department of State finds relevant to make publicly available.",,,http://fpc.state.gov/c22679.htm
+data-source,Council on Foreign Relations: The Sunni-Shia Divide,"This interactive, multi-media data set discusses the Sunni-Shia divide. It covers numerous aspects including,""origins of the schism, modern tensions,"" faith practices, ""sectarian militants,"" and more.",,,http://www.cfr.org/peace-conflict-and-human-rights/sunni-shia-divide/p33176#!/#sectarian-militants
+data-source,International Security Data Site,"New America’s International Security Program is focused on providing evidence-based analysis of international security issues,including the rise of political Islam, U.S. counterterrorism operations, and cyber warfare.",,,http://securitydata.newamerica.net/index.html
+data-source,International Security Data Site,This data site houses all of the databases that the program has compiled in its effort to bring greater transparency to such issues.,,,http://securitydata.newamerica.net/index.html
+data-source,Arab Spring Interactive Timeline,"The Guardian's interactive timeline of the Arab Spring that controls for country of event, type of event, and date. Ranges from December 2010- December 2011.",,,http://www.theguardian.com/world/interactive/2011/mar/22/middle-east-protest-interactive-timeline
+data-source,ILOSTAT Database,ILO’s central statistics database ILOSTAT. The database includes information about over 230 countries and economies.,,,http://www.ilo.org/ilostat/faces/oracle/webcenter/portalapp/pagehierarchy/Page137.jspx?_afrLoop=204504904870285&clean=true#%40%3F_afrLoop%3D204504904870285%26clean%3Dtrue%26_adf.ctrl-state%3D15p6jyqb1u_9
+data-source,World Bank Open Data,The database provides free and open data on issues global development.,,,http://data.worldbank.org/
+data-source,"Drone Strikes Data: Charting the data for US airstrikes in Pakistan & Yemen, 2002-2016","The Long War Journal provides charts with data on casualties, targets, and locations of US airstrikes in Pakistan and Yemen. Regularly updated.",,,http://www.longwarjournal.org/pakistan-strikes
+data-source,Arab Barometer,"Reports and surveys cover civilian responses to the meaning of democracy, economic concerns, citizenship and rights, the role of religion and social values, perceptions of public institutions, and Arab and international issues.",,,http://www.arabbarometer.org/content/about-center
+data-source,15 Years of Terror Map,Map of terrorist incidents with more than 20 fatalities from 2000 to 2015.,,,http://brilliantmaps.com/terrorism-world-map/
+data-source,The Global Extremist Registry,The Counter Extremism Project maintains a database of the leadership and financiers of extremist groups around the globe and country extremism and counter-extremism reports and much more.,,,http://www.counterextremism.com/extremists
+data-source,Uppsala Conflict Data Program,"Provides up-to-date statistics on armed conflict around the world. Includes a database, datasets, and reports.",,,http://www.pcr.uu.se/research/ucdp/
+data-source,Congressional Research Service Reports (CRS) and Issue Briefs,"Read the U.S. Department of State's CRS and issue briefs organized by date, region, and topic, including topics of terrorism and counterterrorism.",,,http://fpc.state.gov/c20427.htm
+data-source,Suicide Attack Database,"CPOST's database on all suicide attacks from 1982-2015 with information about attack locations, targets, weapons, and demographic/general characteristics of suicide attackers.",,,http://cpostdata.uchicago.edu/search_new.php
+data-source,Ethnic Power Relations Dataset,"This dataset ""identifies all politically relevant ethnic groups and their access to state power in every country of the world from 1946 to 2010.""",,,http://www.epr.ucla.edu/
+data-source,Ethnic Armed Conflict Dataset,"This dataset ""is based on the armed conflict dataset established by Uppsala/PRIO and additionally codes whether conflicts were ethnic and/or secessionist.""",,,http://www.epr.ucla.edu/
+data-source,Liveuamap,"Interactive news media platform. Includes maps, messages, pictures and videos from conflict zones around the world.",,,http://mideast.liveuamap.com/
+data-source,Global Governance Monitor,"The Council on Foreign Relations tracks global cooperation and recommends policy options regarding armed conflict, crime, nuclear proliferation, global finance, oceans, climate change, public health, terrorism, human rights, & the internet.",,,http://www.cfr.org/global-governance/global-governance-monitor/p18985#!/
+data-source,Global Conflict Tracker,"The Council on Foreign Relations tracks global conflicts, their statuses, and their impacts on US interests.",,,http://www.cfr.org/global/global-conflict-tracker/p32137#!/
+data-source,Freedom of Information Act Electronic Reading Room (CIA),The CIA's FOIA ERR houses many declassified government documents.,,,https://www.cia.gov/library/readingroom/
+jihadi-magazines,Amka Magazine #1,"First issue of al-Muhajiroun Emigrants in East Africa's magazine, Amka. Published in February 2015.",,Al-Muhajiroun Emigrants of East Africa,https://azelin.files.wordpress.com/2015/02/amka-magazine-1.pdf
+jihadi-magazines,Amka Magazine #1,Released by jihadology.net,,Al-Muhajiroun Emigrants of East Africa,https://azelin.files.wordpress.com/2015/02/amka-magazine-1.pdf
+jihadi-magazines,Amka Magazine #2,"Second issue of al-Muhajiroun Emigrants in East Africa's magazine, Amka. Published in July 2015.",,Al-Muhajiroun Emigrants of East Africa,https://azelin.files.wordpress.com/2015/07/amka-magazine-2.pdf
+jihadi-magazines,Amka Magazine #2,Released by jihadology.net,,Al-Muhajiroun Emigrants of East Africa,https://azelin.files.wordpress.com/2015/07/amka-magazine-2.pdf
+jihadi-magazines,Inspire Magazine #1,"First issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Summer 2010.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2010/06/aqap-inspire-magazine-volume-1-uncorrupted.pdf
+jihadi-magazines,Inspire Magazine #1,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2010/06/aqap-inspire-magazine-volume-1-uncorrupted.pdf
+jihadi-magazines,Inspire Magazine #2,"Second issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Fall 2010",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2010/10/inspire-magazine-2.pdf
+jihadi-magazines,Inspire Magazine #2,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2010/10/inspire-magazine-2.pdf
+jihadi-magazines,Inspire Magazine #3,"Third issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in November 2010",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2010/11/inspire-magazine-3.pdf
+jihadi-magazines,Inspire Magazine #3,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2010/11/inspire-magazine-3.pdf
+jihadi-magazines,Inspire Magazine #4,"Fourth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Winter 2010",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/01/inspire-magazine-4.pdf
+jihadi-magazines,Inspire Magazine #4,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/01/inspire-magazine-4.pdf
+jihadi-magazines,Inspire Magazine #5,"Fifth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Spring 2011.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/03/inspire-magazine-5.pdf
+jihadi-magazines,Inspire Magazine #5,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/03/inspire-magazine-5.pdf
+jihadi-magazines,Inspire Magazine #6,"Sixth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Summer 2011",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/09/inspire-magazine-6.pdf
+jihadi-magazines,Inspire Magazine #6,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/09/inspire-magazine-6.pdf
+jihadi-magazines,Inspire Magazine #7,"Seventh issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Fall 2011.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/09/inspire-magazine-7.pdf
+jihadi-magazines,Inspire Magazine #7,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2011/09/inspire-magazine-7.pdf
+jihadi-magazines,Inspire Magazine #8,"Eighth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Fall 2011.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2012/05/inspire-magazine-8.pdf
+jihadi-magazines,Inspire Magazine #8,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2012/05/inspire-magazine-8.pdf
+jihadi-magazines,Inspire Magazine #9,"Ninth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Winter 2012.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2012/05/inspire-magazine-9.pdf
+jihadi-magazines,Inspire Magazine #9,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2012/05/inspire-magazine-9.pdf
+jihadi-magazines,Inspire Magazine #10,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2013/03/inspire-magazine-issue-10.pdf
+jihadi-magazines,Inspire Magazine #10,"Tenth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Spring 2013.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2013/03/inspire-magazine-issue-10.pdf
+jihadi-magazines,Inspire Magazine #11,"Eleventh issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Spring 2013.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2013/05/inspire-magazine-issue-11.pdf
+jihadi-magazines,Inspire Magazine #11,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2013/05/inspire-magazine-issue-11.pdf
+jihadi-magazines,Inspire Magazine #12,Released by jihadology.net,,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2014/04/inspire-magazine-issue-12.pdf
+jihadi-magazines,Inspire Magazine #12,"Twelfth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Spring 2014.",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2014/04/inspire-magazine-issue-12.pdf
+jihadi-magazines,Inspire Magazine #13,"Thirteenth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Winter 2014, Released by jihadology.net",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2015/09/inspire-magazine-issue-13.pdf
+jihadi-magazines,Inspire Magazine #14,"Fourteenth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Summer 2015, Released by jihadology.net",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2015/09/inspire-magazine-14.pdf
+jihadi-magazines,Inspire Magazine #15,"Fifteenth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Spring 2016, Released by pietervanostaeyen.com",,Al-Qaeda in the Arabian Peninsula,https://pietervanostaeyen.files.wordpress.com/2016/05/inspire-spring-2016.pdf
+jihadi-magazines,Inspire Magazine #16,"Sixteenth issue of al-Malahem Media's Al-Qaeda in the Arabian Peninsula magazine, Inspire. Published in Autumn 2016 , Released by jihadology.net",,Al-Qaeda in the Arabian Peninsula,https://azelin.files.wordpress.com/2016/11/inspire-magazine-16.pdf
+jihadi-magazines,Resurgence Magazine #1,"First issue of As-Sahab Media Subcontinent's magazine, Resurgence. Published in Fall 2014.",,Al-Qaeda in the Indian Subcontinent,https://azelin.files.wordpress.com/2015/04/resurgence-1.pdf
+jihadi-magazines,Resurgence Magazine #1,Released by jihadology.net,,Al-Qaeda in the Indian Subcontinent,https://azelin.files.wordpress.com/2015/04/resurgence-1.pdf
+jihadi-magazines,Resurgence Magazine #2,Released by jihadology.net,,Al-Qaeda in the Indian Subcontinent,https://azelin.files.wordpress.com/2015/06/al-qc481_idah-e2809cresurgence-2e280b3.pdf
+jihadi-magazines,Resurgence Magazine #2,"Second issue of As-Sahab Media Subcontinent's magazine, Resurgence. Published in Summer 2015",,Al-Qaeda in the Indian Subcontinent,https://azelin.files.wordpress.com/2015/06/al-qc481_idah-e2809cresurgence-2e280b3.pdf
+jihadi-magazines,Dabiq Magazine #1,"First issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2014/07/islamic-state-22dc481biq-magazine-122.pdf
+jihadi-magazines,Dabiq Magazine #1,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2014/07/islamic-state-22dc481biq-magazine-122.pdf
+jihadi-magazines,Dabiq Magazine #2,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2014/07/islamic-state-e2809cdc481biq-magazine-2e280b3.pdf
+jihadi-magazines,Dabiq Magazine #2,"Second issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2014/07/islamic-state-e2809cdc481biq-magazine-2e280b3.pdf
+jihadi-magazines,Dabiq Magazine #3,Released by clarionproject.org,,ISIS,http://media.clarionproject.org/files/09-2014/isis-isil-islamic-state-magazine-Issue-3-the-call-to-hijrah.pdf
+jihadi-magazines,Dabiq Magazine #3,"Third issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,http://media.clarionproject.org/files/09-2014/isis-isil-islamic-state-magazine-Issue-3-the-call-to-hijrah.pdf
+jihadi-magazines,Dabiq Magazine #4,"Fourth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-422.pdf
+jihadi-magazines,Dabiq Magazine #4,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-422.pdf
+jihadi-magazines,Dabiq Magazine #5,"Fifth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-522.pdf
+jihadi-magazines,Dabiq Magazine #5,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-522.pdf
+jihadi-magazines,Dabiq Magazine #6,"Sixth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-622.pdf
+jihadi-magazines,Dabiq Magazine #6,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-622.pdf
+jihadi-magazines,Dabiq Magazine #7,"Seventh issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-722.pdf
+jihadi-magazines,Dabiq Magazine #7,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2015/02/the-islamic-state-e2809cdc481biq-magazine-722.pdf
+jihadi-magazines,Dabiq Magazine #8,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2015/03/the-islamic-state-e2809cdc481biq-magazine-8e280b3.pdf
+jihadi-magazines,Dabiq Magazine #8,"Eighth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2015/03/the-islamic-state-e2809cdc481biq-magazine-8e280b3.pdf
+jihadi-magazines,Dabiq Magazine #9,Released by jihadology.net,,ISIS,https://azelin.files.wordpress.com/2015/05/the-islamic-state-e2809cdc481biq-magazine-9e280b3.pdf
+jihadi-magazines,Dabiq Magazine #9,"Ninth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq.",,ISIS,https://azelin.files.wordpress.com/2015/05/the-islamic-state-e2809cdc481biq-magazine-9e280b3.pdf
+jihadi-magazines,Dabiq Magazine #10,"Tenth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq., Released by jihadology.net",,ISIS,https://azelin.files.wordpress.com/2015/07/the-islamic-state-e2809cdc481biq-magazine-1022.pdf
+jihadi-magazines,Dabiq Magazine #11,"Eleventh issue in English of al-Hayat Media Center's ISIS magazine, Dabiq., Released by jihadology.net",,ISIS,https://azelin.files.wordpress.com/2015/09/the-islamic-state-e2809cdc481biq-magazine-11e280b3.pdf
+jihadi-magazines,Dabiq Magazine #12,"Twelfth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq., Released by jihadology.net",,ISIS,https://azelin.files.wordpress.com/2015/11/the-islamic-state-e2809cdc481biq-magazine-12e280b3.pdf
+jihadi-magazines,Dabiq Magazine #13,"Thirteenth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq., Released by pietervanostaeyen.com",,ISIS,https://pietervanostaeyen.files.wordpress.com/2015/04/dabiq-13.pdf
+jihadi-magazines,Dabiq Magazine #14,"Fourteenth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq., Released by pietervanostaeyen.com",,ISIS,https://pietervanostaeyen.files.wordpress.com/2015/04/dabiq-14.pdf
+jihadi-magazines,Dabiq Magazine #15,"Fifteenth issue in English of al-Hayat Media Center's ISIS magazine, Dabiq., Released by jihadology.net",,ISIS,https://azelin.files.wordpress.com/2016/07/the-islamic-state-e2809cdacc84biq-magazine-1522.pdf
+jihadi-magazines,Rumiyah Magazine #1,"First issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in September 2016. Released by pietervanostaeyen.com.",,ISIS,https://pietervanostaeyen.files.wordpress.com/2016/09/rumiyah1eng.pdf
+jihadi-magazines,Rumiyah Magazine #2,"Second issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in October 2016. Released by pietervanostaeyen.com.",,ISIS,https://pietervanostaeyen.files.wordpress.com/2016/10/rumiyah-02-english.pdf
+jihadi-magazines,Rumiyah Magazine #3,"Third issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in November 2016. Released by pietervanostaeyen.com.",,ISIS,https://pietervanostaeyen.files.wordpress.com/2016/11/rumiyah3en.pdf
+jihadi-magazines,Rumiyah Magazine #4,"Fourth issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in December 2016. Released by jihadology.net.",,ISIS,http://jihadology.net/2016/12/07/new-release-of-the-islamic-states-magazine-rome-4/
+jihadi-magazines,Rumiyah Magazine #5,"Fifth issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in January 2017. Released by jihadology.net.",,ISIS,http://jihadology.net/2017/01/06/new-release-of-the-islamic-states-magazine-rome-5/
+jihadi-magazines,Rumiyah Magazine #6,"Sixth issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in February 2017. Released by pietervanostaeyen.com.",,ISIS,https://pietervanostaeyen.files.wordpress.com/2017/02/rumiyah-issue-6.pdf
+jihadi-magazines,Rumiyah Magazine #7,"Seventh issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in March 2017. Released by jihadology.net.",,ISIS,https://azelin.files.wordpress.com/2017/03/rome-magazine-7.pdf
+jihadi-magazines,Rumiyah Magazine #8,"Eighth issue of al-Hayat Media Center's English-language ISIS magazine, Rumiyah, (aka Rome). Published in April 2017. Released by jihadology.net.",,ISIS,https://azelin.files.wordpress.com/2017/04/rome-magazine-8.pdf
+jihadi-magazines,Al Risalah Magazine #1,Released by Pieter Van Ostaeyen.,,Jabhat al-Nusra,https://pietervanostaeyen.files.wordpress.com/2015/07/al-risalah-issue-1-desktop.pdf
+jihadi-magazines,Al Risalah Magazine #1,"First issue of Muhajideen in Bilad ash Shaam's magazine, Al Risalah Magazine. Published in July 2015.",,Jabhat al-Nusra,https://pietervanostaeyen.files.wordpress.com/2015/07/al-risalah-issue-1-desktop.pdf
+jihadi-magazines,Al Risalah Magazine #2,"Second issue of Muhajideen in Bilad ash Shaam's magazine, Al Risalah Magazine. Published in October 2015., Released by Pieter Van Ostaeyen.",,Jabhat al-Nusra,https://pietervanostaeyen.files.wordpress.com/2015/10/al-risalah-issue-2.pdf
+jihadi-magazines,Al Risalah Magazine #3,"Third issue of Muhajideen in Bilad ash Shaam's magazine, Al Risalah Magazine. Published in August 2016., Released by Pieter Van Ostaeyen",,Jabhat al-Nusra,https://pietervanostaeyen.files.wordpress.com/2016/08/al-risalah-issue-3.pdf
+jihadi-magazines,Al Risalah Magazine #4,"Fourth issue of Muhajideen in Bilad ash Shaam's magazine, Al Risalah Magazine. Published on January 10, 2017., Released by Pieter Van Ostaeyen",,Jabhat al-Nusra,https://pietervanostaeyen.files.wordpress.com/2017/01/risalah4.pdf
+jihadi-magazines,Al Risalah Magazine: Exclusive Interview with Shaykh al-Mujahid Hisham Abu Akram,"Special issue of Muhajideen in Bilad ash Shaam's magazine, Al Risalah Magazine. Published on January 13, 2017., Released by Pieter Van Ostaeyen.",,Jabhat al-Nusra,https://pietervanostaeyen.files.wordpress.com/2017/01/interviewaqim.pdf
+journal-indexes,Index Islamicus,"Offers citations to literature on Islam, the Middle East and Muslim areas of Asia and Africa, and Muslim minorities elsewhere. Includes citations to journal articles, conference proceedings, books, and book reviews from 1906 to present.",,,https://tripod.brynmawr.edu/find/Record/.b2641714
+journal-indexes,Worldwide Political Science Abstracts,"Provides citations and abstracts of journals in political science and related fields including international relations, law, and public administration/policy. Covers 1975-present. Note: Proquest subscription required.",,,http://search.proquest.com/wpsa/advanced
+journal-indexes,Post 9/11 Articles from American Political Science Association Journals,"These archives contain selected articles for public view from the APSA journals American Political Science Review, PS: Political Science & Politics, and Perspectives on Politics.",,,http://www.apsanet.org/content_13152.cfm
+journal-indexes,Middle East Research and Information Project,Offers pervious issues of Middle East Research. Note: Requires subscription but is available for Haverford students.,,,http://www.merip.org/mer/mer216/216_zalman.html?ip_login_no_cache=c086d4bd8a2ca873effdafd7de4e1bc6
+journal-indexes,Freedom of Information Act Electronic Reading Room,"Declassified articles from Studies in Intelligence, the CIA's In-House Journal",,,https://www.cia.gov/library/readingroom/
+news,Marc Lynch's Website,An Arabic international newspaper headquartered in London. Note: Known for its support of the Saudi government.,,,http://www.marclynch.com/category/articles/
+news,Counter Extremism Project News & Media,"The Council on Foreign Relations (CFR) is an independent, nonpartisan membership organization, think tank, and publisher. Provides the latest updates and analyses of world events.",,,http://www.counterextremism.com/news-and-media
+news,Russia-Eurasia Terror Watch (RETWA),"Contains hundreds of international news items. Material is obtained from non-U.S. open-source political speeches, television programs, radio broadcasts, newspaper articles, periodicals, and books. Discontinued in 2013. Subscription required.",,,http://www.retwa.com/
+news,The Long War Journal,"Provides concise, translated,daily briefs covering some of the key political, cultural, economic and opinion pieces appearing via the print, radio and television media of the 22 Arab countries, Iran and the Arab Diaspora. Covers 2005-",,,http://www.longwarjournal.org/
+news,Foreign Policy's AfPak Channel,"Gregory Johnsen (Near Eastern Studies Department, Princeton) writes this blog.",,,http://afpak.foreignpolicy.com/
+news,United Nations Wire,"This blog is written by Aaron Zelin, a research assistant in the department of politics at Brandeis University.",,,https://www.smartbrief.com/un_wire/index.jsp
+news,United Nations News Service,Jihadica.com covers current developments in Jihadism. Contributors are intelligence experts and research fellows in political science and defense studies.,,,http://www.un.org/News/
+news,News Bank,"Jarret Brachman, an academic and consultant, writes this blog. Last updated May 2013.",,,http://infoweb.newsbank.com/iw-search/we/Static/?p_product=Breaking&f_location=breaking&p_theme=current&p_action=list&p_nbid=P50X49RCMTMwNzk3OTE0MC42OTk1NTI6MToxMzoxNjUuODIuMTU4LjQ1
+news,Al-Jazeera,Commentary from a group of experts. Last post was 3/11/2011.,,,http://www.aljazeera.com/
+news,Asharq al-Awsat Newspaper,"A critical view of the War on Terror by a former counter-terrorism analyst, Leah Farrall.",,,http://www.aawsat.net/
+news,Council on Foreign Relations,"This is a blog from the Center for New American Security and is dedicated to ""contemporary insurgencies as well as counterinsurgency tactics and strategy."" Last updated July 15, 2013.",,,cfr.org
+news,World News Connection,A blog maintained by Pieter Van Ostaeyen that tries to give an objective view of international jihadism.,,,http://wnc.eastview.com/
+news,MideastWire.com,"Aymenn Jawad Al-Tamimi is a student at Brasenose College, Oxford University, and a Shillman-Ginsburg Fellow at the Middle East Forum.",,,http://www.mideastwire.com/
+news,"Waq al-Waq: Yemen, the Middle East, and the World Beyond",University of Michigan's collection of online newspapers from the Middle East (note that many are in Arabic).,,,http://bigthink.com/blogs/waq-al-waq
+news,Jihadology: A Clearinghouse for Jihadi Primary Source Material,,,,http://jihadology.net/
+news,Jihadica,,,,http://www.jihadica.com/
+news,Cronus,,,,http://jarretbrachman.net/
+news,Counterterrorism Blog,,,,http://counterterrorismblog.org/
+news,The Blog Formerly Known as All Things Counter Terrorism,,,,http://allthingscounterterrorism.com/
+news,Abu Muqawama,,,,http://www.cnas.org/blogs/abu-muqawama
+news,"pietervanostaeyen: Musings on Arabism, Islamicism, History and current affairs",,,,https://pietervanostaeyen.wordpress.com/
+news,Aymenn Jawad Al-Tamimi,,,,http://www.aymennjawad.org/
+news,Arab World News Sources,,,,http://guides.lib.umich.edu/c.php?g=282772&p=1884165
+research,"Georgetown University Library: Government, Law, Politics, & International Affairs","A research portal and guide for issues regarding government, law, politics, international affairs, Islam, and more.",,,http://guides.library.georgetown.edu/?mastersubject_id=8
+research,UN Human Rights Resources,Portal for human rights documents and organizations within the UN system.,,,http://www.un.org/en/rights/index.shtml
+research,Center for Security Studies (CSS): Resources,Previously called the International Relations and Security Network (ISN). A comprehensive database of global research organizations in international relations and security policy with descriptions and links.,,,http://www.isn.ethz.ch/isn/Digital-Library/IR-Directory
+research,"Jihad, War, Terrorism, and Peace in Islam","Megasite page intended for student use. Includes numerous links to studies, speeches, translations, and multimedia sources.",,,http://islam.uga.edu/jihad.html
+research,Resources: Datasets on Jihadism,"A ""list of sources for quantitative information on Jihadist terrorism."" Sources are divided according to whether they focus on individuals or incidents related to jihad. Many data sets contained within reports, while some directly link to data.",,,http://andrewzammit.org/2013/07/26/resources-datasets-on-jihadism-updated/
+research,World Bank E-Library,"Online search portal for over 4,500 World Bank documents. Includes over 1,800 World Bank publications and over 2,700 policy research working papers. Topics covered include: poverty reduction, development, finance, economics, education, legal and judicial",,,http://elibrary.worldbank.org/
+research,Digital National Security Archive,"Contains declassified government documents covering U.S. policy toward critical world events – including their military, intelligence, diplomatic and human rights dimensions – from 1945 to the present",,,http://search.proquest.com/dnsa?accountid=11321
+sites,World Military Guide,"Information on military conflicts and organizational structure easily divided into regions, states, and topics.",,,http://www.globalsecurity.org/military/world/index.html
+sites,Global Policy Forum,"Global Policy Forum is an independent policy watchdog that monitors the work of the United Nations and scrutinizes global policymaking. GPF works particularly on the UN Security Council, the food and hunger crisis, and the global economy.",,,http://www.globalpolicy.org/home.html
+sites,Centre for the Study of Violence and Reconciliation,"CSVR is a multi-disciplinary institute involved in research, policy formation, community interventions, service delivery, education and training, as well as providing consultancy services.",,,http://www.csvr.org.za/
+sites,Human Rights Data Analysis Group,Benetech Human Rights Data Analysis Group (HRDAG) designs and builds information management solutions and conducts statistical analysis on behalf of human rights projects.,,,https://hrdag.org/
+sites,Brookings Institution,"The Brookings Institution is a nonprofit public policy organization based in Washington, DC.",,,http://www.brookings.edu/research
+sites,Defense and Security,"The Carnegie Endowment for International Peace ""assess the global war on terror, focusing in particular on promising counter-radicalization programs that aim to rehabilitate former radicals and, ultimately, prevent radicalization.""",,,http://carnegieendowment.org/topic/1282
+sites,WMD & CBRN Terrorism Topic,"The Homeland Security Policy Institute at George Washington University ""has long offered key observations and recommendations aimed at enhancing our government-wide capabilities to prevent, plan for, respond to, and manage the consequences of Weapons of M",,,http://homelandsecurity.gwu.edu/wmd-cbrn-terrorism
+sites,Violent Intranational Political Conflict and Terrorism Research Laboratory (VIPCAT),"The lab was established in June of 2007 by a grant from the US Department of Homeland Security to facilitate inquiry into the causes and consequences of violent political conflict and terrorism. The lab was moved and re-established at the College of Will	https://www.wm.edu/offices/itpir/vipcat/index.php
+Demos Radicalisation and Extremism Programme	The research explores how civil society and government can work to reduce the threat of radicalisation and violent extremism.""",,,http://www.demos.co.uk/research-area/radicalisation-extremism/
+sites,US-Russia Initiative to Prevent Nuclear Terrorism,"The US-Russia Initiaitve to Prevent Nuclear Terrorism is a project of the Belfer Center for Science and International Affairs at the Harvard University Kennedy School of Government. ""The US-Russia Initiative to Prevent Nuclear Terrorism seeks to increase",,,http://belfercenter.ksg.harvard.edu/project/62/usrussia_initiative_to_prevent_nuclear_terrorism.html
+sites,Triangle Center on Terrorism and Homeland Security (TCTHS),"The Triangle Center on Terrorism and Homeland Security (TCTHS) is a collaborative effort between Duke University, the University of North Carolina at Chapel Hill and RTI International to enhance the understanding of terrorism and the means to combat it t	http://tcths.sanford.duke.edu/
+Terrorism Research Center	The Terrorism Research Center in Fulbright College (TRC) was created in 2003 to facilitate research on terrorism, extremist violence, and the effectiveness of intervention strategies.""",,,http://trc.uark.edu/
+sites,Terrorist Media Project,The Terrorist Media Project is an initiative of the Foundation for Defense of Democracies.,,,http://www.defenddemocracy.org/issues/terrorist-media/
+sites,Terrorism Issue,The Institute of Peace & Conflict Studies provides articles on issues related to terrorism.,,,http://www.ipcs.org/issues/terrorism/
+sites,Terrorism and Crime Studies,The Federal Research Division provides reports on terrorism and crime studies.,,,http://www.loc.gov/rr/frd/terrorism.html
+sites,Terrorism and National Security,"Terrorism & National Security is a project by the Nelson Center for International and Public Affairs at James Madison University. The Institute ""seeks not only to analyze specific terrorist threats, but also to understand the historical, cultural, philoso",,,http://www.jmu.edu/nelsoninstitute/terror.htm
+sites,"Terrorism, Trasnational Crime and Corruption Center (TraCCC)","TraCCC is a research center within the School of Public Policy at George Mason University. TraCCC is the first center in the United States devoted to understanding the links among terrorism, transnational crime and corruption, and to teach, research, tra	http://policy-traccc.gmu.edu/
+Stein Program on Counterterrorism and Intelligence	The Washington Institute promotes an American engagement in the Middle East committed to strengthening alliances, nurturing friendships, and promoting security, peace, prosperity, and democracy for the people of the region.""",,,http://www.washingtoninstitute.org/about/research-programs/stein-program-on-counterterrorism-and-intelligence/
+sites,Project Fikra,"Project Fikra is an initiative of the Washington Institute for Near East Policy. The Institute ""promotes an American engagement in the Middle East committed to strengthening alliances, nurturing friendships, and promoting security, peace, prosperity, and",,,http://www.washingtoninstitute.org/about/research-programs/project-fikra/
+sites,Program on International Terrorism at Elcano Royal Institute,"The Elcano Royal Institute (Real Instituto Elcano) is ""a forum for analysis and debate on international affairs and particularly on Spain’s international relations.""",,,http://www.realinstitutoelcano.org/wps/portal/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3jjYB8fnxBnR19TE2e_kEAjCycjAwgAykdiynuHGsLkydDtQaxuP4_83FT9gtzQiHJHRUUAi0bHtg!!/dl3/d3/L2dJQSEvUUt3QS9ZQnZ3LzZfM1NMTExUQ0FNNTRDTlRRMjNWMTAwMDAwMDA!/
+sites,"Philippine Institute for Peace, Violence and Terrorism Research (PIPVTR)","The PIPVTR is ""dedicated to the study of political violence and terrorism and their implications for peace and security.""",,,http://www.pipvtr.com/pipvtr/index.php?section=1
+sites,National Terrorism Preparedness Institute,"NTPI aims to provide education and training for our Nation in terrorism awareness and emergency preparedness, response, and recovery.",,,http://terrorism.spcollege.edu/
+sites,National Center for Risk and Economic Analysis of Terrorism Events (CREATE),"Established in 2004, CREATE is an interdisciplinary national research center based at the University of Southern California, funded by the U.S. Department of Homeland Security. The Center is focused on risk and economic analysis of the U.S. and comprises	http://create.usc.edu/
+Monterey Terrorism Research and Education Program (MonTREP)	MonTREP at the Monterey Institute of International Studies is a research and educational component of the Graduate School of International Policy Studies that conducts in-depth research, assesses policy options, and engages in public education on issues",,,http://montrep.miis.edu/
+sites,Competing Visions for Syria and Iraq: The Myth of an anti-ISIS Grand Coalition,Part 2 of 3 installments of ISW and CTP's report for the U.S. grand strategy in destroying ISIS and al-Qaeda,,,http://post.understandingwar.org/report/competing-visions-syria-and-iraq-myth-anti-isis-grand-coalition-0
+sites,Jabhat al-Nusra and ISIS: Sources of Strength,Part 3 of 3 installments of ISW and CTP's report for the U.S. grand strategy in destroying ISIS and al-Qaeda,,,http://post.understandingwar.org/report/jabhat-al-nusra-and-isis-sources-strength
+sites,Maritime Terrorism Research Center,"MaritimeTerrorism.com is your gateway to Maritime Terrorism, Maritime Security and Maritime Transport Security information.",,,http://www.maritimeterrorism.com/
+sites,Mackenzie Institute,"Founded in 1986 in Toronto, the Mackenzie Institute is an independent non-profit organization concerned with issues related to political instability and organized violence. This includes such matters as terrorism, political extremism, warfare and organiz	http://www.mackenzieinstitute.com/
+International Centre for the Study of Radicalisation (ICSR)	The aim and mission of ICSR is to educate the public in relation to diplomacy and strategy, public administration and policy, security and counter-terrorism and international conflict resolution. Within this area, we also educate on issues relating to po",,,http://www.icsr.info/
+sites,Al Qaeda and ISIS: Existential Threats to the U.S. and Europe,Part 1 of 3 installments of ISW and CTP's report for the U.S. grand strategy in destroying ISIS and al-Qaeda,,,http://www.understandingwar.org/report/al-qaeda-and-isis-existential-threats-us-and-europe
+sites,International Center for the Study of Terrorism (ICST),The mission of ICST is to engage in and promote the scientific study of terrorism. It was discontinued in 2013.,,,http://sites.psu.edu/icst/
+sites,International Center for Terrorism Studies (ICTS),"The Potomac Institute for Policy Studies established the ICTS in 1998 to ""address the extensive issues surrounding the ever increasing anxiety of modern-day terrorism.""",,,http://www.potomacinstitute.org/academic-centers/international-center-for-terrorism-studies-icts
+sites,International Association for Counterterrorism and Security Professionals (IACSP),"IACSP's goals include ""creating a center of information and educational services for those concerned about the challenges now facing all free societies, and promoting professional ethics in the counterterrorism field.""",,,http://www.iacsp.com/main.php
+sites,Inter-American Committee Against Terrorism (CICTE),"The main purpose of the Inter-American Committee against Terrorism (CICTE) is to promote and develop cooperation among Member States to prevent, combat and eliminate terrorism.",,,http://www.oas.org/en/sms/cicte/default.asp
+sites,Institute for National Security and Counterterrorism (INSCT),"The Institute for National Security and Counterterrorism (INSCT) at Syracuse University provides cutting-edge interdisciplinary research, graduate-level education, and public service on law and policy challenges related to national and international secu	http://insct.syr.edu/
+Center for the Middle East Programs at the Baker Institute for Public Policy	Contains publications regarding the Israeli-Palestinian conflict, US-Iranian relations, and women, economics, and Islamic Movements in the Middle East.	http://bakerinstitute.org/center-for-the-middle-east/center-middle-east-programs/
+Center for Cyber and Homeland Security (CCHS) Homegrown Terror & Radicalization Topic	Based at George Washington University, the center integrates the Homeland Security Policy Institute & GW's cyber security initiative to research factors leading individuals to become radicalized and violent.	http://homelandsecurity.gwu.edu/homegrown-terror-radicalization
+Foreign Policy and Security	Foreign Policy and Security is a National Security Issue at the Center for American Progress. 	http://americanprogress.org/issues/terrorism/view/
+Global Terrorism Research Centre (GTReC)	GTReC emerged out of the multidisciplinary Global Terrorism Research Unit, which formed in 2002, and was officially established in 2006 with seed funding from the Department of Premier and Cabinet, State Government of Victoria, as a part of its $5.6 mill",,,http://artsonline.monash.edu.au/gtrec/
+sites,ISW Resources on Jabhat al-Nusra: Al-Qaeda's Syria Affiliate,"ISW's Jabhat al-Nusra reports on its goals, power relations, relations with ISIS, the US, the civil war, and local dynamics in Syria.",,,http://www.understandingwar.org/backgrounder/isw-resources-jabhat-al-nusra-al-qaedas-syrian-affiliate
+sites,Institute for the Study of War,"ISW provides research, maps, and data on Iraq, Syria, ISIS, Afghanistan, the Ukraine, and topics of Middle East security.",,,http://www.understandingwar.org/
+sites,Country Reports: Extremism and Counter-Extremism,"Counter Extremism Project’s Areas of Operation map includes comprehensive reports detailing the history of extremist movements, major terror attacks, and counter-extremism measures country by country.",,,http://www.counterextremism.com/countries
+sites,Consortium for Strategic Communication (CSC),"CSC is an initiative of the Hugh Downs School of Human Communication in cooperation with the File and Media Studies Program at Arizona State University. It is composed of an interdisciplinary group of scholars at ASU and partner institutions who are inte	http://csc.asu.edu/
+Transnational Threats Project	CSIS's Transnational Threats Project assesses terror, insurgent, and criminal networks and the impact of government responses through targeted field work and an extensive network of specialists. TNT hosts various sub-projects related to global threats.	https://www.csis.org/programs/transnational-threats-project
+Chicago Project on Security and Terrorism	The Chicago Project on Security and Terrorism, directed by Robert A. Pape of the University of Chicago, supports broad-based, original research on terrorism and international security.""",,,http://cpost.uchicago.edu/index.php
+sites,Center for Strategic and International Studies (CSIS),"A research organization analyzing political strategies regarding cybersecurity, defense, economics, human rights, energy & sustainability, global health, and international development.",,,https://www.csis.org/
+sites,Center for the Study of Youth and Political Violence,"The Center engages in research, interventions, program evaluations, and dissemination of information about youth and political conflict. Its goal is to provide research-based information for practitioners and policy-makers who seek to address the needs o	http://youthviolence.tennessee.edu/
+Centre for Asymmetric Threat Studies (CATS)	The Centre for Asymmetric Threat and Terrorism Studies (CATS) is a development of the former National Centre for Information Operations Studies (CIOS) at the Swedish National Defence College.""",,,http://www.fhs.se/en/research/research-centres-and-programmes/center-for-asymmetric-threat-studies/about/
+sites,Center on Terrorism and Irregular Warfare,"In studying terrorism and irregular warfare, the Center focuses the research capabilities of its staff and the Naval Postgraduate School on an area of critical importance to the national security of the United States.",,,http://www.nps.edu/Academics/Centers/CTIW/
+sites,Center on Terrorism and Counterterrorism at the Foreign Policy Research Institute,"The focus of the Center’s research is on terrorists, their strategies and tactics, and their objectives, resources, and capabilities for creating MUD (multilateral unconstrained disruption).",,,http://www.fpri.org/research/terrorism/
+sites,John Jay College's Center on Terrorism,"The goals of John Jay College's Center on Terrorism are ""to study terrorism conceptually in ways that are familiar and appropriate for a university and to identify the practical applications of that knowledge in the search for alternative forms of human s",,,http://www.jjay.cuny.edu/center-terrorism
+sites,Global Center on Cooperative Security,"The center works to foster ""stronger multilateral partnerships"" across borders in order to create ""inclusive security policies.""",,,http://www.globalct.org/index.php
+sites,Center for Terrorism Law (CTL),"The Center for Terrorism Law at St. Mary's University School of Law is a ""legal research center dedicated to the study of legal issues associated with both antiterrorism and counterterrorism.""",,,https://law.stmarytx.edu/academics/center-for-terrorism-law/
+sites,The Global Extremist Registry,The Counter Extremism Project maintains a database of the leadership and financiers of extremist groups around the globe. Use the tools below to explore the database.,,,http://www.counterextremism.com/extremists
+sites,BBC Country Profiles,"BBC's country and territory profiles provide an instant guide to history, politics and economic background of countries and territories, and background on key institutions.",,,http://news.bbc.co.uk/2/hi/country_profiles/default.stm
+sites,Center for Asymmetric Warfare (CAW),"The Center for Asymmetric Warfare is a federal government research center under the Naval Postgraduate School that facilitates the improvement of preparedness and response capabilities of military and civil authorities through training and education, tes	http://www.cawnps.org/
+Center for Advancing Microbial Risk Assessment (CAMRA)	CAMRA is the Homeland Security Center of Excellence jointly established with the U.S. Environmental Protection Agency to develop scientific knowledge on the fate and risk of potential bioterrorist and other high priority infectious agents.""",,,http://camra.msu.edu/
+sites,Bangladesh Centre for Terrorism Research (BCTR),The Bangladesh Centre for Terrorism Research (BCTR) is an independent think tank devoted to the study of peace and security issues related to South and Southeast Asia and beyond.,,,http://www.bipss.org.bd/index.php/page/bctr
+sites,United States Institute of Peace,"The United States Institute of Peace is an independent, nonpartisan, national institution established and funded by Congress. The site includes publications for practitioners, policymakers, and academia (over 400 to date).",,,http://www.usip.org/
+sites,IntelCenter,Provides professional terrorist monitoring services.,,,http://intelcenter.com/
+sites,South Asian Terrorism Portal (SATP),"SATP focuses on terrorism and low intensity warfare in South Asia, and creates the database and analytic context for research and analysis of all extremist movements in the region.""",,,satp.org
+sites,Counter Extremism Project,Research provides helpful and detailed overviews of various extremist groups as well as country reports on extremism and counter-extremism,,,http://www.counterextremism.com/
+sites,Naval Postgraduate School Dudley Knox Library,"This subject guide contains links to Internet resources focusing on terrorism. The resource types are varied and included bibliographies, government documents, discussion groups, databases, federal agencies and other organizational sites. Topics covered 	http://www.nps.edu/Library/Research%20Tools/Subject%20Guides%20by%20Topic/Special%20Topics/Terrorism/TerrorismSubjectGuideEssay.html
+SITE Intelligence Group	A monitoring service focusing on jihadist threats and latest trends within the global jihadist movement. Haverford users only. Access through TRIPOD. 	https://ent.siteintelgroup.com/
+Defense and Security at the Center for Strategic and International Studies (CSIS)	CSIS analyzes aspects of defense and security, including acquisition and resources, homeland security, strategy, reconstruction, nuclear issues, and terrorism.""",,,https://www.csis.org/topics/defense-and-security
+sites,Cybersecurity and Technology at the Center for Strategic and International Studies (CSIS),"CSIS analyzes ""how technological change can transform the way countries interrelate.""",,,https://www.csis.org/topics/cybersecurity-and-technology
+sites,Institute for National Security Studies (INSS),INSS is an independent academic institute that studies key issues relating to Israel's national security and Middle East affairs.,,,http://www.inss.org.il/research.php?cat=10
+sites,Council on Foreign Relations,"CFR is an ""independent, nonpartisan membership organization, think tank, and publisher.""",,,cfr.org
+sites,RAND Corporation Terrorism and Homeland Security,RAND disseminates all its unclassified research online or in printed documents.,,,http://www.rand.org/topics/terrorism-and-homeland-security.html
+sites,Jamestown Foundation,"The Jamestown Foundation’s mission is to inform and educate policy makers and the broader policy community about events and trends in those societies which are strategically or tactically important to the United States and which frequently restrict acces	http://www.jamestown.org/programs/gta/
+The Handa Centre for the Study of Terrorism and Political Violence (CSTPV)	CSTPV at the University of St.Andrews is dedicated to the study of the determinants, manifestations and consequences of terrorism and other forms of political violence.""",,,http://www.st-andrews.ac.uk/~wwwir/research/cstpv/
+sites,International Institute for Counter-Terrorism (Israel),"The ICT is an independent think tank providing expertise in terrorism, counter-terrorism, homeland security, threat vulnerability and risk assessment, intelligence analysis and national security and defense policy.",,,http://www.ict.org.il/Home.aspx
+sites,Freedom of Information Act Electronic Reading Room (CIA),The CIA's FOIA ERR houses many declassified government documents.,,,https://www.cia.gov/library/readingroom/
+sites,Quilliam Foundation,The Quilliam Foundation is a British counter-extremism think tank comprised of former Hizb ut-Tahrir members.,,,http://www.quilliamfoundation.org/
+sites,PRISM: Project for the Research of Islamist Movements (Interdisciplinary Center Herzliya),"See especially sections on Islamist ideology, Mujahideen, Jihadi manuals, and Islamist rulings on Jihad and terrorism.",,,http://www.e-prism.org/
+sites,MEMRI: The Middle East Media Research Institute,"The site includes reports, news, videos, blogs, and materials arranged by topic, language, and country.",,,http://www.memri.org/
+sites,Combating Terrorism Center at West Point,"The CTC is an independent, privately funded, research and educational institution situated at West Point that informs and shapes counterterrorism policy and strategy.",,,http://www.ctc.usma.edu/
+sites,"Hudson Institute: Center on Islam, Democracy and the Future of the Muslim World","The Hudson Institute, a think tank which focuses on foreign policy and national security, sponsors this Center.",,,http://www.currenttrends.org/
+sites,Mapping Militant Organizations,"This research project traces the evolution of militant organizations and the interactions that develop between them over time. Findings are presented in interactive “maps,” which provide both (1) visual representations of how relationships among militant",,,http://www.stanford.edu/group/mappingmilitants/cgi-bin/
+sites,Center for Terrorism and Security Studies at UMass Lowell,A Google Custom Search Engine for students and researchers of terrorism studies.,,,http://blogs.uml.edu/ctss/2013/11/06/terrorism-studies-search-engine/
+student-resources,Afghanistan Online,Provides information on Afghanistan.,,,http://www.afghan-web.com/
+student-resources,Al-Islam,Al-Islam is source that provides information about Islam.,,,http://www.al-islam.org/
+student-resources,"Teaching Resource for High School and College Classrooms Using the SSRC's ""After September 11"" Essay Collection",The Social Science Research Council provides teachers with guides and ideas for lessons about September 11th and its aftermath.,,,http://essays.ssrc.org/sept11/essays/teaching_resource/tr_intro.htm
+student-resources,Building a Global Terrorism Database,Source explains how to put together a database on global terrorism.,,,https://www.ncjrs.gov/pdffiles1/nij/grants/214260.pdf
+student-resources,Understanding Polling Methodology,A guide to understanding polling results.,,,http://www.queensu.ca/cora/_files/mendlesohn_e.pdf
+student-resources,The Art of Searching: How to Find Terrorism Literature in the Digital Age,This guide provides an overview on information retrieval techniques for locating high-quality literature on terrorism and counter-terrorism. Starting from general considerations on conducting a literature search – taking into account the specifics of terr,,,http://www.terrorismanalysts.com/pt/index.php/pot/article/view/283
+student-resources,Terrorism Guide Website by the US National Counterterrorism Center (NCTC),"Focusing on international terrorism, this site ""contains many features"" ""pertaining to international terrorism: terrorist groups, wanted terrorists, technical pages on various threat-related topics, and a historic timeline...""",,,http://www.nctc.gov/site/index.html
+student-resources,Council on Foreign Relations: Backgrounders,Background information on a variety of relevant topics and global issues.,,,http://www.cfr.org/publication/by_type/backgrounder.html
+student-resources,Council on Foreign Relations: Research Links,"Helpful research links organized by topic, including defense & security; development; economics; energy & environment; global governance; health; peace, conflict, & human rights; politics & strategy; society & culture; technology & science; and terrorism.",,,http://www.cfr.org/publication/by_type/research_links.html?groupby=1&page=1
+by-country,BBC Country Profile: Afganistan,,"Afghanistan, Islamic Republic of",,http://www.bbc.com/news/world-south-asia-12011352/
+by-country,UN Data: Country Profile- Afghanistan,,"Afghanistan, Islamic Republic of",,http://data.un.org/CountryProfile.aspx?crName=Afghanistan/
+by-country,UNDP Human Development Reports: Afghanistan,,"Afghanistan, Islamic Republic of",,http://hdr.undp.org/en/countries/profiles/AFG/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles,,"Afghanistan, Islamic Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=AFG&regioncode=40535/
+by-country,Databank World Bank: Afghanistan,,"Afghanistan, Islamic Republic of",,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: Afganistan,,"Afghanistan, Islamic Republic of",,http://www.imf.org/external/country/AFG/index.htm/
+by-country,World Bank: Afghanistan,,"Afghanistan, Islamic Republic of",,http://www.worldbank.org/en/country/afghanistan/
+by-country,The Afghanistan Project at the Institute for the Study of War,"The project documents ""the pattern of enemy activity in Afghanistan and Pakistan; military operations by Coalition and Afghan forces; the implications of the drawdown of Surge forces; and the political, economic, and demographic dynamics underlying the conflict"".","Afghanistan, Islamic Republic of",,http://www.understandingwar.org/afghanistan/
+by-country,Council on Foreign Relations’ Infoguide: The Taliban,,"Afghanistan, Islamic Republic of",,http://www.cfr.org/terrorist-organizations-and-networks/taliban/p35985?cid=-interactives_page_dap-061115
+by-country,UNDP Human Development Reports: Albania,,Albania,,http://hdr.undp.org/en/countries/profiles/ALB/
+by-country,UN Data: Country Profile- Albania,,Albania,,http://data.un.org/CountryProfile.aspx?crName=Albania/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Albania,,Albania,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=ALB&regioncode=40530/
+by-country,IMF Country Information: Albania,,Albania,,http://www.imf.org/external/country/ALB/index.htm/
+by-country,World Bank: Albania,,Albania,,http://www.worldbank.org/en/country/albania/
+by-country,BBC Algeria Country Profile,,"Algeria, People's Democratic Republic of",,http://www.bbc.com/news/world-africa-1411885/
+by-country,The Middle East Media Research Institute: North Africa,,"Algeria, People's Democratic Republic of",,http://www.memri.org/content/en/country.htm?country=north/
+by-country,UN Data: Country Profile- Algeria,,"Algeria, People's Democratic Republic of",,http://data.un.org/CountryProfile.aspx?crName=Algeria/
+by-country,UNDP Human Development Reports- Algeria,,"Algeria, People's Democratic Republic of",,http://hdr.undp.org/en/countries/profiles/DZA
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Algeria,,"Algeria, People's Democratic Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=DZA&regioncode=405255/
+by-country,IMF Country Information: Algeria,,"Algeria, People's Democratic Republic of",,http://www.imf.org/external/country/DZA/index.htm/
+by-country,World Bank: Algeria,,"Algeria, People's Democratic Republic of",,http://www.worldbank.org/en/country/algeria/
+by-country,Arab Barometer: Algeria,,"Algeria, People's Democratic Republic of",,http://www.arabbarometer.org/country/algeria/
+by-country,UN Data: Country Profile- Azerbaijan,,Azerbaijan,,http://data.un.org/CountryProfile.aspx?crName=Azerbaijan/
+by-country,UNDP Human Development Reports- Azerbaijan,,Azerbaijan,,http://hdr.undp.org/en/countries/profiles/AZE/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Azerbaijan,,Azerbaijan,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=AZE&regioncode=40505/
+by-country,IMF Country Information: Azerbaijan,,Azerbaijan,,http://www.imf.org/external/country/AZE/index.htm/
+by-country,World Bank: Azerbaijan,,Azerbaijan,,http://www.worldbank.org/en/country/azerbaijan/
+by-country,BBC Bahrain Country Profile,,"Bahrain, Kingdom of",,http://www.bbc.com/news/world-middle-east-14540571/
+by-country,The Middle East Media Research Institute: The Gulf,,"Bahrain, Kingdom of",,http://www.memri.org/content/en/country.htm?country=the_g/
+by-country,UN Data: Country Profile- Bahrain,,"Bahrain, Kingdom of",,http://data.un.org/CountryProfile.aspx?crName=Bahrain/
+by-country,UNDP Human Development Reports- Bahrain,,"Bahrain, Kingdom of",,http://hdr.undp.org/en/countries/profiles/BHR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Bahrain,,"Bahrain, Kingdom of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=BHR&regioncode=40525/
+by-country,IMF Country Information: Bahrain,,"Bahrain, Kingdom of",,http://www.imf.org/external/country/BHR/index.htm/
+by-country,World Bank: GCC,,"Bahrain, Kingdom of",,http://www.worldbank.org/en/country/gcc/
+by-country,BBC Bangladesh Country Profile,,"Bangladesh, People's Republic of",,http://www.bbc.com/news/world-south-asia-12650940/
+by-country,South Asian Terrorism Portal,,"Bangladesh, People's Republic of",,http://www.satp.org/
+by-country,UN Data: Country Profile- Bangladesh,,"Bangladesh, People's Republic of",,http://data.un.org/CountryProfile.aspx?crName=Bangladesh/
+by-country,Counter Extremism Project: Bangladesh,,"Bangladesh, People's Republic of",,http://www.counterextremism.com/countries/bangladesh/
+by-country,Bangladesh Institute of Peace and Security Studies,,"Bangladesh, People's Republic of",,http://www.bipss.org.bd/index.php/page/bctr/
+by-country,UNDP Human Development Reports- Bangladesh,,"Bangladesh, People's Republic of",,http://hdr.undp.org/en/countries/profiles/BGD/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Bangladesh,,"Bangladesh, People's Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=BGD&regioncode=40535/
+by-country,IMF Country Information: Bangladesh,,"Bangladesh, People's Republic of",,http://www.imf.org/external/country/BGD/index.htm/
+by-country,World Bank: Bangladesh,,"Bangladesh, People's Republic of",,http://www.worldbank.org/en/country/bangladesh/
+by-country,The Middle East Media Research Institute: Africa,,Benin,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Benin,,Benin,,http://data.un.org/CountryProfile.aspx?crName=Benin/
+by-country,UNDP Human Development Reports- Benin,,Benin,,http://hdr.undp.org/en/countries/profiles/BEN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Benin,,Benin,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=BEN&regioncode=40540/
+by-country,IMF Country Information: Benin,,Benin,,http://www.imf.org/external/country/BEN/index.htm/
+by-country,World Bank: Benin,,Benin,,http://www.worldbank.org/en/country/benin/
+by-country,The Middle East Media Research Institute: Africa,,Brunei Darussalam,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Brunei Darussalam,,Brunei Darussalam,,http://data.un.org/CountryProfile.aspx?crName=Brunei Darussalam/
+by-country,UNDP Human Development Reports- Brunei Darussalam,,Brunei Darussalam,,http://hdr.undp.org/en/countries/profiles/BRN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Brunei Darussalam,,Brunei Darussalam,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=BRN&regioncode=40515/
+by-country,IMF Country Information: Brunei Darussalam,,Brunei Darussalam,,http://www.imf.org/external/country/BRN/index.htm/
+by-country,The Middle East Media Research Institute: Africa,,Burkina Faso,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Burkina Faso,,Burkina Faso,,http://data.un.org/CountryProfile.aspx?crName=Burkina Faso/
+by-country,UNDP Human Development Reports- Burkina Faso,,Burkina Faso,,http://hdr.undp.org/en/countries/profiles/BFA/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Burkina Faso,,Burkina Faso,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=BFA&regioncode=40540/
+by-country,IMF Country Information: Burkina Faso,,Burkina Faso,,http://www.imf.org/external/country/BFA/index.htm/
+by-country,World Bank: Burkina Faso,,Burkina Faso,,http://www.worldbank.org/en/country/burkinafaso/
+by-country,The Middle East Media Research Institute: Africa,,Cameroon,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Cameroon,,Cameroon,,http://data.un.org/CountryProfile.aspx?crName=Cameroon/
+by-country,UNDP Human Development Reports- Cameroon,,Cameroon,,http://hdr.undp.org/en/countries/profiles/CMR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Cameroon,,Cameroon,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=CMR&regioncode=40540/
+by-country,IMF Country Information: Cameroon,,Cameroon,,http://www.imf.org/external/country/CMR/index.htm/
+by-country,World Bank: Cameroon,,Cameroon,,http://www.worldbank.org/en/country/cameroon/
+by-country,The Middle East Media Research Institute: Africa,,"Chad, Republic of",,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Chad,,"Chad, Republic of",,http://data.un.org/CountryProfile.aspx?crName=Chad/
+by-country,UNDP Human Development Reports- Chad,,"Chad, Republic of",,http://hdr.undp.org/en/countries/profiles/TCD/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Chad,,"Chad, Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=TCD&regioncode=40540/
+by-country,IMF Country Information: Chad,,"Chad, Republic of",,http://www.imf.org/external/country/TCD/index.htm/
+by-country,World Bank: Chad,,"Chad, Republic of",,http://www.worldbank.org/en/country/chad/
+by-country,The Middle East Media Research Institute: Africa,,Comoros,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Comoros,,Comoros,,http://data.un.org/CountryProfile.aspx?crName=Comoros/
+by-country,UNDP Human Development Reports- Comoros,,Comoros,,http://hdr.undp.org/en/countries/profiles/COM/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Comoros,,Comoros,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=COM&regioncode=40540/
+by-country,IMF Country Information: Comoros,,Comoros,,http://www.imf.org/external/country/COM/index.htm/
+by-country,World Bank: Comoros,,Comoros,,http://www.worldbank.org/en/country/comoros/
+by-country,The Middle East Media Research Institute: Africa,,Cote d'Ivoire,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Cote d'Ivoire,,Cote d'Ivoire,,http://data.un.org/CountryProfile.aspx?crName=C%C3%B4te d%27Ivoire/
+by-country,UNDP Human Development Reports- Cote d'Ivoire,,Cote d'Ivoire,,http://hdr.undp.org/en/countries/profiles/CIV/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Cote d'Ivoire,,Cote d'Ivoire,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=CIV&regioncode=40540/
+by-country,IMF Country Information: Cote d'Ivoire,,Cote d'Ivoire,,http://www.imf.org/external/country/CIV/index.htm/
+by-country,World Bank: Cote d'Ivoire,,Cote d'Ivoire,,http://www.worldbank.org/en/country/cotedivoire/
+by-country,The Middle East Media Research Institute: Africa,,Djibouti,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Djibouti,,Djibouti,,http://data.un.org/CountryProfile.aspx?crName=Djibouti/
+by-country,UNDP Human Development Reports- Djibouti,,Djibouti,,http://hdr.undp.org/en/countries/profiles/DJI/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Djibouti,,Djibouti,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=DJI&regioncode=40525/
+by-country,IMF Country Information: Djibouti,,Djibouti,,http://www.imf.org/external/country/DJI/index.htm/
+by-country,World Bank: Djibouti,,Djibouti,,http://www.worldbank.org/en/country/djibouti/
+by-country,BBC Egypt Country Profile,,Egypt,,http://www.bbc.com/news/world-africa-13313370/
+by-country,The Middle East Media Research Institute: Egypt,,Egypt,,http://www.memri.org/egypt-news-media.html/
+by-country,UN Data: Country Profile- Egypt,,Egypt,,http://data.un.org/CountryProfile.aspx?crName=Egypt/
+by-country,Counter Extremism Project: Egypt,,Egypt,,http://www.counterextremism.com/countries/egypt/
+by-country,UNDP Human Development Reports- Egypt,,Egypt,,http://hdr.undp.org/en/countries/profiles/EGY/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Egypt,,Egypt,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=EGY&regioncode=40525/
+by-country,Databank World Bank: Egypt,,Egypt,,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: Egypt,,Egypt,,http://www.imf.org/external/country/EGY/index.htm/
+by-country,World Bank: Egypt,,Egypt,,http://www.worldbank.org/en/country/egypt/
+by-country,Arab Barometer: Egypt,,Egypt,,http://www.arabbarometer.org/country/egypt/
+by-country,The Middle East Media Research Institute: Africa,,"Eritrea, State of",,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Eritrea,,"Eritrea, State of",,http://data.un.org/CountryProfile.aspx?crName=Eritrea/
+by-country,UNDP Human Development Reports- Eritrea,,"Eritrea, State of",,http://hdr.undp.org/en/countries/profiles/ERI/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Eritrea,,"Eritrea, State of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=ERI&regioncode=40540/
+by-country,IMF Country Information: Eritrea,,"Eritrea, State of",,http://www.imf.org/external/country/ERI/index.htm/
+by-country,World Bank: Eritrea,,"Eritrea, State of",,http://www.worldbank.org/en/country/eritrea/
+by-country,The Middle East Media Research Institute: Africa,,The Gambia,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Gambia,,The Gambia,,http://data.un.org/CountryProfile.aspx?crName=Gambia/
+by-country,UNDP Human Development Reports- Gambia,,The Gambia,,http://hdr.undp.org/en/countries/profiles/GMB/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Gambia,,The Gambia,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=GMB&regioncode=40540/
+by-country,IMF Country Information: Gambia,,The Gambia,,http://www.imf.org/external/country/GMB/index.htm/
+by-country,World Bank: Gambia,,The Gambia,,http://www.worldbank.org/en/country/gambia/
+by-country,The Middle East Media Research Institute: Africa,,"Guinea, Republic of",,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Guinea,,"Guinea, Republic of",,http://data.un.org/CountryProfile.aspx?crName=Guinea/
+by-country,UNDP Human Development Reports- Guinea,,"Guinea, Republic of",,http://hdr.undp.org/en/countries/profiles/GIN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Guinea,,"Guinea, Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=GIN&regioncode=40540/
+by-country,IMF Country Information: Guinea,,"Guinea, Republic of",,http://www.imf.org/external/country/GIN/index.htm/
+by-country,World Bank: Guinea,,"Guinea, Republic of",,http://www.worldbank.org/en/country/guinea/
+by-country,The Middle East Media Research Institute: Africa,,Guinea-Bissau,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Guinea-Bissau,,Guinea-Bissau,,http://data.un.org/CountryProfile.aspx?crName=Guinea-Bissau/
+by-country,UNDP Human Development Reports- Guinea-Bissau,,Guinea-Bissau,,http://hdr.undp.org/en/countries/profiles/GNB/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Guinea-Bissau,,Guinea-Bissau,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=GNB&regioncode=40540/
+by-country,IMF Country Information: Guinea-Bissau,,Guinea-Bissau,,http://www.imf.org/external/country/GNB/index.htm/
+by-country,World Bank: Guinea-Bissau,,Guinea-Bissau,,http://www.worldbank.org/en/country/guineabissau/
+by-country,UN Data: Country Profile- Guyana,,Guyana,,http://data.un.org/CountryProfile.aspx?crName=Guyana/
+by-country,UNDP Human Development Reports- Guyana,,Guyana,,http://hdr.undp.org/en/countries/profiles/GUY/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Guyana,,Guyana,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=GUY&regioncode=40520/
+by-country,IMF Country Information: Guyana,,Guyana,,http://www.imf.org/external/country/GUY/index.htm/
+by-country,World Bank: Guyana,,Guyana,,http://www.worldbank.org/en/country/guyana/
+by-country,BBC India Country Profile,,India,,http://www.bbc.com/news/world-south-asia-12557384/
+by-country,South Asia Terrorism Portal,,India,,http://www.satp.org/
+by-country,UN Data: Country Profile- India,,India,,http://data.un.org/CountryProfile.aspx?crName=India/
+by-country,UNDP Human Development Reports- India,,India,,http://hdr.undp.org/en/countries/profiles/IND/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- India,,India,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=IND&regioncode=40535/
+by-country,Databank World Bank: India,,India,,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: India,,India,,http://www.imf.org/external/country/IND/index.htm/
+by-country,World Bank: India,,India,,http://www.worldbank.org/en/country/india/
+by-country,CSIS Program: Wadhwani Chair in U.S.-India Policy Studies Program,,India,,https://www.csis.org/programs/wadhwani-chair-us-india-policy-studies/
+by-country,BBC Indonesia Country Profile,,Indonesia,,http://www.bbc.com/news/world-asia-pacific-14921238/
+by-country,UN Data: Country Profile- Indonesia,,Indonesia,,http://data.un.org/CountryProfile.aspx?crName=Indonesia/
+by-country,UNDP Human Development Reports- Indonesia,,Indonesia,,http://hdr.undp.org/en/countries/profiles/IDN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Indonesia,,Indonesia,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=IDN&regioncode=40515/
+by-country,Databank World Bank: Indonesia,,Indonesia,,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: Indonesia,,Indonesia,,http://www.imf.org/external/country/IDN/index.htm/
+by-country,World Bank: Indonesia,,Indonesia,,http://www.worldbank.org/en/country/indonesia/
+by-country,BBC Iran Country Profile,,"Iran, Islamic Republic of",,http://www.bbc.com/news/world-middle-east-14541327/
+by-country,The Middle East Media Research Institute: Iran,,"Iran, Islamic Republic of",,http://www.memri.org/iranian-news.html/
+by-country,UN Data: Country Profile- Iran,,"Iran, Islamic Republic of",,http://data.un.org/CountryProfile.aspx?crName=Iran (Islamic Republic of)/
+by-country,UNDP Human Development Reports- Iran,,"Iran, Islamic Republic of",,http://hdr.undp.org/en/countries/profiles/IRN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Iran,,"Iran, Islamic Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=IRN&regioncode=40535/
+by-country,IMF Country Information: Iran,,"Iran, Islamic Republic of",,http://www.imf.org/external/country/IRN/index.htm/
+by-country,World Bank: Iran,,"Iran, Islamic Republic of",,http://www.worldbank.org/en/country/iran/
+by-country,Mapping Militant Organizations: Iraq,,Iraq,,http://web.stanford.edu/group/mappingmilitants/cgi-bin/maps/view/iraq/
+by-country,BBC Iraq Country Profile,,Iraq,,http://www.bbc.com/news/world-middle-east-14542954/
+by-country,BBC Iraqi Kurdish Profile,,Iraq,,http://www.bbc.com/news/world-middle-east-28147263/
+by-country,The Middle East Media Research Institute: Iraq,,Iraq,,http://www.memri.org/iraq-media.html/
+by-country,UN Data: Country Profile- Iraq,,Iraq,,http://data.un.org/CountryProfile.aspx?crName=Iraq/
+by-country,UNDP Human Development Reports- Iraq,,Iraq,,http://hdr.undp.org/en/countries/profiles/IRQ/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Iraq,,Iraq,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=IRQ&regioncode=40525/
+by-country,IMF Country Information: Iraq,,Iraq,,http://www.imf.org/external/country/IRQ/index.htm/
+by-country,World Bank: Iraq,,Iraq,,http://www.worldbank.org/en/country/iraq/
+by-country,Pieter Van Ostaeyen Blog,"This blog covers much of the situation in Iraq and provides IS and AQ statements, analysis and reflections on the situation in Iraq, consistently updated maps depicting the power relations in Iraq, and much more.",Iraq,,https://pietervanostaeyen.com/category/iraq/
+by-country,Arab Barometer: Iraq,,Iraq,,http://www.arabbarometer.org/country/iraq/
+by-country,The Iraq Project at the Institute for the Study of War,"The project produces publications on topics such as: ""understanding the evolving nature of Iraqi politics and Iraq’s democratic transition; evaluating Iraq’s security after U.S. forces withdraw; and analyzing the influence and behavior of regional actors in Iraq.""",Iraq,,http://www.understandingwar.org/iraq/
+by-country,BBC Israel Country Profile,,"Israel, State of",,http://www.bbc.com/news/world-middle-east-14628835/
+by-country,UN Data: Country Profile- Israel,,"Israel, State of",,http://data.un.org/CountryProfile.aspx?crName=Israel/
+by-country,UNDP Human Development Reports- Israel,,"Israel, State of",,http://hdr.undp.org/en/countries/profiles/ISR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Israel,,"Israel, State of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=ISR&regioncode=40500/
+by-country,IMF Country Information: Israel,,"Israel, State of",,http://www.imf.org/external/country/ISR/index.htm/
+by-country,World Bank: Israel,,"Israel, State of",,http://data.worldbank.org/country/israel/
+by-country,BBC Jordan Country Profile,,"Jordan, The Hashemite Kingdom of",,http://www.bbc.com/news/world-middle-east-14631981/
+by-country,The Middle East Media Research Institute: Jordan,,"Jordan, The Hashemite Kingdom of",,http://www.memri.org/media-jordan.html/
+by-country,UN Data: Country Profile- Jordan,,"Jordan, The Hashemite Kingdom of",,http://data.un.org/CountryProfile.aspx?crName=Jordan/
+by-country,Counter Extremism Project: Jordan,,"Jordan, The Hashemite Kingdom of",,http://www.counterextremism.com/countries/jordan/
+by-country,UNDP Human Development Reports- Jordan,,"Jordan, The Hashemite Kingdom of",,http://hdr.undp.org/en/countries/profiles/JOR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Jordan,,"Jordan, The Hashemite Kingdom of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=JOR&regioncode=40525/
+by-country,IMF Country Information: Jordan,,"Jordan, The Hashemite Kingdom of",,http://www.imf.org/external/country/JOR/index.htm/
+by-country,World Bank: Jordan,,"Jordan, The Hashemite Kingdom of",,http://www.worldbank.org/en/country/jordan/
+by-country,Arab Barometer: Jordan,,"Jordan, The Hashemite Kingdom of",,http://www.arabbarometer.org/country/jordan/
+by-country,UN Data: Country Profile- Kazakhstan,,Kazakhstan,,http://data.un.org/CountryProfile.aspx?crName=Kazakhstan/
+by-country,UNDP Human Development Reports- Kazakhstan,,Kazakhstan,,http://hdr.undp.org/en/countries/profiles/KAZ/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Kazakhstan,,Kazakhstan,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=KAZ&regioncode=40505/
+by-country,IMF Country Information: Kazakhstan,,Kazakhstan,,http://www.imf.org/external/country/KAZ/index.htm/
+by-country,World Bank: Kazakhstan,,Kazakhstan,,http://www.worldbank.org/en/country/kazakhstan/
+by-country,BBC Kuwait Country Profile,,Kuwait,,http://www.bbc.com/news/world-middle-east-14644252/
+by-country,The Middle East Media Research Institute: The Gulf,,Kuwait,,http://www.memri.org/content/en/country.htm?country=the_g/
+by-country,UN Data: Country Profile- Kuwait,,Kuwait,,http://data.un.org/CountryProfile.aspx?crName=Kuwait/
+by-country,UNDP Human Development Reports- Kuwait,,Kuwait,,http://hdr.undp.org/en/countries/profiles/KWT/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Kuwait,,Kuwait,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=KWT&regioncode=40525/
+by-country,IMF Country Information: Kuwait,,Kuwait,,http://www.imf.org/external/country/KWT/index.htm/
+by-country,World Bank: GCC,,Kuwait,,http://www.worldbank.org/en/country/gcc/
+by-country,UN Data: Country Profile- Kyrgyzstan,,Kyrgyzstan,,http://data.un.org/CountryProfile.aspx?crName=Kyrgyzstan/
+by-country,UNDP Human Development Reports- Kyrgyzstan,,Kyrgyzstan,,http://hdr.undp.org/en/countries/profiles/KGZ/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Kyrgyzstan,,Kyrgyzstan,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=KGZ&regioncode=40505/
+by-country,IMF Country Information: Kyrgyzstan,,Kyrgyzstan,,http://www.imf.org/external/country/KGZ/index.htm/
+by-country,World Bank: Kyrgyzstan,,Kyrgyzstan,,http://www.worldbank.org/en/country/kyrgyzrepublic/
+by-country,BBC Lebanon Country Profile,,Lebanon (the Lebanese Republic),,http://www.bbc.com/news/world-middle-east-14647308/
+by-country,The Middle East Media Research Institute: Lebanon,,Lebanon (the Lebanese Republic),,https://www.memri.org/countries/lebanon/
+by-country,UN Data: Country Profile- Lebanon,,Lebanon (the Lebanese Republic),,http://data.un.org/CountryProfile.aspx?crName=Lebanon/
+by-country,UNDP Human Development Reports- Lebanon,,Lebanon (the Lebanese Republic),,http://hdr.undp.org/en/countries/profiles/LBN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Lebanon,,Lebanon (the Lebanese Republic),,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=LBN&regioncode=40525/
+by-country,MDG Monitor: Fact Sheet Lebanon,,Lebanon (the Lebanese Republic),,http://www.mdgmonitor.org/mdg-progress-lebanon-arab-states/
+by-country,IMF Country Information: Lebanon,,Lebanon (the Lebanese Republic),,http://www.imf.org/external/country/LBN/index.htm/
+by-country,World Bank: Lebanon,,Lebanon (the Lebanese Republic),,http://www.worldbank.org/en/country/lebanon/
+by-country,Arab Barometer: Lebanon,,Lebanon (the Lebanese Republic),,http://www.arabbarometer.org/country/lebanon/
+by-country,BBC Libya Country Profile,,"Libya, State of",,http://www.bbc.com/news/world-africa-13754897/
+by-country,The Middle East Media Research Institute: North Africa,,"Libya, State of",,https://www.memri.org/countries/north-africa/
+by-country,UN Data: Country Profile- Libya,,"Libya, State of",,http://data.un.org/CountryProfile.aspx?crName=Libya/
+by-country,Counter Extremism Project: Libya,,"Libya, State of",,http://www.counterextremism.com/countries/libya/
+by-country,UNDP Human Development Reports- Libya,,"Libya, State of",,http://hdr.undp.org/en/countries/profiles/LBY/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Libya,,"Libya, State of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=LBY&regioncode=40525/
+by-country,IMF Country Information: Libya,,"Libya, State of",,http://www.imf.org/external/country/LBY/index.htm/
+by-country,World Bank: Libya,,"Libya, State of",,http://www.worldbank.org/en/country/libya/
+by-country,UN Data: Country Profile- Malaysia,,Malaysia,,http://data.un.org/CountryProfile.aspx?crName=Malaysia/
+by-country,UNDP Human Development Reports- Malaysia,,Malaysia,,http://hdr.undp.org/en/countries/profiles/MYS/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Malaysia,,Malaysia,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=MYS&regioncode=40515/
+by-country,Databank World Bank Malaysia,,Malaysia,,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: Malaysia,,Malaysia,,http://www.imf.org/external/country/MYS/index.htm/
+by-country,World Bank: Malaysia,,Malaysia,,http://www.worldbank.org/en/country/malaysia/
+by-country,UN Data: Country Profile- Maldives,,Maldives,,http://data.un.org/CountryProfile.aspx?crName=Maldives/
+by-country,UNDP Human Development Reports- Maldives,,Maldives,,http://hdr.undp.org/en/countries/profiles/MDV/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Maldives,,Maldives,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=MDV&regioncode=40535/
+by-country,IMF Country Information: Maldives,,Maldives,,http://www.imf.org/external/country/MDV/index.htm/
+by-country,World Bank: Maldives,,Maldives,,http://www.worldbank.org/en/country/maldives/
+by-country,The Middle East Media Research Institute: Africa,,"Mali, Republic of",,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Mali,,"Mali, Republic of",,http://data.un.org/CountryProfile.aspx?crName=Mali/
+by-country,Counter Extremism Project: Mali,,"Mali, Republic of",,http://www.counterextremism.com/countries/mali/
+by-country,UNDP Human Development Reports- Mali,,"Mali, Republic of",,http://hdr.undp.org/en/countries/profiles/MLI/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Mali,,"Mali, Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=MLI&regioncode=40540/
+by-country,IMF Country Information: Mali,,"Mali, Republic of",,http://www.imf.org/external/country/MLI/index.htm/
+by-country,World Bank: Mali,,"Mali, Republic of",,http://www.worldbank.org/en/country/mali/
+by-country,BBC Mauritania Country Profile,,"Mauritania, Islamic Republic of",,http://www.bbc.com/news/world-africa-13881985/
+by-country,The Middle East Media Research Institute: North Africa,,"Mauritania, Islamic Republic of",,http://www.memri.org/content/en/country.htm?country=north/
+by-country,UN Data: Country Profile- Mauritania,,"Mauritania, Islamic Republic of",,http://data.un.org/CountryProfile.aspx?crName=Mauritania/
+by-country,UNDP Human Development Reports- Mauritania,,"Mauritania, Islamic Republic of",,http://hdr.undp.org/en/countries/profiles/MRT/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Mauritania,,"Mauritania, Islamic Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=MRT&regioncode=40525/
+by-country,IMF Country Information: Mauritania,,"Mauritania, Islamic Republic of",,http://www.imf.org/external/country/MRT/index.htm/
+by-country,World Bank: Mauritania,,"Mauritania, Islamic Republic of",,http://www.worldbank.org/en/country/mauritania/
+by-country,BBC Morocco Country Profile,,Morocco,,http://www.bbc.com/news/world-africa-14121438/
+by-country,The Middle East Media Research Institute: North Africa,,Morocco,,http://www.memri.org/content/en/country.htm?country=north/
+by-country,UN Data: Country Profile- Morocco,,Morocco,,http://data.un.org/CountryProfile.aspx?crName=Morocco/
+by-country,UNDP Human Development Reports- Morocco,,Morocco,,http://hdr.undp.org/en/countries/profiles/MAR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Morocco,,Morocco,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=MAR&regioncode=40525/
+by-country,IMF Country Information: Morocco,,Morocco,,http://www.imf.org/external/country/MAR/index.htm/
+by-country,World Bank: Morocco,,Morocco,,http://www.worldbank.org/en/country/morocco/
+by-country,The Middle East Media Research Institute: Africa,,"Niger, Republic of",,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Niger,,"Niger, Republic of",,http://data.un.org/CountryProfile.aspx?crName=Niger/
+by-country,UNDP Human Development Reports- Niger,,"Niger, Republic of",,http://hdr.undp.org/en/countries/profiles/NER/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Niger,,"Niger, Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=NER&regioncode=40540/
+by-country,IMF Country Information: Niger,,"Niger, Republic of",,http://www.imf.org/external/country/NER/index.htm/
+by-country,World Bank: Niger,,"Niger, Republic of",,http://www.worldbank.org/en/country/niger/
+by-country,The Middle East Media Research Institute: Africa,,Nigeria,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Nigeria,,Nigeria,,http://data.un.org/CountryProfile.aspx?crName=Nigeria/
+by-country,Counter Extremism Project: Nigeria,,Nigeria,,http://www.counterextremism.com/countries/nigeria/
+by-country,Council on Foreign Relations: Nigeria Security Tracker,,Nigeria,,http://www.cfr.org/nigeria/nigeria-security-tracker/p29483/
+by-country,UNDP Human Development Reports- Nigeria,,Nigeria,,http://hdr.undp.org/en/countries/profiles/NGA/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Nigeria,,Nigeria,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=NGA&regioncode=40540/
+by-country,IMF Country Information: Nigeria,,Nigeria,,http://www.imf.org/external/country/NGA/index.htm/
+by-country,World Bank: Nigeria,,Nigeria,,http://www.worldbank.org/en/country/nigeriar/
+by-country,BBC Oman Country Profile,,Oman,,http://www.bbc.com/news/world-middle-east-14654150/
+by-country,The Middle East Media Research Institute: The Gulf,,Oman,,http://www.memri.org/content/en/country.htm?country=the_g/
+by-country,UN Data: Country Profile- Oman,,Oman,,http://data.un.org/CountryProfile.aspx?crName=Oman/
+by-country,UNDP Human Development Reports- Oman,,Oman,,http://hdr.undp.org/en/countries/profiles/OMN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Oman,,Oman,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=OMN&regioncode=40525/
+by-country,IMF Country Information: Oman,,Oman,,http://www.imf.org/external/country/OMN/index.htm/
+by-country,World Bank: GCC,,Oman,,http://www.worldbank.org/en/country/gcc/
+by-country,Mapping Militant Organizations: Pakistan,,"Pakistan, Islamic Republic of",,http://web.stanford.edu/group/mappingmilitants/cgi-bin/maps/view/pak/
+by-country,Mapping Militant Organizations: Pakistan (Al-Qaeda only),,"Pakistan, Islamic Republic of",,http://web.stanford.edu/group/mappingmilitants/cgi-bin/maps/view/pakistan_un/
+by-country,BBC Pakistan Country Profile,,"Pakistan, Islamic Republic of",,http://www.bbc.com/news/world-south-asia-12965779/
+by-country,South Asian Terrorism Portal,,"Pakistan, Islamic Republic of",,http://www.satp.org/
+by-country,UN Data: Country Profile- Pakistan,,"Pakistan, Islamic Republic of",,http://data.un.org/CountryProfile.aspx?crName=Pakistan/
+by-country,UNDP Human Development Reports- Pakistan,,"Pakistan, Islamic Republic of",,http://hdr.undp.org/en/countries/profiles/PAK/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Pakistan,,"Pakistan, Islamic Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=PAK&regioncode=40535/
+by-country,Databank World Bank: Pakistan,,"Pakistan, Islamic Republic of",,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: Pakistan,,"Pakistan, Islamic Republic of",,http://www.imf.org/external/country/PAK/index.htm/
+by-country,World Bank: Pakistan,,"Pakistan, Islamic Republic of",,http://www.worldbank.org/en/country/pakistan/
+by-country,"Charting the data for US airstrikes in Pakistan, 2004 – 2016","The Long War Journal's data by Bill Roggio provides 7 charts of data: ""1) the number of US airstrikes inside Pakistan per year; 2) civilian casualties vs. Taliban/al Qaeda casualties; 3) the distribution of strikes over time by tribal agencies; 4) the overall distribution of strikes, by tribal agencies; 5) the distribution of strikes over time by territories targeted; 6) the overall distribution of strikes, by territories targeted; and 7) the number of high value targets killed in territories managed by individual Taliban commanders.""","Pakistan, Islamic Republic of",,http://www.longwarjournal.org/pakistan-strikes/
+by-country,"Long War Journal's list of senior al Qaeda, Taliban, and allied jihadist leaders killed in US airstrikes in Pakistan, 2004 – 2016",,"Pakistan, Islamic Republic of",,http://www.longwarjournal.org/pakistan-strikes-hvts/
+by-country,Council on Foreign Relations’ Infoguide: The Taliban,,"Pakistan, Islamic Republic of",,http://www.cfr.org/terrorist-organizations-and-networks/taliban/p35985?cid=-interactives_page_dap-061115
+by-country,BBC Palestinian Territories Profile,,Palestine,,http://www.bbc.com/news/world-middle-east-14630174/
+by-country,UN Data: Country Profile- State of Palestine,,Palestine,,http://data.un.org/CountryProfile.aspx?crName=State of Palestine/
+by-country,The Middle East Research Institute: Palestine,,Palestine,,http://www.memri.org/palestinian-media.html/
+by-country,UNDP Human Development Reports- State of Palestine,,Palestine,,http://hdr.undp.org/en/countries/profiles/PSE/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Palestine,,Palestine,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=PSE&regioncode=40525/
+by-country,World Bank: West Bank and Gaza,,Palestine,,http://www.worldbank.org/en/country/westbankandgaza/
+by-country,Arab Barometer: Palestine,,Palestine,,http://www.arabbarometer.org/country/palestine/
+by-country,Mapping Militant Organizations: Philippines,,Philippines,,http://web.stanford.edu/group/mappingmilitants/cgi-bin/maps/view/philippines/
+by-country,BBC Philippines Country Profile,,Philippines,,http://www.bbc.com/news/world-asia-15521300/
+by-country,"Philippine Institute for Peace, Violence, and Terrorism Research, Inc.",,Philippines,,http://www.pipvtr.com/pipvtr/
+by-country,UN Data: Country Profile- Philippines,,Philippines,,http://data.un.org/CountryProfile.aspx?crName=Philippines/
+by-country,Counter Extremism Project: Philippines,,Philippines,,http://www.counterextremism.com/countries/philippines/
+by-country,UNDP Human Development Reports- Philippines,,Philippines,,http://hdr.undp.org/en/countries/profiles/PHL/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Philippines,,Philippines,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=PHL&regioncode=40515/
+by-country,IMF Country Information: Philippines,,Philippines,,http://www.imf.org/external/country/PHL/index.htm/
+by-country,World Bank: Philippines,,Philippines,,http://www.worldbank.org/en/country/philippines/
+by-country,BBC Qatar Country Profile,,Qatar,,http://www.bbc.com/news/world-middle-east-14702226/
+by-country,The Middle East Media Research Institute: Qatar,,Qatar,,http://www.memri.org/content/en/country.htm?country=the_g/
+by-country,UN Data: Country Profile- Qatar,,Qatar,,http://data.un.org/CountryProfile.aspx?crName=Qatar/
+by-country,UNDP Human Development Reports- Qatar,,Qatar,,http://hdr.undp.org/en/countries/profiles/QAT/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Qatar,,Qatar,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=QAT&regioncode=40525/
+by-country,IMF Country Information: Qatar,,Qatar,,http://www.imf.org/external/country/QAT/index.htm/
+by-country,World Bank: GCC,,Qatar,,http://www.worldbank.org/en/country/gcc/
+by-country,BBC Saudi Arabia Country Profile,,Saudi Arabia,,http://www.bbc.com/news/world-middle-east-14702705/
+by-country,The Middle East Media Research Institute: Saudi Arabia,,Saudi Arabia,,http://www.memri.org/saudi-arabia-news-translated.html/
+by-country,UN Data: Country Profile- Saudi Arabia,,Saudi Arabia,,http://data.un.org/CountryProfile.aspx?crName=Saudi Arabia/
+by-country,UNDP Human Development Reports- Saudi Arabia,,Saudi Arabia,,http://hdr.undp.org/en/countries/profiles/SAU/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Saudi Arabia,,Saudi Arabia,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SAU&regioncode=40525/
+by-country,IMF Country Information: Saudi Arabia,,Saudi Arabia,,http://www.imf.org/external/country/SAU/index.htm/
+by-country,World Bank: GCC,,Saudi Arabia,,http://www.worldbank.org/en/country/gcc/
+by-country,Arab Barometer,,Saudi Arabia,,http://www.arabbarometer.org/country/saudi-arabia/
+by-country,The Middle East Media Research Institute: Africa,,Senegal,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Senegal,,Senegal,,http://data.un.org/CountryProfile.aspx?crName=Senegal/
+by-country,UNDP Human Development Reports- Senegal,,Senegal,,http://hdr.undp.org/en/countries/profiles/SEN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Senegal,,Senegal,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SEN&regioncode=40540/
+by-country,IMF Country Information: Senegal,,Senegal,,http://www.imf.org/external/country/SEN/index.htm/
+by-country,World Bank: Senegal,,Senegal,,http://www.worldbank.org/en/country/senegal/
+by-country,The Middle East Media Research Institute: Africa,,"Sierra Leone, Republic of",,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Sierra Leone,,"Sierra Leone, Republic of",,http://data.un.org/CountryProfile.aspx?crName=Sierra Leone/
+by-country,UNDP Human Development Reports- Sierra Leone,,"Sierra Leone, Republic of",,http://hdr.undp.org/en/countries/profiles/SLE/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Sierra Leone,,"Sierra Leone, Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SLE&regioncode=40540/
+by-country,IMF Country Information: Sierra Leone,,"Sierra Leone, Republic of",,http://www.imf.org/external/country/SLE/index.htm/
+by-country,World Bank: Sierra Leone,,"Sierra Leone, Republic of",,http://www.worldbank.org/en/country/sierraleone/
+by-country,Mapping Militant Organizations: Somalia,,"Somalia, Federal Republic of",,http://web.stanford.edu/group/mappingmilitants/cgi-bin/maps/view/somalia/
+by-country,BBC Somalia Country Profile,,"Somalia, Federal Republic of",,http://www.bbc.com/news/world-africa-14094503/
+by-country,UN Data: Country Profile- Somalia,,"Somalia, Federal Republic of",,http://data.un.org/CountryProfile.aspx?crName=Somalia/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Somalia,,"Somalia, Federal Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SOM&regioncode=40540/
+by-country,IMF Country Information: Somalia,,"Somalia, Federal Republic of",,http://www.imf.org/external/country/SOM/index.htm/
+by-country,World Bank: Somalia,,"Somalia, Federal Republic of",,http://www.worldbank.org/en/country/somalia/
+by-country,BBC Sudan Country Profile,,"Sudan, Republic of the",,http://www.bbc.com/news/world-africa-14094995/
+by-country,The Middle East Media Research Institute: North Africa,,"Sudan, Republic of the",,http://www.memri.org/content/en/country.htm?country=north/
+by-country,UN Data: Country Profile- Sudan,,"Sudan, Republic of the",,http://data.un.org/CountryProfile.aspx?crName=Sudan/
+by-country,UNDP Human Development Reports: Sudan,,"Sudan, Republic of the",,http://hdr.undp.org/en/countries/profiles/SDN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Sudan,,"Sudan, Republic of the",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SDN&regioncode=40525/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Sudan Pre-Secession,,"Sudan, Republic of the",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=XDN&regioncode=40525/
+by-country,IMF Country Information: Sudan,,"Sudan, Republic of the",,http://www.imf.org/external/country/SDN/index.htm/
+by-country,World Bank: Sudan,,"Sudan, Republic of the",,http://www.worldbank.org/en/country/sudan/
+by-country,Arab Barometer: Sudan,,"Sudan, Republic of the",,http://www.arabbarometer.org/country/sudan/
+by-country,UN Data: Country Profile- Suriname,,Suriname,,http://data.un.org/CountryProfile.aspx?crName=Suriname/
+by-country,UNDP Human Development Reports: Suriname,,Suriname,,http://hdr.undp.org/en/countries/profiles/SUR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Suriname,,Suriname,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SUR&regioncode=40520/
+by-country,IMF Country Information: Suriname,,Suriname,,http://www.imf.org/external/country/SUR/index.htm/
+by-country,World Bank: Suriname,,Suriname,,http://www.worldbank.org/en/country/suriname/
+by-country,Mapping Militant Organizations: Syria,,Syria (the Syrian Arab Republic),,http://web.stanford.edu/group/mappingmilitants/cgi-bin/maps/view/syria/
+by-country,Your Cheat Sheet to the Syrian Conflict,,Syria (the Syrian Arab Republic),,http://www.pbs.org/newshour/rundown/your-cheat-sheet-to-the-syrian-conflict/
+by-country,Syria Visualizations Illustrate Complexity & Division,,Syria (the Syrian Arab Republic),,http://www.scribblelive.com/blog/2013/09/05/syria-visualizations/
+by-country,Connecting Syria's Allies and Enemies: Interactive Infographic,,Syria (the Syrian Arab Republic),,http://www.aljazeera.com/indepth/interactive/2013/08/201383111193558894.html/
+by-country,Syria Regional Refugee Response,"This source is an inter-agency information sharing portal that provides interactive graphics, maps, and statistics on the Syrian Refugee Crisis.",Syria (the Syrian Arab Republic),,http://data.unhcr.org/syrianrefugees/regional.php/
+by-country,Syria: The Story of Conflict BBC,,Syria (the Syrian Arab Republic),,http://www.bbc.com/news/world-middle-east-26116868/
+by-country,The Middle East Research Institute: Syria,,Syria (the Syrian Arab Republic),,http://www.memri.org/media-reports-syria.html/
+by-country,UN Data: Country Profile- Syria,,Syria (the Syrian Arab Republic),,http://data.un.org/CountryProfile.aspx?crName=Syrian Arab Republic/
+by-country,UNDP Human Development Reports: Syria,,Syria (the Syrian Arab Republic),,http://hdr.undp.org/en/countries/profiles/SYR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Syria,,Syria (the Syrian Arab Republic),,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=SYR&regioncode=40525/
+by-country,IMF Country Information: Syria,,Syria (the Syrian Arab Republic),,http://www.imf.org/external/country/SYR/index.htm/
+by-country,World Bank: Syria,,Syria (the Syrian Arab Republic),,http://www.worldbank.org/en/country/syria/
+by-country,Pieter Van Ostaeyen Blog,"This blog covers much of the situation in Syria and provides IS statements, analysis and reflections on the situation in Syria, consistently updated maps depicting the power relations in Syria, and much more.",Syria (the Syrian Arab Republic),,https://pietervanostaeyen.com/category/syria/
+by-country,ISW Resources on Jabhat al-Nusra: Al-Qaeda's Syrian Affiliate,"The Institute of the Study of War's reports on Jabhat al-Nusra, its goals, power relations, relations with the Islamic State, the US, the Syrian Civil War, and local dynamics in Syria.",Syria (the Syrian Arab Republic),,http://www.understandingwar.org/backgrounder/isw-resources-jabhat-al-nusra-al-qaedas-syrian-affiliate/
+by-country,"""A new jihadist threat may be on the horizon in Syria""",A Washington Post op-ed on Jabhat al-Nusra's threat in Syria.,Syria (the Syrian Arab Republic),,https://www.washingtonpost.com/opinions/global-opinions/a-new-jihadist-threat-rises-in-syria-as-the-islamic-state-recedes/2016/07/19/f9fd6ae6-4df4-11e6-a422-83ab49ed5e6a_story.html?utm_campaign=ISW Jabhat al-Nusra Resource Page&utm_medium=email&utm_source=ISW Resources on Jabhat al- Nusra/
+by-country,UN Data: Country Profile- Tajikistan,,Tajikistan,,http://data.un.org/CountryProfile.aspx?crName=Tajikistan/
+by-country,UNDP Human Development Reports: Tajikistan,,Tajikistan,,http://hdr.undp.org/en/countries/profiles/TJK/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Tajikistan,,Tajikistan,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=TJK&regioncode=40505/
+by-country,IMF Country Information: Tajikistan,,Tajikistan,,http://www.imf.org/external/country/TJK/index.htm/
+by-country,World Bank: Tajikistan,,Tajikistan,,http://www.worldbank.org/en/country/tajikistan/
+by-country,The Middle East Media Research Institute: Africa,,Togo,,http://www.memri.org/content/en/country.htm?country=afric/
+by-country,UN Data: Country Profile- Togo,,Togo,,http://data.un.org/CountryProfile.aspx?crName=Togo/
+by-country,UNDP Human Development Reports: Togo,,Togo,,http://hdr.undp.org/en/countries/profiles/TGO/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Togo,,Togo,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=TGO&regioncode=40540/
+by-country,IMF Country Information: Togo,,Togo,,http://www.imf.org/external/country/TGO/index.htm/
+by-country,World Bank: Togo,,Togo,,http://www.worldbank.org/en/country/togo/
+by-country,BBC Tunisia Country Profile,,Tunisia,,http://www.bbc.com/news/world-africa-14107241/
+by-country,The Middle East Media Research Institute: North Africa,,Tunisia,,http://www.memri.org/content/en/country.htm?country=north/
+by-country,UN Data: Country Profile- Tunisia,,Tunisia,,http://data.un.org/CountryProfile.aspx?crName=Tunisia/
+by-country,Counter Extremism Profile: Tunisia,,Tunisia,,http://www.counterextremism.com/countries/tunisia/
+by-country,UNDP Human Development Reports: Tunisia,,Tunisia,,http://hdr.undp.org/en/countries/profiles/TUN/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Tunisia,,Tunisia,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=TUN&regioncode=40525/
+by-country,IMF Country Information: Tunisia,,Tunisia,,http://www.imf.org/external/country/TUN/index.htm/
+by-country,World Bank: Tunisia,,Tunisia,,http://www.worldbank.org/en/country/tunisia/
+by-country,Arab Barometer: Tunisia,,Tunisia,,http://www.arabbarometer.org/country/tunisia/
+by-country,The Middle East Media Research Institute: Turkey,,Turkey,,http://www.memri.org/turkey-media.html/
+by-country,UN Data: Country Profile- Turkey,,Turkey,,http://data.un.org/CountryProfile.aspx?crName=Turkey/
+by-country,Counter Extremism Profile: Turkey,,Turkey,,http://www.counterextremism.com/countries/turkey/
+by-country,UNDP Human Development Reports: Turkey,,Turkey,,http://hdr.undp.org/en/countries/profiles/TUR/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Turkey,,Turkey,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=TUR&regioncode=40530/
+by-country,Databank World Bank: Turkey,,Turkey,,http://databank.worldbank.org/data/reports.aspx?Code=IDN&id=556d8fa6&report_name=Popular_countries&populartype=country&ispopular=y/
+by-country,IMF Country Information: Turkey,,Turkey,,http://www.imf.org/external/country/TUR/index.htm/
+by-country,World Bank: Turkey,,Turkey,,http://www.worldbank.org/en/country/turkey/
+by-country,CSIS: Turkey Project,,Turkey,,https://www.csis.org/programs/turkey-project/
+by-country,BBC Turkmenistan Country Profile,,Turkmenistan,,http://www.bbc.com/news/world-asia-16094646/
+by-country,UN Data: Country Profile- Turkmenistan,,Turkmenistan,,http://data.un.org/CountryProfile.aspx?crName=Turkmenistan/
+by-country,UNDP Human Development Reports: Turkmenistan,,Turkmenistan,,http://hdr.undp.org/en/countries/profiles/TKM/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Turkmenistan,,Turkmenistan,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=TKM&regioncode=40505/
+by-country,IMF Country Information: Turkmenistan,,Turkmenistan,,http://www.imf.org/external/country/TKM/index.htm/
+by-country,World Bank: Turkmenistan,,Turkmenistan,,http://www.worldbank.org/en/country/turkmenistan/
+by-country,BBC United Arab Emirates Country Profile,,United Arab Emirates,,http://www.bbc.com/news/world-middle-east-14703998/
+by-country,The Middle East Media Research Institute: The Gulf,,United Arab Emirates,,http://www.memri.org/content/en/country.htm?country=the_g/
+by-country,UN Data: Country Profile- United Arab Emirates,,United Arab Emirates,,http://data.un.org/CountryProfile.aspx?crName=United Arab Emirates/
+by-country,UNDP Human Development Reports: United Arab Emirates,,United Arab Emirates,,http://hdr.undp.org/en/countries/profiles/ARE/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- United Arab Emirates,,United Arab Emirates,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=ARE&regioncode=40525/
+by-country,IMF Country Information: United Arab Emirates,,United Arab Emirates,,http://www.imf.org/external/country/ARE/index.htm/
+by-country,World Bank: GCC,,United Arab Emirates,,http://www.worldbank.org/en/country/gcc/
+by-country,UN Data: Country Profile- Uzbekistan,,Uzbekistan,,http://data.un.org/CountryProfile.aspx?crName=Uzbekistan/
+by-country,UNDP Human Development Reports: Uzbekistan,,Uzbekistan,,http://hdr.undp.org/en/countries/profiles/UZB/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Uzbekistan,,Uzbekistan,,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=UZB&regioncode=40505/
+by-country,IMF Country Information: Uzbekistan,,Uzbekistan,,http://www.imf.org/external/country/UZB/index.htm/
+by-country,World Bank: Uzbekistan,,Uzbekistan,,http://www.worldbank.org/en/country/uzbekistan/
+by-country,BBC Yemen Country Profile,,"Yemen, Republic of",,http://www.bbc.com/news/world-middle-east-14704852/
+by-country,The Middle East Media Research Institute: The Gulf,,"Yemen, Republic of",,http://www.memri.org/content/en/country.htm?country=the_g/
+by-country,UN Data: Country Profile- Yemen,,"Yemen, Republic of",,http://data.un.org/CountryProfile.aspx?crName=Yemen/
+by-country,UNDP Human Development Reports: Yemen,,"Yemen, Republic of",,http://hdr.undp.org/en/countries/profiles/YEM/
+by-country,UNESCO Institute for Statistics: Regional and Country Profiles- Yemen,,"Yemen, Republic of",,http://www.uis.unesco.org/DataCentre/Pages/country-profile.aspx?code=YEM&regioncode=40525/
+by-country,IMF Country Information: Yemen,,"Yemen, Republic of",,http://www.imf.org/external/country/YEM/index.htm/
+by-country,World Bank: Yemen,,"Yemen, Republic of",,http://www.worldbank.org/en/country/yemen/
+by-country,"Charting the data for US airstrikes in Yemen, 2002 – 2016",The Long War Journal's data by Bill Roggio and Bob Barry provides 3 charts with data from 2002 and 2009-2016: 1) the number of US airstrikes inside Yemen 2) civilian casualties vs. al-Qaeda in the Arabian Peninsula casualties; 3) the distribution of strikes over time by provinces.,"Yemen, Republic of",,http://www.longwarjournal.org/yemen-strikes/
+by-country,Arab Barometer: Yemen,,"Yemen, Republic of",,http://www.arabbarometer.org/country/yemen/

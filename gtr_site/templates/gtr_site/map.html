@@ -1,0 +1,15 @@
+{% extends "gtr_site/base.html" %}
+{% include "gtr_site/nav_bar.html" %}
+{% block title %}GTR{% endblock %}
+{% load staticfiles %}
+{% block content %}
+<h1>Global Terrorism Research Project</h1>
+<img src="{% static 'gtr_site/doves_resized.png' %}"/>
+<form action="{% url 'search' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="search" placeholder="Search..." required>
+  <input type="submit" value="Search">
+</form>
+<h2>Resources Map</h2>
+<iframe width="100%" height="520" frameborder="0" src="https://haverfordds.carto.com/builder/0bd7b74c-3ea5-46c9-98e3-1413cd431827/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+{% endblock %}

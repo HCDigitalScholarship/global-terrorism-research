@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/lib/python-virtualenv/gtr/bin/python
 import os
 import sys
 

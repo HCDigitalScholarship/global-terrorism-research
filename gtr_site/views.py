@@ -7,37 +7,80 @@ from whoosh.query import *
 from datetime import *
 from dal import autocomplete
 from haystack.generic_views import SearchView
+from django.db.models import Q
+try:
+    from django.urls import reverse_lazy
+except ImportError:
+    from django.core.urlresolvers import reverse_lazy
+from django.views import generic, View
+from django.http import JsonResponse
+from gtr_site.forms import *
+
 
 import os
 
-class CustomSearchView(SearchView):
-    pass
+#class CustomSearchView(SearchView):
+    #pass
 
 # Create your views here.
 def index(request):
+    print "HOME" 
     return render(request, 'gtr_site/index.html')
 
 def about(request):
     return render(request, 'gtr_site/about.html')
 
+class GenerateKeywords(View):
+    def get(self, request, *args, **kwargs):
+        #qs = list(Keyword.objects.all())
+        #data = {"results": qs}
+        #return JsonResponse(data)
+      i = 1
+      pythondictionary = []
+      for each in Keyword.objects.all():
+         pythondictionary.append({'id' : i, 'name' : each.word})
+         i+=1
+      jsondict = json.dumps(pythondictionary)
+      print jsondict
+      return jsondict
+
+
 def contact(request):
     return render(request, 'gtr_site/contact.html')
 
+def map(request):
+    return render(request, 'gtr_site/map.html')
+
 def statement_page(request, statement_id):
     state = get_object_or_404(Statement, statement_id=statement_id)
-    context  = {'state':state}
-    #print "CONTEXT:"
-    #print context
+    keycondict = state.get_keywords_contexts()
+    context  = {'state':state, 'keycondict':keycondict,}
+    print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
+    print state.get_keywords_contexts()
     return render(request, 'gtr_site/statement_page.html', context)
 
+def resources(request):
+    return render(request, 'gtr_site/resources.html')
 
-#def keywordincontext_update(request):
-    #pass
+def resource_search(request):
+    print "HELLO WORLD"
+    query = request.GET.get("search")
+    if query:
+       qs_list = Resource.objects.all()
+       #complex lookups for various fields
+       qs_list = qs_list.filter(
+          Q(title__icontains=query) | Q(description__icontains=query) |
+          Q(author__icontains=query) | Q(country__icontains=query)
+       ).distinct() #these are all the items that can be searched by basic char analysis at the moment.
 
-#def keywordincontext_page (request, keywordincontext_id):
-    #state = get_object_or_404(KeywordInContext)
-    #context = {'state':state}
-    #return render(request, 'gtr_site/
+       #Search results are put into the context dictionary
+       context = {
+          "results": qs_list
+       }
+       print "CONTEXT"
+       print context
+
+    return render(request, 'gtr_site/resource_results.html', context)
 
 '''class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
@@ -61,7 +104,25 @@ class KeywordInContextAutocomplete(autocomplete.Select2QuerySetView):
           qs = qs.filter(word__istartswith=self.q)
        return qs
 
+class KeywordAutocomplete(autocomplete.Select2QuerySetView):
+   def get_queryset(self):
+      if not self.request.user.is_authenticated():
+          print "user not authenticated so autocomplete doesn't work."
+          return Keyword.objects.none()
+      qs = Keyword.objects.all()
+      if self.q:
+         qs = qs.filter(worrd__istartswith=self.q)
+      return qs 
 
+
+class KeywordView(generic.UpdateView):
+    model = Keyword
+    form_class = KeywordFilterForm 
+    template_name = 'search/search.html'
+    success_url = reverse_lazy('search')
+
+    def get_object(self):
+        return Keyword.objects.first()
 
 """class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
@@ -72,9 +133,43 @@ class KeywordInContextAutocomplete(autocomplete.Select2QuerySetView):
          qs = qs.filter(context_word__istartswith=self.q)
       return qs"""
 
-
 def search(request):
+    qs_list = Statement.objects.all()
+    print "HELLO WORLD"
+    query = request.GET.get("search")
+    if query:
+       if "->" in query:
+          print "Keyword context operator detected" 
+       qs_list = Statement.objects.all()
+       #complex lookups for various fields
+       qs_list = qs_list.filter(
+          Q(title__icontains=query) | Q(statement_id__icontains=query) |
+          Q(author__person_name__icontains=query) | Q(released_by__org_name__icontains=query)
+       ).distinct() #these are all the items that can be searched by basic char analysis at the moment.
+       
+       set_of_keywords = Keyword.objects.all()
+       #Search results are put into the context dictionary
+       context = {
+          "results": qs_list, "keywords": set_of_keywords,
+       }
+       print "QS_LIST: "
+       print qs_list
+       #print "CONTEXT: "
+       #print context
+       #for x in qs_list:
+           #print "URL: "
+           #print x.get_absolute_url()
+    #if 'search' in request.POST:
+        #print "HELLO WORLD FROM CONDITIONAL!"
+        #search = request.POST['search']
+        #print "SEARCH: ", search
+       return render(request, 'search/search.html', context)
+
+
+'''def search(request):
+    print "HELLO WORLD"
     if 'search' in request.POST:
+            print "HELLO WORLD FROM CONDITIONAL!" 
 	    search = request.POST['search']
 	    from whoosh.index import open_dir
 	    from whoosh.qparser import MultifieldParser, QueryParser
@@ -209,15 +304,22 @@ def search(request):
 
 
 		result_list = [results[i] for i in range(len(results))] # convert from query type to normal list
-		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords() for result in result_list]
-		contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
-		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts() for result in result_list]
+		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords() for result in result_list] #get all statements.keyword_in_contexts
+		#contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
+                #Does the above line need to be here anymore if we have removed the idea of contexts as an entity unique from keywords?
+		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts() for result in result_list] #So does this conflict with 
+                #the line that performs gett_keywords? we're getting all keywordincontexts twice.
+                print "KEYWORDS (only the main_keyword objects of the KeywordInContext's associated with this statement)"
 		print keywords
-		unioned_keywords = keywords[0]
-		for query_set in keywords:
-		   unioned_keywords = (unioned_keywords | query_set)
-		unioned_keywords.distinct()
-		print key_con
+                print "list of tuple of keyword context pairs"
+                print key_con
+                
+		#unioned_keywords = keywords[0]
+		#for query_set in keywords:
+		   #unioned_keywords = (unioned_keywords | query_set)
+		#unioned_keywords.distinct()
+		#print key_con
+                
 		# making a dictionary where the keywords are keys and all contexts that go with those keywords, across the dataset, are in there
 		key_con_dict = {}
 		for statement in key_con:
@@ -230,8 +332,9 @@ def search(request):
 		   key_con_dict[keyword] = list(key_con_dict[keyword].distinct())
 		print key_con_dict
 		#if filter_request: # might not actually need this
+                #The below line should be deprecated because contexts and key_con_dict are no longer necessary. At all.
 		context = {'results' : result_list, 'keywords' : keywords, 'contexts' : contexts, 'key_con' : key_con_dict, 'search' : search }
 	    return render(request, 'gtr_site/search_results.html', context)
     else:
        print request.POST
-       return render(request, 'gtr_site/search_results.html')
+       return render(request, 'gtr_site/search_results.html')'''

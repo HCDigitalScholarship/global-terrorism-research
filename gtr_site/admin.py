@@ -1,6 +1,6 @@
 from django.contrib import admin
 from gtr_site.models import *
-from .forms import StatementForm, KeywordForm, KeywordInContextForm
+from .forms import StatementForm, KeywordInContextForm
 from django.utils.translation import gettext_lazy as _
 from datetime import date
 
@@ -76,7 +76,10 @@ class StatementAdmin(admin.ModelAdmin):
     list_display = ('statement_id', 'title', 'author', 'released_by', 'issue_date', 'access', 'full_text',)
     #list_filter = ('released_by', 'issue_date', 'access',)
     list_filter = (StatementListFilter, 'released_by', 'issue_date', 'access',)
-    search_fields = ('statement_id', 'title', 'author', 'issue_date',)
+    search_fields = ('statement_id', 'title', 'author__person_name', 'issue_date',)
+    #search_fields = ('statement_id',)
+    #search_fields = ('statement_id', 'title', 'author')
+    
     form = StatementForm
     def __init__(self, model, admin_site):
         super(StatementAdmin,self).__init__(model,admin_site)
@@ -97,9 +100,10 @@ admin.site.register(Keyword, KeywordAdmin)
 
 
 ##########################################################
-
 class ResourceAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('title', 'country', 'author')
+    list_display = ('title', 'author', 'country', 'resource_type', 'description',)
+    list_filter = ('resource_type',)
 
 admin.site.register(Resource, ResourceAdmin) 
 
@@ -108,7 +112,7 @@ admin.site.register(Resource, ResourceAdmin)
 class KeywordInContextAdmin(admin.ModelAdmin):
      form = KeywordInContextForm
      list_display = ('main_keyword', 'context',)
-     search_fields = ('main_keyword__word', 'keywordcontext__word')
+     search_fields = ('main_keyword__word', 'context__word')
      class Media():
         js = ('gtr_site/js/filtering.js',)
      #filter_horizontal = ('main_keyword', 'context')
