@@ -1,0 +1,23 @@
+<!-- Results page for Resources -->
+{% extends "gtr_site/base.html" %}
+{% include "gtr_site/nav_bar.html" %}
+{% block title %}GTR{% endblock %}
+{% block content %}
+   <table class="resources_table">
+      <tr>
+         <th>Title</th>
+         <th>Author</th>
+         <th>Country</th>
+         <th>Description</th>
+      </tr>
+   {% for resource in results %}
+      <tr>
+         <td><a href="{{ resource.link }}">{{ resource.title }}</a></td>
+         <td>{{ resource.author }}</td>
+         <td>{{ resource.country }}</td>
+         <td>{{ resource.description }}</td>
+      </tr>
+   {% endfor %}
+  </table>
+{% endblock %}
+
