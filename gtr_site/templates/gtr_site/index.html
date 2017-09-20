@@ -4,16 +4,108 @@
 {% load staticfiles %}
 
 {% block content %}
-<h1>Global Terrorism Research Project</h1>
-<img src="{% static 'gtr_site/doves_resized.png' %}"/>
+<div class="jumbotron jumbotron-fluid">
+  <h1>Global Terrorism Research Project</h1>      
+</div>
+<!--img src="{% static 'gtr_site/doves_resized.png' %}"/-->
 <!--<form action="{% url 'search' %}" method="post">-->
+<div class="row">
+<div class= "col-md-4">
+<h4>Search for statements</h4>
 <form action="{% url 'search' %}" method="GET">
   {% csrf_token %}
-  <input type="text" name="search" placeholder="Search..." required>
-  <input type="submit" value="Search">
+<div id="imaginary_container"> 
+
+   <label for="key_search"> with Keyword(s) </label>
+   <div class="input-group stylish-input-group">
+	<input type="text" class="form-control" name="key_search" placeholder="Search..." required>
+       <!--<input type="submit" value="Search">-->
+       <span class="input-group-addon">
+            <button type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+            </button>  
+       </span>
+    </div>
+<br >
+   <label for="auth_search"> by Author: </label>
+   <div class="input-group stylish-input-group">
+       <input type="text" class="form-control" name="auth_search" placeholder="Search..." required>
+       <!--<input type="submit" value="Search">-->
+       <span class="input-group-addon">
+            <button type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+            </button>  
+       </span>
+    </div>
+     
+<br >
+   <label for="title_search"> with Title: </label>
+   <div class="input-group stylish-input-group">
+       <input type="text" class="form-control" name="title_search" placeholder="Search..." required>
+       <!--<input type="submit" value="Search">-->
+       <span class="input-group-addon">
+            <button type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+            </button>  
+       </span>
+    </div>
+    
+<br >
+   <label for="date_search"> Issued between: </label>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datepicker();
+        $('#datetimepicker7').datepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script> 
+
+
+<!--h5>Search by</h5-->
+    <!--div class="form-group">
+    	<ul class="checkbox-grid">
+<li><input type="checkbox" name="text1" value="value1" /><label for="text1">Text 1</label></li>
+<li><input type="checkbox" name="text2" value="value2" /><label for="text2">Text 2</label></li>
+<li><input type="checkbox" name="text3" value="value3" /><label for="text3">Text 3</label></li>
+<li><input type="checkbox" name="text4" value="value4" /><label for="text4">Text 4</label></li>
+<li><input type="checkbox" name="text5" value="value5" /><label for="text5">Text 5</label></li>
+<li><input type="checkbox" name="text5" value="value5" /><label for="text5">Text 5</label></li>
+</label></li>
+    <li><input type="checkbox" name="text5" value="value5" /><label for="text5">Text 5</label></li>
+	</ul>
+    </div-->
+	
+</div>
 </form>
+</div>
+<div class= "col-md-8">
 <h2>Welcome</h2>
-<p>
-Welcome to the Global Terrorism Research Project, a product of the Political Science department at Haverford College. Professor Barak Mendelsohn oversees the project supported by a team of student researchers. The site consists of two sections, resources and the al-Qaeda Statements Index. The resources section of our website contains a compilation of links to various other useful websites that provide information on terrorism and international security. This portion of the website contains links to books, primary sources, data sources, journal indexes, news, blogs, research sites, research portals and resources for students.<br>
+<p>Welcome to the Global Terrorism Research Project, a product of the Political Science department at Haverford College. Professor Barak Mendelsohn oversees the project supported by a team of student researchers. The site consists of two sections, resources and the al-Qaeda Statements Index. The resources section of our website contains a compilation of links to various other useful websites that provide information on terrorism and international security. This portion of the website contains links to books, primary sources, data sources, journal indexes, news, blogs, research sites, research portals and resources for students.<br>
 The al-Qaeda Statements Index is a long term project that consists of a comprehensive collection of statements released by al-Qaeda since 1994. The project chooses to focus on indexing statements by al-Qaeda Central. It also includes statements made by the Islamic State (aka the Islamic State of Iraq and al-Sham) up until and in the responding aftermath of the Islamic State’s separation from al-Qaeda in February of 2014.The index now includes statements released by al-Qaeda in the Indian Subcontinent (AQIS). The project does not include other branches of al-Qaeda, nor does it continue to include the Islamic State’s statements in order to preserve the project’s focus on al-Qaeda Central and its ideology. This section also includes biographical information on authors affiliated with al-Qaeda who have a significant number of statements indexed.</p>
+</div>
+</div>
 {% endblock  %}
+

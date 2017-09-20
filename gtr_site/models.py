@@ -130,15 +130,17 @@ class Statement(models.Model):
                    #main_keyword_list.append(keywordcontext.main_keyword)
                #keyconlist.append((keywordcontext.main_keyword, keywordcontext.context,))
         for keywordcontext in self.keywords.all():
-           if keywordcontext.main_keyword.word == "" or keywordcontext.context.word == "":
-              continue
-           if not keycondict.get(keywordcontext.main_keyword.word):
-              keycondict[keywordcontext.main_keyword.word] = []
+            if keywordcontext.main_keyword.word == "" or keywordcontext.context.word == "":
+             continue
+
+            if not keycondict.get(keywordcontext.main_keyword.word):
+                keycondict[keywordcontext.main_keyword.word] = []
            #if not keywordcontext.context or not keywordcontext.main_keyword:
               #continue
-           keycondict[keywordcontext.main_keyword.word].append(keywordcontext.context.word.encode("utf-8"))
+            keycondict[keywordcontext.main_keyword.word].append(keywordcontext.context.word.encode("utf-8"))
+        
         return keycondict
-
+        
 @python_2_unicode_compatible
 class Keyword(models.Model):
     word      = models.CharField(max_length=200, blank=True)

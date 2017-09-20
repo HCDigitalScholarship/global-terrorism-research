@@ -166,11 +166,14 @@ def search(request):
        return render(request, 'search/search.html', context)
 
 
-'''def search(request):
-    print "HELLO WORLD"
-    if 'search' in request.POST:
+"""
+
+def search(request):
+    print "Old search"
+    print request.GET
+    if 'search' in request.GET:
             print "HELLO WORLD FROM CONDITIONAL!" 
-	    search = request.POST['search']
+	    search = request.GET['search']
 	    from whoosh.index import open_dir
 	    from whoosh.qparser import MultifieldParser, QueryParser
 	    from whoosh.qparser.dateparse import DateParserPlugin 
@@ -182,8 +185,8 @@ def search(request):
 		dateparse = QueryParser("issue_date", schema= ix.schema)
 		dateparse.add_plugin(DateParserPlugin()) # http://whoosh.readthedocs.io/en/latest/dates.html
 	 	filter_request = False
-                if 'Filter' in request.POST:
-		   if "filter_by_date" in request.POST:
+                if 'Filter' in request.GET:
+		   if "filter_by_date" in request.GET:
 			filter_date = True
 		   else:
 			filter_date = False
@@ -198,22 +201,22 @@ def search(request):
 		   ex_no_key_yet     = True
 		   ex_no_key_con_yet = True
 
-                   for key in request.POST:
-		      print request.POST[key]
+                   for key in request.GET:
+		      print request.GET[key]
 		      print "working with", key
-		      if request.POST[key]=='con_ON':
+		      if request.GET[key]=='con_ON':
 			if no_con_yet:
 			  con_query = Term("context", key)
 			  no_con_yet = False
 			else:
 			  con_query = con_query | Term("context", key)
-		      elif request.POST[key]=='key_ON':
+		      elif request.GET[key]=='key_ON':
 			if no_key_yet:
 			  key_query = Term("keyword", key)
 			  no_key_yet = False
 			else:
 			  key_query = key_query | Term("keyword", key)
-		      elif request.POST[key]=='key_con_ON':
+		      elif request.GET[key]=='key_con_ON':
 			# I am breaking these on underscores,
 			# so there will be problems if a key/con has underscores
 			keyword, context = key.split("_")
@@ -239,23 +242,23 @@ def search(request):
 			# Mon Jan 01 1990 00:00:00| GMT-0500 (EST)
  			
 			#lowDate = request.POST[key][:24]
-			lowDate = datetime.strptime(request.POST[key][:24], "%a %b %d %Y %X")
+			lowDate = datetime.strptime(request.GET[key][:24], "%a %b %d %Y %X")
 		      elif filter_date and key == "date_high":
-			highDate = datetime.strptime(request.POST[key][:24], "%a %b %d %Y %X")
-		      elif request.POST[key]=='con_OFF':
+			highDate = datetime.strptime(request.GET[key][:24], "%a %b %d %Y %X")
+		      elif request.GET[key]=='con_OFF':
 		        # now we do the excluding, which is very similar
 			if ex_no_con_yet:
 			  ex_con_query = Term("context", key)
 			  ex_no_con_yet = False
 			else:
 			  ex_con_query = ex_con_query | Term("context", key)
-		      elif request.POST[key]=='key_OFF':
+		      elif request.GET[key]=='key_OFF':
 			if ex_no_key_yet:
 			  ex_key_query = Term("keyword", key)
 			  ex_no_key_yet = False
 			else:
 			  ex_key_query = ex_key_query | Term("keyword", key)
-		      elif request.POST[key]=='key_con_OFF':
+		      elif request.GET[key]=='key_con_OFF':
 			# I am breaking these on underscores,
 			# so there will be problems if a key/con has underscores
 			keyword, context = key.split("_")
@@ -281,9 +284,9 @@ def search(request):
 		  query = query & key_con_query
 		
 		if filter_request and filter_date:
-		  for i in range(1, int(request.POST['slider_count']) + 1):
-			lowDate = datetime.strptime(request.POST["date_low"+str(i)][:24], "%a %b %d %Y %X")
-			highDate = datetime.strptime(request.POST["date_high"+str(i)][:24], "%a %b %d %Y %X")
+		  for i in range(1, int(request.GET['slider_count']) + 1):
+			lowDate = datetime.strptime(request.GET["date_low"+str(i)][:24], "%a %b %d %Y %X")
+			highDate = datetime.strptime(request.GET["date_high"+str(i)][:24], "%a %b %d %Y %X")
 		  	if i==1:
 			  date_query = DateRange("issue_date", lowDate, highDate)
 			else:
@@ -300,10 +303,17 @@ def search(request):
 
                 # if we returned no results, we need to just return here
 		if len(results) == 0:
-		  return render(request,  'gtr_site/search_results.html')
+		  return render(request,  'search/search.html')
 
-
-		result_list = [results[i] for i in range(len(results))] # convert from query type to normal list
+                print results, "RESULTS"
+                print len(results)
+                result_list = []
+                for r in results:
+                   print r
+                   result_list.append(r)
+                print "all done"
+		#result_list = [results[i] for i in range(len(results))] # convert from query type to normal list
+                print "Success!"
 		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords() for result in result_list] #get all statements.keyword_in_contexts
 		#contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
                 #Does the above line need to be here anymore if we have removed the idea of contexts as an entity unique from keywords?
@@ -334,7 +344,8 @@ def search(request):
 		#if filter_request: # might not actually need this
                 #The below line should be deprecated because contexts and key_con_dict are no longer necessary. At all.
 		context = {'results' : result_list, 'keywords' : keywords, 'contexts' : contexts, 'key_con' : key_con_dict, 'search' : search }
-	    return render(request, 'gtr_site/search_results.html', context)
+	    return render(request, 'search/search.html', context)
     else:
-       print request.POST
-       return render(request, 'gtr_site/search_results.html')'''
+       print request.GET
+       return render(request, 'search/search.html')
+"""

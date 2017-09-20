@@ -17,12 +17,9 @@
 <link rel="stylesheet" href="{% static 'gtr_site/css/iThing.css' %}" type="text/css" />
 {% endblock %}
 {% block content %}
-<p>Your search returned:</p>
-<ul>
-{% for result in results %}
-  <li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
-{% endfor %}
-</ul>
+<div class="row">
+
+<div class="col-md-3 top-buffer" id="search_filter" >	
 <h2>Filters:</h2>
 <form id="filter_form"  action="{% url 'search' %}" method="post">
 {% csrf_token %}
@@ -207,7 +204,26 @@
     </script>
 
 </form>
-
+</div>
+<!--div class= "col-md-1 top-buffer" id="separator"></div--!>
+<div class= "col-md-9 top-buffer" id="search_table">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+         <th>Title</th>
+         <th>Author</th>
+	</tr>
+    </thead>
+    <tbody>
+	{% for result in results %}	
+	<tr>
+	 <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
+	 <td>{{result.author}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script src="{% static 'gtr_site/js/autocomplete-multiselect.js'%}"></script>
