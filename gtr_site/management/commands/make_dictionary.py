@@ -1,30 +1,44 @@
 import csv
 import pprint
 def main():
-   print "hello World!"
+   """
+	Creates a python dictionary with statement id's as keys to other dictionaries that then have all the relevant information from our spread sheets e.g.:
+	
+	{"STATEMENT_ID" : {"keyword": [keyword1, keyword2], "context": [(keyword1, context1),(keyword1,context2)]}}
+   """
+
    #with open('/srv/global-terrorism-research/statements_loading_data.csv') as f:
    with open('statements_loading_data.csv') as f:
       statement_dictionary = {}
       for row in csv.DictReader(f, skipinitialspace=True):
-         if row["statement_id"] not in statement_dictionary:
+	 statement_id = row["statement_id"]
+	 context      = row["context"]
+	 keyword      = row["keyword"] 
+         if statement_id not in statement_dictionary:
             # add a new key!
-            entry_dictionary = {k:v for k,v in row.items()}
-            if entry_dictionary["context"] == ' ':
-               entry_dictionary["context"] = [(entry_dictionary["keyword"], [])]
+            if context == ' ' or context == '':
+               row["keyword"] = set([keyword])
+	       row["context"] = []
             else:
-               entry_dictionary["context"] = [(entry_dictionary["context"],[entry_dictionary["keyword"]])]
+               row["keyword"] = set([keyword])
+	       # you need to swap them, because drupal does some strange things
+	       # you can look at the sheet, it is just this way
+               row["context"] = [(context,keyword)]
             #entry_dictionary["keyword"] = [entry_dictionary["keyword"]]
-            statement_dictionary[row["statement_id"]] = entry_dictionary
+            statement_dictionary[statement_id] = row
          else:
-            for keyword, contextlist in statement_dictionary[row['statement_id']]['context']:
-                if keyword == row['context']:
-                     contextlist.append(row['keyword'])
-                     break
+	    # key already exists
+	    # we either add a new keyword to this statment or
+	    # add a keyword and a keyword context pair
+	    statement = statement_dictionary[statement_id]
+	    if context == ' ' or context == '':
+               statement["keyword"].add(keyword)
             else:
-                if row['context'] == ' ':
-                    statement_dictionary[row['statement_id']]['context'].append((row['keyword'], []))
-                else:
-                    statement_dictionary[row['statement_id']]['context'].append((row['context'], [row['keyword']]))
+               statement["keyword"].add(keyword)
+	       # you need to swap them, because drupal does some strange things
+	       # you can look at the sheet, it is just this way
+               statement["context"].append((context,keyword))
+
             # just add key word and/or context
             #statement_dictionary[row['statement_id']]["keyword"].append(row['keyword'])
             #context = row["context"]
