@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader, RequestContext
 #from django.models import model.formset_factory
-from .models import *
+from gtr_site.models import *
 from whoosh.query import *
 from datetime import *
 from dal import autocomplete
@@ -51,6 +51,11 @@ def contact(request):
 def map(request):
     return render(request, 'gtr_site/map.html')
 
+def author_page(request):
+    state_list = Statement.objects.all()
+    context = { "results":state_list}
+    return render(request, 'gtr_site/author_page.html',  context)
+
 def statement_page(request, statement_id):
     state = get_object_or_404(Statement, statement_id=statement_id)
     keycondict = state.get_keywords_contexts()
@@ -59,8 +64,14 @@ def statement_page(request, statement_id):
     print state.get_keywords_contexts()
     return render(request, 'gtr_site/statement_page.html', context)
 
-def resources(request):
-    return render(request, 'gtr_site/resources.html')
+#def resources(request):
+#    return render(request, 'gtr_site/resources.html')
+
+# not sure what we are going for here, currently erroring, commenting out
+class ResourcesList(generic.ListView):
+    queryset = Resource.objects.order_by('-title')
+    paginate_by = 25
+    template_name = 'gtr_site/resources.html'
 
 def resource_search(request):
     print "HELLO WORLD"
@@ -124,19 +135,27 @@ class KeywordView(generic.UpdateView):
     def get_object(self):
         return Keyword.objects.first()
 
-"""class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
+"""
+   class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
       if not self.request.user.is_authenticated():
          return Context.objects.all()
       qs = Context.objects.all()
       if self.q:
          qs = qs.filter(context_word__istartswith=self.q)
-      return qs"""
+      return qs
+"""
 
-def search(request):
+def search2(request):
     qs_list = Statement.objects.all()
     print "HELLO WORLD"
     query = request.GET.get("search")
+    '''
+    query_auth = request.GET.get("auth_search")
+    if query_auth:
+	qs_list = Statement.objects.all()
+	qs_list = qs_list.filter(Q(author__person_name__icontains=query_auth))
+    '''
     if query:
        if "->" in query:
           print "Keyword context operator detected" 
@@ -163,20 +182,81 @@ def search(request):
         #print "HELLO WORLD FROM CONDITIONAL!"
         #search = request.POST['search']
         #print "SEARCH: ", search
+       print "CONTEXT"
+       print context
+       print qs_list
        return render(request, 'search/search.html', context)
 
+def get_search_by(GET_list, search_dictionary):
+   """check to see if the items we want to search in the GET request have values submitted"""
+   return [search_type for search_type in search_dictionary if GET_list[search_type]]
 
-"""
+def make_list(search):
+   """Turns user input, whether it be separated by commas, spaces or both, and makes it a nice list"""
+   return search.replace(",", " ").split()
 
 def search(request):
-    print "Old search"
+    from whoosh.index import open_dir
+    from whoosh.qparser import MultifieldParser, QueryParser
+    from whoosh.qparser.dateparse import DateParserPlugin 
+
     print request.GET
+    #<QueryDict: {u'auth_search': [u''], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [u''], u'title_search': [u'']}>
+    #(statement_id:Iraq OR title:iraq OR author:iraq OR keyword:Iraq OR context:Iraq)
+    # might need to check if empty, not if in
+
+    # This defines what we can possibly search for
+    # keys should match the way it is in the get request
+    # values should match what it is in the whoosh index
+    search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}   
+    
+    search_by = get_search_by(request.GET, search_dictionary)
+    print search_by, "Search_by"
+    ix = open_dir("index")  # open up our index
+    # now open up our searcher
+    with ix.searcher() as searcher:
+        query = False # we use this to check if there is a preexisting query to add to
+        for search_type in search_by:
+	    print search_type
+	    search_terms  = make_list(request.GET[search_type]) # term(s) we are going to be searching e.g. Iraq, Egypt
+	    print "search terms", search_terms
+	    schema_field = search_dictionary[search_type] # field we are searching on e.g. keyword
+            parser = QueryParser(schema_field, ix.schema)
+	    query_for_field = False
+	    for search_term in search_terms:
+		if query_for_field:
+		    query_for_field = query_for_field | parser.parse(search_term)
+		else:
+		    query_for_field = parser.parse(search_term)
+	    if query:
+		query = query & query_for_field 
+	    else:
+	        query = query_for_field
+
+	print query
+	results  = searcher.search(query, limit=None)
+        result_list = []
+        statement_list = []
+        for r in results:
+           print r
+	   statement_list.append(Statement.objects.get(statement_id = r["statement_id"]))
+           result_list.append(r)
+
+        keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_obj() for result in result_list] #get all statements.keyword_in_contexts
+	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
+        context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
+	return render(request, 'search/search.html', context)
+def search_oldie(request):
+    print request.GET
+    search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
+    print get_search_by(request.GET, search_dictionary)    
     if 'search' in request.GET:
-            print "HELLO WORLD FROM CONDITIONAL!" 
 	    search = request.GET['search']
+
 	    from whoosh.index import open_dir
 	    from whoosh.qparser import MultifieldParser, QueryParser
 	    from whoosh.qparser.dateparse import DateParserPlugin 
+
 	    ix = open_dir("index")
 	    with ix.searcher() as searcher:
 		# https://whoosh.readthedocs.io/en/latest/parsing.html
@@ -299,7 +379,7 @@ def search(request):
 		if filter_request and not ex_no_key_con_yet:
 		  query = query - ex_key_con_query
 		print query
-		results = searcher.search(query)
+		results = searcher.search(query, limit=None)
 
                 # if we returned no results, we need to just return here
 		if len(results) == 0:
@@ -308,16 +388,19 @@ def search(request):
                 print results, "RESULTS"
                 print len(results)
                 result_list = []
+		statement_list = []
                 for r in results:
                    print r
+		   statement_list.append(Statement.objects.get(statement_id = r["statement_id"]))
                    result_list.append(r)
+		print statement_list
                 print "all done"
 		#result_list = [results[i] for i in range(len(results))] # convert from query type to normal list
                 print "Success!"
-		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords() for result in result_list] #get all statements.keyword_in_contexts
+		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_obj() for result in result_list] #get all statements.keyword_in_contexts
 		#contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
                 #Does the above line need to be here anymore if we have removed the idea of contexts as an entity unique from keywords?
-		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts() for result in result_list] #So does this conflict with 
+		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] #So does this conflict with 
                 #the line that performs gett_keywords? we're getting all keywordincontexts twice.
                 print "KEYWORDS (only the main_keyword objects of the KeywordInContext's associated with this statement)"
 		print keywords
@@ -332,20 +415,26 @@ def search(request):
                 
 		# making a dictionary where the keywords are keys and all contexts that go with those keywords, across the dataset, are in there
 		key_con_dict = {}
+		'''
 		for statement in key_con:
 		   for keyword in statement:
+		      KIC = keyword
+		      keyword = keyword.main_keyword
+		      print "keyword obj:",keyword,"keyword:", keyword.word 
+		      print type(keyword.word)
 		      if keyword.word in key_con_dict:
-			 key_con_dict[keyword.word] = key_con_dict[keyword.word] | statement[keyword]
+			 key_con_dict[keyword.word] = key_con_dict[keyword.word].append( statement[KIC])
 		      else:
-			 key_con_dict[keyword.word] = statement[keyword]
+			 key_con_dict[keyword.word] = [statement[KIC]]
 		for keyword in key_con_dict:
 		   key_con_dict[keyword] = list(key_con_dict[keyword].distinct())
 		print key_con_dict
 		#if filter_request: # might not actually need this
                 #The below line should be deprecated because contexts and key_con_dict are no longer necessary. At all.
-		context = {'results' : result_list, 'keywords' : keywords, 'contexts' : contexts, 'key_con' : key_con_dict, 'search' : search }
+		'''
+		print result_list
+		context = {'results' : statement_list, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con_dict, 'search' : search }
 	    return render(request, 'search/search.html', context)
     else:
        print request.GET
        return render(request, 'search/search.html')
-"""
