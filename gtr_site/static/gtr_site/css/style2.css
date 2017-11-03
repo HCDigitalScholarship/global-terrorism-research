@@ -1,18 +1,79 @@
 /* Base style sheet for gtrp included in templates/gtr_site/base.html. */
-.form-group{
-   width 100px;
+.btn.btn-default.btn-lg{
+  font-size: medium;
 }
-#from-date{
-    float: left;
+
+#state_table{
+  overflow-y: auto;
+  max-height: 90%;
 }
-.checkbox-grid li {
-    display: block;
-    float: left;
-    width: 50%;
+
+.table-responsive{
+  overflow-y: auto;
+  max-height: 500px;
+}
+#page_title{
+  text-align: center;
+}
+
+table{
+  table-layout: fixed;
+}
+
+td, th{
+  padding-top: 15px;
+  width:auto;
+}
+
+td.wide, th.wide{
+  width: 500px;
+}
+
+#all-users, #hc-only{
+  float:left;
+  margin: 2px;
+}
+
+input[type=radio] {
+/*  margin-left: 50px;*/
+  display: inline;
+}
+
+#datetimepicker6{
+   width: 150px;
+   float: left;
+}
+
+#datetimepicker7{
+   width: 150px;
+   float: right;
+}
+#start-date, #end-date{
+   text-align: center;
+   font-weight: bold; 
+   font-size:70%;
+}
+#start-label, #from-date,.all-access{
+   float:left;
+   width:150px;
+}
+
+
+#end-label, #to-date, .hc-access{
+   float:right;
+   width: 150px;
+}
+
+.date_search{
+  height: 80px;
+}
+#form-select{
+  width: 360px;
 }
 .stylish-input-group .input-group-addon{
     background: white !important; 
 }
+
 .stylish-input-group .form-control{
 	border-right:0; 
 	box-shadow:0 0 0; 
@@ -22,9 +83,11 @@
     border:0;
     background:transparent;
 }
+
 #allKeywords{
    width: 200px;
 }
+
 .top-buffer{
     margin-top: 20px;
 }

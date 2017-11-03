@@ -1,0 +1,79 @@
+{% extends "gtr_site/base.html" %}
+{% include "gtr_site/nav_bar.html" %}
+{% block title %}GTR{% endblock %}
+
+{% block content %}
+<body>
+<div class= "row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 input-group stylish-input-group">
+   	    
+	<input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search">
+
+       <span class="input-group-addon">
+            <button type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+            </button>  
+       </span>
+    </div>
+
+    
+	
+   </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+<div class="col-md-1"></div>
+<div class= "col-md-10 top-buffer" id="state_table">
+<table class="table table-bordered" id="stateTable">
+    <thead>
+        <tr>
+         <th>Title</th>
+         <th>Author</th>
+	 <th>Media type</th>
+	 <th>Issue date</th>
+	 <th>Full Text</th>
+        </tr>
+    </thead>
+    <tbody id="stateTB">
+        {% for sta in results %}
+        <tr>
+         <td id="state_title">{{ sta.title }}</td>
+         <td><a href="{% url 'author_page'%}?a={{sta.author}}">{{sta.author}}</a></td>
+	 <td>{{sta.get_media_type_display}}</td>
+	 <td>{{sta.issue_date}}</td>
+	 <td><a href="{{sta.full_text}}">Open</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<div class="col-md-1"></div>
+</div>
+
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("stateTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>
+
+
+</body>
+{% endblock %}

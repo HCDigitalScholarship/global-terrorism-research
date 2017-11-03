@@ -1,163 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from django.template import loader, RequestContext
-#from django.models import model.formset_factory
-from gtr_site.models import *
 from whoosh.query import *
-from datetime import *
-from dal import autocomplete
-from haystack.generic_views import SearchView
-from django.db.models import Q
-try:
-    from django.urls import reverse_lazy
-except ImportError:
-    from django.core.urlresolvers import reverse_lazy
-from django.views import generic, View
-from django.http import JsonResponse
-from gtr_site.forms import *
-
-
-import os
-
-#class CustomSearchView(SearchView):
-    #pass
-
-# Create your views here.
-def index(request):
-    print "HOME" 
-    return render(request, 'gtr_site/index.html')
-
-def about(request):
-    return render(request, 'gtr_site/about.html')
-
-class GenerateKeywords(View):
-    def get(self, request, *args, **kwargs):
-        #qs = list(Keyword.objects.all())
-        #data = {"results": qs}
-        #return JsonResponse(data)
-      i = 1
-      pythondictionary = []
-      for each in Keyword.objects.all():
-         pythondictionary.append({'id' : i, 'name' : each.word})
-         i+=1
-      jsondict = json.dumps(pythondictionary)
-      print jsondict
-      return jsondict
-
-
-def contact(request):
-    return render(request, 'gtr_site/contact.html')
-
-def map(request):
-    return render(request, 'gtr_site/map.html')
-
-def author_page(request):
-    state_list = Statement.objects.all()
-    context = { "results":state_list}
-    return render(request, 'gtr_site/author_page.html',  context)
-
-def statements(request):
-    state_list = Statement.objects.all()
-    context = { "results":state_list}
-    return render(request, 'gtr_site/statements.html',  context)
-
-def statement_page(request, statement_id):
-    state = get_object_or_404(Statement, statement_id=statement_id)
-    keycondict = state.get_keywords_contexts()
-    context  = {'state':state, 'keycondict':keycondict,}
-    print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
-    print state.get_keywords_contexts()
-    return render(request, 'gtr_site/statement_page.html', context)
-
-#def resources(request):
-#    return render(request, 'gtr_site/resources.html')
-
-# not sure what we are going for here, currently erroring, commenting out
-class ResourcesList(generic.ListView):
-    #queryset = Resource.objects.order_by('-title')
-    template_name = 'gtr_site/resources.html'
-
-    def get_queryset(self):
-        if self.args:
-            self.type = self.args[0]
-            return Resource.objects.filter(resource_type=self.type).order_by('title')
-        else:
-            return Resource.objects.all().order_by('title')
-
-def resource_search(request):
-    print "HELLO WORLD"
-    query = request.GET.get("search")
-    if query:
-       qs_list = Resource.objects.all()
-       #complex lookups for various fields
-       qs_list = qs_list.filter(
-          Q(title__icontains=query) | Q(description__icontains=query) |
-          Q(author__icontains=query) | Q(country__icontains=query)
-       ).distinct() #these are all the items that can be searched by basic char analysis at the moment.
-
-       #Search results are put into the context dictionary
-       context = {
-          "results": qs_list
-       }
-       print "CONTEXT"
-       print context
-
-    return render(request, 'gtr_site/resource_results.html', context)
-
-'''class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-        # Don't forget to filter out results depending on the visitor !
-        if not self.request.user.is_authenticated():
-            return Keyword.objects.none()
-
-        qs = Keyword.objects.all()
-
-        if self.q:
-            qs = qs.filter(word__istartswith=self.q)
-        return qs'''
-
-
-class KeywordInContextAutocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-       if not self.request.user.is_authenticated():
-          return KeywordInContext.objects.none()
-       qs = Keyword.objects.all()
-       if self.q:
-          qs = qs.filter(word__istartswith=self.q)
-       return qs
-
-class KeywordAutocomplete(autocomplete.Select2QuerySetView):
-   def get_queryset(self):
-      if not self.request.user.is_authenticated():
-          print "user not authenticated so autocomplete doesn't work."
-          return Keyword.objects.none()
-      qs = Keyword.objects.all()
-      if self.q:
-         qs = qs.filter(worrd__istartswith=self.q)
-      return qs 
-
-
-class KeywordView(generic.UpdateView):
-    model = Keyword
-    form_class = KeywordFilterForm 
-    template_name = 'search/search.html'
-    success_url = reverse_lazy('search')
-
-    def get_object(self):
-        return Keyword.objects.first()
-
-"""
-   class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-      if not self.request.user.is_authenticated():
-         return Context.objects.all()
-      qs = Context.objects.all()
-      if self.q:
-         qs = qs.filter(context_word__istartswith=self.q)
-      return qs
-"""
-
-def search2(request):
+def search(request):
     qs_list = Statement.objects.all()
     print "HELLO WORLD"
     query = request.GET.get("search")
@@ -193,20 +35,11 @@ def search2(request):
         #print "HELLO WORLD FROM CONDITIONAL!"
         #search = request.POST['search']
         #print "SEARCH: ", search
-       print "CONTEXT"
-       print context
-       print qs_list
        return render(request, 'search/search.html', context)
 
 def get_search_by(GET_list, search_dictionary):
    """check to see if the items we want to search in the GET request have values submitted"""
    return [search_type for search_type in search_dictionary if GET_list[search_type]]
-
-def make_list(search):
-   """Turns user input, whether it be separated by commas, spaces or both, and makes it a nice list"""
-   return search.replace(",", " ").split()
-
-
 
 def search(request):
     from whoosh.index import open_dir
@@ -224,15 +57,12 @@ def search(request):
     search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}   
     
     search_by = get_search_by(request.GET, search_dictionary)
-    print search_by, "Search_by"
     ix = open_dir("index")  # open up our index
     # now open up our searcher
     with ix.searcher() as searcher:
         query = False # we use this to check if there is a preexisting query to add to
         for search_type in search_by:
-	    print search_type
-	    search_terms  = make_list(request.GET[search_type]) # term(s) we are going to be searching e.g. Iraq, Egypt
-	    print "search terms", search_terms
+	    search_terms  = request.GET[search_type]      # term(s) we are going to be searching e.g. [Iraq]
 	    schema_field = search_dictionary[search_type] # field we are searching on e.g. keyword
             parser = QueryParser(schema_field, ix.schema)
 	    query_for_field = False
@@ -246,33 +76,27 @@ def search(request):
 	    else:
 	        query = query_for_field
 
-	print query
-	results  = searcher.search(query, limit=5)
-        result_list = []
-        statement_list = []
-        for r in results:
-           print r
-	   statement_list.append(Statement.objects.get(statement_id = r["statement_id"]))
-           result_list.append(r)
-	keywords = set()
-        keyword_sets = [set(statement.get_keywords()) for statement in statement_list]
-	keywords = keywords.union(*keyword_sets) 
-        print "KEYWORDS",keywords
-	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
-        context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
-	return render(request, 'search/search.html', context)
-def search_oldie(request):
-    print request.GET
-    search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
-    print get_search_by(request.GET, search_dictionary)    
+	    print query
+	    results  = searcher.search(query, limit=None)
+            result_list = []
+            statement_list = []
+            for r in results:
+               print r
+	       statement_list.append(Statement.objects.get(statement_id = r["statement_id"]))
+               result_list.append(r)
+
+            keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_obj() for result in result_list] #get all statements.keyword_in_contexts
+            context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : {"a key" : "a con"} , 'search' : "my search" }
+	    return render(request, 'search/search.html', context)
+
+    """ This is where I'm leaving off. I'm back on the quest of how to make an empty query, which might just not be possible?
+        Regardless, just keep progressing down this guy I think. I'm at the part where I go through individual keys"""
+            
+    if 'title_search' in request.GET:
+	title_parser = QueryParser("title", ix.schema)
     if 'search' in request.GET:
 	    search = request.GET['search']
 
-	    from whoosh.index import open_dir
-	    from whoosh.qparser import MultifieldParser, QueryParser
-	    from whoosh.qparser.dateparse import DateParserPlugin 
-
-	    ix = open_dir("index")
 	    with ix.searcher() as searcher:
 		# https://whoosh.readthedocs.io/en/latest/parsing.html
 		mparser = MultifieldParser(["statement_id", "title", "author", "keyword", "context"], ix.schema)
@@ -295,6 +119,9 @@ def search_oldie(request):
 		   ex_no_con_yet     = True
 		   ex_no_key_yet     = True
 		   ex_no_key_con_yet = True
+"""
+def check_key_and_filter(key):
+
 
                    for key in request.GET:
 		      print request.GET[key]
@@ -453,3 +280,11 @@ def search_oldie(request):
     else:
        print request.GET
        return render(request, 'search/search.html')
+"""
+class qrequest:
+  def __init__(self,get):
+    self.GET = get
+
+get = {u'auth_search': ['Dylan','Emery'], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [], u'title_search': ['Iraq','Egypt']}
+myrequest = qrequest(get)
+search(myrequest)

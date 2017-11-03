@@ -14,12 +14,17 @@
 <h4>Search for statements</h4>
 <form action="{% url 'search' %}" method="GET">
   {% csrf_token %}
+  <input type="text" name="search" placeholder="Search...">
+  <input type="submit" value="Search">
+<!--</form>-->
+
 <div id="imaginary_container"> 
 
-   <label for="key_search"> with Keyword(s) </label>
+   <label for="key_search"> with Keyword(s): </label>
    <div class="input-group stylish-input-group">
-	<input type="text" class="form-control" name="key_search" placeholder="Search..." required>
-       <!--<input type="submit" value="Search">-->
+	<input type="text" class="form-control" name="key_search" placeholder="Search...">
+      <!-- <input type="submit" value="Search">-->
+
        <span class="input-group-addon">
             <button type="submit">
             <span class="glyphicon glyphicon-search"></span>
@@ -29,7 +34,7 @@
 <br >
    <label for="auth_search"> by Author: </label>
    <div class="input-group stylish-input-group">
-       <input type="text" class="form-control" name="auth_search" placeholder="Search..." required>
+       <input type="text" class="form-control" name="auth_search" placeholder="Search...">
        <!--<input type="submit" value="Search">-->
        <span class="input-group-addon">
             <button type="submit">
@@ -41,7 +46,7 @@
 <br >
    <label for="title_search"> with Title: </label>
    <div class="input-group stylish-input-group">
-       <input type="text" class="form-control" name="title_search" placeholder="Search..." required>
+       <input type="text" class="form-control" name="title_search" placeholder="Search...">
        <!--<input type="submit" value="Search">-->
        <span class="input-group-addon">
             <button type="submit">
@@ -51,8 +56,28 @@
     </div>
     
 <br >
-   <label for="date_search"> Issued between: </label>
-        <div class="form-group">
+
+<label for="media_type"> with Media type: </label>
+   <div class="input-group stylish-input-group" id="form-select">
+      <select class="form-control" id="sel1">
+    	<option data-icon="glyphicon glyphicon-align-justify">Text</option>
+    	<option data-icon="glyphicon glyphicon-headphones">Audio</option>
+    	<option data-icon="glyphicon glyphicon-film">Video</option>
+    	<option>Tweet</option>
+      </select> 
+   </div>
+
+<br >
+  <div class="date_search">
+   <label> Issued between: </label>
+      <br>
+	<div id="start-label">
+           <p id="start-date">START DATE</p>
+        </div>
+        <div id="end-label">
+           <p id="end-date">END DATE</p>
+        </div>
+        <div class="form-group" id="from-date">
             <div class='input-group date' id='datetimepicker6'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
@@ -60,9 +85,9 @@
                 </span>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="to-date">
             <div class='input-group date' id='datetimepicker7'>
-                <input type='text' class="form-control" />
+                <input type='text' id="to" class="form-control" />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -81,24 +106,21 @@
             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
         });
     });
-</script> 
-
-
-<!--h5>Search by</h5-->
-    <!--div class="form-group">
-    	<ul class="checkbox-grid">
-<li><input type="checkbox" name="text1" value="value1" /><label for="text1">Text 1</label></li>
-<li><input type="checkbox" name="text2" value="value2" /><label for="text2">Text 2</label></li>
-<li><input type="checkbox" name="text3" value="value3" /><label for="text3">Text 3</label></li>
-<li><input type="checkbox" name="text4" value="value4" /><label for="text4">Text 4</label></li>
-<li><input type="checkbox" name="text5" value="value5" /><label for="text5">Text 5</label></li>
-<li><input type="checkbox" name="text5" value="value5" /><label for="text5">Text 5</label></li>
-</label></li>
-    <li><input type="checkbox" name="text5" value="value5" /><label for="text5">Text 5</label></li>
-	</ul>
-    </div-->
-	
+</script>
+</div> 
+<div class="access_choice">
+  <div class="all-access"> 
+   <input id="all-users" name="one-choice" type="radio" />
+   <label for="all-users"> All users</label>
+  </div>
+  <div class="hc-access">
+   <input id="hc-only" name="one-choice" type="radio" />
+   <label for="hc-only"> Haveford users only</label>
+  </div>
 </div>
+
+</div>
+
 </form>
 </div>
 <div class= "col-md-8">

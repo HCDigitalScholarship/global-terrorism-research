@@ -5,5 +5,4 @@
 *.log
 *.pdf
 gtr/whoosh_index/
-gtr_site/management/
 index/

@@ -96,9 +96,11 @@ class Statement(models.Model):
         #was edited from being named 'get_keywords' because I think that whoosh schema needs to get all keywordincontext objects assoc with a statement and other
         #files that use get_keywords (I'm pretty sure I may use it in the importer) really need to use get_solo_keywords instead.
         return self.keywords.all().filter(context=None)
+    """
     def get_keywords_obj(self):
         #This is what I think whoosh_schema needs to do.
-        return self.keywords.all()	
+        return self.keywords.all()
+    """	
     def get_keywords(self):
         #this is what I think views.py needs to do.
         mk_list = []
@@ -107,6 +109,45 @@ class Statement(models.Model):
         return mk_list
 
 
+    """
+     I'm adding these back in because I want to use them for something.
+     I am confused why we needed to change them? 
+        -Dylan
+    """
+    # returns list of keywords
+    def get_keywords_obj(self):
+        return set([keyword.main_keyword for keyword in self.keywords.all()])
+
+    # makes list of contexts
+    def get_contexts_obj(self):
+	contexts = [keyword.context for keyword in self.keywords.all()]
+	return set(contexts)
+
+    def get_keywords_contexts_obj(self):
+	"""
+        key_con = {}
+        for keyword in self.get_keywords_obj():
+	   print "keyword:",keyword,"context:",keyword.context
+	   if keyword in key_con:
+		print "In models-get_keywords_contexts_obj:"
+		print "This should not have happened and you should be very concerned"
+	   else:
+		key_con[keyword] = []
+	   # for each keywordinContext that has this keyword as a main_keyword, add the context
+           for KIC in KeywordInContext.objects.all().filter(main_keyword=keyword.main_keyword):
+	      key_con[keyword].append(KIC.context)
+	print key_con 
+        return key_con
+	"""
+	key_con = {}
+	for KIC in self.keywords.all():
+            keyword = KIC.main_keyword
+	    context = KIC.context
+	    if keyword  not in key_con:
+		key_con[keyword] = [context]
+	    else:
+		key_con[keyword].append(context)
+	return key_con
     # makes list of contexts
     #def get_contexts(self):
         #return self.context_set.all()

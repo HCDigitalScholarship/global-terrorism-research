@@ -101,7 +101,7 @@
 </ul>
 <h3>Keywords</h3>
 <ul>
-{% for keyword in key_con %}
+{% for keyword in key %}
     <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword }}</label></li>
 {% endfor %}
 </ul>
@@ -128,8 +128,9 @@
 {% endfor %}
 </ul>
 <h3>Keywords</h3>
+<h1>test</h1>
 <ul>
-{% for keyword in key_con %}
+{% for keyword in keywords %}
     <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword }}</label></li>
 {% endfor %}
 </ul>
@@ -215,12 +216,13 @@
 	</tr>
     </thead>
     <tbody>
-	{% for result in results %}	
+	{% for result in results %}
 	<tr>
 	 <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
-	 <td>{{result.author}}</td>
+	 <td><a href="{% url 'author_page'%}?a={{result.author}}">{{result.author}}</a></td>
 	</tr>
 	{% endfor %}
+    </tbody>
 </table>
 </div>
 </div>

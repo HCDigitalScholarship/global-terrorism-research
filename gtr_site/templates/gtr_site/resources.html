@@ -1,63 +1,134 @@
 <!-- The resources search bar page -->
 {% extends "gtr_site/base.html" %}
+
+{% load static %}
+
 {% include "gtr_site/nav_bar.html" %}
 {% block title %}GTR{% endblock %}
 
+{% block extra_static %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="{% static 'gtr_site/js/resources.js' %}"></script>
+{% endblock %}
+
 {% block content %}
-    <h1>Resources search bar page</h1>
 <!---Resources-->    
 <body>
-    <nav>
-            <section id="search" class="content-section text-center"  class="pre-scrollable">
-        <div class="search-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                     
-                    <title>Resources</title>
-                    
-                    <form action="{% url 'resource-results' %}" method="GET">
-                       {% csrf_token %}
-                       <input type="text" name="search" placeholder="Search..." required>
-                          <input type="submit" value="Search">
-                     </form>
- 
-                       
-                    <h3 class="btn btn-default btn-lg">Books/Primary Sources</h3>
-                    <p>This section is a collection of various primary sources, some of which can be found within the Al Qaeda Statements Index, as well as longer items which have not been indexed.</p>
-                    
-            
-                    <h3 class="btn btn-default btn-lg">Data Sources</h3>
-                    <p>Here we have collected a number of resources from public institutions such as various national governments, international organizations such as the United Nations, and other non-governmental groups. Information such as development indicators, demographic statistics, and data on international treaties can be found in this section.</p>
-                   
-                    <h3 class="btn btn-default btn-lg">Jihadi Magazines</h3>
-                    <p>This section is a compilation of English language jihadi magazines.</p>
-                   
-                    <h3 class="btn btn-default btn-lg">Journal Indexes</h3>
-                    <p>In this section are indexes of journal articles we have found to be particularly useful for research on the subject of terrorism</p>
-                    
-                    <h3 class="btn btn-default btn-lg">News/Commentary</h3>
-                    <p>The websites and blogs found here cover a range of views, from the well-known to the more obscure, all of which provide valuable insights on this subject</p>
-                   
-                    <h3 class="btn btn-default btn-lg">Research Portals</h3>
-                    <p>The links here will connect you to other websites similar to the Global Terrorism Research Project, with collections that provide a variety of resources and links.</p>
-                   
-                    <h3 class="btn btn-default btn-lg">Research Sites</h3>
-                    <p>Presented here are links to the websites of research institutions specifically dedicated to the issues of terrorism within the field of international security studies.</p>
-                    
-                    <h3 class="btn btn-default btn-lg">Student Resources</h3>
-                    <p>This section contains information specifically targeted at helping students.</p>
-                
-               
-                    <h3 class="btn btn-default btn-lg">Resources By Country</h3>
-                    <p>A selection of resources organzied by country of origin</p>
-                    
-                </div>
-                </div>
-               </div>
-            </section>
-   
-    
-       
-    </nav>
+  <h1 style="text-align: center;">Resources</h1>
+  <section id="search" class="content-section text-center"  class="pre-scrollable">
+    <div class="search-section">
+      <div class="container">
+        <div class="col-xs-12">
+          
+          <!-- To be deleted unless the DataTables search bar proves insufficient for some reason
+          <form action="{% url 'resource-results' %}" method="GET">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Search..." required>
+            <input type="submit" value="Search">
+          </form>
+          -->
+          
+          <form class="form-inline">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="book" value="book">
+                Books/Primary Sources
+              </input>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="data-source" value="data-source">
+                Data Sources
+              </input>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="jihadi-magazines" value="jihadi-magazines">
+                Jihadi Magazines
+              </input>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="journal-indexes" value="journal-indexes">
+                Journal Indexes
+              </input>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="news" value="news">
+                News/Commentary
+              </input>
+            </label>
+          </div> 
+          </form>
+          <form class="form-inline">      
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="research" value="research">
+                Research Portals
+              </input>
+            </label>
+          </div>       
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="sites" value="sites">
+                Research Sites
+              </input>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="student-resources" value="student-resources">
+                Student Resources
+              </input>
+            </label>
+          </div>         
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="by-country" value="by-country">
+                Resources By Country
+              </input>
+            </label>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="col-lg-10 col-lg-offset-1">
+  <table id="resourceTable" class="display" cellspacing="0" width="100%">
+	  <thead><tr>
+   	  <th>Title</th>
+		  <th>Author</th>
+		  <th>Country</th>
+		  <th>Type</th>
+		  <th class="wide">Desciption</th>
+	  </tr></thead>
+	  <tbody>
+	  {% for doc in object_list %}
+	  <tr>
+      {% if doc.link %}
+        <td><a href="{{ doc.link }}">{{ doc.title }}</a></td>
+      {% else %}
+        <td>{{ doc.title }}</td>
+      {% endif %}
+      <td>{{ doc.author }}</td>
+      <td>{{ doc.country }}</td>
+      <td>{{ doc.resource_type }}</td>
+      <td class="wide">
+      {{ doc.description }}
+      </td>
+    </tr>
+	  {% endfor %}
+	  </tbody>
+	</table>
+  </div>  
+
 </body>
 {% endblock %}
