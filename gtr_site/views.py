@@ -15,7 +15,7 @@ except ImportError:
 from django.views import generic, View
 from django.http import JsonResponse
 from gtr_site.forms import *
-
+import single_search
 
 import os
 
@@ -212,7 +212,8 @@ def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
     from whoosh.qparser.dateparse import DateParserPlugin 
-
+    context = single_search.basic_search(request)
+    return render(request, 'search/search.html', context)
     print request.GET
     #<QueryDict: {u'auth_search': [u''], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [u''], u'title_search': [u'']}>
     #(statement_id:Iraq OR title:iraq OR author:iraq OR keyword:Iraq OR context:Iraq)
