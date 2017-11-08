@@ -7,3 +7,5 @@
 gtr/whoosh_index/
 index/
 logs
+
+gtr/settings_secret.py

@@ -12,21 +12,14 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+from settings_secret import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%8&34fh-6va_)t&uqah5d2!9w+k$-%ewphsct*+n+!_2ny7jtn'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['45.55.252.120']
-
 
 # Application definition
 
@@ -93,36 +86,6 @@ WSGI_APPLICATION = 'gtr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql', 
-#        'NAME': 'gtr_dev',
-#        'USER': 'root',
-#        'PASSWORD': 'safari77',
-#        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-#        'PORT': '3306',
-#    }
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
-     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gtr_dev',
-        'USER': 'gtr_user',
-        'PASSWORD': 'safari77',
-        'HOST': 'localhost',
-        'PORT': '',
-        }
-    }
-#    'default' : {
-#    	'ENGINE' : 'django_mongodb_engine',
-#    	'NAME' : 'gtr'
-#    }
-#}
-#}
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
