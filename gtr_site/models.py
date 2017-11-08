@@ -64,6 +64,8 @@ class Statement(models.Model):
        choices=ACCESS,
        default=ALLUSERS,
     )
+
+    pdf_text = models.TextField(blank=True, verbose_name='PDF text')
    
    
    
