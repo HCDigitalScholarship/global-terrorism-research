@@ -6,3 +6,4 @@
 *.pdf
 gtr/whoosh_index/
 index/
+logs
