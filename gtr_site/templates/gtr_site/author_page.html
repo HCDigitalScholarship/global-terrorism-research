@@ -31,5 +31,54 @@
   <div class="col-md-1">
   </div>
 </div>
+<div id="article"></div>
+<script>
+
+$(document).ready(function(){
+	//console.log("READY!")
+	var author_name = $('#page_title').text();
+	//console.log(author_name);
+ $.ajax({
+       
+                url: "https://en.wikipedia.org/w/api.php?page=author_name",
+        data: {
+            format: "json",
+            action: "parse",
+            //page: window.location.href,
+            page: author_name,
+	    prop: "text",
+            section: 0,
+        },
+        dataType: 'jsonp',
+        headers: {
+            'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
+        },
+        success: function (data) {
+
+	   // console.log(data)
+	   // console.log("OOO")
+
+            var markup = data.parse.text["*"];
+            var i = $('<div></div>').html(markup);
+            $('#article').html(i);
+            // remove links as they will not work
+
+            i.find('a').each(function () {
+                $(this).replaceWith($(this).html());
+            });
+
+            // remove any references
+            i.find('sup').remove();
+
+            // remove cite error
+            i.find('.mw-ext-cite-error').remove();
+
+            $('#article').html($(i).find('p'));
+
+        }
+    })
+
+});
+</script>
 
 {% endblock %}

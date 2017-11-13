@@ -16,6 +16,7 @@ logger = logging.getLogger("gtr_site")
 from django.forms import formset_factory
 from django.contrib.admin.widgets import FilteredSelectMultiple, RelatedFieldWidgetWrapper
 
+"""These forms are used by Django Admin to make creating data easier"""
 
 #In order for this to work...
 #A user needs to be able to select all Keywords that they want and then have a filter_horizontal field come up for that.
@@ -40,17 +41,6 @@ class KeywordInContextForm(forms.ModelForm):
         #    'main_keyword': autocomplete.ModelSelect2(url='keywordincontext-autocomplete')
        #}
    
-
-
-class KeywordFilterForm(forms.ModelForm):
-    class Meta:
-       model = Keyword
-       fields = ('__all__')
-       widgets = {
-            'keyword-filters': autocomplete.ModelSelect2(url='keywordfilter-autocomplete')
-        }
-       
-
 
 class StatementForm(forms.ModelForm):
     '''statement_keywords = forms.ModelMultipleChoiceField(

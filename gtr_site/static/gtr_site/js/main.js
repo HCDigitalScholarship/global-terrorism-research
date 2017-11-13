@@ -3,7 +3,7 @@
  ***********************************************/
 
 $(".ui-autocomplete-multiselect-item").onclick( function () {
-    alert("hey);
+    alert("hey");
  });
 
 $.getJSON('/api/v1/keyword/', 

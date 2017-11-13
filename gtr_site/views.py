@@ -72,7 +72,6 @@ def statement_page(request, statement_id):
 #def resources(request):
 #    return render(request, 'gtr_site/resources.html')
 
-# not sure what we are going for here, currently erroring, commenting out
 class ResourcesList(generic.ListView):
     #queryset = Resource.objects.order_by('-title')
     template_name = 'gtr_site/resources.html'
@@ -103,59 +102,6 @@ def resource_search(request):
        print context
 
     return render(request, 'gtr_site/resource_results.html', context)
-
-'''class Keywords_Autocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-        # Don't forget to filter out results depending on the visitor !
-        if not self.request.user.is_authenticated():
-            return Keyword.objects.none()
-
-        qs = Keyword.objects.all()
-
-        if self.q:
-            qs = qs.filter(word__istartswith=self.q)
-        return qs'''
-
-
-class KeywordInContextAutocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-       if not self.request.user.is_authenticated():
-          return KeywordInContext.objects.none()
-       qs = Keyword.objects.all()
-       if self.q:
-          qs = qs.filter(word__istartswith=self.q)
-       return qs
-
-class KeywordAutocomplete(autocomplete.Select2QuerySetView):
-   def get_queryset(self):
-      if not self.request.user.is_authenticated():
-          print "user not authenticated so autocomplete doesn't work."
-          return Keyword.objects.none()
-      qs = Keyword.objects.all()
-      if self.q:
-         qs = qs.filter(worrd__istartswith=self.q)
-      return qs 
-
-
-class KeywordView(generic.UpdateView):
-    model = Keyword
-    form_class = KeywordFilterForm 
-    template_name = 'search/search.html'
-    success_url = reverse_lazy('search')
-
-    def get_object(self):
-        return Keyword.objects.first()
-
-"""
-   class Contexts_Autocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-      if not self.request.user.is_authenticated():
-         return Context.objects.all()
-      qs = Context.objects.all()
-      if self.q:
-         qs = qs.filter(context_word__istartswith=self.q)
-      return qs
-"""
 
 def search2(request):
     qs_list = Statement.objects.all()

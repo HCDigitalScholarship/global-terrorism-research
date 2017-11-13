@@ -26,121 +26,19 @@
 <input type="submit" name="Filter" value="filter" id="filter_submit">
 <input type="hidden" value="{{ search }}" name="search" >
 <h2>Include</h2>
-<h3>Keyword Context pairs</h3>
-<ul>
-<!--This needs to be edited so that it accounts for the fact that KeywordInContexts are now the new Keywords, and Contexts don't actually exist. What's happening at-->
-<!--Each step?-->
-<!--key_con doesn't exist anymore, nor does it really do what we necessarily need it to... What do we want displayed on a statements page?-->
-<!--I will add code to display only keywords and contexts-->
 
-<!--filter sidebar-->
-<div id="Sidebar">
-  <h1>Sidebar in progress</h1>
-    <form id="keywordFilter" action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" />
-    </form>
-    {{ form.media }}
-    <input id="ms1" style="width: 50%;" type="text" name="ms1"/>
-    <div style="clear:both;"></div>
-</div>
-
-<!--Display Keywords functionally-->
-<div id="keywordCollection">
-<select id="allKeywords">
-{% for keyword in keywords %}
-    <option value="{{ keyword }}">{{ keyword }}</option>
-{% endfor %}
-</select>
-</div>
-
-<script>
-/************************************* 
- * tagging ***************************/
-     var collection2 = [];
-      console.log("BEGINNING LOOP");
-      $("#allKeywords option").each( function() {
-        console.log("ADDING");
-        collection2.push($(this).attr('value'));
-       });
-     console.log(collection2);
-
-   $(function(){
-      /*var collection = [];
-      console.log("JAVASCRIPT");
-      var keywords = $("#allKeywords option");
-      console.log("LENGTH");
-      console.log(keywords.length);
-      for(var i=0; i<keywords.length; i++) {
-         console.log("HEYYYYYY");
-         kw = keywords[i];
-         console.log(kw);
-      }
-      $("#allKeywords option").each( function() {
-        console.log("ADDING");
-        collection.push($(this).value);
-       });  
-   console.log("COLLECTION");
-   console.log(collection);*/
-   $("#ms1").autocomplete({
-      source: collection2,
-      multiselect: true
-   });
-   })
-</script>
-
-{% for keyword, contexts in key_con.items %}
-    <li>{{ keyword }} </li>
-    <ul>
-    {% for con in contexts %}
-      <li><input type="checkbox" name="{{ keyword }}_{{ con }}" value="key_con_ON" class="filter_check"><label>  {{ con }}</label></li>
-    {% endfor %}
-    </ul>
-{% endfor %}
-</ul>
 <h3>Keywords</h3>
 <ul>
-{% for keyword in key %}
+{% for keyword in keywords %}
     <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword }}</label></li>
 {% endfor %}
 </ul>
 
-<h3>Contexts</h3>
-<ul>
-{% for keyword, contexts in key_con.items %}
-    {% for con in contexts %}
-      <li><input type="checkbox" name="{{ con }}" value="con_ON"  class="filter_check"><label>  {{ con }}</label></li>
-    {% endfor %}
-{% endfor %}
-</ul>
-
 <h2>Exclude</h2>
-<h3>Keyword Context pairs</h3>
-<ul>
-{% for keyword, contexts in key_con.items %}
-    <li>{{ keyword }} </li>
-    <ul>
-    {% for con in contexts %}
-      <li><input type="checkbox" name="{{ keyword }}_{{ con }}" value="key_con_OFF" class="filter_check"><label>  {{ con }}</label></li>
-    {% endfor %}
-    </ul>
-{% endfor %}
-</ul>
 <h3>Keywords</h3>
-<h1>test</h1>
 <ul>
 {% for keyword in keywords %}
     <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword }}</label></li>
-{% endfor %}
-</ul>
-
-<h3>Contexts</h3>
-<ul>
-{% for keyword, contexts in key_con.items %}
-    {% for con in contexts %}
-      <li><input type="checkbox" name="{{ con }}" value="con_OFF"  class="filter_check"><label>  {{ con }}</label></li>
-    {% endfor %}
 {% endfor %}
 </ul>
 
