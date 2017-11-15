@@ -16,7 +16,7 @@ from django.views import generic, View
 from django.http import JsonResponse
 from gtr_site.forms import *
 import single_search
-
+import filtering
 import os
 
 #class CustomSearchView(SearchView):
@@ -158,7 +158,11 @@ def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
     from whoosh.qparser.dateparse import DateParserPlugin 
-    context = single_search.basic_search(request)
+    if 'Filter' in request.GET:
+        context = filtering.filter_by_keyword(request)
+    else:
+        context = single_search.basic_search(request)
+	print request.GET
     return render(request, 'search/search.html', context)
     print request.GET
     #<QueryDict: {u'auth_search': [u''], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [u''], u'title_search': [u'']}>

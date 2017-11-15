@@ -48,7 +48,7 @@ def basic_search(request):
     keyword_sets = [set(statement.get_keywords()) for statement in qs_list]
     keywords = keywords.union(*keyword_sets)
     print "generating keywords took", time.time() - start, "seconds"
-    context = {'results' : qs_list, 'keywords' : keywords}
+    context = {'results' : qs_list, 'keywords' : keywords, 'search' : search_string}
     return context 
 
 # It is tricky to get this test working because you need to configure Django settings
