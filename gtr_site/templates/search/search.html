@@ -20,8 +20,9 @@
 <div class="row">
 
 <div class="col-md-3 top-buffer" id="search_filter" >	
+<h1>{{ search }}</h1>
 <h2>Filters:</h2>
-<form id="filter_form"  action="{% url 'search' %}" method="post">
+<form id="filter_form"  action="{% url 'search' %}" method="get">
 {% csrf_token %}
 <input type="submit" name="Filter" value="filter" id="filter_submit">
 <input type="hidden" value="{{ search }}" name="search" >
