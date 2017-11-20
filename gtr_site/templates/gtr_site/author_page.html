@@ -6,14 +6,25 @@
   <h2 id="page_title"> {{request.GET.a}}</h2> 
 </div>
 <br>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+	<div id="article"></div>
+  </div>
+  <div class="col-md-1"></div>
+
+
+
+</div>
 <div class= "row">
  <div class= "col-md-1">
  </div>
   <div class="col-md-10 table-responsive">
-     <table class="table table-striped table-bordered" id="auth_state">
+     <h3 style="text-align:center"> All statements with author name {{request.GET.a}}</h3>
+      <table class="table table-striped table-bordered" id="auth_state">
 	<thead>
           <tr>
-	    <th colspan="2">All statements statements associated with author: {{request.GET.a}}</th>
+	    <!--th colspan="2">All statements statements associated with author: {{request.GET.a}}</th-->
           </tr>
 	</thead>
 	<tbody>
@@ -31,31 +42,47 @@
   <div class="col-md-1">
   </div>
 </div>
-<div id="article"></div>
 <script>
 
 $(document).ready(function(){
 	//console.log("READY!")
-	var author_name = $('#page_title').text();
-	//console.log(author_name);
+
+	$.urlParam = function(name){
+    		var results = new RegExp('[\?&]' + name + '=([^]*)').exec(window.location.href);
+    		if (results==null){
+      		   return null;
+    		}
+   		 else{
+       		   return results[1] || 0;
+   		 }	
+	}
+	var auth = "page";	
+	var authval= decodeURIComponent($.urlParam('a'));
+	//var authval= "Ayman al-Zawahiri";
+	//var author_name = $('#page_title').text();
+	console.log(authval);
+	var dataObj = { format: "json", action:"parse", prop:"text", section:0};
+	dataObj[auth] = authval;
+
  $.ajax({
        
-                url: "https://en.wikipedia.org/w/api.php?page=author_name",
-        data: {
+                url: "https://en.wikipedia.org/w/api.php",
+        /*data: {
             format: "json",
             action: "parse",
             //page: window.location.href,
-            page: author_name,
+            page: "obama",
 	    prop: "text",
             section: 0,
-        },
+        },*/
+	data: dataObj,
         dataType: 'jsonp',
         headers: {
             'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
         },
         success: function (data) {
 
-	   // console.log(data)
+	   console.log(data)
 	   // console.log("OOO")
 
             var markup = data.parse.text["*"];
@@ -76,7 +103,7 @@ $(document).ready(function(){
             $('#article').html($(i).find('p'));
 
         }
-    })
+    });
 
 });
 </script>
