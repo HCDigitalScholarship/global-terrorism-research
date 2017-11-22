@@ -18,6 +18,13 @@
 {% endblock %}
 {% block content %}
 <div class="row">
+<div class="row">
+<h4>Search for statements</h4>
+<form action="{% url 'search' %}" method="GET">
+  {% csrf_token %}
+  <input type="text" name="search" placeholder="Search...">
+  <input type="submit" value="Search">
+</form>
 
 <div class="col-md-3 top-buffer" id="search_filter" >	
 <h1>{{ search }}</h1>
@@ -31,7 +38,7 @@
 <h3>Keywords</h3>
 <ul>
 {% for keyword_count in keywords_and_counts %}
-    <li><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
+    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
 {% endfor %}
 </ul>
 
@@ -39,7 +46,7 @@
 <h3>Keywords</h3>
 <ul>
 {% for keyword_count in keywords_and_counts %}
-    <li><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
+    <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
 {% endfor %}
 </ul>
 

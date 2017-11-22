@@ -9,6 +9,7 @@ def filter_by_keyword(request):
     search_string = request.GET['search']
     include = []
     exclude = []
+    print request.GET
     for key in request.GET:
         key_ON_OFF = request.GET[key]
 	if   key_ON_OFF == 'key_ON':

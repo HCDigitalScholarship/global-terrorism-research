@@ -212,6 +212,9 @@ def search(request):
 	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
         context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
 	return render(request, 'search/search.html', context)
+def advanced_search(request):
+    return render(request, 'search/advanced_search.html')
+
 def search_oldie(request):
     print request.GET
     search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
