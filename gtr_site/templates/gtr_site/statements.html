@@ -44,7 +44,7 @@
     <tbody id="stateTB">
         {% for sta in results %}
         <tr>
-         <td id="state_title">{{ sta.title }}</td>
+         <td id="state_title"><a href="{{ sta.get_absolute_url }}">{{ sta.title }}</a></td>
          <td><a href="{% url 'author_page'%}?a={{sta.author}}">{{sta.author}}</a></td>
 	 <td>{{sta.get_media_type_display}}</td>
 	 <td>{{sta.issue_date}}</td>
