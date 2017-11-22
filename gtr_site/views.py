@@ -15,7 +15,7 @@ except ImportError:
 from django.views import generic, View
 from django.http import JsonResponse
 from gtr_site.forms import *
-import single_search
+import basic_search
 import filtering
 import os
 
@@ -161,7 +161,7 @@ def search(request):
     if 'Filter' in request.GET:
         context = filtering.filter_by_keyword(request)
     else:
-        context = single_search.basic_search(request)
+        context = basic_search.basic_search(request)
 	print request.GET
     return render(request, 'search/search.html', context)
     print request.GET

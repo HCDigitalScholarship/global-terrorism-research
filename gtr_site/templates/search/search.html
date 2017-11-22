@@ -30,16 +30,16 @@
 
 <h3>Keywords</h3>
 <ul>
-{% for keyword in keywords %}
-    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword }}</label></li>
+{% for keyword_count in keywords_and_counts %}
+    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
 {% endfor %}
 </ul>
 
 <h2>Exclude</h2>
 <h3>Keywords</h3>
 <ul>
-{% for keyword in keywords %}
-    <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword }}</label></li>
+{% for keyword_count in keywords_and_counts %}
+    <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
 {% endfor %}
 </ul>
 
