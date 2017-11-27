@@ -17,53 +17,23 @@
 <link rel="stylesheet" href="{% static 'gtr_site/css/iThing.css' %}" type="text/css" />
 {% endblock %}
 {% block content %}
-<div class="row">
-<div class="row">
-<h4>Search for statements</h4>
-<form action="{% url 'search' %}" method="GET">
-  {% csrf_token %}
-  <input type="text" name="search" placeholder="Search...">
-  <input type="submit" value="Search">
-</form>
-
-<div class="col-md-3 top-buffer" id="search_filter" >	
-<h1>{{ search }}</h1>
-<h2>Filters:</h2>
-<form id="filter_form"  action="{% url 'search' %}" method="get">
-{% csrf_token %}
-<input type="submit" name="Filter" value="filter" id="filter_submit">
-<input type="hidden" value="{{ search }}" name="search" >
-<h2>Include</h2>
-
-<h3>Keywords</h3>
-<ul>
-{% for keyword_count in keywords_and_counts %}
-    <li><input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
-{% endfor %}
-</ul>
-
-<h2>Exclude</h2>
-<h3>Keywords</h3>
-<ul>
-{% for keyword_count in keywords_and_counts %}
-    <li><input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
-{% endfor %}
-</ul>
+<div class="center" style="width: 100%; margin: 0 auto;">
+    <h3>Advanced Search</h3>
+    <form id="searchers_form"  action="{% url 'search' %}" method="GET">
+       {% csrf_token %}
+       <div id="searchers">
+          <div id="searcher1"></div>
+       </div>
+       <input type="submit" value="Search">
+    </form>
 
 
-<div id="date_ranges">
-  <input type="hidden" id="dateLow1" name="date_low1" >
-  <input type="hidden" id="dateHigh1" name="date_high1" >
-</div>
-    <h3>Date Slider</h3>
-    <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
-    <div id="sliders">
-    <div id="slider1"></div>
-    </div>
-    <span> Add a slider </span>
-    <input type="hidden" id="slider_counter" name="slider_count" value="1">
-    <input id="less_slider" type='button' value='-'/>
-    <input id="more_slider" type='button' value='+'/>
+    
+    <span> Add a seacher </span>
+    <input type="hidden" id="searcher_counter" name="seacher_count" value="1">
+    <input id="OR_search" type='button' value='OR'/>
+    <input id="AND_search" type='button' value='AND'/>
+    <input id="NOT_search" type='button' value='NOT'/>
     <script src="{% static 'gtr_site/jquery.js' %}"></script>
     <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
     <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
@@ -71,67 +41,69 @@
       // reset counter to 1
       // might want to get rid of this if we load based on previous slider counter
       $(document).ready(function(){
-	$("#slider_counter").val("1");
+	$("#searcher_counter").val("1");
 	});
       // make first slider
-      $("#slider1").dateRangeSlider({
-	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
-      });
-	// only submits the first slider as of right now
+      var select_fields = "<select> <option>Any field</option> <option>Keyword</option> <option>Keyword in Context</option></select>";
+      var delete_button = "<a href='#' class='delete_searcher'>  Delete</a>"; 
+      $("#searcher1").append("<span><input type='text' name='search' placeholder='Search...'> in " + select_fields + "</span");
+       	// only submits the first slider as of right now
 	$("#filter_form").submit(function( event) {
-	  for(i=1; i <= $("#slider_counter").val(); i++) {
-	    var dateValues = $("#slider"+i).dateRangeSlider("values");
-	    $("#dateLow"+i).val(dateValues.min.toString());
-            $("#dateHigh"+i).val(dateValues.max.toString());
+	  for(i=1; i <= $("#searcher_counter").val(); i++) {
+	    var dateValues = $("#searcher"+i).dateRangeSlider("values");
+	    //$("#dateLow"+i).val(dateValues.min.toString());
+            //$("#dateHigh"+i).val(dateValues.max.toString());
  	  }	
         });
-	// what happens when you click +
-      $("#more_slider").click(function(event) {
-	if($("#slider_counter").val() < 11) {
-	  $("#slider_counter").val(+$("#slider_counter").val() + 1);
-	  var id_num = $("#slider_counter").val();
-          $("#sliders").append("<div id='slider"+ id_num +"'><div>");
-	  $("#date_ranges").append("<input type='hidden' id='dateLow"+id_num+"'name='date_low"+id_num+"'>");
-	  $("#date_ranges").append("<input type='hidden' id='dateHigh"+id_num+"'name='date_high"+id_num+"'>");
-	  $("#slider" + id_num).dateRangeSlider({
-	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
-      	  });
+      // what happens when you click AND
+      $("#AND_search").click(function(event) {
+	if($("#searcher_counter").val() < 11) {
+          // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
+	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
+	  var id_num = $("#searcher_counter").val();
+          $("#searchers").append("<div id='searcher"+ id_num +"'><div>");
+	  //$("#date_ranges").append("<input type='hidden' id='dateLow"+id_num+"'name='date_low"+id_num+"'>");
+	  //$("#date_ranges").append("<input type='hidden' id='dateHigh"+id_num+"'name='date_high"+id_num+"'>");
+	  $("#searcher" + id_num).append("<p>AND</p><span><input type='text' name='AND_"+ id_num + "search' placeholder='Search...'> in " + select_fields + delete_button + "</span>");
 	}
       });
+
+      // what happens when you click OR
+      $("#OR_search").click(function(event) {
+	if($("#searcher_counter").val() < 11) {
+          // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
+	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
+	  var id_num = $("#searcher_counter").val();
+          $("#searchers").append("<div id='searcher"+ id_num +"'><div>");
+	  $("#searcher" + id_num).append("<p>OR</p><span><input type='text' name='OR_"+ id_num + "_search' placeholder='Search...'> in "+ select_fields + "</span>");
+	}
+      });
+
+      // what happens when you click NOT
+      $("#NOT_search").click(function(event) {
+	if($("#searcher_counter").val() < 11) {
+          // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
+	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
+	  var id_num = $("#searcher_counter").val();
+          $("#searchers").append("<div id='searcher"+ id_num +"'><div>");
+	  $("#searcher" + id_num).append("<p>NOT</p><span><input type='text' name='NOT_"+ id_num + "_search' placeholder='Search...'> in "+ select_fields + "</span>");
+	}
+      });
+
+
 	// on - click
-      $("#less_slider").click(function(event) {
-	if($("#slider_counter").val() != 1) {
-	  $("#slider"+ $("#slider_counter").val()).remove();
-	  $("#dateLow"+$("#slider_counter").val()).remove();
-	  $("#dateHigh"+$("#slider_counter").val()).remove();
-	  $("#slider_counter").val(+$("#slider_counter").val() - 1);
+      $(".delete_seacher").click(function(event) {
+	if($("#seacher_counter").val() != 1) {
+	  $("#seacher"+ $("#seacher_counter").val()).remove();
+	  $("#seacher_counter").val(+$("#slider_counter").val() - 1);
 	}
       });
 
     </script>
 
-</form>
+
 </div>
-<!--div class= "col-md-1 top-buffer" id="separator"></div--!>
-<div class= "col-md-9 top-buffer" id="search_table">
-<table class="table table-bordered">
-    <thead>
-        <tr>
-         <th>Title</th>
-         <th>Author</th>
-	</tr>
-    </thead>
-    <tbody>
-	{% for result in results %}
-	<tr>
-	 <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
-	 <td><a href="{% url 'author_page'%}?a={{result.author}}">{{result.author}}</a></td>
-	</tr>
-	{% endfor %}
-    </tbody>
-</table>
-</div>
-</div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script src="{% static 'gtr_site/js/autocomplete-multiselect.js'%}"></script>
