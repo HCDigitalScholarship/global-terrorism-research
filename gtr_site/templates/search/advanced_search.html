@@ -19,17 +19,17 @@
 {% block content %}
 <div class="center" style="width: 100%; margin: 0 auto;">
     <h3>Advanced Search</h3>
-    <form id="searchers_form"  action="{% url 'search' %}" method="GET">
+    <form id="searchers_form"  action="{% url 'advanced-search-submit' %}" method="GET">
        {% csrf_token %}
        <div id="searchers">
           <div id="searcher1"></div>
        </div>
-       <input type="submit" value="Search">
+       <input id="search_submit_button" type="submit" value="Search">
     </form>
 
 
     
-    <span> Add a seacher </span>
+    <span> Add a searcher </span>
     <input type="hidden" id="searcher_counter" name="seacher_count" value="1">
     <input id="OR_search" type='button' value='OR'/>
     <input id="AND_search" type='button' value='AND'/>
@@ -39,27 +39,28 @@
     <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
     <script>
       // reset counter to 1
-      // might want to get rid of this if we load based on previous slider counter
+      // might want to get rid of this if we load based on previous counter
       $(document).ready(function(){
 	$("#searcher_counter").val("1");
 	});
+
       // These long lines are just html we will be using and reusing
-      var select_fields = "<select> <option>Any field</option> <option>Keyword</option> <option>Keyword in Context</option></select>";
+      var select_fields = "<select class='field_option'> <option>Any field</option> <option>Keyword</option> <option>Keyword in Context</option></select>";
       var delete_button = "<a href='#' class='delete_searcher'>  Delete</a>"; 
       
       function createLogicDropdown(operator) {
         if(operator=="AND") {
-            return  "<select> <option>OR</option> <option selected='selected'>AND</option> <option>NOT</option></select>";
+            return  "<select class='logic_option'> <option value='OR'>OR</option> <option value='AND' selected='selected'>AND</option> <option value='NOT'>NOT</option></select>";
         }
 	else if (operator=="OR") {
-            return  "<select> <option selected='selected'>OR</option> <option>AND</option> <option>NOT</option></select>";
+            return  "<select class='logic_option'> <option selected='selected' value='OR'>OR</option> <option value='AND'>AND</option> <option value='NOT'>NOT</option></select>";
         }
 	else {
-            return  "<select> <option>OR</option> <option>AND</option> <option selected='selected'>NOT</option></select>";
+            return  "<select class='logic_option'> <option value='OR'>OR</option> <option value='AND'>AND</option> <option selected='selected' value='NOT'>NOT</option></select>";
         }
       }
       // make first search bar. This one can't be deleted
-      $("#searcher1").append("<span><input type='text' name='search' placeholder='Search...'> in " + select_fields + "</span");
+      $("#searcher1").append("<span><input type='text' class='search_text' name='search' placeholder='Search...'> in " + select_fields + "</span");
        	// only submits the first slider as of right now
 	$("#filter_form").submit(function( event) {
 	  for(i=1; i <= $("#searcher_counter").val(); i++) {
@@ -74,8 +75,8 @@
           // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
 	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
 	  var id_num = $("#searcher_counter").val();
-          $("#searchers").append("<div id='searcher"+ id_num +"'><div>");
-	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("AND") + "<input type='text' name='AND_"+ id_num + "search' placeholder='Search...'> in " + select_fields + delete_button + "</span>");
+          $("#searchers").append("<div id='searcher"+ id_num +"'></div>");
+	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("AND") + "<input type='text' class='search_text' name='AND_search' placeholder='Search...'> in " + select_fields + delete_button + "</span>");
 	}
       });
 
@@ -85,8 +86,8 @@
           // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
 	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
 	  var id_num = $("#searcher_counter").val();
-          $("#searchers").append("<div id='searcher"+ id_num +"'><div>");
-	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("OR") + "<input type='text' name='OR_"+ id_num + "_search' placeholder='Search...'> in "+ select_fields + delete_button + "</span>");
+          $("#searchers").append("<div id='searcher"+ id_num +"'></div>");
+	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("OR") + "<input type='text' class='search_text' name='OR_search' placeholder='Search...'> in "+ select_fields + delete_button + "</span>");
 	}
       });
 
@@ -96,8 +97,8 @@
           // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
 	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
 	  var id_num = $("#searcher_counter").val();
-          $("#searchers").append("<div id='searcher"+ id_num +"'><div>");
-	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("NOT") + "<input type='text' name='NOT_"+ id_num + "_search' placeholder='Search...'> in "+ select_fields + delete_button + "</span>");
+          $("#searchers").append("<div id='searcher"+ id_num +"'></div>");
+	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("NOT") + "<input type='text' class='search_text' name='NOT_search' placeholder='Search...'> in "+ select_fields + delete_button + "</span>");
 	}
       });
 
@@ -119,6 +120,16 @@
 	}
       });
 
+      $("#searchers_form").submit(function(event) {
+        $("#searchers").children().each(function() {
+          // alright, we got the values
+	  console.log($(this).children().children(".search_text").val());
+          console.log($(this).children().children(".logic_option").val());
+          console.log($(this).children().children(".field_option").val());
+
+        });        
+        event.preventDefault();
+      });
     </script>
 
 

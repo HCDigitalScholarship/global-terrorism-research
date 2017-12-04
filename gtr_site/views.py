@@ -17,6 +17,7 @@ from django.http import JsonResponse
 from gtr_site.forms import *
 import basic_search
 import filtering
+import advanced_search
 import os
 
 #class CustomSearchView(SearchView):
@@ -152,7 +153,9 @@ def make_list(search):
    """Turns user input, whether it be separated by commas, spaces or both, and makes it a nice list"""
    return search.replace(",", " ").split()
 
-
+def advanced_search_submit(request):
+    advanced_search.advanced_search(request)
+    return render(request, 'search/advanced_search.html')
 
 def search(request):
     from whoosh.index import open_dir
@@ -212,7 +215,7 @@ def search(request):
 	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
         context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
 	return render(request, 'search/search.html', context)
-def advanced_search(request):
+def advanced_search_page(request):
     return render(request, 'search/advanced_search.html')
 
 def search_oldie(request):
