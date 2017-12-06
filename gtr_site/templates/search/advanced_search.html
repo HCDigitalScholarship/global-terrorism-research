@@ -19,12 +19,14 @@
 {% block content %}
 <div class="center" style="width: 100%; margin: 0 auto;">
     <h3>Advanced Search</h3>
+    {{ rquest }}
     <form id="searchers_form"  action="{% url 'advanced-search-submit' %}" method="GET">
        {% csrf_token %}
        <div id="searchers">
           <div id="searcher1"></div>
        </div>
        <input id="search_submit_button" type="submit" value="Search">
+       <input id="full_info" type="hidden" value='' name="full_info" >
     </form>
 
 
@@ -45,7 +47,7 @@
 	});
 
       // These long lines are just html we will be using and reusing
-      var select_fields = "<select class='field_option'> <option>Any field</option> <option>Keyword</option> <option>Keyword in Context</option></select>";
+      var select_fields = "<select class='field_option'> <option>Any field</option> <option>Title</option>  <option>Statement ID</option>  <option>Author</option>  <option>Organization</option> <option>Keyword</option>  <option>Context</option> <option>Keyword in Context</option></select>";
       var delete_button = "<a href='#' class='delete_searcher'>  Delete</a>"; 
       
       function createLogicDropdown(operator) {
@@ -119,16 +121,23 @@
 	  $("#seacher_counter").val(+$("#slider_counter").val() - 1);
 	}
       });
-
       $("#searchers_form").submit(function(event) {
+        var the_request = [];
         $("#searchers").children().each(function() {
           // alright, we got the values
 	  console.log($(this).children().children(".search_text").val());
           console.log($(this).children().children(".logic_option").val());
           console.log($(this).children().children(".field_option").val());
+         
+          var text  = $(this).children().children(".search_text").val();
+          var logic = $(this).children().children(".logic_option").val();
+          var field = $(this).children().children(".field_option").val();
+	  the_request.push([text,logic,field]);
 
         });        
-        event.preventDefault();
+        console.log(the_request);
+        console.log("changed");
+        $("#full_info").val(the_request);
       });
     </script>
 

@@ -154,8 +154,8 @@ def make_list(search):
    return search.replace(",", " ").split()
 
 def advanced_search_submit(request):
-    advanced_search.advanced_search(request)
-    return render(request, 'search/advanced_search.html')
+    context = advanced_search.advanced_search(request)
+    return render(request, 'search/search.html', context)
 
 def search(request):
     from whoosh.index import open_dir
