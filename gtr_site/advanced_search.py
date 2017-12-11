@@ -53,7 +53,7 @@ def advanced_search(request):
     keywords = [key_count[0] for key_count in keywords_and_counts]
     print "generating keywords took", time.time() - start, "seconds"
 
-    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string, 'full_info' : request.GET["full_info"]}
+    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string, 'full_info' : request.GET["full_info"], 'num_results' : len(statement_list)}
     return context
 
 

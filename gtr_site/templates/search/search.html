@@ -20,7 +20,7 @@
 <div class="row">
 
 <div class="col-md-3 top-buffer" id="search_filter" >	
-<h1>{{ search }}</h1>
+<h3>Your query returned {{ num_results }} results</h3>
 <h2>Filters:</h2>
 <form id="filter_form"  action="{% url 'gtr_site:search' %}" method="get">
 {% csrf_token %}
@@ -28,7 +28,7 @@
 <input type="hidden" value="{{ full_info }}" name="full_info" >
 <h2>Include</h2>
 
-<h3>Keywords</h3>
+<h3>Keywords (frequency in statements)</h3>
 <ul>
 {% for keyword_count in keywords_and_counts %}
     <li><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
@@ -36,7 +36,7 @@
 </ul>
 
 <h2>Exclude</h2>
-<h3>Keywords</h3>
+<h3>Keywords (frequency in statements)</h3>
 <ul>
 {% for keyword_count in keywords_and_counts %}
     <li><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
