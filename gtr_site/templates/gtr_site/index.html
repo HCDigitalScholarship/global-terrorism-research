@@ -8,11 +8,11 @@
   <h1>Global Terrorism Research Project</h1>      
 </div>
 <!--img src="{% static 'gtr_site/doves_resized.png' %}"/-->
-<!--<form action="{% url 'search' %}" method="post">-->
+<!--<form action="{% url 'gtr_site:search' %}" method="post">-->
 <div class="row">
 <div class= "col-md-4">
 <h4>Search for statements</h4>
-<form action="{% url 'search' %}" method="GET">
+<form action="{% url 'gtr_site:search' %}" method="GET">
   {% csrf_token %}
   <input type="text" name="search" placeholder="Search...">
   <input type="submit" value="Search">

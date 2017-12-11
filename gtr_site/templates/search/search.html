@@ -22,7 +22,7 @@
 <div class="col-md-3 top-buffer" id="search_filter" >	
 <h1>{{ search }}</h1>
 <h2>Filters:</h2>
-<form id="filter_form"  action="{% url 'search' %}" method="get">
+<form id="filter_form"  action="{% url 'gtr_site:search' %}" method="get">
 {% csrf_token %}
 <input type="submit" name="Filter" value="filter" id="filter_submit">
 <input type="hidden" value="{{ search }}" name="search" >
@@ -118,7 +118,7 @@
 	{% for result in results %}
 	<tr>
 	 <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
-	 <td><a href="{% url 'author_page'%}?a={{result.author}}">{{result.author}}</a></td>
+	 <td><a href="{% url 'gtr_site:author_page'%}?a={{result.author}}">{{result.author}}</a></td>
 	</tr>
 	{% endfor %}
     </tbody>
