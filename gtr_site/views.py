@@ -155,8 +155,11 @@ def make_list(search):
 
 def advanced_search_submit(request):
     context = advanced_search.advanced_search(request)
-    return render(request, 'search/search.html', context)
-
+    if context:
+        return render(request, 'search/search.html', context)
+    else:
+        context = {"failed" : True}
+        return render(request, 'gtr_site/index.html', context)
 def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser

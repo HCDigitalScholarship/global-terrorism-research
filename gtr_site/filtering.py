@@ -2,11 +2,10 @@ from models import *
 from django.db.models import Q
 import time
 import generate_keywords_from_statement_list
-
+import advanced_search
 def filter_all():
     pass 
 def filter_by_keyword(request):
-    search_string = request.GET['search']
     include = []
     exclude = []
     print request.GET
@@ -19,16 +18,7 @@ def filter_by_keyword(request):
 
     # base query without any filtering (including or excluding)
     # we will build it up with relevant filtering
-    query =      (
-                  Q(title__icontains=search_string) |
-                  Q(statement_id__icontains=search_string) |
-                  Q(author__person_name__icontains=search_string) |
-                  Q(released_by__org_name__icontains=search_string) |
-                  Q(keywords__context__word=search_string) |
-                  Q(keywords__main_keyword__word=search_string)
-                 )
-
-    print "Seaching:", search_string
+    query = advanced_search.advanced_search_make_query(request)
     print "Including Statements with Keywords:", include 
 
     if include:
@@ -51,7 +41,7 @@ def filter_by_keyword(request):
 
     keywords = [key_count[0] for key_count in keywords_and_counts]
 
-    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string}
+    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'full_info' : request.GET['full_info']}
     return context 
 
 def filter_by_context():

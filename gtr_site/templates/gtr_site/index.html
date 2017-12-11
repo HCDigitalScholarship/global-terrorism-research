@@ -10,120 +10,133 @@
 <!--img src="{% static 'gtr_site/doves_resized.png' %}"/-->
 <!--<form action="{% url 'search' %}" method="post">-->
 <div class="row">
-<div class= "col-md-4">
+<div class= "col-md-5">
 <h4>Search for statements</h4>
-<form action="{% url 'search' %}" method="GET">
-  {% csrf_token %}
-  <input type="text" name="search" placeholder="Search...">
-  <input type="submit" value="Search">
-<!--</form>-->
+{% if failed %}
+       <span>Keyword in Context should be in the form "Keyword->Context"</span>
+    {% endif %}
+    <form id="searchers_form"  action="{% url 'advanced-search-submit' %}" method="GET">
+       {% csrf_token %}
+       <div id="searchers">
+          <div id="searcher1"></div>
+       </div>
+       <input id="search_submit_button" type="submit" value="Search">
+       <input id="full_info" type="hidden" value='' name="full_info" >
+    </form>
 
-<div id="imaginary_container"> 
 
-   <label for="key_search"> with Keyword(s): </label>
-   <div class="input-group stylish-input-group">
-	<input type="text" class="form-control" name="key_search" placeholder="Search...">
-      <!-- <input type="submit" value="Search">-->
-
-       <span class="input-group-addon">
-            <button type="submit">
-            <span class="glyphicon glyphicon-search"></span>
-            </button>  
-       </span>
-    </div>
-<br >
-   <label for="auth_search"> by Author: </label>
-   <div class="input-group stylish-input-group">
-       <input type="text" class="form-control" name="auth_search" placeholder="Search...">
-       <!--<input type="submit" value="Search">-->
-       <span class="input-group-addon">
-            <button type="submit">
-            <span class="glyphicon glyphicon-search"></span>
-            </button>  
-       </span>
-    </div>
-     
-<br >
-   <label for="title_search"> with Title: </label>
-   <div class="input-group stylish-input-group">
-       <input type="text" class="form-control" name="title_search" placeholder="Search...">
-       <!--<input type="submit" value="Search">-->
-       <span class="input-group-addon">
-            <button type="submit">
-            <span class="glyphicon glyphicon-search"></span>
-            </button>  
-       </span>
-    </div>
     
-<br >
+    <span> Add a searcher </span>
+    <input type="hidden" id="searcher_counter" name="seacher_count" value="1">
+    <input id="OR_search" type='button' value='OR'/>
+    <input id="AND_search" type='button' value='AND'/>
+    <input id="NOT_search" type='button' value='NOT'/>
+    <script src="{% static 'gtr_site/jquery.js' %}"></script>
+    <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
+    <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
+    <script>
+      // reset counter to 1
+      // might want to get rid of this if we load based on previous counter
+      $(document).ready(function(){
+	$("#searcher_counter").val("1");
+	});
 
-<label for="media_type"> with Media type: </label>
-   <div class="input-group stylish-input-group" id="form-select">
-      <select class="form-control" id="sel1">
-    	<option data-icon="glyphicon glyphicon-align-justify">Text</option>
-    	<option data-icon="glyphicon glyphicon-headphones">Audio</option>
-    	<option data-icon="glyphicon glyphicon-film">Video</option>
-    	<option>Tweet</option>
-      </select> 
-   </div>
-
-<br >
-  <div class="date_search">
-   <label> Issued between: </label>
-      <br>
-	<div id="start-label">
-           <p id="start-date">START DATE</p>
-        </div>
-        <div id="end-label">
-           <p id="end-date">END DATE</p>
-        </div>
-        <div class="form-group" id="from-date">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-        <div class="form-group" id="to-date">
-            <div class='input-group date' id='datetimepicker7'>
-                <input type='text' id="to" class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker6').datepicker();
-        $('#datetimepicker7').datepicker({
-            useCurrent: false //Important! See issue #1075
+      // These long lines are just html we will be using and reusing
+      var select_fields = "<select class='field_option'> <option>Any field</option> <option>Title</option>  <option>Statement ID</option>  <option>Author</option>  <option>Organization</option> <option>Keyword</option>  <option>Context</option> <option>Keyword in Context</option></select>";
+      var delete_button = "<a href='#' class='delete_searcher'>  Delete</a>"; 
+      
+      function createLogicDropdown(operator) {
+        if(operator=="AND") {
+            return  "<select class='logic_option'> <option value='OR'>OR</option> <option value='AND' selected='selected'>AND</option> <option value='NOT'>NOT</option></select>";
+        }
+	else if (operator=="OR") {
+            return  "<select class='logic_option'> <option selected='selected' value='OR'>OR</option> <option value='AND'>AND</option> <option value='NOT'>NOT</option></select>";
+        }
+	else {
+            return  "<select class='logic_option'> <option value='OR'>OR</option> <option value='AND'>AND</option> <option selected='selected' value='NOT'>NOT</option></select>";
+        }
+      }
+      // make first search bar. This one can't be deleted
+      $("#searcher1").append("<span><input type='text' class='search_text' name='search' placeholder='Search...'> in " + select_fields + "</span");
+       	// only submits the first slider as of right now
+	$("#filter_form").submit(function( event) {
+	  for(i=1; i <= $("#searcher_counter").val(); i++) {
+	    var dateValues = $("#searcher"+i).dateRangeSlider("values");
+	    //$("#dateLow"+i).val(dateValues.min.toString());
+            //$("#dateHigh"+i).val(dateValues.max.toString());
+ 	  }	
         });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
-    });
-</script>
-</div> 
-<div class="access_choice">
-  <div class="all-access"> 
-   <input id="all-users" name="one-choice" type="radio" />
-   <label for="all-users"> All users</label>
-  </div>
-  <div class="hc-access">
-   <input id="hc-only" name="one-choice" type="radio" />
-   <label for="hc-only"> Haveford users only</label>
-  </div>
-</div>
+      // what happens when you click AND
+      $("#AND_search").click(function(event) {
+	if($("#searcher_counter").val() < 11) {
+          // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
+	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
+	  var id_num = $("#searcher_counter").val();
+          $("#searchers").append("<div id='searcher"+ id_num +"'></div>");
+	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("AND") + "<input type='text' class='search_text' name='AND_search' placeholder='Search...'> in " + select_fields + delete_button + "</span>");
+	}
+      });
+
+      // what happens when you click OR
+      $("#OR_search").click(function(event) {
+	if($("#searcher_counter").val() < 11) {
+          // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
+	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
+	  var id_num = $("#searcher_counter").val();
+          $("#searchers").append("<div id='searcher"+ id_num +"'></div>");
+	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("OR") + "<input type='text' class='search_text' name='OR_search' placeholder='Search...'> in "+ select_fields + delete_button + "</span>");
+	}
+      });
+
+      // what happens when you click NOT
+      $("#NOT_search").click(function(event) {
+	if($("#searcher_counter").val() < 11) {
+          // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
+	  $("#searcher_counter").val(+$("#searcher_counter").val() + 1);
+	  var id_num = $("#searcher_counter").val();
+          $("#searchers").append("<div id='searcher"+ id_num +"'></div>");
+	  $("#searcher" + id_num).append("<span>" + createLogicDropdown("NOT") + "<input type='text' class='search_text' name='NOT_search' placeholder='Search...'> in "+ select_fields + delete_button + "</span>");
+	}
+      });
+
+      // what happens when you click Delete
+      // Need to use event delegation because these deletes don't 
+      // exist on the initial page load
+      $("#searchers").on("click", ".delete_searcher", function(event) {
+          event.preventDefault();
+          $(event.target).parent().parent().remove();
+	  $("#searcher_counter").val(+$("#searcher_counter").val() - 1);
+       });
+
+
+	// on - click
+      $(".delete_searcher").click(function(event) {
+	if($("#seacher_counter").val() != 1) {
+	  $("#seacher"+ $("#seacher_counter").val()).remove();
+	  $("#seacher_counter").val(+$("#slider_counter").val() - 1);
+	}
+      });
+      $("#searchers_form").submit(function(event) {
+        var the_request = [];
+        $("#searchers").children().each(function() {
+          // alright, we got the values
+	  console.log($(this).children().children(".search_text").val());
+          console.log($(this).children().children(".logic_option").val());
+          console.log($(this).children().children(".field_option").val());
+         
+          var text  = $(this).children().children(".search_text").val();
+          var logic = $(this).children().children(".logic_option").val();
+          var field = $(this).children().children(".field_option").val();
+	  the_request.push([text,logic,field]);
+
+        });        
+        $("#full_info").val(the_request);
+      });
+    </script>
+
 
 </div>
-
-</form>
-</div>
-<div class= "col-md-8">
+<div class= "col-md-7">
 <h2>Welcome</h2>
 <p>Welcome to the Global Terrorism Research Project, a product of the Political Science department at Haverford College. Professor Barak Mendelsohn oversees the project supported by a team of student researchers. The site consists of two sections, resources and the al-Qaeda Statements Index. The resources section of our website contains a compilation of links to various other useful websites that provide information on terrorism and international security. This portion of the website contains links to books, primary sources, data sources, journal indexes, news, blogs, research sites, research portals and resources for students.<br>
 The al-Qaeda Statements Index is a long term project that consists of a comprehensive collection of statements released by al-Qaeda since 1994. The project chooses to focus on indexing statements by al-Qaeda Central. It also includes statements made by the Islamic State (aka the Islamic State of Iraq and al-Sham) up until and in the responding aftermath of the Islamic State’s separation from al-Qaeda in February of 2014.The index now includes statements released by al-Qaeda in the Indian Subcontinent (AQIS). The project does not include other branches of al-Qaeda, nor does it continue to include the Islamic State’s statements in order to preserve the project’s focus on al-Qaeda Central and its ideology. This section also includes biographical information on authors affiliated with al-Qaeda who have a significant number of statements indexed.</p>

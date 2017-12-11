@@ -31,15 +31,17 @@ def advanced_search(request):
             logic         = request_part["logic"]
             field         = request_part["field"]
             query_part = make_query_part(search_string, field)
-            if query:
+            if query and query_part:
                if   logic == "AND":
                    query = query & query_part
                elif logic == "OR":
                    query = query | query_part
                elif logic == "NOT":
                    query = query & ~query_part 
-            else:
+            elif query_part:
                query = query_part
+            else:
+               return False
     statement_list = Statement.objects.all()
     statement_list = statement_list.filter(query).distinct()
     print "generating statement_list took", time.time() - start, "seconds"
@@ -51,7 +53,7 @@ def advanced_search(request):
     keywords = [key_count[0] for key_count in keywords_and_counts]
     print "generating keywords took", time.time() - start, "seconds"
 
-    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string}
+    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string, 'full_info' : request.GET["full_info"]}
     return context
 
 
@@ -78,7 +80,56 @@ def make_query_part(search_string, field):
     elif field == 'Context':
         query_part = Q(keywords__context__word=search_string)
     elif field == 'Keyword in Context':
-        # this one is harder
-        pass
+        # at this point, I assume the user separates it with '->'
+        # this may not be what we want 
+        try:
+            keyword, context = search_string.split('->')
+        except ValueError:
+            print "Keyword in Context should be in the form 'keyword->Context'"
+            return False 
+        keyword = keyword.strip()
+        context = context.strip()
+        query_part = Q(keywords__main_keyword__word=keyword) & Q(keywords__context__word=context)
     return query_part
 
+# used for filtering
+def advanced_search_make_query(request):
+    request_list = request.GET["full_info"].split(",")
+
+    # request list needs to be split into threes
+    # right now it looks like ['Iraq','','Any Field', 'Iran', 'OR', 'Keyword,...]
+    # note that the first one will not have the logical operator
+    formatted_request_list = []
+    ticker = 1
+    three_pair = {}
+    for item in request_list:
+        if ticker == 1:
+            three_pair["search_string"] = item
+        elif ticker == 2:
+            three_pair["logic"] = item
+        elif ticker == 3:
+            three_pair["field"] = item
+            formatted_request_list.append(three_pair)
+            three_pair = {}
+            ticker = 0 # set to zero since we are going inc after
+        ticker += 1
+
+    query = []
+    for request_part in formatted_request_list:
+            search_string = request_part["search_string"]
+            logic         = request_part["logic"]
+            field         = request_part["field"]
+            query_part = make_query_part(search_string, field)
+            if query and query_part:
+               if   logic == "AND":
+                   query = query & query_part
+               elif logic == "OR":
+                   query = query | query_part
+               elif logic == "NOT":
+                   query = query & ~query_part 
+            elif query_part:
+               query = query_part
+            else:
+               return False
+
+    return query

@@ -19,7 +19,9 @@
 {% block content %}
 <div class="center" style="width: 100%; margin: 0 auto;">
     <h3>Advanced Search</h3>
-    {{ rquest }}
+    {% if failed %}
+       <span>Keyword in Context should be in the form "Keyword->Context"</span>
+    {% endif %}
     <form id="searchers_form"  action="{% url 'advanced-search-submit' %}" method="GET">
        {% csrf_token %}
        <div id="searchers">

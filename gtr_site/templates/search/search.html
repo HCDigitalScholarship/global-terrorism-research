@@ -25,7 +25,7 @@
 <form id="filter_form"  action="{% url 'search' %}" method="get">
 {% csrf_token %}
 <input type="submit" name="Filter" value="filter" id="filter_submit">
-<input type="hidden" value="{{ search }}" name="search" >
+<input type="hidden" value="{{ full_info }}" name="full_info" >
 <h2>Include</h2>
 
 <h3>Keywords</h3>
