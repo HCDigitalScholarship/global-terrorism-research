@@ -73,7 +73,7 @@ class Statement(models.Model):
         return self.statement_id
 
     def get_absolute_url(self):
-        return reverse('statement', args=[self.statement_id])
+        return reverse('gtr_site:statement', args=[self.statement_id])
 
     def show(self):
         info = []

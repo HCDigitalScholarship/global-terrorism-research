@@ -7,15 +7,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/gtr/">Global Terrorism Research Project</a>
+          <a class="navbar-brand" href="{% url 'gtr_site:index' %}">Global Terrorism Research Project</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/gtr/">Home</a></li>
-            <li><a href="/gtr/statements/">Statements</a></li>
-	    <li><a href="/gtr/resources/">Resources</a></li>
-            <li><a href="/gtr/about/">About</a></li>
-            <li><a href="/gtr/contact/">Contact</a></li>
+            <li><a href="{% url 'gtr_site:index' %}">Home</a></li>
+            <li><a href="{% url 'gtr_site:statements' %}">Statements</a></li>
+            <li><a href="{% url 'gtr_site:resources' %}">Resources</a></li>
+            <li><a href="{% url 'gtr_site:about' %}">About</a></li>
+            <li><a href="{% url 'gtr_site:contact' %}">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

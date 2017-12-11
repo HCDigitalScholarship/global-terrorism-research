@@ -3,6 +3,8 @@ from django.conf.urls import url
 from . import views
 from gtr_site.views import *
 
+app_name = 'gtr_site'
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     #url(r'^search_results/$', views.CustomSearchView.as_view(), name='search'),
