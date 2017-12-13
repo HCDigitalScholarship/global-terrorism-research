@@ -4,7 +4,10 @@ import time
 import generate_keywords_from_statement_list
 
 def advanced_search(request):
-    request_list = request.GET["full_info"].split(",")
+
+    # right now it looks like [Iraq^^Any Field^Iran^OR^Keyword^]
+    # so we split on ^ and delete the last one (there is always a tailing empty list
+    request_list = request.GET["full_info"].split("^")[:-1]
 
     # request list needs to be split into threes
     # right now it looks like ['Iraq','','Any Field', 'Iran', 'OR', 'Keyword,...]
@@ -43,6 +46,7 @@ def advanced_search(request):
             else:
                return False
     statement_list = Statement.objects.all()
+    print "Here is your query", query
     statement_list = statement_list.filter(query).distinct()
     print "generating statement_list took", time.time() - start, "seconds"
 
@@ -58,14 +62,16 @@ def advanced_search(request):
 
 
 def make_query_part(search_string, field):
+    print field
     if field == "Any field":
-        query_part = ( 
+        query_part = Q( 
                  Q(title__icontains=search_string) |
                  Q(statement_id__icontains=search_string) |
                  Q(author__person_name__icontains=search_string) |
-                 Q(released_by__org_name__icontains=search_string) |
-                 Q(keywords__main_keyword__word=search_string) |
-                 Q(keywords__context__word=search_string)
+                 Q(released_by__org_name__icontains=search_string) 
+                 # these two lines seems to be the problem
+                 #Q(keywords__main_keyword__word=search_string)
+                 #Q(keywords__context__word=search_string)
                 ) 
     elif field == 'Title':
         query_part = Q(title__icontains=search_string)

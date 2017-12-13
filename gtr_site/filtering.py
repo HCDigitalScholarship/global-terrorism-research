@@ -41,7 +41,7 @@ def filter_by_keyword(request):
 
     keywords = [key_count[0] for key_count in keywords_and_counts]
 
-    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statment_list)}
+    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
     return context 
 
 def filter_by_context():

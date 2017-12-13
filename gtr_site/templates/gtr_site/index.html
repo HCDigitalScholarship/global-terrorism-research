@@ -116,7 +116,7 @@
 	}
       });
       $("#searchers_form").submit(function(event) {
-        var the_request = [];
+        var the_request = "";
         $("#searchers").children().each(function() {
           // alright, we got the values
 	  console.log($(this).children().children(".search_text").val());
@@ -126,7 +126,7 @@
           var text  = $(this).children().children(".search_text").val();
           var logic = $(this).children().children(".logic_option").val();
           var field = $(this).children().children(".field_option").val();
-	  the_request.push([text,logic,field]);
+	  the_request += text + "^" + logic + "^" + field+"^";
 
         });        
         $("#full_info").val(the_request);

@@ -44,7 +44,9 @@ def generate_top_n_keywords(statement_list, top_n):
 
 def generate_just_keywords(statement_list):
     """
-       You might need this and I already wrote it! Returns a set of keywords
+       You might need this and I already wrote it!
+       but nothing uses it as of right now...
+       Returns a set of keywords
     """
     start = time.time()
     keywords = set()
