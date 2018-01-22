@@ -18,14 +18,22 @@ def filter_by_keyword(request):
 
     # base query without any filtering (including or excluding)
     # we will build it up with relevant filtering
-    query = advanced_search.advanced_search_make_query(request)
+    # query = advanced_search.advanced_search_make_query(request)
+    query = request.POST.get('search', False)
+
+    print "Query: ",query
     print "Including Statements with Keywords:", include 
 
     if include:
         include_query = Q(keywords__main_keyword__word=include[0]) 
         for keyword in include[1:]:
 	    include_query = include_query | Q(keywords__main_keyword__word=keyword) 
-        query = query & include_query 
+        print "Include query: ", include_query
+	if query:
+	    query  = query & include_query
+	else:
+	    query = include_query 
+	# print query
 
     print "Excluding Statements with Keywords:", exclude
     if exclude:

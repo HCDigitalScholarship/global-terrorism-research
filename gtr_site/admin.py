@@ -4,6 +4,30 @@ from .forms import StatementForm, KeywordInContextForm
 from django.utils.translation import gettext_lazy as _
 from datetime import date
 
+from django.contrib.flatpages.models import FlatPage
+
+# Note: we are renaming the original Admin and Form as we import them!
+from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
+from django.contrib.flatpages.admin import FlatpageForm as FlatpageFormOld
+
+from django import forms
+from ckeditor.widgets import CKEditorWidget
+
+class FlatpageForm(FlatpageFormOld):
+    content = forms.CharField(widget=CKEditorWidget())
+    class Meta:
+    	fields = '__all__'
+    	model = FlatPage # this is not automatically inherited from FlatpageFormOld
+
+
+class FlatPageAdmin(FlatPageAdminOld):
+    form = FlatpageForm
+
+
+# We have to unregister the normal admin, and then reregister ours
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, FlatPageAdmin)
+
 ##########################################################
 
 class OrganizationAdmin(admin.ModelAdmin):

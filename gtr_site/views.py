@@ -70,6 +70,9 @@ def statement_page(request, statement_id):
     print state.get_keywords_contexts()
     return render(request, 'gtr_site/statement_page.html', context)
 
+def keyword_browse(request, keyword_word):
+    return render(request, 'search/search.html', context)
+
 #def resources(request):
 #    return render(request, 'gtr_site/resources.html')
 

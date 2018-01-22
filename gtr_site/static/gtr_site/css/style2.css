@@ -93,7 +93,7 @@ input[type=radio] {
 }
 
 .jumbotron {
-    background-image: url('/static/gtr_site/doves_resized.png');
+    background-image: url('/static/gtr_site/gtrp_banner_img.jpg');
     background-repeat: no-repeat;
     background-position: center;
     -webkit-background-size: cover;

@@ -1,15 +1,19 @@
 {% extends "gtr_site/base.html" %}
 {% include "gtr_site/nav_bar.html" %}
 {% block title %}GTR{% endblock %}
+{% block extra_static %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+{% endblock %}
 {% block content %}
 <div class= "row">
-  <h2 id="page_title"> {{request.GET.a}}</h2> 
+  <h2 id="page_title"> {{request.GET.a}}</h2>
 </div>
 <br>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-	<div id="article"></div>
+        <div id="article"></div>
   </div>
   <div class="col-md-1"></div>
 
@@ -19,71 +23,77 @@
 <div class= "row">
  <div class= "col-md-1">
  </div>
-  <div class="col-md-10 table-responsive">
-     <h3 style="text-align:center"> All statements with author name {{request.GET.a}}</h3>
-      <table class="table table-striped table-bordered" id="auth_state">
-	<thead>
+  <div class="col-md-10">
+     <h3 style="text-align:center;margin-bottom:50px;"> All statements by {{request.GET.a}}</h3>
+      <div>
+        <table class="table table-striped table-bordered display" id="auth_state" cellspacing="0" width="100%">
+        <thead>
           <tr>
-	    <!--th colspan="2">All statements statements associated with author: {{request.GET.a}}</th-->
+                <th>Statements</th>
+                <th>Full text</th>
           </tr>
-	</thead>
-	<tbody>
-     	  {% for result in results %}
-	     {% ifequal result.author.person_name request.GET.a  %}
-	 	 <tr>
-		   <td>{{result.title}}</td>
-		   <td ><a href="{{result.full_text }}">open</a></td>
-		 </tr>
-	     {% endifequal %}
-    	 {% endfor %}
-	</tbody>
+        </thead>
+        <tbody>
+          {% for result in results %}
+             {% ifequal result.author.person_name request.GET.a  %}
+                 <tr>
+ <td><a href="{{ result.get_absolute_url }}">{{result.title}}</a></td>
+                   <td ><a href="{{result.full_text }}" target="_blank">Open</a></td>
+                 </tr>
+             {% endifequal %}
+         {% endfor %}
+        </tbody>
      </table>
+        </div>
   </div>
   <div class="col-md-1">
   </div>
 </div>
 <script>
 
-$(document).ready(function(){
-	//console.log("READY!")
+$.extend( true, $.fn.dataTable.defaults, {
+    "searching": false,
+    "ordering": false
+} );
 
-	$.urlParam = function(name){
-    		var results = new RegExp('[\?&]' + name + '=([^]*)').exec(window.location.href);
-    		if (results==null){
-      		   return null;
-    		}
-   		 else{
-       		   return results[1] || 0;
-   		 }	
-	}
-	var auth = "page";	
-	var authval= decodeURIComponent($.urlParam('a'));
-	//var authval= "Ayman al-Zawahiri";
-	//var author_name = $('#page_title').text();
-	console.log(authval);
-	var dataObj = { format: "json", action:"parse", prop:"text", section:0};
-	dataObj[auth] = authval;
+$(document).ready(function(){
+//console.log("READY!")
+        $('#auth_state').DataTable();
+        $.urlParam = function(name){
+                var results = new RegExp('[\?&]' + name + '=([^]*)').exec(window.location.href);
+                if (results==null){
+                   return null;
+                }
+                 else{
+                   return results[1] || 0;
+                 }      
+        }
+        var auth = "page";      
+        var authval= decodeURIComponent($.urlParam('a'));
+        //var authval= "Ayman al-Zawahiri";
+        //var author_name = $('#page_title').text();
+        console.log(authval);
+        var dataObj = { format: "json", action:"parse", prop:"text", section:0};
+        dataObj[auth] = authval;
 
  $.ajax({
-       
-                url: "https://en.wikipedia.org/w/api.php",
+url: "https://en.wikipedia.org/w/api.php",
         /*data: {
             format: "json",
             action: "parse",
             //page: window.location.href,
             page: "obama",
-	    prop: "text",
+            prop: "text",
             section: 0,
         },*/
-	data: dataObj,
+        data: dataObj,
         dataType: 'jsonp',
         headers: {
             'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
         },
         success: function (data) {
-
-	   console.log(data)
-	   // console.log("OOO")
+ console.log(data)
+           // console.log("OOO")
 
             var markup = data.parse.text["*"];
             var i = $('<div></div>').html(markup);
@@ -101,8 +111,7 @@ $(document).ready(function(){
             i.find('.mw-ext-cite-error').remove();
 
             $('#article').html($(i).find('p'));
-
-        }
+}
     });
 
 });

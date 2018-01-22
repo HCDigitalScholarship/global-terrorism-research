@@ -18,8 +18,7 @@
   <h1 style="text-align: center;">Resources</h1>
   <section id="search" class="content-section text-center"  class="pre-scrollable">
     <div class="search-section">
-      <div class="container">
-        <div class="col-xs-12">
+        <div class="col-lg-2 col-md-12">
           
           <!-- To be deleted unless the DataTables search bar proves insufficient for some reason
           <form action="{% url 'gtr_site:resource-results' %}" method="GET">
@@ -29,79 +28,79 @@
           </form>
           -->
           
-          <form class="form-inline">
-          <div class="checkbox">
-            <label>
+          <form>
+          <ul class="list-group">
+ 	<li class="list-group-item">
+	  <label>Filters</label>
+	</li>
+	<li class="list-group-item">
+             <label>
               <input type="checkbox" id="book" value="book">
                 Books/Primary Sources
               </input>
             </label>
-          </div>
-          <div class="checkbox">
-            <label>
+           </li>
+            <li class="list-group-item">
+	     <label>
               <input type="checkbox" id="data-source" value="data-source">
                 Data Sources
               </input>
             </label>
-          </div>
-          <div class="checkbox">
-            <label>
+	   </li>
+            <li class="list-group-item"> 
+           <label>
               <input type="checkbox" id="jihadi-magazines" value="jihadi-magazines">
                 Jihadi Magazines
               </input>
             </label>
-          </div>
-          <div class="checkbox">
+	   </li>
+             <li class="list-group-item justify-content-between">
             <label>
               <input type="checkbox" id="journal-indexes" value="journal-indexes">
                 Journal Indexes
               </input>
             </label>
-          </div>
-          <div class="checkbox">
+          </li>
+            <li class="list-group-item justify-content-between">
             <label>
               <input type="checkbox" id="news" value="news">
                 News/Commentary
               </input>
             </label>
-          </div> 
-          </form>
-          <form class="form-inline">      
-          <div class="checkbox">
-            <label>
+          </li> 
+          <li class="list-group-item justify-content-between"> 
+	    <label>
               <input type="checkbox" id="research" value="research">
                 Research Portals
               </input>
             </label>
-          </div>       
-          <div class="checkbox">
+          </li>       
+          <li class="list-group-item justify-content-between">
             <label>
               <input type="checkbox" id="sites" value="sites">
                 Research Sites
               </input>
             </label>
-          </div>
-          <div class="checkbox">
+          </li>
+          <li class="list-group-item justify-content-between">
             <label>
               <input type="checkbox" id="student-resources" value="student-resources">
                 Student Resources
               </input>
             </label>
-          </div>         
-          <div class="checkbox">
+          </li>         
+          <li class="list-group-item">
             <label>
               <input type="checkbox" id="by-country" value="by-country">
                 Resources By Country
               </input>
             </label>
-          </div>
+          </li>
+	  </ul>
           </form>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <div class="col-lg-10 col-lg-offset-1">
+  <div class="col-lg-10 col-md-12">
   <table id="resourceTable" class="display" cellspacing="0" width="100%">
 	  <thead><tr>
    	  <th>Title</th>
@@ -129,6 +128,6 @@
 	  </tbody>
 	</table>
   </div>  
-
+</section>
 </body>
 {% endblock %}

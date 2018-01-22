@@ -1,5 +1,10 @@
 {% extends "gtr_site/base.html" %}
 
+{%block extra_static %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+{% endblock %}
+
 {% block title %}GTR{% endblock %}
 
 {% block content %}
@@ -31,8 +36,8 @@
 <div class="row">
 <div class="col-md-1"></div>
 <div class= "col-md-10 top-buffer" id="state_table">
-<table class="table table-bordered" id="stateTable">
-    <thead>
+<table class="table table-bordered display" id="stateTable" cellspacing="0" width="100%">    
+   <thead>
         <tr>
          <th>Title</th>
          <th>Author</th>
@@ -45,7 +50,7 @@
         {% for sta in results %}
         <tr>
          <td id="state_title"><a href="{{ sta.get_absolute_url }}">{{ sta.title }}</a></td>
-         <td><a href="{% url 'author_page'%}?a={{sta.author}}">{{sta.author}}</a></td>
+         <td><a href="/author/?a={{sta.author}}">{{sta.author}}</a></td>
 	 <td>{{sta.get_media_type_display}}</td>
 	 <td>{{sta.issue_date}}</td>
 	 <td><a href="{{sta.full_text}}">Open</a></td>
@@ -58,6 +63,19 @@
 </div>
 
 <script>
+
+$.extend( true, $.fn.dataTable.defaults, {
+    "searching": false,
+    "ordering": false
+} );
+
+$(document).ready(function() {
+    $('#stateTable').DataTable();
+} );
+
+
+
+
 function myFunction() {
   // Declare variables 
   var input, filter, table, tr, td, i;

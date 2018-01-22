@@ -21,25 +21,24 @@
 
 <div class="col-md-3 top-buffer" id="search_filter" >	
 <h3>Your query returned {{ num_results }} results</h3>
-<h2>Filters:</h2>
 <form id="filter_form"  action="{% url 'gtr_site:search' %}" method="get">
 {% csrf_token %}
-<input type="submit" name="Filter" value="filter" id="filter_submit">
+<button type="button submit" class="btn btn-primary" name="Filter" id="filter_submit">Update Results</button>
+<!-- <input type="submit" name="Filter" value="filter" id="filter_submit"> -->
 <input type="hidden" value="{{ full_info }}" name="full_info" >
-<h2>Include</h2>
+<h3>Keywords</h3>
 
-<h3>Keywords (frequency in statements)</h3>
-<ul>
+<h4>Include</h4>
+<ul class="list-group">
 {% for keyword_count in keywords_and_counts %}
-    <li><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
+    <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
 {% endfor %}
 </ul>
 
-<h2>Exclude</h2>
-<h3>Keywords (frequency in statements)</h3>
-<ul>
+<h4>Exclude</h4>
+<ul class="list-group">
 {% for keyword_count in keywords_and_counts %}
-    <li><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check"><label>{{ keyword_count.0 }} ({{keyword_count.1}})</label></li>
+    <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
 {% endfor %}
 </ul>
 
@@ -48,7 +47,7 @@
   <input type="hidden" id="dateLow1" name="date_low1" >
   <input type="hidden" id="dateHigh1" name="date_high1" >
 </div>
-    <h3>Date Slider</h3>
+    <h4>Date Range</h4>
     <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
     <div id="sliders">
     <div id="slider1"></div>

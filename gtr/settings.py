@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'dal_select2',
     'django.contrib.admin',
     'haystack',
+    'ckeditor',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     #'simple_autocomplete',
     #'ajax_select', #delete if not working
     #'django.contrib.auth',
@@ -53,6 +56,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
+]
+
+AUTHENTICATION_BACKENDS = [
+    ('django.contrib.auth.backends.ModelBackend'),
 ]
 
 ROOT_URLCONF = 'gtr.urls'

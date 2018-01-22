@@ -2,23 +2,30 @@ from django.conf.urls import url
 
 from . import views
 from gtr_site.views import *
+from django.contrib.flatpages import views as flat_views
 
 app_name = 'gtr_site'
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    # url(r'^$', views.index, name='index'),
+    # It looks like flatpages don't work for the index view, so ignore next line :(
+    url(r'^$', flat_views.flatpage, {'url': '/'}, name='index'),
+    
     #url(r'^search_results/$', views.CustomSearchView.as_view(), name='search'),
-    url(r'author_page/$', views.author_page, name='author_page'),
+    url(r'author/$', views.author_page, name='author_page'),
     url(r'^search_results/$', views.search, name='search'),
-    url(r'^about/$', views.about, name='about'),
+    url(r'^about/$', flat_views.flatpage, {'url': '/about/'}, name='about'),
+    #url(r'^about/$', views.about, name='about'),
     url(r'^map/$', views.map, name='map'),
-    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^contact/$', flat_views.flatpage, {'url': '/contact/'}, name='contact'),
+    url(r'^search-help/$', flat_views.flatpage, {'url': '/search-help/'}, name='search-help'),
     url(r'^statements/$', views.statements, name='statements'),
+    url(r'^keyword/(?P<keyword_word>.+)/$', views.keyword_browse, name='keyword-browse'),
     url(r'^advanced_search/$', views.advanced_search_page, name='advanced-search'),
     url(r'^advanced_search_submitted$', views.advanced_search_submit, name='advanced-search-submit'),
     url(r'^resources/$', views.ResourcesList.as_view(), name='resources'),
     url(r'^resources/([\w-]+)/$', views.ResourcesList.as_view(), name='resources'),
     url(r'^resource_results/$', views.resource_search, name='resource-results'),
     url(r'api/v1/keyword/$', GenerateKeywords.as_view(), name='generate-keywords'),
-    url(r'^(?P<statement_id>.+)/$', views.statement_page, name='statement'),
+    url(r'^statement/(?P<statement_id>.+)/$', views.statement_page, name='statement'),
 ]
