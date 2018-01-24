@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^$', flat_views.flatpage, {'url': '/'}, name='index'),
     
     #url(r'^search_results/$', views.CustomSearchView.as_view(), name='search'),
-    url(r'author/$', views.author_page, name='author_page'),
+    url(r'author/(?P<author_name>.+)/$', views.author_page, name='author_page'),
     url(r'^search_results/$', views.search, name='search'),
     url(r'^about/$', flat_views.flatpage, {'url': '/about/'}, name='about'),
     #url(r'^about/$', views.about, name='about'),
@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^search-help/$', flat_views.flatpage, {'url': '/search-help/'}, name='search-help'),
     url(r'^statements/$', views.statements, name='statements'),
     url(r'^keyword/(?P<keyword_word>.+)/$', views.keyword_browse, name='keyword-browse'),
+    url(r'^keyword/(?P<keyword_word>.+)/(?P<context_word>.+)/$', views.keyword_context_browse, name='keyword-context-browse'),
     url(r'^advanced_search/$', views.advanced_search_page, name='advanced-search'),
     url(r'^advanced_search_submitted$', views.advanced_search_submit, name='advanced-search-submit'),
     url(r'^resources/$', views.ResourcesList.as_view(), name='resources'),

@@ -52,10 +52,11 @@ def contact(request):
 def map(request):
     return render(request, 'gtr_site/map.html')
 
-def author_page(request):
-    state_list = Statement.objects.all()
+def author_page(request,author_name):
+    author_id = Person.objects.get(person_name=author_name).pk
+    state_list = Statement.objects.filter(author_id = author_id)
     context = { "results":state_list}
-    return render(request, 'gtr_site/author_page.html',  context)
+    return render(request, 'gtr_site/statements.html',  context)
 
 def statements(request):
     state_list = Statement.objects.all()
@@ -70,8 +71,24 @@ def statement_page(request, statement_id):
     print state.get_keywords_contexts()
     return render(request, 'gtr_site/statement_page.html', context)
 
+#TODO Works when only keyword, but need to add all Kic's containing keyword as well. (AJ 1/23)
 def keyword_browse(request, keyword_word):
-    return render(request, 'search/search.html', context)
+    keyword_id = Keyword.objects.get(word=keyword_word).id
+    state_list = Statement.objects.filter(keywords=keyword_id)
+    context = {"results":state_list}
+    return render(request, 'gtr_site/statements.html', context)
+
+def keyword_context_browse(request, keyword_word, context_word):
+    keyword_id = Keyword.objects.get(word=keyword_word).id
+    context_id = Keyword.objects.get(word=context_word).id
+    kic_pair = KeywordInContext.objects.filter(main_keyword=keyword_id).filter(context=context_id)
+    statement_list = []
+    for pair in kic_pair:
+        state = Statement.objects.get(keywords=pair.id)
+        statement_list.append(state)
+    # state = Statement.objects.filter(id=state_id)
+    context = {'state': statement_list }
+    return render(request, 'gtr_site/statements.html', context)
 
 #def resources(request):
 #    return render(request, 'gtr_site/resources.html')
@@ -170,7 +187,7 @@ def search(request):
     if 'Filter' in request.GET:
         context = filtering.filter_by_keyword(request)
     else:
-        context = basic_search.basic_search(request)
+        context = advanced_search.advanced_search(request)
 	print request.GET
     return render(request, 'search/search.html', context)
     print request.GET

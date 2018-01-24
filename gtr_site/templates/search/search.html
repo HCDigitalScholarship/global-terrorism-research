@@ -22,7 +22,6 @@
 <div class="col-md-3 top-buffer" id="search_filter" >	
 <h3>Your query returned {{ num_results }} results</h3>
 <form id="filter_form"  action="{% url 'gtr_site:search' %}" method="get">
-{% csrf_token %}
 <button type="button submit" class="btn btn-primary" name="Filter" id="filter_submit">Update Results</button>
 <!-- <input type="submit" name="Filter" value="filter" id="filter_submit"> -->
 <input type="hidden" value="{{ full_info }}" name="full_info" >
@@ -117,7 +116,7 @@
 	{% for result in results %}
 	<tr>
 	 <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
-	 <td><a href="{% url 'gtr_site:author_page'%}?a={{result.author}}">{{result.author}}</a></td>
+	 <td><a href="author/{{result.author}}">{{result.author}}</a></td>
 	</tr>
 	{% endfor %}
     </tbody>

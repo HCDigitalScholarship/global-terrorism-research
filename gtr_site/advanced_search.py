@@ -8,7 +8,7 @@ def advanced_search(request):
     # right now it looks like [Iraq^^Any Field^Iran^OR^Keyword^]
     # so we split on ^ and delete the last one (there is always a tailing empty list
     request_list = request.GET["full_info"].split("^")[:-1]
-
+    print "full info in advanced_search", request.GET["full_info"]
     # request list needs to be split into threes
     # right now it looks like ['Iraq','','Any Field', 'Iran', 'OR', 'Keyword,...]
     # note that the first one will not have the logical operator
@@ -56,7 +56,8 @@ def advanced_search(request):
     keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 20)
     keywords = [key_count[0] for key_count in keywords_and_counts]
     print "generating keywords took", time.time() - start, "seconds"
-
+    for statement in statement_list:
+	print statement
     context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string, 'full_info' : request.GET["full_info"], 'num_results' : len(statement_list)}
     return context
 
@@ -68,10 +69,9 @@ def make_query_part(search_string, field):
                  Q(title__icontains=search_string) |
                  Q(statement_id__icontains=search_string) |
                  Q(author__person_name__icontains=search_string) |
-                 Q(released_by__org_name__icontains=search_string) 
-                 # these two lines seems to be the problem
-                 #Q(keywords__main_keyword__word=search_string)
-                 #Q(keywords__context__word=search_string)
+                 Q(released_by__org_name__icontains=search_string) |
+                 Q(keywords__main_keyword__word=search_string) |
+                 Q(keywords__context__word=search_string)
                 ) 
     elif field == 'Title':
         query_part = Q(title__icontains=search_string)
@@ -100,8 +100,9 @@ def make_query_part(search_string, field):
 
 # used for filtering
 def advanced_search_make_query(request):
-    request_list = request.GET["full_info"].split(",")
-
+    print request
+    request_list = request.GET["full_info"].split("^")
+    print "Request List in advanced_search_make_query", request_list
     # request list needs to be split into threes
     # right now it looks like ['Iraq','','Any Field', 'Iran', 'OR', 'Keyword,...]
     # note that the first one will not have the logical operator

@@ -11,11 +11,10 @@
        <span>Keyword in Context should be in the form "Keyword->Context"</span>
     {% endif %}
     <form id="searchers_form"  action="{% url 'gtr_site:search' %}" method="GET">
-       {% csrf_token %}
        <div class="form-group" id="searchers">
           <div id="searcher1"></div>
-	<input id="full_info" type="hidden" value='' name="full_info">
        </div>
+	<input id="full_info" type="hidden" value='' name="full_info">
     </form>
 
     
@@ -36,7 +35,7 @@
 
       // These long lines are just html we will be using and reusing
       var select_fields = "<select class='form-control field_option'> <option>Any field</option> <option>Title</option>  <option>Statement ID</option>  <option>Author</option>  <option>Organization</option> <option>Keyword</option>  <option>Context</option> <option>Keyword in Context</option></select>";
-       var delete_button = "<button type='button'><span class='glyphicon glyphicon-remove delete_searcher'></span><button>"; 
+       var delete_button = "<button class='delete_searcher' type='button'><span class='glyphicon glyphicon-remove delete_searcher'></span><button>"; 
       
       function createLogicDropdown(operator) {
         if(operator=="AND") {
@@ -50,7 +49,7 @@
         }
       }
       // make first search bar. This one can't be deleted
-      $("#searcher1").append("<div class='input-group stylish-input-group'><input type='text' class='form-control search_text' name='search' placeholder='Search...'><span class='input-group-addon'><button type='submit'><span class='glyphicon glyphicon-search'></span></button></span></div> in " + select_fields);
+      $("#searcher1").append("<span><div class='input-group stylish-input-group'><input type='text' class='form-control search_text' name='search' placeholder='Search...'><span class='input-group-addon'><button type='submit'><span class='glyphicon glyphicon-search'></span></button></span></div> in " + select_fields + "</span>");
        	// only submits the first slider as of right now
 	$("#filter_form").submit(function( event) {
 	  for(i=1; i <= $("#searcher_counter").val(); i++) {
@@ -97,27 +96,24 @@
       // exist on the initial page load
       $("#searchers").on("click", ".delete_searcher", function(event) {
           event.preventDefault();
+          console.log("DELETE");
           $(event.target).parent().parent().parent().parent().remove();
 	  $("#searcher_counter").val(+$("#searcher_counter").val() - 1);
        });
 
-
-	// on - click
-      $(".delete_searcher").click(function(event) {
-	if($("#seacher_counter").val() != 1) {
-	  $("#seacher"+ $("#seacher_counter").val()).remove();
-	  $("#seacher_counter").val(+$("#slider_counter").val() - 1);
-	}
-      });
+      // on submit we generate full_info
       $("#searchers_form").submit(function(event) {
+	// uncomment to prevent page submit
+        // event.preventDefault();
         var the_request = "";
         $("#searchers").children().each(function() {
-          // alright, we got the values
-	  console.log($(this).children().children(".search_text").val());
+          // THIS IS A BAD WAY OF DOING IT THAT DEPENDS ON THE STRUCTURE OF THE PAGE
+	  console.log($(this).children().children().children(".search_text").val());
           console.log($(this).children().children(".logic_option").val());
           console.log($(this).children().children(".field_option").val());
-         
-          var text  = $(this).children().children(".search_text").val();
+          console.log($(this).children());
+
+          var text  = $(this).children().children().children(".search_text").val();
           var logic = $(this).children().children(".logic_option").val();
           var field = $(this).children().children(".field_option").val();
 	  the_request += text + "^" + logic + "^" + field+"^";

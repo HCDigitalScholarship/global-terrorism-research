@@ -76,6 +76,7 @@ $(document).ready(function(){
         var dataObj = { format: "json", action:"parse", prop:"text", section:0};
         dataObj[auth] = authval;
 
+
  $.ajax({
 url: "https://en.wikipedia.org/w/api.php",
         /*data: {
@@ -92,14 +93,16 @@ url: "https://en.wikipedia.org/w/api.php",
             'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
         },
         success: function (data) {
- console.log(data)
-           // console.log("OOO")
+	   //console.log(data)
+	   //console.log(data["parse"]["text"])	
 
             var markup = data.parse.text["*"];
             var i = $('<div></div>').html(markup);
+	    //console.log(markup);
+	    //console.log($(".redirectMsg div p:first ").text() );
             $('#article').html(i);
-            // remove links as they will not work
-
+            
+	    // remove links as they will not work
             i.find('a').each(function () {
                 $(this).replaceWith($(this).html());
             });

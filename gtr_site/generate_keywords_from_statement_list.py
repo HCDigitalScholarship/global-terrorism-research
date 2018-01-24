@@ -15,12 +15,17 @@ def generate_keywords_dictionary(statement_list):
     start = time.time()
     keywords_dict = {}
     for statement in statement_list:
+	statement_keywords = {}
         for keyword in statement.get_keywords():
-            if keyword in keywords_dict:
-                keywords_dict[keyword]+=1
+            if keyword in statement_keywords:
+                statement_keywords[keyword]+=1
             else:
-                keywords_dict[keyword] = 1
-
+                statement_keywords[keyword] = 1
+	for keyword in statement_keywords:
+	    if keyword in keywords_dict:
+	        keywords_dict[keyword]+=1
+	    else:
+		keywords_dict[keyword] = 1
     print "generating keywords took", time.time() - start, "seconds"
     return keywords_dict
 
