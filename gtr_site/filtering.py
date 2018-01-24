@@ -54,8 +54,8 @@ def filter_by_keyword(request):
     # now we need to update full_info so it carries over to the next
     # filtering sesh
 
-    include_str = '["{}"]'.format('", "'.join(include))
-    exclude_str = '["{}"]'.format('", "'.join(exclude))
+    include_str = '["' + '", "'.join(include) + '"]'
+    exclude_str = '["' + '", "'.join(exclude) + '"]'
     context = {'results' : statement_list, 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
     return context
 

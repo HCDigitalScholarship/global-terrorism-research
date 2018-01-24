@@ -195,11 +195,14 @@ def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
     from whoosh.qparser.dateparse import DateParserPlugin 
+    context = filtering.filter_by_keyword(request)
+    """
     if 'Filter' in request.GET:
         context = filtering.filter_by_keyword(request)
     else:
         context = advanced_search.advanced_search(request)
-	print request.GET
+    """
+    print request.GET
     return render(request, 'search/search.html', context)
 
     print request.GET
