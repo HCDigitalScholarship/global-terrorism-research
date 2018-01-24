@@ -19,6 +19,7 @@ import basic_search
 import filtering
 import advanced_search
 import os
+from itertools import chain
 
 #class CustomSearchView(SearchView):
     #pass
@@ -74,20 +75,29 @@ def statement_page(request, statement_id):
 #TODO Works when only keyword, but need to add all Kic's containing keyword as well. (AJ 1/23)
 def keyword_browse(request, keyword_word):
     keyword_id = Keyword.objects.get(word=keyword_word).id
-    state_list = Statement.objects.filter(keywords=keyword_id)
-    context = {"results":state_list}
+    keywordcontext_query = KeywordInContext.objects.filter(main_keyword=keyword_id)
+    kic_statements = []
+    for kic in keywordcontext_query:
+      keywordcontext = Statement.objects.filter(keywords=kic.id)
+      for i in keywordcontext:
+         kic_statements.append(i)
+         print(i)
+
+    results = kic_statements
+    context = {"results":results}
     return render(request, 'gtr_site/statements.html', context)
 
 def keyword_context_browse(request, keyword_word, context_word):
     keyword_id = Keyword.objects.get(word=keyword_word).id
     context_id = Keyword.objects.get(word=context_word).id
-    kic_pair = KeywordInContext.objects.filter(main_keyword=keyword_id).filter(context=context_id)
+    kic_pair = KeywordInContext.objects.filter(main_keyword=keyword_id, context=context_id)
     statement_list = []
     for pair in kic_pair:
-        state = Statement.objects.get(keywords=pair.id)
-        statement_list.append(state)
-    # state = Statement.objects.filter(id=state_id)
-    context = {'state': statement_list }
+        state = Statement.objects.filter(keywords=pair.id)
+        for i in state:
+           statement_list.append(i)
+    print(statement_list)
+    context = {'results': statement_list }
     return render(request, 'gtr_site/statements.html', context)
 
 #def resources(request):
@@ -128,12 +138,12 @@ def search2(request):
     qs_list = Statement.objects.all()
     print "HELLO WORLD"
     query = request.GET.get("search")
-    '''
-    query_auth = request.GET.get("auth_search")
-    if query_auth:
-	qs_list = Statement.objects.all()
-	qs_list = qs_list.filter(Q(author__person_name__icontains=query_auth))
-    '''
+    
+    #query_auth = request.GET.get("auth_search")
+    #if query_auth:
+    #	qs_list = Statement.objects.all()
+    #	qs_list = qs_list.filter(Q(author__person_name__icontains=query_auth))
+    
     if query:
        if "->" in query:
           print "Keyword context operator detected" 
@@ -180,6 +190,7 @@ def advanced_search_submit(request):
     else:
         context = {"failed" : True}
         return render(request, 'gtr_site/index.html', context)
+
 def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
@@ -190,6 +201,7 @@ def search(request):
         context = advanced_search.advanced_search(request)
 	print request.GET
     return render(request, 'search/search.html', context)
+
     print request.GET
     #<QueryDict: {u'auth_search': [u''], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [u''], u'title_search': [u'']}>
     #(statement_id:Iraq OR title:iraq OR author:iraq OR keyword:Iraq OR context:Iraq)
@@ -238,6 +250,7 @@ def search(request):
 	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
         context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
 	return render(request, 'search/search.html', context)
+
 def advanced_search_page(request):
     return render(request, 'search/advanced_search.html')
 
@@ -410,7 +423,7 @@ def search_oldie(request):
                 
 		# making a dictionary where the keywords are keys and all contexts that go with those keywords, across the dataset, are in there
 		key_con_dict = {}
-		'''
+		
 		for statement in key_con:
 		   for keyword in statement:
 		      KIC = keyword
@@ -426,10 +439,11 @@ def search_oldie(request):
 		print key_con_dict
 		#if filter_request: # might not actually need this
                 #The below line should be deprecated because contexts and key_con_dict are no longer necessary. At all.
-		'''
+		
 		print result_list
 		context = {'results' : statement_list, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con_dict, 'search' : search }
 	    return render(request, 'search/search.html', context)
     else:
        print request.GET
        return render(request, 'search/search.html')
+

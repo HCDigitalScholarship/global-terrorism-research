@@ -1,3 +1,5 @@
+console.log(window.location.href);
+
 $.widget("ui.autocomplete", $.ui.autocomplete, {
     options : $.extend({}, this.options, {
         multiselect: false

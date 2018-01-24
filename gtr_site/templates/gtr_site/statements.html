@@ -50,7 +50,7 @@
         {% for sta in results %}
         <tr>
          <td id="state_title"><a href="{{ sta.get_absolute_url }}">{{ sta.title }}</a></td>
-         <td><a href="/author/?a={{sta.author}}">{{sta.author}}</a></td>
+         <td><a href="/author/{{sta.author}}">{{sta.author}}</a></td>
 	 <td>{{sta.get_media_type_display}}</td>
 	 <td>{{sta.issue_date}}</td>
 	 <td><a href="{{sta.full_text}}">Open</a></td>

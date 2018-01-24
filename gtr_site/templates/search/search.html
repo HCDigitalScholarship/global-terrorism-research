@@ -28,15 +28,15 @@
 <h3>Keywords</h3>
 
 <h4>Include</h4>
-<ul class="list-group">
-{% for keyword_count in keywords_and_counts %}
+<ul class="list-group" id="include-buttons">
+{% for keyword_count in include_keywords_and_counts %}
     <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
 {% endfor %}
 </ul>
 
 <h4>Exclude</h4>
-<ul class="list-group">
-{% for keyword_count in keywords_and_counts %}
+<ul class="list-group" id="exclude-buttons">
+{% for keyword_count in exclude_keywords_and_counts %}
     <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
 {% endfor %}
 </ul>
@@ -126,4 +126,19 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script src="{% static 'gtr_site/js/autocomplete-multiselect.js'%}"></script>
+
+<script>
+{% autoescape off %}
+var includeButtonsToCheck = {{ include_buttons }};
+var excludeButtonsToCheck = {{ exclude_buttons }};
+{% endautoescape %}
+for (var i = 0; i < includeButtonsToCheck.length; i++) {
+  var selector = "#include-buttons input[name='" + includeButtonsToCheck[i] + "']";
+  $(selector).prop("checked", true);
+}
+for (var i = 0; i < excludeButtonsToCheck.length; i++) {
+  var selector = "#exclude-buttons input[name='" + excludeButtonsToCheck[i] + "']";
+  $(selector).prop("checked", true);
+}
+</script>
 {% endblock %}

@@ -4,7 +4,7 @@ import time
 import generate_keywords_from_statement_list
 import advanced_search
 def filter_all():
-    pass 
+    pass
 def filter_by_keyword(request):
     include = []
     exclude = []
@@ -12,7 +12,7 @@ def filter_by_keyword(request):
     for key in request.GET:
         key_ON_OFF = request.GET[key]
 	if   key_ON_OFF == 'key_ON':
-            include.append(key)	    
+            include.append(key)
         elif key_ON_OFF == 'key_OFF':
             exclude.append(key)
 
@@ -23,33 +23,47 @@ def filter_by_keyword(request):
 
     print "Query: ",query
     statement_list = Statement.objects.all()
-    statement_list = statement_list.filter(query).distinct() 
+    statement_list = statement_list.filter(query).distinct()
 
-    print "Including Statements with Keywords:", include 
+    print "Including Statements with Keywords:", include
 
     if include:
-        include_query = Q(keywords__main_keyword__word=include[0]) 
+        include_query = Q(keywords__main_keyword__word=include[0])
         for keyword in include[1:]:
-	    include_query = include_query | Q(keywords__main_keyword__word=keyword) 
+	    include_query = include_query | Q(keywords__main_keyword__word=keyword)
         print "Include query: ", include_query
 	statement_list = statement_list.filter(include_query).distinct()
 
     print "Excluding Statements with Keywords:", exclude
     if exclude:
-        exclude_query = Q(keywords__main_keyword__word=exclude[0]) 
+        exclude_query = Q(keywords__main_keyword__word=exclude[0])
         for keyword in exclude[1:]:
-	    exclude_query = exclude_query | Q(keywords__main_keyword__word=keyword) 
+	    exclude_query = exclude_query | Q(keywords__main_keyword__word=keyword)
         query = query & ~exclude_query
-        statement_list = statement_list.filter(~exclude_query).distinct() 
+        statement_list = statement_list.filter(~exclude_query).distinct()
 
-    keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 20)
+    include_keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 20)
+    # Add the excluded keywords back to the list, and truncate it to 20 entries.
+    exclude_keywords_and_counts = include_keywords_and_counts[:]
+    for exc in exclude:
+        exclude_keywords_and_counts.insert(0, [exc, 'x'])
+    exclude_keywords_and_counts = exclude_keywords_and_counts[:20]
 
-    keywords = [key_count[0] for key_count in keywords_and_counts]
+    keywords = [key_count[0] for key_count in include_keywords_and_counts]
 
-    context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
-    return context 
+    # now we need to update full_info so it carries over to the next
+    # filtering sesh
+
+    include_str = '["{}"]'.format('", "'.join(include))
+    exclude_str = '["{}"]'.format('", "'.join(exclude))
+    context = {'results' : statement_list, 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
+    return context
 
 def filter_by_context():
     pass
 def filter_by_keycon():
     pass
+def update_full_info(include=[], exclude=[]):
+    for keyword in include:
+        pass
+    # here for next time

@@ -32,7 +32,7 @@
 	  <td>Issue Date: {{ state.issue_date }} </td>
 	</tr>
 	<tr>
-	  <td>Author: {{ state.author }}</td>
+	  <td><a href="/author/{{ state.author }}">Author: {{ state.author }}</a></td>
 	</tr>
 	<tr>
 	  <td> Released by: {{ state.released_by }}</td>
@@ -56,14 +56,15 @@
 	<tbody>
 	 {% for keys, contexts in state.get_keywords_contexts.items %}
 	    <tr>
-		<td><a href=" {{ keys }}">{{ keys }}</a></td>
+		<td><a href="/keyword/{{ keys }}">{{ keys }}</a></td>
 		<td>
 		   {% for context in contexts %}
 			{% ifequal context contexts|last %}
-			  <a href="#">{{ context }}</a>
+			  <a href="/keywordcontext/{{ keys }}/{{context}}">{{ context }}</a>
 			{% else %}
-			  <a href="#">{{ context }}</a>,
+			  <a href="/keywordcontext/{{ keys }}/{{context}}">{{ context }}</a>,
 			{% endifequal %}
+			
                    {% endfor %}</td>
 	    </tr>
 	{% empty %}
