@@ -134,6 +134,7 @@ def resource_search(request):
 
     return render(request, 'gtr_site/resource_results.html', context)
 
+'''
 def search2(request):
     qs_list = Statement.objects.all()
     print "HELLO WORLD"
@@ -174,6 +175,7 @@ def search2(request):
        print context
        print qs_list
        return render(request, 'search/search.html', context)
+'''
 
 def get_search_by(GET_list, search_dictionary):
    """check to see if the items we want to search in the GET request have values submitted"""
@@ -204,7 +206,7 @@ def search(request):
     """
     print request.GET
     return render(request, 'search/search.html', context)
-
+'''
     print request.GET
     #<QueryDict: {u'auth_search': [u''], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [u''], u'title_search': [u'']}>
     #(statement_id:Iraq OR title:iraq OR author:iraq OR keyword:Iraq OR context:Iraq)
@@ -253,10 +255,12 @@ def search(request):
 	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
         context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
 	return render(request, 'search/search.html', context)
+'''
 
 def advanced_search_page(request):
     return render(request, 'search/advanced_search.html')
 
+'''
 def search_oldie(request):
     print request.GET
     search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
@@ -449,4 +453,4 @@ def search_oldie(request):
     else:
        print request.GET
        return render(request, 'search/search.html')
-
+'''
