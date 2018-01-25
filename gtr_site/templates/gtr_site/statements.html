@@ -25,13 +25,34 @@
     
 	
    </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3"><p>
+	</p>
+    </div>
 </div>
 <br>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+        <div id="article"></div>
+  </div>
+  <div class="col-md-1"></div>
+
+
+
+</div>
+<br>
+
 <div class="row">
   <div class="col-md-12">
 	
 </div>
+
+
+
+
+</div>
+
 
 <div class="row">
 <div class="col-md-1"></div>
@@ -50,7 +71,7 @@
         {% for sta in results %}
         <tr>
          <td id="state_title"><a href="{{ sta.get_absolute_url }}">{{ sta.title }}</a></td>
-         <td><a href="/author/{{sta.author}}">{{sta.author}}</a></td>
+         <td id="auth_name"><a href="/author/{{sta.author}}">{{sta.author}}</a></td>
 	 <td>{{sta.get_media_type_display}}</td>
 	 <td>{{sta.issue_date}}</td>
 	 <td><a href="{{sta.full_text}}">Open</a></td>
@@ -69,9 +90,51 @@ $.extend( true, $.fn.dataTable.defaults, {
     "ordering": false
 } );
 
+
+if (window.location.href.indexOf("/author/") >= 0){
+	//console.log(window.location.pathname);
+	var url_path = (window.location.pathname).split("/")[2];
+	var auth_name = decodeURIComponent(url_path);
+	//var auth = "page";
+	var x = "titles";
+
+	//var dataObj = { format: "json", action:"parse", prop:"text", section:0, redirects:true};
+        var dataObj1 = { format: "json", action: "query", prop: "extracts", exintro: "", explaintext: "", redirects: true};
+	//dataObj[auth] = auth_name;
+	dataObj1[x] = auth_name;
+	//console.log(dataObj);
+
+	 $.ajax({
+		url: "https://en.wikipedia.org/w/api.php",
+		data: dataObj1,
+        	dataType: 'jsonp',
+        	success: function (data) {
+			console.log(data);
+			//var markup = data.parse.text["*"];
+			var pages_key = Object.keys(data.query.pages)[0];
+			//console.log(pages_key); 
+			if(pages_key == "-1"){
+				var noInfo = "No information currently avaliable for " + auth_name + ".";
+				$('#article').append($('<h4></h4>').html(noInfo));
+			} else{
+				var abt_header = "About " + auth_name;
+				$('#article').append($('<h4></h4>').html(abt_header));
+
+				var markup = data.query.pages[pages_key].extract;
+		
+				var i = $('<div></div>').html(markup);	
+				$('#article').append(i);
+			}
+			
+		}
+    });
+
+};
+
+
 $(document).ready(function() {
     $('#stateTable').DataTable();
-} );
+});
 
 
 
