@@ -40,6 +40,18 @@
 	<tr>
 	  <td>Access: {{ state.get_access_display }}</td>
 	</tr> 
+ 	<tr>
+	 <form action="" method="post">
+        {% csrf_token %}
+{% for value in clipboard %}
+<td><p>Add to list:</p>{{ value }}
+{% endfor %}
+        <input type="submit" value="Save" />  
+                <input type="hidden" value="clipboard" name="input" />
+                <input type="hidden" value="{{ user }}" name="user" />
+                <input type="hidden" value="{{ state.nombre_del_archivo }}" name="filename" />
+
+  </form></td></tr>
    </table>
   </div>
   </div>

@@ -43,6 +43,10 @@ class PersonAdmin(admin.ModelAdmin):
 admin.site.register(Person, PersonAdmin) 
 
 ##########################################################
+class ListAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(List, ListAdmin) 
 
 #class KeywordInline(admin.TabularInline):
     #filter_horizontal = ('statement',)

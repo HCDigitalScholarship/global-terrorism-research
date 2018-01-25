@@ -65,12 +65,34 @@ def statements(request):
     return render(request, 'gtr_site/statements.html',  context)
 
 def statement_page(request, statement_id):
-    state = get_object_or_404(Statement, statement_id=statement_id)
-    keycondict = state.get_keywords_contexts()
-    context  = {'state':state, 'keycondict':keycondict,}
-    print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
-    print state.get_keywords_contexts()
-    return render(request, 'gtr_site/statement_page.html', context)
+    if request.method == 'POST':
+        clipboard = ListForm(request.POST)
+        if clipboard.is_valid():
+            response = dict(clipboard.data)
+            choice = response.get('list_name', None)
+            print('choice', choice)
+            clipboards = List.objects.all()
+            chosen = clipboards[int(choice[0])-1]
+            user = response.get('user', None)
+            statements = response.get('statements', None)
+            user_id = User.objects.get(username=user[0]).pk
+            clip = List.objects.get(list_name=chosen, user=user_id)
+            clip.statements.add(Statement.objects.get(statement_id=statements[0]).pk)   
+
+            state = get_object_or_404(Statement, statement_id=statement_id)
+            keycondict = state.get_keywords_contexts()
+            context  = {'state':state, 'keycondict':keycondict, 'clipboard':clipboard }
+            print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
+            print state.get_keywords_contexts()
+            return render(request, 'gtr_site/statement_page.html', context)
+    else:
+        state = get_object_or_404(Statement, statement_id=statement_id)
+        keycondict = state.get_keywords_contexts()
+        clipboard = ListForm(request.POST)
+        context  = {'state':state, 'keycondict':keycondict,'clipboard':clipboard }
+        print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
+        print state.get_keywords_contexts()
+        return render(request, 'gtr_site/statement_page.html', context)
 
 #TODO Works when only keyword, but need to add all Kic's containing keyword as well. (AJ 1/23)
 def keyword_browse(request, keyword_word):

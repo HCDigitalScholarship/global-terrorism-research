@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.contrib.auth.models import User
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
@@ -310,3 +311,11 @@ class Statement(models.Model):
         for keyword in self.get_keywords():
            key_con[keyword] = keyword.context_set.filter(statement__id=self.id)
         return key_con"""
+
+@python_2_unicode_compatible
+class List(models.Model):
+    list_name = models.CharField(max_length=200, blank=True)
+    user = models.ManyToManyField(User, blank=True)
+    statements = models.ManyToManyField(Statement, blank=True)
+    def __str__(self):
+        return self.list_name
