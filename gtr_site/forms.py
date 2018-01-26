@@ -8,7 +8,7 @@ from dal import autocomplete
 #from new_bridge.reverse_related import *
 
 from django import forms
-from .models import Statement, Keyword, Context, KeywordInContext
+from .models import Statement, Keyword, Context, KeywordInContext, List
 
 import logging
 logger = logging.getLogger("gtr_site")
@@ -20,6 +20,19 @@ from django.contrib.admin.widgets import FilteredSelectMultiple, RelatedFieldWid
 
 #In order for this to work...
 #A user needs to be able to select all Keywords that they want and then have a filter_horizontal field come up for that.
+
+######################################
+clipboards = List.objects.all()
+CHOICES = []
+count = 0
+for item in clipboards:
+  count += 1
+  CHOICES.append((str(count),item.list_name))
+
+class ListForm(forms.Form):
+  list_name = forms.ChoiceField(choices=CHOICES)
+######################################
+
 class KeywordInContextForm(forms.ModelForm):
     #source_keyword = forms.ModelMultipleChoiceField(
         #queryset = Keyword.objects.all(),

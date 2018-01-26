@@ -9,13 +9,14 @@ app_name = 'gtr_site'
 urlpatterns = [
     # url(r'^$', views.index, name='index'),
     # It looks like flatpages don't work for the index view, so ignore next line :(
-    url(r'^$', flat_views.flatpage, {'url': '/'}, name='index'),
-    
+    url(r'^$', flat_views.flatpage, {'url': '/'}, name='index'),    
     #url(r'^search_results/$', views.CustomSearchView.as_view(), name='search'),
     url(r'author/(?P<author_name>.+)/$', views.author_page, name='author_page'),
     url(r'^search_results/$', views.search, name='search'),
     url(r'^about/$', flat_views.flatpage, {'url': '/about/'}, name='about'),
     #url(r'^about/$', views.about, name='about'),
+    url(r'^lists/$', views.lists, name='lists'),
+    url(r'^list/(?P<list>.+)/$', views.list, name='list'),
     url(r'^map/$', views.map, name='map'),
     url(r'^contact/$', flat_views.flatpage, {'url': '/contact/'}, name='contact'),
     url(r'^search-help/$', flat_views.flatpage, {'url': '/search-help/'}, name='search-help'),

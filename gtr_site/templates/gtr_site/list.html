@@ -1,0 +1,18 @@
+{% extends "gtr_site/base.html" %}
+{% block title %}GTR{% endblock %}
+
+{% block content %}
+
+{% if results %}
+<center>
+<strong>Statements in list:</strong><br>
+{% for statement in results %}
+<a href="/statement/{{ statement }}">{{ statement }}</a><br>
+</script>
+{% endfor %}
+</center>
+
+{% endif %}
+
+
+{% endblock %}

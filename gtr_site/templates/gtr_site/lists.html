@@ -1,0 +1,17 @@
+{% extends "gtr_site/base.html" %}
+{% block title %}GTR{% endblock %}
+
+{% block content %}
+
+{% if lists %}
+<center>
+<strong>Available lists:</strong><br>
+{% for list in lists %}
+<a href="/list/{{ list }}">{{ list }}</a><br>
+{% endfor %}
+</center>
+
+{% endif %} 
+
+
+{% endblock %}

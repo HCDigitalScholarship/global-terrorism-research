@@ -53,6 +53,18 @@ def contact(request):
 def map(request):
     return render(request, 'gtr_site/map.html')
 
+def list(request, list):
+    state = Statement.objects.filter(list__list_name=list)
+    print(state)
+    context = { 'results':state }
+    return render(request, 'gtr_site/list.html', context)
+
+def lists(request):
+    lists = List.objects.all()
+    state_list = Statement.objects.all()
+    context = { "results":state_list, 'lists': lists }
+    return render(request, 'gtr_site/lists.html',  context)
+
 def author_page(request,author_name):
     author_id = Person.objects.get(person_name=author_name).pk
     state_list = Statement.objects.filter(author_id = author_id)
