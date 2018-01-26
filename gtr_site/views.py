@@ -82,14 +82,17 @@ def statement_page(request, statement_id):
         if clipboard.is_valid():
             response = dict(clipboard.data)
             choice = response.get('list_name', None)
-            print('choice', choice)
-            clipboards = List.objects.all()
-            chosen = clipboards[int(choice[0])-1]
-            user = response.get('user', None)
-            statements = response.get('statements', None)
-            user_id = User.objects.get(username=user[0]).pk
-            clip = List.objects.get(list_name=chosen, user=user_id)
-            clip.statements.add(Statement.objects.get(statement_id=statements[0]).pk)   
+            lists = List.objects.all()
+            chosen = lists[int(choice[0])-1]
+            print('choice=',choice)
+            chosen = List.objects.filter(id=int(choice[0]))
+            print('chosen=', chosen)            
+
+            clip = List.objects.get(id=chosen)
+            print('clip=',clip)
+            the_statement = Statement.objects.get(statement_id=statement_id)
+            print(the_statement)
+            clip.statements.add(the_statement)
 
             state = get_object_or_404(Statement, statement_id=statement_id)
             keycondict = state.get_keywords_contexts()
@@ -106,7 +109,6 @@ def statement_page(request, statement_id):
         print state.get_keywords_contexts()
         return render(request, 'gtr_site/statement_page.html', context)
 
-#TODO Works when only keyword, but need to add all Kic's containing keyword as well. (AJ 1/23)
 def keyword_browse(request, keyword_word):
     keyword_id = Keyword.objects.get(word=keyword_word).id
     keywordcontext_query = KeywordInContext.objects.filter(main_keyword=keyword_id)
