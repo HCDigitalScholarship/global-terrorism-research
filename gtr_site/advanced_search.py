@@ -96,6 +96,8 @@ def make_query_part(search_string, field):
         keyword = keyword.strip()
         context = context.strip()
         query_part = Q(keywords__main_keyword__word=keyword) & Q(keywords__context__word=context)
+    else:
+        query_part = None
     return query_part
 
 # used for filtering
@@ -136,7 +138,4 @@ def advanced_search_make_query(request):
                    query = query & ~query_part 
             elif query_part:
                query = query_part
-            else:
-               return False
-
     return query

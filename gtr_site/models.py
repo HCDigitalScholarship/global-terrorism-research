@@ -315,7 +315,7 @@ class Statement(models.Model):
 @python_2_unicode_compatible
 class List(models.Model):
     list_name = models.CharField(max_length=200, blank=True)
-    user = models.ManyToManyField(User, blank=True)
+    #user = models.ManyToManyField(User, blank=True)
     statements = models.ManyToManyField(Statement, blank=True)
     def __str__(self):
         return self.list_name
