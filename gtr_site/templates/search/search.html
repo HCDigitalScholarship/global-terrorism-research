@@ -1,137 +1,119 @@
 {% extends "gtr_site/base.html" %}
-{% block title %}GTR{% endblock %}
 {% load staticfiles %}
-{% block extra_static %}
-<head>
-   <!-- If something has recently gone wrong, I commented out some conflicting jQuery source loads
-        (roughly line 128) 
-   -->
-   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"/>
-</head>
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous">
-</script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous">
-</script>
+{% block title %}GTR{% endblock %}
+
+{% block extra_static %}
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"/>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="{% static 'gtr_site/css/iThing.css' %}" type="text/css" />
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="{% static 'gtr_site/js/search_results.js' %}"></script>
 {% endblock %}
+
 {% block content %}
 <div class="row">
+  <div class="col-md-3 top-buffer" id="search_filter">
+    <h3>Your query returned {{ num_results }} results</h3>
+    <form id="filter_form"  action="{% url 'gtr_site:search' %}" method="get">
+      <button type="button submit" class="btn btn-primary" name="Filter" id="filter_submit">Update Results</button>
+      <!-- <input type="submit" name="Filter" value="filter" id="filter_submit"> -->
+      <input type="hidden" value="{{ full_info }}" name="full_info" >
+      <h3>Keywords</h3>
+      <h4>Include</h4>
+        <ul class="list-group" id="include-buttons">
+        {% for keyword_count in include_keywords_and_counts %}
+          <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
+        {% endfor %}
+        </ul>
+        <h4>Exclude</h4>
+        <ul class="list-group" id="exclude-buttons">
+        {% for keyword_count in exclude_keywords_and_counts %}
+          <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
+        {% endfor %}
+        </ul>
+        <div id="date_ranges">
+          <input type="hidden" id="dateLow1" name="date_low1" >
+          <input type="hidden" id="dateHigh1" name="date_high1" >
+        </div>
+        <h4>Date Range</h4>
+        <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
+        <div id="sliders">
+          <div id="slider1"></div>
+        </div>
+        <span> Add a slider </span>
+        <input type="hidden" id="slider_counter" name="slider_count" value="1">
+        <input id="less_slider" type='button' value='-'/>
+        <input id="more_slider" type='button' value='+'/>
+        <script src="{% static 'gtr_site/jquery.js' %}"></script>
+        <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
+        <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
+        <script>
+          $(document).ready(function(){
+            // change 1 to {{ slider_count }} to begin making persistent
+      $("#slider_counter").val('1');
 
-<div class="col-md-3 top-buffer" id="search_filter" >	
-<h3>Your query returned {{ num_results }} results</h3>
-<form id="filter_form"  action="{% url 'gtr_site:search' %}" method="get">
-<button type="button submit" class="btn btn-primary" name="Filter" id="filter_submit">Update Results</button>
-<!-- <input type="submit" name="Filter" value="filter" id="filter_submit"> -->
-<input type="hidden" value="{{ full_info }}" name="full_info" >
-<h3>Keywords</h3>
-
-<h4>Include</h4>
-<ul class="list-group" id="include-buttons">
-{% for keyword_count in include_keywords_and_counts %}
-    <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
-{% endfor %}
-</ul>
-
-<h4>Exclude</h4>
-<ul class="list-group" id="exclude-buttons">
-{% for keyword_count in exclude_keywords_and_counts %}
-    <li class="list-group-item justify-content-between"><input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check form-check-input">  {{ keyword_count.0 }} <span class="badge badge-default badge-pill">{{keyword_count.1}}</span></li>
-{% endfor %}
-</ul>
-
-
-<div id="date_ranges">
-  <input type="hidden" id="dateLow1" name="date_low1" >
-  <input type="hidden" id="dateHigh1" name="date_high1" >
-</div>
-    <h4>Date Range</h4>
-    <input type="checkbox" name="filter_by_date" value="date_ON"><label>Filter by date</label></input>
-    <div id="sliders">
-    <div id="slider1"></div>
-    </div>
-    <span> Add a slider </span>
-    <input type="hidden" id="slider_counter" name="slider_count" value="1">
-    <input id="less_slider" type='button' value='-'/>
-    <input id="more_slider" type='button' value='+'/>
-    <script src="{% static 'gtr_site/jquery.js' %}"></script>
-    <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
-    <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
-    <script>
-      $(document).ready(function(){
-        // change 1 to {{ slider_count }} to begin making persistent
-	$("#slider_counter").val('1');
-        
-	});
-      // to add default:
-      // defaultValues: {min: new Date(1995, 0, 1), max: new Date(2017,11, 31)}
-      // make first slider
-      $("#slider1").dateRangeSlider({
-	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)},
       });
-	$("#filter_form").submit(function( event) {
-	  for(i=1; i <= $("#slider_counter").val(); i++) {
-	    var dateValues = $("#slider"+i).dateRangeSlider("values");
-	    $("#dateLow"+i).val(dateValues.min.toString());
-            $("#dateHigh"+i).val(dateValues.max.toString());
- 	  }	
-        });
-	// what happens when you click +
-      $("#more_slider").click(function(event) {
-	if($("#slider_counter").val() < 11) {
-	  $("#slider_counter").val(+$("#slider_counter").val() + 1);
-	  var id_num = $("#slider_counter").val();
-          $("#sliders").append("<div id='slider"+ id_num +"'><div>");
-	  $("#date_ranges").append("<input type='hidden' id='dateLow"+id_num+"'name='date_low"+id_num+"'>");
-	  $("#date_ranges").append("<input type='hidden' id='dateHigh"+id_num+"'name='date_high"+id_num+"'>");
-          console.log("#slider" + id_num)
-	  $("#slider" + id_num).dateRangeSlider({
-	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
-      	  });
-	}
-      });
-	// on - click
-      $("#less_slider").click(function(event) {
-	if($("#slider_counter").val() != 1) {
-	  $("#slider"+ $("#slider_counter").val()).remove();
-	  $("#dateLow"+$("#slider_counter").val()).remove();
-	  $("#dateHigh"+$("#slider_counter").val()).remove();
-	  $("#slider_counter").val(+$("#slider_counter").val() - 1);
-	}
-      });
+          // to add default:
+          // defaultValues: {min: new Date(1995, 0, 1), max: new Date(2017,11, 31)}
+          // make first slider
+          $("#slider1").dateRangeSlider({
+      bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)},
+          });
+      $("#filter_form").submit(function( event) {
+        for(i=1; i <= $("#slider_counter").val(); i++) {
+          var dateValues = $("#slider"+i).dateRangeSlider("values");
+          $("#dateLow"+i).val(dateValues.min.toString());
+                $("#dateHigh"+i).val(dateValues.max.toString());
+        }
+            });
+      // what happens when you click +
+          $("#more_slider").click(function(event) {
+      if($("#slider_counter").val() < 11) {
+        $("#slider_counter").val(+$("#slider_counter").val() + 1);
+        var id_num = $("#slider_counter").val();
+              $("#sliders").append("<div id='slider"+ id_num +"'><div>");
+        $("#date_ranges").append("<input type='hidden' id='dateLow"+id_num+"'name='date_low"+id_num+"'>");
+        $("#date_ranges").append("<input type='hidden' id='dateHigh"+id_num+"'name='date_high"+id_num+"'>");
+              console.log("#slider" + id_num)
+        $("#slider" + id_num).dateRangeSlider({
+      bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
+              });
+      }
+          });
+      // on - click
+          $("#less_slider").click(function(event) {
+      if($("#slider_counter").val() != 1) {
+        $("#slider"+ $("#slider_counter").val()).remove();
+        $("#dateLow"+$("#slider_counter").val()).remove();
+        $("#dateHigh"+$("#slider_counter").val()).remove();
+        $("#slider_counter").val(+$("#slider_counter").val() - 1);
+      }
+          });
 
-    </script>
-
-</form>
-</div>
-<!--div class= "col-md-1 top-buffer" id="separator"></div--!>
-<div class= "col-md-9 top-buffer" id="search_table">
-<table class="table table-bordered">
+        </script>
+    </form>
+  </div>
+  <!--div class= "col-md-1 top-buffer" id="separator"></div--!>
+  <div class= "col-md-9 top-buffer" id="search_table">
+  <table id="mainTable" class="table table-bordered">
     <thead>
-        <tr>
-         <th>Title</th>
-         <th>Author</th>
-	</tr>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
     </thead>
     <tbody>
-	{% for result in results %}
-	<tr>
-	 <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
-	 <td><a href="author/{{result.author}}">{{result.author}}</a></td>
-	</tr>
-	{% endfor %}
+    {% for result in results %}
+      <tr>
+        <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
+        <td><a href="author/{{result.author}}">{{result.author}}</a></td>
+      </tr>
+    {% endfor %}
     </tbody>
-</table>
+  </table>
+  </div>
 </div>
-</div>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-<script src="{% static 'gtr_site/js/autocomplete-multiselect.js'%}"></script>
--->
 <script>
 {% autoescape off %}
 var includeButtonsToCheck = {{ include_buttons }};
@@ -146,6 +128,5 @@ for (var i = 0; i < excludeButtonsToCheck.length; i++) {
   var selector = "#exclude-buttons input[name='" + excludeButtonsToCheck[i] + "']";
   $(selector).prop("checked", true);
 }
-
 </script>
 {% endblock %}
