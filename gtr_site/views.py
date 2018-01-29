@@ -224,6 +224,7 @@ def make_list(search):
 def advanced_search_submit(request):
     context = advanced_search.advanced_search(request)
     if context:
+        context['slider_count']=1
         return render(request, 'search/search.html', context)
     else:
         context = {"failed" : True}

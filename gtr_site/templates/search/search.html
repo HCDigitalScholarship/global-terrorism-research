@@ -62,14 +62,16 @@
     <script src="{% static 'gtr_site/jquery-ui.js' %}"></script>
     <script src="{% static 'gtr_site/jQDateRangeSlider-min.js' %}"></script>
     <script>
-      // reset counter to 1
-      // might want to get rid of this if we load based on previous slider counter
       $(document).ready(function(){
-	$("#slider_counter").val("1");
+        // change 1 to {{ slider_count }} to begin making persistent
+	$("#slider_counter").val('1');
+        
 	});
+      // to add default:
+      // defaultValues: {min: new Date(1995, 0, 1), max: new Date(2017,11, 31)}
       // make first slider
       $("#slider1").dateRangeSlider({
-	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)}
+	bounds: {min: new Date(1990, 0, 1), max: new Date(2017, 11, 31)},
       });
 	$("#filter_form").submit(function( event) {
 	  for(i=1; i <= $("#slider_counter").val(); i++) {
@@ -143,5 +145,6 @@ for (var i = 0; i < excludeButtonsToCheck.length; i++) {
   var selector = "#exclude-buttons input[name='" + excludeButtonsToCheck[i] + "']";
   $(selector).prop("checked", true);
 }
+
 </script>
 {% endblock %}

@@ -53,29 +53,35 @@ def filter_by_keyword(request):
     keywords = [key_count[0] for key_count in include_keywords_and_counts]
     if 'filter_by_date' in request.GET:
         if request.GET['filter_by_date']=='date_ON':
-            date_query = filter_by_date(request)
+            date_query, date_list = filter_by_date(request)
             statement_list =  statement_list.filter(date_query) 
 
-    # now we need to update full_info so it carries over to the next
-    # filtering sesh
+    # now we store what we have included and excluded
+    # passing it in the context 
+    # so the checked buttons and the shown statement carry over to the next filtering sesh
     
     include_str = '["' + '", "'.join(include) + '"]'
     exclude_str = '["' + '", "'.join(exclude) + '"]'
+
     context = {'results' : statement_list, 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
+    if 'filter_by_date' in request.GET:
+        context['slider_count'] = request.GET['slider_count']
+        context['date_list'] = date_list
     return context
 
 def filter_by_date(request):
     print request.GET
+    date_list = []
     for i in range(1, int(request.GET['slider_count']) + 1):
 	lowDate = datetime.datetime.strptime(request.GET["date_low"+str(i)][:24], "%a %b %d %Y %X")
 	highDate = datetime.datetime.strptime(request.GET["date_high"+str(i)][:24], "%a %b %d %Y %X")
-        print lowDate, highDate
+        date_list.append((lowDate.strftime("%Y, %m, %d"), highDate.strftime("%Y, %m, %d")))
 	if i==1:
 	    date_query = Q(issue_date__gte=lowDate,
                            issue_date__lte=highDate)
 	else:
 	    date_query = date_query | Q(issue_date__gte=lowDate, issue_date__lte=highDate)
-    return date_query
+    return date_query, date_list
 def filter_by_context():
     pass
 def filter_by_keycon():
