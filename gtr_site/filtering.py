@@ -4,8 +4,13 @@ import time
 import generate_keywords_from_statement_list
 import advanced_search
 import datetime
+import json
+
+
 def filter_all():
     pass
+
+
 def filter_by_keyword(request):
     include = []
     exclude = []
@@ -63,11 +68,12 @@ def filter_by_keyword(request):
     include_str = '["' + '", "'.join(include) + '"]'
     exclude_str = '["' + '", "'.join(exclude) + '"]'
 
-    context = {'results' : statement_list, 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
+    context = {'results' : statement_list, 'json_results': serialize_statements(statement_list), 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
     if 'filter_by_date' in request.GET:
         context['slider_count'] = request.GET['slider_count']
         context['date_list'] = date_list
     return context
+
 
 def filter_by_date(request):
     print request.GET
@@ -82,11 +88,30 @@ def filter_by_date(request):
 	else:
 	    date_query = date_query | Q(issue_date__gte=lowDate, issue_date__lte=highDate)
     return date_query, date_list
+
+
 def filter_by_context():
     pass
+
+
 def filter_by_keycon():
     pass
+
+
 def update_full_info(include=[], exclude=[]):
     for keyword in include:
         pass
     # here for next time
+
+
+def serialize_statements(statement_list):
+    """Serialize a list of Statement objects into a JSON list so that it can be loaded and
+    manipulated by the client-side JavaScript.
+    """
+    return json.dumps([statement_to_dictionary(st) for st in statement_list])
+
+def statement_to_dictionary(statement):
+    """Convert a Statement object into a dictionary (in prep for JSON serialization)."""
+    keywords = [kic.main_keyword.word for kic in statement.keywords.all()]
+    author = statement.author.person_name
+    return {'title': statement.title, 'author': author, 'keywords': keywords}

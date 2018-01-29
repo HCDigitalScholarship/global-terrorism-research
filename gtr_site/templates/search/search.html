@@ -136,6 +136,7 @@
 {% autoescape off %}
 var includeButtonsToCheck = {{ include_buttons }};
 var excludeButtonsToCheck = {{ exclude_buttons }};
+var jsonResults = {{ json_results }};
 {% endautoescape %}
 for (var i = 0; i < includeButtonsToCheck.length; i++) {
   var selector = "#include-buttons input[name='" + includeButtonsToCheck[i] + "']";
