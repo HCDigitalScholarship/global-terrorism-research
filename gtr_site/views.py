@@ -26,7 +26,7 @@ from itertools import chain
 
 # Create your views here.
 def index(request):
-    print "HOME" 
+    print "HOME"
     return render(request, 'gtr_site/index.html')
 
 def about(request):
@@ -86,7 +86,7 @@ def statement_page(request, statement_id):
             chosen = lists[int(choice[0])-1]
             print('choice=',choice)
             chosen = List.objects.filter(id=int(choice[0]))
-            print('chosen=', chosen)            
+            print('chosen=', chosen)
 
             clip = List.objects.get(id=chosen)
             print('clip=',clip)
@@ -175,22 +175,22 @@ def search2(request):
     qs_list = Statement.objects.all()
     print "HELLO WORLD"
     query = request.GET.get("search")
-    
+
     #query_auth = request.GET.get("auth_search")
     #if query_auth:
     #	qs_list = Statement.objects.all()
     #	qs_list = qs_list.filter(Q(author__person_name__icontains=query_auth))
-    
+
     if query:
        if "->" in query:
-          print "Keyword context operator detected" 
+          print "Keyword context operator detected"
        qs_list = Statement.objects.all()
        #complex lookups for various fields
        qs_list = qs_list.filter(
           Q(title__icontains=query) | Q(statement_id__icontains=query) |
           Q(author__person_name__icontains=query) | Q(released_by__org_name__icontains=query)
        ).distinct() #these are all the items that can be searched by basic char analysis at the moment.
-       
+
        set_of_keywords = Keyword.objects.all()
        #Search results are put into the context dictionary
        context = {
@@ -233,7 +233,7 @@ def advanced_search_submit(request):
 def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
-    from whoosh.qparser.dateparse import DateParserPlugin 
+    from whoosh.qparser.dateparse import DateParserPlugin
     context = filtering.filter_by_keyword(request)
     """
     if 'Filter' in request.GET:
@@ -252,8 +252,8 @@ def search(request):
     # This defines what we can possibly search for
     # keys should match the way it is in the get request
     # values should match what it is in the whoosh index
-    search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}   
-    
+    search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
+
     search_by = get_search_by(request.GET, search_dictionary)
     print search_by, "Search_by"
     ix = open_dir("index")  # open up our index
@@ -273,7 +273,7 @@ def search(request):
 		else:
 		    query_for_field = parser.parse(search_term)
 	    if query:
-		query = query & query_for_field 
+		query = query & query_for_field
 	    else:
 	        query = query_for_field
 
@@ -287,9 +287,9 @@ def search(request):
            result_list.append(r)
 	keywords = set()
         keyword_sets = [set(statement.get_keywords()) for statement in statement_list]
-	keywords = keywords.union(*keyword_sets) 
+	keywords = keywords.union(*keyword_sets)
         print "KEYWORDS",keywords
-	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] 
+	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list]
         context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
 	return render(request, 'search/search.html', context)
 '''
@@ -301,13 +301,13 @@ def advanced_search_page(request):
 def search_oldie(request):
     print request.GET
     search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
-    print get_search_by(request.GET, search_dictionary)    
+    print get_search_by(request.GET, search_dictionary)
     if 'search' in request.GET:
 	    search = request.GET['search']
 
 	    from whoosh.index import open_dir
 	    from whoosh.qparser import MultifieldParser, QueryParser
-	    from whoosh.qparser.dateparse import DateParserPlugin 
+	    from whoosh.qparser.dateparse import DateParserPlugin
 
 	    ix = open_dir("index")
 	    with ix.searcher() as searcher:
@@ -328,7 +328,7 @@ def search_oldie(request):
 		   no_con_yet     = True
 		   no_key_yet     = True
 		   no_key_con_yet = True
-		   
+
 		   ex_no_con_yet     = True
 		   ex_no_key_yet     = True
 		   ex_no_key_con_yet = True
@@ -362,17 +362,17 @@ def search_oldie(request):
 			else:
 			  key_con_query = key_con_query | key_con
 		      elif filter_date and  key == "date_low":
-			
+
 			# we need to convert to python date time, then convert it back to a string
 			# this seems stupid, and it kind of is
 			# but I think it is neccessary to get the tools we are using to
 			# work together
-			
+
 			# there is also some junk I don't want at the end, string looks like:
 			# Mon Jan 01 1990 00:00:00 GMT-0500 (EST)
 			# We split on the line:
 			# Mon Jan 01 1990 00:00:00| GMT-0500 (EST)
- 			
+
 			#lowDate = request.POST[key][:24]
 			lowDate = datetime.strptime(request.GET[key][:24], "%a %b %d %Y %X")
 		      elif filter_date and key == "date_high":
@@ -407,14 +407,14 @@ def search_oldie(request):
 		query = mparser.parse(search)
 		#allow = query.Term("context", "Chastisement")
 		if filter_request and not no_con_yet:
-		  query = query & con_query 
+		  query = query & con_query
 	          print con_query
 		if filter_request and not no_key_yet:
 		  query = query & key_query
 		  print key_query
 		if filter_request and not no_key_con_yet:
 		  query = query & key_con_query
-		
+
 		if filter_request and filter_date:
 		  for i in range(1, int(request.GET['slider_count']) + 1):
 			lowDate = datetime.strptime(request.GET["date_low"+str(i)][:24], "%a %b %d %Y %X")
@@ -425,7 +425,7 @@ def search_oldie(request):
 			  date_query = date_query | DateRange("issue_date", lowDate, highDate)
 		  query = query & date_query
 		if filter_request and not ex_no_con_yet:
-		  query = query - ex_con_query 
+		  query = query - ex_con_query
 		if filter_request and not ex_no_key_yet:
 		  query = query - ex_key_query
 		if filter_request and not ex_no_key_con_yet:
@@ -452,27 +452,27 @@ def search_oldie(request):
 		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_obj() for result in result_list] #get all statements.keyword_in_contexts
 		#contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
                 #Does the above line need to be here anymore if we have removed the idea of contexts as an entity unique from keywords?
-		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] #So does this conflict with 
+		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] #So does this conflict with
                 #the line that performs gett_keywords? we're getting all keywordincontexts twice.
                 print "KEYWORDS (only the main_keyword objects of the KeywordInContext's associated with this statement)"
 		print keywords
                 print "list of tuple of keyword context pairs"
                 print key_con
-                
+
 		#unioned_keywords = keywords[0]
 		#for query_set in keywords:
 		   #unioned_keywords = (unioned_keywords | query_set)
 		#unioned_keywords.distinct()
 		#print key_con
-                
+
 		# making a dictionary where the keywords are keys and all contexts that go with those keywords, across the dataset, are in there
 		key_con_dict = {}
-		
+
 		for statement in key_con:
 		   for keyword in statement:
 		      KIC = keyword
 		      keyword = keyword.main_keyword
-		      print "keyword obj:",keyword,"keyword:", keyword.word 
+		      print "keyword obj:",keyword,"keyword:", keyword.word
 		      print type(keyword.word)
 		      if keyword.word in key_con_dict:
 			 key_con_dict[keyword.word] = key_con_dict[keyword.word].append( statement[KIC])
@@ -483,7 +483,7 @@ def search_oldie(request):
 		print key_con_dict
 		#if filter_request: # might not actually need this
                 #The below line should be deprecated because contexts and key_con_dict are no longer necessary. At all.
-		
+
 		print result_list
 		context = {'results' : statement_list, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con_dict, 'search' : search }
 	    return render(request, 'search/search.html', context)

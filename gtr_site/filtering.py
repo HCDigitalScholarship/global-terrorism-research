@@ -59,14 +59,18 @@ def filter_by_keyword(request):
     if 'filter_by_date' in request.GET:
         if request.GET['filter_by_date']=='date_ON':
             date_query, date_list = filter_by_date(request)
-            statement_list =  statement_list.filter(date_query) 
+            statement_list =  statement_list.filter(date_query)
 
     # now we store what we have included and excluded
-    # passing it in the context 
+    # passing it in the context
     # so the checked buttons and the shown statement carry over to the next filtering sesh
-    
+
     include_str = '["' + '", "'.join(include) + '"]'
     exclude_str = '["' + '", "'.join(exclude) + '"]'
+
+    for statement in statement_list:
+        unique_keywords = set(kic.main_keyword.word for kic in statement.keywords.all())
+        statement.keyword_str = ''.join('"'+k+'"' for k in unique_keywords)
 
     context = {'results' : statement_list, 'json_results': serialize_statements(statement_list), 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
     if 'filter_by_date' in request.GET:
