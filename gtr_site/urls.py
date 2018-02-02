@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^resource_results/$', views.resource_search, name='resource-results'),
     url(r'api/v1/keyword/$', GenerateKeywords.as_view(), name='generate-keywords'),
     url(r'^statement/(?P<statement_id>.+)/$', views.statement_page, name='statement'),
+    url(r'^keywordincontext_autocomplete/$', views.KeywordInContextAutocomplete.as_view(create_field='word'), name='keywordincontext-autocomplete'),
 ]

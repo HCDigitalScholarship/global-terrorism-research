@@ -491,3 +491,13 @@ def search_oldie(request):
        print request.GET
        return render(request, 'search/search.html')
 '''
+
+
+class KeywordInContextAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        if not self.request.user.is_authenticated():
+            return KeywordInContext.objects.none()
+        qs = Keyword.objects.all()
+        if self.q:
+            qs = qs.filter(word__istartswith=self.q)
+        return qs

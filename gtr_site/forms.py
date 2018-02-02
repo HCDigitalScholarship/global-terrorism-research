@@ -40,11 +40,11 @@ class KeywordInContextForm(forms.ModelForm):
     #)
     main_keyword = forms.ModelChoiceField(
         queryset = Keyword.objects.all(),
-        widget = autocomplete.ModelSelect2(url='keywordincontext-autocomplete'),
+        widget = autocomplete.ModelSelect2(url='gtr_site:keywordincontext-autocomplete'),
     )
     context = forms.ModelChoiceField(
         queryset = Keyword.objects.all(),
-        widget = autocomplete.ModelSelect2(url='keywordincontext-autocomplete'),
+        widget = autocomplete.ModelSelect2(url='gtr_site:keywordincontext-autocomplete'),
     )
     
     class Meta:
