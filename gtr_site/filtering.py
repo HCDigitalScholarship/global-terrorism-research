@@ -68,11 +68,13 @@ def filter_by_keyword(request):
     include_str = '["' + '", "'.join(include) + '"]'
     exclude_str = '["' + '", "'.join(exclude) + '"]'
 
+    all_keywords = set()
     for statement in statement_list:
         unique_keywords = set(kic.main_keyword.word for kic in statement.keywords.all())
-        statement.keyword_str = ''.join('"'+k+'"' for k in unique_keywords)
+        all_keywords |= unique_keywords
+        statement.keyword_str = '|' + '|'.join(unique_keywords) + '|'
 
-    context = {'results' : statement_list, 'json_results': serialize_statements(statement_list), 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list)}
+    context = {'results' : statement_list, 'json_results': serialize_statements(statement_list), 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list), 'all_keywords': json.dumps(list(all_keywords))}
     if 'filter_by_date' in request.GET:
         context['slider_count'] = request.GET['slider_count']
         context['date_list'] = date_list

@@ -125,17 +125,8 @@
 </div>
 <script>
 {% autoescape off %}
-var includeButtonsToCheck = {{ include_buttons }};
-var excludeButtonsToCheck = {{ exclude_buttons }};
 var jsonResults = {{ json_results }};
+var allKeywords = {{ all_keywords }};
 {% endautoescape %}
-for (var i = 0; i < includeButtonsToCheck.length; i++) {
-  var selector = "#include-buttons input[name='" + includeButtonsToCheck[i] + "']";
-  $(selector).prop("checked", true);
-}
-for (var i = 0; i < excludeButtonsToCheck.length; i++) {
-  var selector = "#exclude-buttons input[name='" + excludeButtonsToCheck[i] + "']";
-  $(selector).prop("checked", true);
-}
 </script>
 {% endblock %}

@@ -1,61 +1,40 @@
+var checkboxes = {};
+
 $(document).ready(function () {
+    for (var i = 0; i < allKeywords.length; i++) {
+        checkboxes[allKeywords[i]] = {
+            name: allKeywords[i], count: 0, include: false, exclude: false
+        };
+    }
+
     var table = $("#mainTable").DataTable({
         columnDefs: [
           {visible: false, targets: [2]}
         ]
     });
-    var toInclude = [];
-    var toExclude = [];
+    renderKeywords(table);
 
-    /* Inspired by stackoverflow.com/questions/30086341 */
+    // Inspired by stackoverflow.com/questions/30086341
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-        var ret = true;
-        for (var i = 0; i < toInclude.length; i++) {
-            if (!data[2].includes('"' + toInclude[i] + '"')) {
-                ret = false;
-                break;
+        for (var key in checkboxes) {
+            if (checkboxes.hasOwnProperty(key) && checkboxes[key].include) {
+                if (!data[2].includes('|' + key + '|')) {
+                    return false;
+                }
             }
         }
-        for (var i = 0; i < toExclude.length; i++) {
-            if (data[2].includes('"' + toExclude[i] + '"')) {
-                ret = false;
-                break;
+        for (var key in checkboxes) {
+            if (checkboxes.hasOwnProperty(key) && checkboxes[key].exclude) {
+                if (data[2].includes('|' + key + '|')) {
+                    return false;
+                }
             }
         }
-        var keywords = parseKeywordStr(data[2]);
-        for (var i = 0; i < keywords.length; i++) {
-            if (ret === true) {
-                incrementKeyword(keywords[i]);
-            } else {
-                decrementKeyword(keywords[i]);
-            }
-        }
-        return ret;
+        return true;
     });
 
-    $(".include-checkbox").change(function () {
-        var name = $(this).attr("name");
-        if (this.checked) {
-            toInclude.push(name);
-        } else {
-            var i = toInclude.indexOf(name);
-            toInclude.splice(i, 1);
-        }
-        resetAllKeywords();
-        table.draw();
-    });
-
-    $(".exclude-checkbox").change(function () {
-        var name = $(this).attr("name");
-        if (this.checked) {
-            toExclude.push(name);
-        } else {
-            var i = toExclude.indexOf(name);
-            toExclude.splice(i, 1);
-        }
-        resetAllKeywords();
-        table.draw();
-    });
+    $(".include-checkbox").change(makeCallback(table, "include"));
+    $(".exclude-checkbox").change(makeCallback(table, "exclude"));
 });
 
 
@@ -64,22 +43,114 @@ function parseKeywordStr(keywordStr) {
 }
 
 
-function resetAllKeywords() {
-    $(".include-checkbox").siblings("span").text("0");
-    $(".exclude-checkbox").siblings("span").text("0");
+// Render the keywords and their counts in the "Include" and "Exclude" columns.
+//   This function takes the DataTable object as a parameter, because that is where all the data is
+//   ultimately stored.
+//
+//   Note: This function uses (but does not modify) the global variable `checkboxes`.
+function renderKeywords(table) {
+    for (var key in checkboxes) {
+        if (checkboxes.hasOwnProperty(key)) {
+            checkboxes[key].count = 0;
+        }
+    }
+
+    // Calculate the count of each keyword.
+    table.rows({search: 'applied'}).every(function (rowIdx, tableLoop, rowLoop) {
+        var data = this.data();
+        var keywords = data[2].split('|');
+        for (var i = 0; i < keywords.length; i++) {
+            var keyword = keywords[i];
+            if (keyword.length !== 0) {
+                if (keyword in checkboxes) {
+                    checkboxes[keyword].count++;
+                } else {
+                    console.log(keyword);
+                }
+            }
+        }
+    });
+
+    var includeKeywords = getIncludeKeywords();
+    var excludeKeywords = getExcludeKeywords();
+
+    $("#include-buttons").empty();
+    $("#exclude-buttons").empty();
+
+    for (var i = 0; i < includeKeywords.length; i++) {
+        var item = includeKeywords[i];
+        $("#include-buttons").append(makeCheckbox(item, "include"));
+    }
+    for (var i = 0; i < excludeKeywords.length; i++) {
+        var item = excludeKeywords[i];
+        $("#exclude-buttons").append(makeCheckbox(item, "exclude"));
+    }
 }
 
 
-function decrementKeyword(name) {
-    var includeElem = $(".include-checkbox[name='" + name + "']").siblings("span");
-    var excludeElem = $(".exclude-checkbox[name='" + name + "']").siblings("span");
-    includeElem.text("" + (parseInt(includeElem.text()) - 1));
-    excludeElem.text("" + (parseInt(excludeElem.text()) - 1));
+function makeCallback(table, propertyToUpdate) {
+    return function () {
+        var name = $(this).attr("name");
+        if (this.checked) {
+            checkboxes[name][propertyToUpdate] = true;
+        } else {
+            checkboxes[name][propertyToUpdate] = false;
+        }
+        table.draw();
+        renderKeywords(table);
+    };
 }
 
-function incrementKeyword(name) {
-    var includeElem = $(".include-checkbox[name='" + name + "']").siblings("span");
-    var excludeElem = $(".exclude-checkbox[name='" + name + "']").siblings("span");
-    includeElem.text("" + (parseInt(includeElem.text()) + 1));
-    excludeElem.text("" + (parseInt(excludeElem.text()) + 1));
+
+// Return an HTML string for a keyword checkbox, where `type` is either 'exclude' or 'include'.
+function makeCheckbox(keywordItem, property) {
+      return "<li class=\"list-group-item justify-content-between\">" +
+        "<input type=\"checkbox\" name=\"" + keywordItem.name + "\" value=\"key_OFF\"" +
+               "class=\"filter_check form-check-input " + property + "-checkbox\"" +
+               (keywordItem[property] ? " checked" : "") + ">" +
+          "   " + keywordItem.name + "<span class=\"badge badge-default badge-pill\">" + keywordItem.count + "</span>" +
+      "</li>";
+}
+
+
+function getIncludeKeywords() {
+    var keywordsCopy = Object.values(checkboxes);
+    keywordsCopy.sort(makeCompareFunction('include'));
+    return keywordsCopy.slice(0, 20);
+}
+
+
+function getExcludeKeywords() {
+    var keywordsCopy = Object.values(checkboxes);
+    keywordsCopy.sort(makeCompareFunction('exclude'));
+    return keywordsCopy.slice(0, 20);
+}
+
+
+// Make a function that compare two checkbox objects on the given property, either 'include' or
+//   'exclude'.
+function makeCompareFunction(prop) {
+    // Compare two checkbox objects. Sort checked boxes first, then sort by count, then by name.
+    function cmp(a, b) {
+        if (a[prop] && !b[prop]) {
+            return -1;
+        } else if (!a[prop] && b[prop]) {
+            return 1;
+        } else {
+            if (a.count > b.count) {
+                return -1;
+            } else if (a.count < b.count) {
+                return 1;
+            } else {
+                if (a.name < b.name) {
+                    return -1;
+                } else if (a.name > b.name) {
+                    return 1;
+                } else {
+                    return 1;
+                }
+            }
+        }
+    }
+    return cmp;
 }
