@@ -11,6 +11,7 @@ $(document).ready(function () {
     });
     renderKeywords(table);
 
+    // This function controls which entries are displayed in the table.
     // Inspired by stackoverflow.com/questions/30086341
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
         for (var i = 0; i < include.length; i++) {
@@ -26,11 +27,13 @@ $(document).ready(function () {
         return true;
     });
 
+    // Each checkbox reorders the checkbox list and filters the table when clicked.
     $(".include-checkbox").change(makeCallback(table, include));
     $(".exclude-checkbox").change(makeCallback(table, exclude));
 });
 
 
+// Update the counts of the keywords and re-sort the keyword lists.
 function renderKeywords(table) {
     // Calculate the count of each keyword.
     var counts = {};
@@ -65,7 +68,6 @@ function renderKeywords(table) {
         $(this).next().text(text);
     });
 
-    // Sort the keywords.
     sortChildren($("#include-buttons"));
     sortChildren($("#exclude-buttons"));
 }
@@ -96,6 +98,9 @@ function checkboxCount(elem) {
 }
 
 
+// Return a callback for a checkbox. When the checkbox is checked, its associated keyword is added
+// to the `arrayToUpdate` parameter (which should be either the global variable`include` or
+// `exclude`), and the keywords and table are re-rendered.
 function makeCallback(table, arrayToUpdate) {
     return function () {
         var name = $(this).attr("name");
