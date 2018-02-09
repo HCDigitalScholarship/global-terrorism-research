@@ -6,7 +6,7 @@ $(document).ready(function () {
     var table = $("#mainTable").DataTable({
         "pageLength": 50,
         "columnDefs": [
-          {visible: false, targets: [2]}
+          {visible: false, targets: [3]}
         ]
     });
     renderKeywords(table);

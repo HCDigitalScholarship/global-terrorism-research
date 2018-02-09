@@ -103,6 +103,7 @@
       <tr>
         <th>Title</th>
         <th>Author</th>
+        <th>Issue Date</th>
       </tr>
     </thead>
     <tbody>
@@ -110,6 +111,7 @@
       <tr>
         <td><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></td>
         <td><a href="author/{{ result.author }}">{{ result.author }}</a></td>
+        <td>{{ result.issue_date}}</td>
         <td>{{ result.keyword_str }}</td>
       </tr>
     {% endfor %}
