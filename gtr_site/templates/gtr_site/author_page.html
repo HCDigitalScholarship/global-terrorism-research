@@ -68,17 +68,15 @@ $(document).ready(function(){
                    return results[1] || 0;
                  }      
         }
-        var auth = "page";      
-        var authval= decodeURIComponent($.urlParam('a'));
-        //var authval= "Ayman al-Zawahiri";
-        //var author_name = $('#page_title').text();
-        console.log(authval);
-        var dataObj = { format: "json", action:"parse", prop:"text", section:0};
-        dataObj[auth] = authval;
+        
+	var dataObj = { format: "json", action:"parse", prop:"text", section:0};
+	var authpage = "page";      
+        var authname= decodeURIComponent($.urlParam('a'));
+        dataObj[authpage] = authname;
 
 
  $.ajax({
-url: "https://en.wikipedia.org/w/api.php",
+	url: "https://en.wikipedia.org/w/api.php",
         /*data: {
             format: "json",
             action: "parse",
@@ -89,9 +87,6 @@ url: "https://en.wikipedia.org/w/api.php",
         },*/
         data: dataObj,
         dataType: 'jsonp',
-        headers: {
-            'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
-        },
         success: function (data) {
 	   //console.log(data)
 	   //console.log(data["parse"]["text"])	

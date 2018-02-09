@@ -93,34 +93,28 @@ $.extend( true, $.fn.dataTable.defaults, {
 
 if (window.location.href.indexOf("/author/") >= 0){
 	//console.log(window.location.pathname);
+	
+        var dataObj1 = { format: "json", action: "query", prop: "extracts", exintro: "", explaintext: "", redirects: true};
+	var x = "titles";
 	var url_path = (window.location.pathname).split("/")[2];
 	var auth_name = decodeURIComponent(url_path);
-	//var auth = "page";
-	var x = "titles";
-
-	//var dataObj = { format: "json", action:"parse", prop:"text", section:0, redirects:true};
-        var dataObj1 = { format: "json", action: "query", prop: "extracts", exintro: "", explaintext: "", redirects: true};
-	//dataObj[auth] = auth_name;
 	dataObj1[x] = auth_name;
-	//console.log(dataObj);
 
 	 $.ajax({
 		url: "https://en.wikipedia.org/w/api.php",
 		data: dataObj1,
         	dataType: 'jsonp',
         	success: function (data) {
-			console.log(data);
-			//var markup = data.parse.text["*"];
-			var pages_key = Object.keys(data.query.pages)[0];
-			//console.log(pages_key); 
-			if(pages_key == "-1"){
+			console.log(JSON.stringify(data, null, 2));
+			var auth_wiki_intro = Object.keys(data.query.pages)[0];
+			if(auth_wiki_intro == "-1"){
 				var noInfo = "No information currently avaliable for " + auth_name + ".";
 				$('#article').append($('<h4></h4>').html(noInfo));
 			} else{
 				var abt_header = "About " + auth_name;
 				$('#article').append($('<h4></h4>').html(abt_header));
 
-				var markup = data.query.pages[pages_key].extract;
+				var markup = data.query.pages[auth_wiki_intro].extract;
 		
 				var i = $('<div></div>').html(markup);	
 				$('#article').append(i);

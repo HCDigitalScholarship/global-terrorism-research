@@ -43,12 +43,56 @@ function parseKeywordStr(keywordStr) {
 }
 
 
+function renderKeywords(table) {
+    // Calculate the count of each keyword.
+    var counts = {};
+    table.rows({search: 'applied'}).every(function (rowIdx, tableLoop, rowLoop) {
+        var data = this.data();
+        var keywords = data[2].split('|');
+        for (var i = 0; i < keywords.length; i++) {
+            var keyword = keywords[i];
+            if (keyword.length !== 0) {
+                if (keyword in counts) {
+                    counts[keyword]++;
+                } else {
+                    counts[keyword] = 0;
+                }
+            }
+        }
+    });
+
+    $("input.filter_check").each(function () {
+        var name = $(this).attr("name");
+        var text = "";
+        if (name in counts) {
+            text = "" + counts[name];
+        } else {
+            if (this.checked && $(this).hasClass("exclude-checkbox")) {
+                text = "x";
+            } else {
+                text = "0";
+            }
+        }
+        // Set the text of the sibling badge to be the keyword's count.
+        $(this).next().text(text);
+    });
+    /*
+    console.log(counts);
+    for (var key in counts) {
+        if (counts.hasOwnProperty(key)) {
+            $("input[name = \"" + key + "\"]").next().text("" + counts[key]);
+        }
+    }
+    */
+}
+
+
 // Render the keywords and their counts in the "Include" and "Exclude" columns.
 //   This function takes the DataTable object as a parameter, because that is where all the data is
 //   ultimately stored.
 //
 //   Note: This function uses (but does not modify) the global variable `checkboxes`.
-function renderKeywords(table) {
+function renderKeywords_OLD(table) {
     for (var key in checkboxes) {
         if (checkboxes.hasOwnProperty(key)) {
             checkboxes[key].count = 0;
