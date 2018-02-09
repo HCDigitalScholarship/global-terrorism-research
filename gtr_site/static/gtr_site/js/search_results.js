@@ -61,6 +61,7 @@ function renderKeywords(table) {
         }
     });
 
+    // Set the text of the each input's sibling badge to be the keyword's count.
     $("input.filter_check").each(function () {
         var name = $(this).attr("name");
         var text = "";
@@ -73,17 +74,31 @@ function renderKeywords(table) {
                 text = "0";
             }
         }
-        // Set the text of the sibling badge to be the keyword's count.
         $(this).next().text(text);
     });
-    /*
-    console.log(counts);
-    for (var key in counts) {
-        if (counts.hasOwnProperty(key)) {
-            $("input[name = \"" + key + "\"]").next().text("" + counts[key]);
-        }
-    }
-    */
+
+    // Sort the keywords.
+    sortChildren($("#include-buttons"));
+    sortChildren($("#exclude-buttons"));
+}
+
+
+function sortChildren(parentNode) {
+    var elems = parentNode.children().detach();
+    elems.sort(checkboxCmp);
+    parentNode.append(elems);
+}
+
+
+function checkboxCmp(checkbox1, checkbox2) {
+    var count1 = checkboxCount($(checkbox1));
+    var count2 = checkboxCount($(checkbox2));
+    return count2 - count1;
+}
+
+
+function checkboxCount(elem) {
+    return parseInt(elem.children("span").first().text());
 }
 
 
