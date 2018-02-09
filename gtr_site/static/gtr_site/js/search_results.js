@@ -85,15 +85,21 @@ function renderKeywords(table) {
 
 function sortChildren(parentNode) {
     var elems = parentNode.children().detach();
-    elems.sort(checkboxCmp);
+    elems.sort(listItemCmp);
     parentNode.append(elems);
 }
 
 
-function checkboxCmp(checkbox1, checkbox2) {
-    var count1 = checkboxCount($(checkbox1));
-    var count2 = checkboxCount($(checkbox2));
-    return count2 - count1;
+function listItemCmp(li1, li2) {
+    var checked1 = $(li1).children("input").prop("checked");
+    var checked2 = $(li2).children("input").prop("checked");
+    if (checked1 !== checked2) {
+        return (checked1) ? -1 : 1;
+    } else {
+        var count1 = checkboxCount($(li1));
+        var count2 = checkboxCount($(li2));
+        return count2 - count1;
+    }
 }
 
 
