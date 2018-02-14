@@ -18,21 +18,21 @@
     <h3>Filter Keywords</h3>
     <h4>Include</h4>
       <ul class="list-group" id="include-buttons">
-      {% for keyword_count in include_keywords_and_counts %}
+      {% for keyword in keywords %}
         <li class="list-group-item justify-content-between">
-          <input type="checkbox" name="{{ keyword_count.0 }}" value="key_ON" class="filter_check form-check-input include-checkbox">
-          {{ keyword_count.0 }}
-          <span class="badge badge-default badge-pill">{{ keyword_count.1 }}</span>
+          <input type="checkbox" name="{{ keyword }}" value="key_ON" class="filter_check form-check-input include-checkbox">
+          {{ keyword }}
+          <span class="badge badge-default badge-pill">-1</span>
         </li>
       {% endfor %}
       </ul>
       <h4>Exclude</h4>
       <ul class="list-group" id="exclude-buttons">
-      {% for keyword_count in exclude_keywords_and_counts %}
+      {% for keyword in keywords %}
         <li class="list-group-item justify-content-between">
-          <input type="checkbox" name="{{ keyword_count.0 }}" value="key_OFF" class="filter_check form-check-input exclude-checkbox">
-            {{ keyword_count.0 }}
-            <span class="badge badge-default badge-pill">{{ keyword_count.1 }}</span>
+          <input type="checkbox" name="{{ keyword }}" value="key_OFF" class="filter_check form-check-input exclude-checkbox">
+            {{ keyword }}
+            <span class="badge badge-default badge-pill">{{ -1 }}</span>
         </li>
       {% endfor %}
       </ul>

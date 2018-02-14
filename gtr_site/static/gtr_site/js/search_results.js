@@ -37,10 +37,9 @@ $(document).ready(function () {
 function renderKeywords(table) {
     // Calculate the count of each keyword.
     var counts = {};
+    var t0 = performance.now();
     table.rows({search: 'applied'}).every(function (rowIdx, tableLoop, rowLoop) {
         var data = this.data();
-        console.log("Data", data);
-        console.log("DATA2", data[3]);
         var keywords = data[3].split('|');
         
         for (var i = 0; i < keywords.length; i++) {
@@ -49,13 +48,14 @@ function renderKeywords(table) {
                 if (keyword in counts) {
                     counts[keyword]++;
                 } else {
-                    console.log("it's zero from this! AND also when we set it below");
                     counts[keyword] = 1;
                 }
             }
         }
     });
-
+   
+    var t1 = performance.now();
+    console.log(t1-t0)
     // Set the text of the each input's sibling badge to be the keyword's count.
     $("input.filter_check").each(function () {
         var name = $(this).attr("name");
@@ -66,7 +66,6 @@ function renderKeywords(table) {
             if (this.checked && $(this).hasClass("exclude-checkbox")) {
                 text = "x";
             } else {
-                // This is what has the final say of what the number displayed is
                 text = "0";
             }
         }
