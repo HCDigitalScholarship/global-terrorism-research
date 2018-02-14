@@ -49,6 +49,7 @@ def filter_by_keyword(request):
         statement_list = statement_list.filter(~exclude_query).distinct()
 
     include_keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 20)
+    print include_keywords_and_counts
     # Add the excluded keywords back to the list, and truncate it to 20 entries.
     exclude_keywords_and_counts = include_keywords_and_counts[:]
     for exc in exclude:
@@ -74,7 +75,17 @@ def filter_by_keyword(request):
         all_keywords |= unique_keywords
         statement.keyword_str = '|' + '|'.join(unique_keywords) + '|'
 
-    context = {'results' : statement_list, 'json_results': serialize_statements(statement_list), 'keywords' : keywords, 'include_buttons': include_str, 'exclude_buttons': exclude_str, 'include_keywords_and_counts': include_keywords_and_counts, 'exclude_keywords_and_counts': exclude_keywords_and_counts, 'full_info' : request.GET['full_info'], 'num_results' : len(statement_list), 'all_keywords': json.dumps(list(all_keywords))}
+    context = {'results' : statement_list,
+               'json_results': serialize_statements(statement_list),
+               'keywords' : keywords,
+               'include_buttons': include_str,
+               'exclude_buttons': exclude_str,
+               'include_keywords_and_counts': include_keywords_and_counts,
+               'exclude_keywords_and_counts': exclude_keywords_and_counts,
+               'full_info' : request.GET['full_info'],
+               'num_results' : len(statement_list),
+               'all_keywords': json.dumps(list(all_keywords))
+              }
     if 'filter_by_date' in request.GET:
         context['slider_count'] = request.GET['slider_count']
         context['date_list'] = date_list

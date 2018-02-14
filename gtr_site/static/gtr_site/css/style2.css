@@ -3,6 +3,10 @@
   font-size: medium;
 }
 
+.input-group-addon{
+  white-space: unset;
+}
+
 #state_table{
   overflow-y: auto;
   max-height: 90%;

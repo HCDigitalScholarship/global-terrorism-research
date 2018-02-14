@@ -15,12 +15,12 @@ $(document).ready(function () {
     // Inspired by stackoverflow.com/questions/30086341
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
         for (var i = 0; i < include.length; i++) {
-            if (!data[2].includes('|' + include[i] + '|')) {
+            if (!data[3].includes('|' + include[i] + '|')) {
                 return false;
             }
         }
         for (var i = 0; i < exclude.length; i++) {
-            if (data[2].includes('|' + exclude[i] + '|')) {
+            if (data[3].includes('|' + exclude[i] + '|')) {
                 return false;
             }
         }
@@ -39,14 +39,18 @@ function renderKeywords(table) {
     var counts = {};
     table.rows({search: 'applied'}).every(function (rowIdx, tableLoop, rowLoop) {
         var data = this.data();
-        var keywords = data[2].split('|');
+        console.log("Data", data);
+        console.log("DATA2", data[3]);
+        var keywords = data[3].split('|');
+        
         for (var i = 0; i < keywords.length; i++) {
             var keyword = keywords[i];
             if (keyword.length !== 0) {
                 if (keyword in counts) {
                     counts[keyword]++;
                 } else {
-                    counts[keyword] = 0;
+                    console.log("it's zero from this! AND also when we set it below");
+                    counts[keyword] = 1;
                 }
             }
         }
@@ -62,6 +66,7 @@ function renderKeywords(table) {
             if (this.checked && $(this).hasClass("exclude-checkbox")) {
                 text = "x";
             } else {
+                // This is what has the final say of what the number displayed is
                 text = "0";
             }
         }
