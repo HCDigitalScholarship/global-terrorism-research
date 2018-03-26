@@ -16,63 +16,12 @@ def generate_keywords_dictionary(statement_list):
     keywords_dict = {}
     for statement in statement_list:
         statement_keywords = statement.get_keywords_unique()
-        """
-	statement_keywords = {}
-        sstart = time.time()
-        for keyword in statement.get_keywords_obj():
-            if keyword in statement_keywords:
-                statement_keywords[keyword]+=1
-            else:
-                statement_keywords[keyword] = 1
-        print "new way took", time.time() - sstart, "seconds"
-        print statement_keywords
-        sstart = time.time()
-        for keyword in statement.get_keywords():
-            if keyword in statement_keywords:
-                statement_keywords[keyword]+=1
-            else:
-                statement_keywords[keyword] = 1
-        print "old way took", time.time() - sstart, "seconds"
-        print statement_keywords
-        """
 	for keyword in statement_keywords:
 	    if keyword in keywords_dict:
 	        keywords_dict[keyword]+=1
 	    else:
 		keywords_dict[keyword] = 1
-    print "new generating keywords took", time.time() - start, "seconds"
-    start = time.time()
-    keywords_dict2 = {}
-    for statement in statement_list:
-        statement_keywords = {}
-        for keyword in statement.get_keywords():
-            if keyword in statement_keywords:
-                statement_keywords[keyword]+=1
-            else:
-                statement_keywords[keyword] = 1
-
-	for keyword in statement_keywords:
-	    if keyword in keywords_dict2:
-	        keywords_dict2[keyword]+=1
-	    else:
-		keywords_dict2[keyword] = 1
-    print "old generating keywords took", time.time() - start, "seconds"
-
-    if keywords_dict != keywords_dict2:
-        print "It doesn't even work!"
-        for keyword in keywords_dict:
-         if keyword in keywords_dict2:
-           if keywords_dict[keyword] != keywords_dict2[keyword]:
-               print "mismatch on keyword", keyword, keywords_dict[keyword], keywords_dict2[keyword]
-         else:
-            print keyword, "not even in keywords_dict2"
-
-        for keyword in keywords_dict2:
-           if keyword not in keywords_dict:
-            print keyword, "not even in keywords_dict"
-              
-        print "the second one"
-        print keywords_dict2
+    print "generating keywords took", time.time() - start, "seconds"
     return keywords_dict
 
 
