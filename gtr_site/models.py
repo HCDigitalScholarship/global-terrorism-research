@@ -111,6 +111,9 @@ class Statement(models.Model):
            mk_list.append(each.get_main_keyword())
         return mk_list
 
+    # returns list of unique keywords
+    def get_keywords_unique(self):
+        return set([keyword.get_main_keyword() for keyword in self.keywords.all()])
 
     """
      I'm adding these back in because I want to use them for something.
