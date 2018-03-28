@@ -50,15 +50,7 @@
       }
       // make first search bar. This one can't be deleted
       $("#searcher1").append("<span><div class='input-group stylish-input-group'><input type='text' class='form-control search_text' name='search' placeholder='Search...'><span class='input-group-addon'><button type='submit'><span class='glyphicon glyphicon-search'></span></button></span></div> in " + select_fields + "</span>");
-       	// only submits the first slider as of right now
-	$("#filter_form").submit(function( event) {
-	  for(i=1; i <= $("#searcher_counter").val(); i++) {
-	    var dateValues = $("#searcher"+i).dateRangeSlider("values");
-	    //$("#dateLow"+i).val(dateValues.min.toString());
-            //$("#dateHigh"+i).val(dateValues.max.toString());
- 	  }	
-        });
-      // what happens when you click AND
+     // what happens when you click AND
       $("#AND_search").click(function(event) {
 	if($("#searcher_counter").val() < 11) {
           // the plus              here tells javascript to do as number addition so 1+1 doesn't equal 11.
