@@ -232,7 +232,7 @@ def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
     from whoosh.qparser.dateparse import DateParserPlugin
-    context = filtering.filter_by_keyword(request)
+    context = gtr_site.filtering.filter_by_keyword(request)
     """
     if 'Filter' in request.GET:
         context = filtering.filter_by_keyword(request)

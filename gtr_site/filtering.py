@@ -25,7 +25,7 @@ def filter_by_keyword(request):
     # base query without any filtering (including or excluding)
     # we will build it up with relevant filtering
     start = time.time()
-    query = advanced_search.advanced_search_make_query(request) 
+    query = gtr_site.advanced_search.advanced_search_make_query(request) 
     print("Time for generating intial query", time.time() - start)
     # query = request.POST.get('search', False)
 
@@ -55,7 +55,7 @@ def filter_by_keyword(request):
         query = query & ~exclude_query
         statement_list = statement_list.filter(~exclude_query).distinct()
     print("Time for all excluding", time.time() - start)
-    include_keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 50)
+    include_keywords_and_counts = gtr_site.generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 50)
     print(include_keywords_and_counts)
     # Add the excluded keywords back to the list, and truncate it to 20 entries.
     exclude_keywords_and_counts = include_keywords_and_counts[:]
