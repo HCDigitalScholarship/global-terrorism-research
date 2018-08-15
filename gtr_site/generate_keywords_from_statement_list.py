@@ -2,7 +2,7 @@
 Functions currently used in basic_search.py and filtering.py pertaining to getting the right keywords for display.
 
 """
-from models import *
+from gtr_site.models import *
 import time
 
 def generate_keywords_dictionary(statement_list):
@@ -16,12 +16,12 @@ def generate_keywords_dictionary(statement_list):
     keywords_dict = {}
     for statement in statement_list:
         statement_keywords = statement.get_keywords_unique()
-	for keyword in statement_keywords:
-	    if keyword in keywords_dict:
-	        keywords_dict[keyword]+=1
-	    else:
-		keywords_dict[keyword] = 1
-    print "generating keywords took", time.time() - start, "seconds"
+        for keyword in statement_keywords:
+            if keyword in keywords_dict:
+                keywords_dict[keyword]+=1
+            else:
+                keywords_dict[keyword] = 1
+    print("generating keywords took", time.time() - start, "seconds")
     return keywords_dict
 
 
@@ -52,5 +52,5 @@ def generate_just_keywords(statement_list):
     keywords = set()
     keyword_sets = [set(statement.get_keywords()) for statement in qs_list]
     keywords = keywords.union(*keyword_sets)
-    print "generating keywords took", time.time() - start, "seconds"
+    print("generating keywords took", time.time() - start, "seconds")
     return keywords

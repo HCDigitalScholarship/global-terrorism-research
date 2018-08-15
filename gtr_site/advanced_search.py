@@ -1,14 +1,14 @@
-from models import *
+from gtr_site.models import *
 from django.db.models import Q
 import time
-import generate_keywords_from_statement_list
+import gtr_site.generate_keywords_from_statement_list
 
 def advanced_search(request):
 
     # right now it looks like [Iraq^^Any Field^Iran^OR^Keyword^]
     # so we split on ^ and delete the last one (there is always a tailing empty list
     request_list = request.GET["full_info"].split("^")[:-1]
-    print "full info in advanced_search", request.GET["full_info"]
+    print("full info in advanced_search", request.GET["full_info"])
     # request list needs to be split into threes
     # right now it looks like ['Iraq','','Any Field', 'Iran', 'OR', 'Keyword,...]
     # note that the first one will not have the logical operator
@@ -46,24 +46,24 @@ def advanced_search(request):
             else:
                return False
     statement_list = Statement.objects.all()
-    print "Here is your query", query
+    print("Here is your query", query)
     statement_list = statement_list.filter(query).distinct()
-    print "generating statement_list took", time.time() - start, "seconds"
+    print("generating statement_list took", time.time() - start, "seconds")
 
     # now generate the list of keywords
     # This is a little slow
     start = time.time()
     keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 20)
     keywords = [key_count[0] for key_count in keywords_and_counts]
-    print "generating keywords took", time.time() - start, "seconds"
+    print("generating keywords took", time.time() - start, "seconds")
     for statement in statement_list:
-	print statement
+        print(statement)
     context = {'results' : statement_list, 'keywords' : keywords, 'keywords_and_counts' : keywords_and_counts, 'search' : search_string, 'full_info' : request.GET["full_info"], 'num_results' : len(statement_list)}
     return context
 
 
 def make_query_part(search_string, field):
-    print field
+    print(field)
     if field == "Any field":
         query_part = Q( 
                  Q(title__icontains=search_string) |
@@ -91,7 +91,7 @@ def make_query_part(search_string, field):
         try:
             keyword, context = search_string.split('->')
         except ValueError:
-            print "Keyword in Context should be in the form 'keyword->Context'"
+            print("Keyword in Context should be in the form 'keyword->Context'")
             return False 
         keyword = keyword.strip()
         context = context.strip()
@@ -102,9 +102,9 @@ def make_query_part(search_string, field):
 
 # used for filtering
 def advanced_search_make_query(request):
-    print request
+    print(request)
     request_list = request.GET["full_info"].split("^")
-    print "Request List in advanced_search_make_query", request_list
+    print("Request List in advanced_search_make_query", request_list)
     # request list needs to be split into threes
     # right now it looks like ['Iraq','','Any Field', 'Iran', 'OR', 'Keyword,...]
     # note that the first one will not have the logical operator

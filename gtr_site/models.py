@@ -26,8 +26,8 @@ class Statement(models.Model):
     statement_id = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     issue_date = models.DateField("Issue-Date") #"Issue-Date"
-    author = models.ForeignKey(Person)
-    released_by = models.ForeignKey(Organization)
+    author = models.ForeignKey(Person, on_delete=models.CASCADE,)
+    released_by = models.ForeignKey(Organization, on_delete=models.CASCADE,)
     keywords = models.ManyToManyField('KeywordInContext')
    #the way to solve this issue is by making the statements have a respective key and context collection. How can we do that?
 
@@ -78,19 +78,18 @@ class Statement(models.Model):
 
     def show(self):
         info = []
-	for field in Statement._meta.fields:
+        for field in Statement._meta.fields:
             if field.name == 'author':
                 # This is a super unsatisfactory solution
                 # I would like to find a better field property
                 foreign_key =int( field.value_to_string(self))
                 info.append((field.name, Person.objects.get(id=foreign_key).person_name))
-	    elif field.name == 'released_by':
-		foreign_key =int( field.value_to_string(self))
+            elif field.name == 'released_by':
+                foreign_key =int( field.value_to_string(self))
                 info.append((field.name, Organization.objects.get(id=foreign_key).org_name))
 
-                 
             else:
-		info.append((field.name, field.value_to_string(self))) 
+                info.append((field.name, field.value_to_string(self))) 
         return info
 
     # returns list of keywords
@@ -126,11 +125,11 @@ class Statement(models.Model):
 
     # makes list of contexts
     def get_contexts_obj(self):
-	contexts = [keyword.context for keyword in self.keywords.all()]
-	return set(contexts)
+        contexts = [keyword.context for keyword in self.keywords.all()]
+        return set(contexts)
 
     def get_keywords_contexts_obj(self):
-	"""
+        """
         key_con = {}
         for keyword in self.get_keywords_obj():
 	   print "keyword:",keyword,"context:",keyword.context
@@ -145,15 +144,15 @@ class Statement(models.Model):
 	print key_con 
         return key_con
 	"""
-	key_con = {}
-	for KIC in self.keywords.all():
+        key_con = {}
+        for KIC in self.keywords.all():
             keyword = KIC.main_keyword
-	    context = KIC.context
-	    if keyword  not in key_con:
-		key_con[keyword] = [context]
-	    else:
-		key_con[keyword].append(context)
-	return key_con
+            context = KIC.context
+            if keyword  not in key_con:
+                key_con[keyword] = [context]
+            else:
+                key_con[keyword].append(context)
+        return key_con
     # makes list of contexts
     #def get_contexts(self):
         #return self.context_set.all()
@@ -200,9 +199,9 @@ class Keyword(models.Model):
 
 @python_2_unicode_compatible
 class KeywordInContext(models.Model):
-    main_keyword = models.ForeignKey(Keyword)
+    main_keyword = models.ForeignKey(Keyword, on_delete=models.CASCADE,)
     #contexts = models.ManyToManyField(Keyword, related_name='keyword_context',)
-    context = models.ForeignKey(Keyword, related_name='keyword_context', blank=True, null=True)
+    context = models.ForeignKey(Keyword, related_name='keyword_context', blank=True, null=True, on_delete=models.CASCADE,)
 
     def __str__(self):
         if self.context:
