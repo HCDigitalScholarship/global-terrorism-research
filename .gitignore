@@ -6,7 +6,6 @@
 *.pdf
 gtr/whoosh_index/
 index/
-logs
 uwsgi_params
 
 gtr/settings_secret.py
