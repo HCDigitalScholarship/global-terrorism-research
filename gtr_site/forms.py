@@ -22,15 +22,15 @@ from django.contrib.admin.widgets import FilteredSelectMultiple, RelatedFieldWid
 #A user needs to be able to select all Keywords that they want and then have a filter_horizontal field come up for that.
 
 ######################################
-clipboards = List.objects.all()
-CHOICES = []
-count = 0
-for item in clipboards:
-  count += 1
-  CHOICES.append((str(count),item.list_name))
-
 class ListForm(forms.Form):
-  list_name = forms.ChoiceField(choices=CHOICES)
+    clipboards = List.objects.all()
+    CHOICES = []
+    count = 0
+    for item in clipboards:
+        count += 1
+        CHOICES.append((str(count),item.list_name))
+
+    list_name = forms.ChoiceField(choices=CHOICES)
 ######################################
 
 class KeywordInContextForm(forms.ModelForm):
