@@ -1,0 +1,11 @@
+*.pyc
+*.swp
+*~
+.DS_Store
+*.log
+*.pdf
+gtr/whoosh_index/
+index/
+uwsgi_params
+
+gtr/settings_secret.py
