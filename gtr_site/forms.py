@@ -23,14 +23,7 @@ from django.contrib.admin.widgets import FilteredSelectMultiple, RelatedFieldWid
 
 ######################################
 class ListForm(forms.Form):
-    clipboards = List.objects.all()
-    CHOICES = []
-    count = 0
-    for item in clipboards:
-        count += 1
-        CHOICES.append((str(count),item.list_name))
-
-    list_name = forms.ChoiceField(choices=CHOICES)
+    list_name = forms.ModelChoiceField(queryset=List.objects.all())
 ######################################
 
 class KeywordInContextForm(forms.ModelForm):
