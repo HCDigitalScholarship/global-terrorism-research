@@ -11,7 +11,7 @@ RUN pip install -r /app/requirements.txt
 
 COPY . /app
 
-RUN SECRET_KEY=1 python manage.py collectstatic --noinput --clear
+RUN SECRET_KEY=1 python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
