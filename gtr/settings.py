@@ -12,13 +12,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-ALLOWED_HOSTS = ['*']
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
 try:
     from settings_secret import *
 except:
     pass
+
+SITE_ID = 1
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -141,28 +140,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/srv/global-terrorism-research/gtr_site/static'
 
 
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(message)s',
-        },
-    },
     'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
-            'formatter': 'verbose',
+        'console': {
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
-        'gtr_site': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
         },
     },
 }

@@ -1,6 +1,7 @@
 FROM python:2.7.13-stretch
 
 WORKDIR /app
+ENV DJANGO_SETTINGS_MODULE=gtr.settings_docker
 
 RUN pip install setuptools_scm
 
