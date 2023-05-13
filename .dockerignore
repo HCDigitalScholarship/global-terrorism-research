@@ -3,7 +3,7 @@
 *~
 .DS_Store
 *.log
-*.pdf
+*.sql
 gtr/whoosh_index/
 index/
 uwsgi_params
