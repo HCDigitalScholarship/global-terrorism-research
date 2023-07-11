@@ -1,0 +1,10 @@
+{
+  "name": "Global Terrorism Research Project",
+  "description": "",
+  "website": "https://gtrp.haverford.edu",
+  "dokku": {
+    "plugins": [
+      "mysql"
+    ]
+  }
+}
