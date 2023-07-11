@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'gtr.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'storage', 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'data', 'sqlite', 'db.sqlite3'),
     }
 }
 
