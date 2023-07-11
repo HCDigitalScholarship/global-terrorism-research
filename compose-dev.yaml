@@ -17,6 +17,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - PORT=8000
       - SECRET_KEY=1
       - DATABASE_URL=mysql://gtrp:gtrp@db/gtrp
     depends_on:
