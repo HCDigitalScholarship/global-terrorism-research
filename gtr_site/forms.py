@@ -82,7 +82,7 @@ class StatementForm(forms.ModelForm):
 
     class Meta:
         model = Statement
-        exclude = ('keywords',)#("statement_keywords",)
+        exclude = ('keywords',) #("statement_keywords",)
         #fields = ('__all__')
         #widget= {"keyword":autocomplete.ModelSelect2Multiple(url='keyword-autocomplete')}
 
@@ -97,13 +97,13 @@ class StatementForm(forms.ModelForm):
         self.fields['statement_keywords'].widget = RelatedFieldWidgetWrapper(
                                                 self.fields['statement_keywords'].widget,
                                                 Statement._meta.get_field('keywords').rel,
-                                                self.admin_site) 
+                                                self.admin_site)
         if self.instance.pk:
            self.fields['statement_keywords'].initial = self.instance.keywords.all()#_set.all() #parse whaat this line is doing.
            #self.fields['statement_keywords'].widget = RelatedFieldWidgetWrapper(self.fields['statement_keywords'].widget, rel, self.admin_site)
-
+           #self.fields['statement_keywords'].widget = RelatedFieldWidgetWrapper(self.fields['statement_keywords'].widget, self.instance._meta.get_field('keywords').rel, self.admin_site)  # APJ Aug14, 2018
     def save(self, commit=True):
-        statement = super(StatementForm, self).save(commit=False)  
+        statement = super(StatementForm, self).save(commit=False)
         if commit:
             statement.save()
         if statement.pk:

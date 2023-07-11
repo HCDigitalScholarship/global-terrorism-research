@@ -1,8 +1,8 @@
-from models import *
+from gtr_site.models import *
 from django.db.models import Q
 import time
-import generate_keywords_from_statement_list
-import advanced_search
+import gtr_site.generate_keywords_from_statement_list
+import gtr_site.advanced_search
 import datetime
 import json
 
@@ -14,10 +14,10 @@ def filter_all():
 def filter_by_keyword(request):
     include = []
     exclude = []
-    print request.GET
+    print(request.GET)
     for key in request.GET:
         key_ON_OFF = request.GET[key]
-	if   key_ON_OFF == 'key_ON':
+        if   key_ON_OFF == 'key_ON':
             include.append(key)
         elif key_ON_OFF == 'key_OFF':
             exclude.append(key)
@@ -25,38 +25,38 @@ def filter_by_keyword(request):
     # base query without any filtering (including or excluding)
     # we will build it up with relevant filtering
     start = time.time()
-    query = advanced_search.advanced_search_make_query(request) 
-    print "Time for generating intial query", time.time() - start
+    query = gtr_site.advanced_search.advanced_search_make_query(request) 
+    print("Time for generating intial query", time.time() - start)
     # query = request.POST.get('search', False)
 
-    print "Query: ", query
+    print("Query: ", query)
 
     start - time.time()
     statement_list = Statement.objects.all()
     statement_list = statement_list.filter(query).distinct()
-    print "Time for all unique_keywords", time.time() - start
+    print("Time for all unique_keywords", time.time() - start)
 
-    print "Including Statements with Keywords:", include
+    print("Including Statements with Keywords:", include)
     start = time.time()
     if include:
         include_query = Q(keywords__main_keyword__word=include[0])
         for keyword in include[1:]:
-	    include_query = include_query | Q(keywords__main_keyword__word=keyword)
-        print "Include query: ", include_query
-	statement_list = statement_list.filter(include_query).distinct()
-    print "Time for all including", time.time() - start
+            include_query = include_query | Q(keywords__main_keyword__word=keyword)
+        print("Include query: ", include_query)
+        statement_list = statement_list.filter(include_query).distinct()
+    print("Time for all including", time.time() - start)
 
-    print "Excluding Statements with Keywords:", exclude
+    print("Excluding Statements with Keywords:", exclude)
     start = time.time()
     if exclude:
         exclude_query = Q(keywords__main_keyword__word=exclude[0])
         for keyword in exclude[1:]:
-	    exclude_query = exclude_query | Q(keywords__main_keyword__word=keyword)
+            exclude_query = exclude_query | Q(keywords__main_keyword__word=keyword)
         query = query & ~exclude_query
         statement_list = statement_list.filter(~exclude_query).distinct()
-    print "Time for all excluding", time.time() - start
-    include_keywords_and_counts = generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 50)
-    print include_keywords_and_counts
+    print("Time for all excluding", time.time() - start)
+    include_keywords_and_counts = gtr_site.generate_keywords_from_statement_list.generate_top_n_keywords(statement_list, 50)
+    print(include_keywords_and_counts)
     # Add the excluded keywords back to the list, and truncate it to 20 entries.
     exclude_keywords_and_counts = include_keywords_and_counts[:]
     for exc in exclude:
@@ -80,7 +80,7 @@ def filter_by_keyword(request):
         unique_keywords = set(kic.main_keyword.word for kic in statement.keywords.all())
         all_keywords |= unique_keywords
         statement.keyword_str = '|' + '|'.join(unique_keywords) + '|'
-    print "Time for all unique_keywords", time.time() - start
+    print("Time for all unique_keywords", time.time() - start)
     context = {'results' : statement_list,
                'json_results': serialize_statements(statement_list),
                'keywords' : keywords,
@@ -99,17 +99,17 @@ def filter_by_keyword(request):
 
 
 def filter_by_date(request):
-    print request.GET
+    print(request.GET)
     date_list = []
     for i in range(1, int(request.GET['slider_count']) + 1):
-	lowDate = datetime.datetime.strptime(request.GET["date_low"+str(i)][:24], "%a %b %d %Y %X")
-	highDate = datetime.datetime.strptime(request.GET["date_high"+str(i)][:24], "%a %b %d %Y %X")
+        lowDate = datetime.datetime.strptime(request.GET["date_low"+str(i)][:24], "%a %b %d %Y %X")
+        highDate = datetime.datetime.strptime(request.GET["date_high"+str(i)][:24], "%a %b %d %Y %X")
         date_list.append((lowDate.strftime("%Y, %m, %d"), highDate.strftime("%Y, %m, %d")))
-	if i==1:
-	    date_query = Q(issue_date__gte=lowDate,
+        if i==1:
+            date_query = Q(issue_date__gte=lowDate,
                            issue_date__lte=highDate)
-	else:
-	    date_query = date_query | Q(issue_date__gte=lowDate, issue_date__lte=highDate)
+        else:
+            date_query = date_query | Q(issue_date__gte=lowDate, issue_date__lte=highDate)
     return date_query, date_list
 
 

@@ -107,8 +107,7 @@ class StatementAdmin(admin.ModelAdmin):
     search_fields = ('statement_id', 'title', 'author__person_name', 'issue_date',)
     #search_fields = ('statement_id',)
     #search_fields = ('statement_id', 'title', 'author')
-    
-    form = StatementForm
+    #form = StatementForm (APJ Aug 15, 2018, removed as part of migration to Django2)
     def __init__(self, model, admin_site):
         super(StatementAdmin,self).__init__(model,admin_site)
         self.form.admin_site = admin_site 

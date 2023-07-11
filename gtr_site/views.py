@@ -15,9 +15,9 @@ except ImportError:
 from django.views import generic, View
 from django.http import JsonResponse
 from gtr_site.forms import *
-import basic_search
-import filtering
-import advanced_search
+import gtr_site.basic_search
+import gtr_site.filtering
+import gtr_site.advanced_search
 import os
 from itertools import chain
 
@@ -26,7 +26,7 @@ from itertools import chain
 
 # Create your views here.
 def index(request):
-    print "HOME"
+    print("HOME")
     return render(request, 'gtr_site/index.html')
 
 def about(request):
@@ -43,7 +43,7 @@ class GenerateKeywords(View):
          pythondictionary.append({'id' : i, 'name' : each.word})
          i+=1
       jsondict = json.dumps(pythondictionary)
-      print jsondict
+      print(jsondict)
       return jsondict
 
 
@@ -97,16 +97,16 @@ def statement_page(request, statement_id):
             state = get_object_or_404(Statement, statement_id=statement_id)
             keycondict = state.get_keywords_contexts()
             context  = {'state':state, 'keycondict':keycondict, 'clipboard':clipboard }
-            print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
-            print state.get_keywords_contexts()
+            print("PRINTING KEYWORDS CONTEXTS FOR %s" % state)
+            print(state.get_keywords_contexts())
             return render(request, 'gtr_site/statement_page.html', context)
     else:
         state = get_object_or_404(Statement, statement_id=statement_id)
         keycondict = state.get_keywords_contexts()
         clipboard = ListForm(request.POST)
         context  = {'state':state, 'keycondict':keycondict,'clipboard':clipboard }
-        print "PRINTING KEYWORDS CONTEXTS FOR %s" % state
-        print state.get_keywords_contexts()
+        print("PRINTING KEYWORDS CONTEXTS FOR %s" % state)
+        print(state.get_keywords_contexts())
         return render(request, 'gtr_site/statement_page.html', context)
 
 def keyword_browse(request, keyword_word):
@@ -151,7 +151,6 @@ class ResourcesList(generic.ListView):
             return Resource.objects.all().order_by('title')
 
 def resource_search(request):
-    print "HELLO WORLD"
     query = request.GET.get("search")
     if query:
        qs_list = Resource.objects.all()
@@ -165,15 +164,14 @@ def resource_search(request):
        context = {
           "results": qs_list
        }
-       print "CONTEXT"
-       print context
+       print("CONTEXT")
+       print(context)
 
     return render(request, 'gtr_site/resource_results.html', context)
 
 '''
 def search2(request):
     qs_list = Statement.objects.all()
-    print "HELLO WORLD"
     query = request.GET.get("search")
 
     #query_auth = request.GET.get("auth_search")
@@ -183,7 +181,7 @@ def search2(request):
 
     if query:
        if "->" in query:
-          print "Keyword context operator detected"
+          print("Keyword context operator detected")
        qs_list = Statement.objects.all()
        #complex lookups for various fields
        qs_list = qs_list.filter(
@@ -196,8 +194,8 @@ def search2(request):
        context = {
           "results": qs_list, "keywords": set_of_keywords,
        }
-       print "QS_LIST: "
-       print qs_list
+       print("QS_LIST: ")
+       print(qs_list)
        #print "CONTEXT: "
        #print context
        #for x in qs_list:
@@ -207,9 +205,9 @@ def search2(request):
         #print "HELLO WORLD FROM CONDITIONAL!"
         #search = request.POST['search']
         #print "SEARCH: ", search
-       print "CONTEXT"
-       print context
-       print qs_list
+       print("CONTEXT")
+       print(context)
+       print(qs_list)
        return render(request, 'search/search.html', context)
 '''
 
@@ -234,17 +232,17 @@ def search(request):
     from whoosh.index import open_dir
     from whoosh.qparser import MultifieldParser, QueryParser
     from whoosh.qparser.dateparse import DateParserPlugin
-    context = filtering.filter_by_keyword(request)
+    context = gtr_site.filtering.filter_by_keyword(request)
     """
     if 'Filter' in request.GET:
         context = filtering.filter_by_keyword(request)
     else:
         context = advanced_search.advanced_search(request)
     """
-    print request.GET
+    print(request.GET)
     return render(request, 'search/results_page.html', context)
 '''
-    print request.GET
+    print(request.GET)
     #<QueryDict: {u'auth_search': [u''], u'csrfmiddlewaretoken': [u'yg2KtF6FxRV4w7bEq0BhMTHDNvLyerd5RXx7xsdpwwJ7DwjVt7q6na2iI2GdowTx'], u'search': [u'Iraq'], u'key_search': [u''], u'title_search': [u'']}>
     #(statement_id:Iraq OR title:iraq OR author:iraq OR keyword:Iraq OR context:Iraq)
     # might need to check if empty, not if in
@@ -261,9 +259,9 @@ def search(request):
     with ix.searcher() as searcher:
         query = False # we use this to check if there is a preexisting query to add to
         for search_type in search_by:
-	    print search_type
+	    print(search_type)
 	    search_terms  = make_list(request.GET[search_type]) # term(s) we are going to be searching e.g. Iraq, Egypt
-	    print "search terms", search_terms
+	    print("search terms", search_terms)
 	    schema_field = search_dictionary[search_type] # field we are searching on e.g. keyword
             parser = QueryParser(schema_field, ix.schema)
 	    query_for_field = False
@@ -277,18 +275,18 @@ def search(request):
 	    else:
 	        query = query_for_field
 
-	print query
+	print(query)
 	results  = searcher.search(query, limit=5)
         result_list = []
         statement_list = []
         for r in results:
-           print r
+           print(r)
 	   statement_list.append(Statement.objects.get(statement_id = r["statement_id"]))
            result_list.append(r)
 	keywords = set()
         keyword_sets = [set(statement.get_keywords()) for statement in statement_list]
 	keywords = keywords.union(*keyword_sets)
-        print "KEYWORDS",keywords
+        print("KEYWORDS",keywords)
 	key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list]
         context = {'results' : results, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con , 'search' : "my search" }
 	return render(request, 'search/search.html', context)
@@ -299,9 +297,9 @@ def advanced_search_page(request):
 
 '''
 def search_oldie(request):
-    print request.GET
+    print(request.GET)
     search_dictionary = {"auth_search" : "author", "key_search" : "keyword", "title_search" : "title"}
-    print get_search_by(request.GET, search_dictionary)
+    print(get_search_by(request.GET, search_dictionary))
     if 'search' in request.GET:
 	    search = request.GET['search']
 
@@ -334,8 +332,8 @@ def search_oldie(request):
 		   ex_no_key_con_yet = True
 
                    for key in request.GET:
-		      print request.GET[key]
-		      print "working with", key
+		      print(request.GET[key])
+		      print("working with", key)
 		      if request.GET[key]=='con_ON':
 			if no_con_yet:
 			  con_query = Term("context", key)
@@ -437,27 +435,27 @@ def search_oldie(request):
 		if len(results) == 0:
 		  return render(request,  'search/search.html')
 
-                print results, "RESULTS"
-                print len(results)
+                print(results, "RESULTS")
+                print(len(results))
                 result_list = []
 		statement_list = []
                 for r in results:
-                   print r
+                   print(r)
 		   statement_list.append(Statement.objects.get(statement_id = r["statement_id"]))
                    result_list.append(r)
-		print statement_list
-                print "all done"
+		print(statement_list)
+                print("all done")
 		#result_list = [results[i] for i in range(len(results))] # convert from query type to normal list
-                print "Success!"
+                print("Success!")
 		keywords = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_obj() for result in result_list] #get all statements.keyword_in_contexts
 		#contexts = [Statement.objects.get(statement_id = result["statement_id"]).get_contexts() for result in result_list]
                 #Does the above line need to be here anymore if we have removed the idea of contexts as an entity unique from keywords?
 		key_con  = [Statement.objects.get(statement_id = result["statement_id"]).get_keywords_contexts_obj() for result in result_list] #So does this conflict with
                 #the line that performs gett_keywords? we're getting all keywordincontexts twice.
-                print "KEYWORDS (only the main_keyword objects of the KeywordInContext's associated with this statement)"
-		print keywords
-                print "list of tuple of keyword context pairs"
-                print key_con
+                print("KEYWORDS (only the main_keyword objects of the KeywordInContext's associated with this statement)")
+		print(keywords)
+                print("list of tuple of keyword context pairs")
+                print(key_con)
 
 		#unioned_keywords = keywords[0]
 		#for query_set in keywords:
@@ -472,23 +470,23 @@ def search_oldie(request):
 		   for keyword in statement:
 		      KIC = keyword
 		      keyword = keyword.main_keyword
-		      print "keyword obj:",keyword,"keyword:", keyword.word
-		      print type(keyword.word)
+		      print("keyword obj:",keyword,"keyword:", keyword.word)
+		      print(type(keyword.word))
 		      if keyword.word in key_con_dict:
 			 key_con_dict[keyword.word] = key_con_dict[keyword.word].append( statement[KIC])
 		      else:
 			 key_con_dict[keyword.word] = [statement[KIC]]
 		for keyword in key_con_dict:
 		   key_con_dict[keyword] = list(key_con_dict[keyword].distinct())
-		print key_con_dict
+		print(key_con_dict)
 		#if filter_request: # might not actually need this
                 #The below line should be deprecated because contexts and key_con_dict are no longer necessary. At all.
 
-		print result_list
+		print(result_list)
 		context = {'results' : statement_list, 'keywords' : keywords, 'contexts' : ["cat"], 'key_con' : key_con_dict, 'search' : search }
 	    return render(request, 'search/search.html', context)
     else:
-       print request.GET
+       print(request.GET)
        return render(request, 'search/search.html')
 '''
 

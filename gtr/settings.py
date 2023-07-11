@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 try:
-    from settings_secret import *
+    from .settings_secret import *
 except:
     pass
 
