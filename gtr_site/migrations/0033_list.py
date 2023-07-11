@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        #migrations.CreateModel(
-            #name='List',
-            #fields=[
-                #('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                #('list_name', models.CharField(blank=True, max_length=200)),
-                #('statements', models.ManyToManyField(blank=True, to='gtr_site.Statement')),
-                #('user', models.ManyToManyField(blank=True, to=settings.AUTH_USER_MODEL)),
-            #],
-       # ),
+        migrations.CreateModel(
+            name='List',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('list_name', models.CharField(blank=True, max_length=200)),
+                ('statements', models.ManyToManyField(blank=True, to='gtr_site.Statement')),
+                ('user', models.ManyToManyField(blank=True, to=settings.AUTH_USER_MODEL)),
+            ],
+       ),
     ]

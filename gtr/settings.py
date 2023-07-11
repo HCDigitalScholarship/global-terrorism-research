@@ -17,7 +17,7 @@ try:
 except:
     pass
 
-SITE_ID = 1
+SITE_ID = 2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'gtr.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'storage', 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'data', 'sqlite', 'db.sqlite3'),
     }
 }
 

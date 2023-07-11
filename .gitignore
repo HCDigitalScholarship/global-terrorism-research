@@ -9,3 +9,4 @@ index/
 uwsgi_params
 
 gtr/settings_secret.py
+/data
